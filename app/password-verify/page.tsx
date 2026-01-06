@@ -1,11 +1,11 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLock, faSpinner, faExclamationTriangle } from '@fortawesome/free-solid-svg-icons';
 
-export default function PasswordVerifyPage() {
+function PasswordVerifyForm() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [password, setPassword] = useState('');
@@ -107,6 +107,18 @@ export default function PasswordVerifyPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function PasswordVerifyPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100 flex items-center justify-center">
+        <FontAwesomeIcon icon={faSpinner} className="h-8 w-8 text-rif-blue-500 animate-spin" />
+      </div>
+    }>
+      <PasswordVerifyForm />
+    </Suspense>
   );
 }
 

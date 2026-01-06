@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -22,7 +22,7 @@ import {
   faHistory,
 } from '@fortawesome/free-solid-svg-icons';
 
-export default function LoginPage() {
+function LoginForm() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [formData, setFormData] = useState({
@@ -84,7 +84,7 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen bg-white">
+    <>
       {/* Hero Section */}
       <section className="pt-20 pb-12 px-6 bg-gradient-to-b from-gray-50 to-white">
         <div className="max-w-4xl mx-auto text-center">
@@ -376,6 +376,20 @@ export default function LoginPage() {
           </div>
         </div>
       </section>
+    </>
+  );
+}
+
+export default function LoginPage() {
+  return (
+    <div className="min-h-screen bg-white">
+      <Suspense fallback={
+        <div className="min-h-screen bg-white flex items-center justify-center">
+          <FontAwesomeIcon icon={faSpinner} className="h-8 w-8 text-rif-blue-500 animate-spin" />
+        </div>
+      }>
+        <LoginForm />
+      </Suspense>
     </div>
   );
 }
