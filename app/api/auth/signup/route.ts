@@ -16,12 +16,23 @@ interface User {
 
 // Ensure users file exists
 function ensureUsersFile() {
-  const dir = path.dirname(USERS_FILE);
-  if (!fs.existsSync(dir)) {
-    fs.mkdirSync(dir, { recursive: true });
-  }
-  if (!fs.existsSync(USERS_FILE)) {
-    fs.writeFileSync(USERS_FILE, JSON.stringify({ users: [] }, null, 2));
+  try {
+    const dir = path.dirname(USERS_FILE);
+    if (!fs.existsSync(dir)) {
+      fs.mkdirSync(dir, { recursive: true });
+    }
+    if (!fs.existsSync(USERS_FILE)) {
+      // Try to write, but handle read-only filesystem (e.g., Vercel)
+      try {
+        fs.writeFileSync(USERS_FILE, JSON.stringify({ users: [] }, null, 2));
+      } catch (writeError) {
+        // If write fails (read-only filesystem), log but continue
+        // The file will be created on first write operation
+        console.warn('Could not create users.json file (may be read-only filesystem):', writeError);
+      }
+    }
+  } catch (error) {
+    console.warn('Error ensuring users file:', error);
   }
 }
 
@@ -42,8 +53,11 @@ function saveUsers(users: User[]) {
   try {
     fs.writeFileSync(USERS_FILE, JSON.stringify({ users }, null, 2), 'utf-8');
     return true;
-  } catch (error) {
-    console.error('Error writing users file:', error);
+  } catch (error: any) {
+    // On Vercel or read-only filesystems, file writes may fail
+    // This is expected - in production, use a database instead
+    console.error('Error writing users file (read-only filesystem?):', error);
+    // Return false to indicate failure, but don't crash
     return false;
   }
 }
