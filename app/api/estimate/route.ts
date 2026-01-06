@@ -177,7 +177,7 @@ Submitted on: ${new Date().toLocaleString('en-US', { timeZone: 'America/New_York
     // Send email using Resend
     // Note: Resend's free tier only allows sending to verified email addresses
     // To send to info@roofersinflorida.com, you need to verify a domain in Resend
-    const fromEmail = process.env.RESEND_FROM_EMAIL || 'RIF Roofing Contact Form <onboarding@resend.dev>';
+    const fromEmail = process.env.RESEND_FROM_EMAIL || 'RIF Roofing Contact Form <info@roofersinflorida.com>';
     const targetEmail = 'info@roofersinflorida.com';
     const verifiedEmail = process.env.RESEND_VERIFIED_EMAIL || 'craig@bitfisher.com';
     

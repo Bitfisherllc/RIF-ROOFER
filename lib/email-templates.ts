@@ -2,7 +2,7 @@
  * Email templates for confirmation emails
  */
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://roofersinflorida.com';
 
 export function getContactConfirmationEmailHtml(formData: {
   fullName: string;
