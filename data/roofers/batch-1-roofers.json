@@ -1,0 +1,182 @@
+[
+  {
+    "id": "2",
+    "slug": "1-roof-llc",
+    "name": "1 ROOF LLC",
+    "phone": "904-679-3583",
+    "website": "https://1roofllc.com",
+    "city": null,
+    "state": null
+  },
+  {
+    "id": "3",
+    "slug": "360-degreez-consulting-llc",
+    "name": "360 DEGREEZ CONSULTING LLC",
+    "phone": "352-600-0360",
+    "website": "https://1roofllc.com",
+    "city": null,
+    "state": null
+  },
+  {
+    "id": "4",
+    "slug": "3mg-roofing-llc",
+    "name": "3MG ROOFING LLC",
+    "phone": "407-420-0201",
+    "website": "https://3mgroofing.com",
+    "city": null,
+    "state": null
+  },
+  {
+    "id": "5",
+    "slug": "4th-generation-roofing-sheet-metal-llc",
+    "name": "4TH GENERATION ROOFING & SHEET METAL LLC",
+    "phone": "305-878-5631",
+    "website": "https://4thgenerationroofing.com",
+    "city": null,
+    "state": null
+  },
+  {
+    "id": "8",
+    "slug": "a-bartlett-roofing-construction-services-llc",
+    "name": "A BARTLETT ROOFING & CONSTRUCTION SERVICES LLC",
+    "phone": "813-782-5585",
+    "website": "https://abartlettroofing.com",
+    "city": null,
+    "state": null
+  },
+  {
+    "id": "260",
+    "slug": "a-to-z-contractors-inc",
+    "name": "A TO Z CONTRACTORS INC",
+    "phone": "941-391-5055",
+    "website": null,
+    "city": null,
+    "state": null
+  },
+  {
+    "id": "643",
+    "slug": "a-all-pro-roofing-inc",
+    "name": "A+ ALL PRO ROOFING INC",
+    "phone": "352-236-2719",
+    "website": null,
+    "city": null,
+    "state": null
+  },
+  {
+    "id": "6",
+    "slug": "a-1-american-roofing-sheet-metal-inc",
+    "name": "A-1 AMERICAN ROOFING & SHEET METAL INC",
+    "phone": "941-549-5999",
+    "website": "https://a1americanroofing.com",
+    "city": null,
+    "state": null
+  },
+  {
+    "id": "259",
+    "slug": "a-star-contractors-inc",
+    "name": "A-STAR CONTRACTORS INC",
+    "phone": "954-922-5990",
+    "website": null,
+    "city": null,
+    "state": null
+  },
+  {
+    "id": "400",
+    "slug": "aaa-schwartz-roofing-inc",
+    "name": "AAA SCHWARTZ ROOFING INC",
+    "phone": "941-627-3869",
+    "website": "https://live.com",
+    "city": null,
+    "state": null
+  },
+  {
+    "id": "7",
+    "slug": "aam-industries-inc",
+    "name": "AAM INDUSTRIES INC",
+    "phone": "561-737-2383",
+    "website": "https://aamindustries.com",
+    "city": null,
+    "state": null
+  },
+  {
+    "id": "254",
+    "slug": "aastro-roofing-company-inc",
+    "name": "AASTRO ROOFING COMPANY INC",
+    "phone": "561-409-3280",
+    "website": null,
+    "city": null,
+    "state": null
+  },
+  {
+    "id": "10",
+    "slug": "abc-roofing-corp",
+    "name": "ABC ROOFING CORP",
+    "phone": "954-344-4622",
+    "website": "https://abcroofingcorp.com",
+    "city": null,
+    "state": null
+  },
+  {
+    "id": "11",
+    "slug": "ace-property-services",
+    "name": "ACE PROPERTY SERVICES",
+    "phone": "305-598-1700",
+    "website": "https://acepropertyservices.com",
+    "city": null,
+    "state": null
+  },
+  {
+    "id": "12",
+    "slug": "acoma-roofing-inc",
+    "name": "ACOMA ROOFING INC",
+    "phone": "727-733-5580",
+    "website": "https://acomaroofing.com",
+    "city": null,
+    "state": null
+  },
+  {
+    "id": "13",
+    "slug": "action-roofing-services-inc",
+    "name": "ACTION ROOFING SERVICES INC",
+    "phone": "954-776-0590",
+    "website": "https://actionroofingservices.com",
+    "city": null,
+    "state": null
+  },
+  {
+    "id": "642",
+    "slug": "ad-ler-roofing-inc",
+    "name": "AD-LER ROOFING INC",
+    "phone": "844-MY-ADLER",
+    "website": null,
+    "city": null,
+    "state": null
+  },
+  {
+    "id": "14",
+    "slug": "aderhold-roofing-corp",
+    "name": "ADERHOLD ROOFING CORP",
+    "phone": "813-681-3735",
+    "website": "https://aderholdroofing.com",
+    "city": null,
+    "state": null
+  },
+  {
+    "id": "16",
+    "slug": "advanced-roof-technology-inc",
+    "name": "ADVANCED ROOF TECHNOLOGY INC",
+    "phone": "321-253-5081",
+    "website": "https://advancedrooftechnology.com",
+    "city": null,
+    "state": null
+  },
+  {
+    "id": "77",
+    "slug": "advanced-roofing-sheet-metal",
+    "name": "ADVANCED ROOFING & SHEET METAL",
+    "phone": "239-939-4412",
+    "website": "https://arsmfl.com",
+    "city": null,
+    "state": null
+  }
+]

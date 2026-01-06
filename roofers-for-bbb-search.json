@@ -1,0 +1,4034 @@
+[
+  {
+    "slug": "cf-handyman-llc",
+    "name": "CF HANDYMAN LLC",
+    "phone": "813-810-7099",
+    "city": "Pinellas Park"
+  },
+  {
+    "slug": "aam-industries-inc",
+    "name": "AAM INDUSTRIES INC",
+    "phone": "561-737-2383",
+    "city": "Boynton Beach"
+  },
+  {
+    "slug": "a-bartlett-roofing-construction-services-llc",
+    "name": "A BARTLETT ROOFING & CONSTRUCTION SERVICES LLC",
+    "phone": "813-782-5585",
+    "city": "Zephyrhills"
+  },
+  {
+    "slug": "american-building-contractors",
+    "name": "AMERICAN BUILDING CONTRACTORS",
+    "phone": "954-698-5959",
+    "city": "Deerfield Beach"
+  },
+  {
+    "slug": "abc-roofing-corp",
+    "name": "ABC ROOFING CORP",
+    "phone": "954-344-4622",
+    "city": "Coral Springs"
+  },
+  {
+    "slug": "ace-property-services",
+    "name": "ACE PROPERTY SERVICES",
+    "phone": "305-598-1700",
+    "city": "Miami"
+  },
+  {
+    "slug": "acoma-roofing-inc",
+    "name": "ACOMA ROOFING INC",
+    "phone": "727-733-5580",
+    "city": "Oldsmar"
+  },
+  {
+    "slug": "action-roofing-services-inc",
+    "name": "ACTION ROOFING SERVICES INC",
+    "phone": "954-776-0590",
+    "city": "Pompano Beach"
+  },
+  {
+    "slug": "aderhold-roofing-corp",
+    "name": "ADERHOLD ROOFING CORP",
+    "phone": "813-681-3735",
+    "city": "Tampa"
+  },
+  {
+    "slug": "advanced-roofing-inc",
+    "name": "ADVANCED ROOFING INC",
+    "phone": "954-522-6868",
+    "city": "Ft Lauderdale"
+  },
+  {
+    "slug": "advanced-roof-technology-inc",
+    "name": "ADVANCED ROOF TECHNOLOGY INC",
+    "phone": "321-253-5081",
+    "city": "Melbourne"
+  },
+  {
+    "slug": "advocate-restoration-llc",
+    "name": "ADVOCATE RESTORATION LLC",
+    "phone": "904-707-6546",
+    "city": "Jacksonville"
+  },
+  {
+    "slug": "affordable-rfg-by-john-cadwell-inc",
+    "name": "AFFORDABLE RFG BY JOHN CADWELL INC",
+    "phone": "407-935-0050",
+    "city": "Kissimmee"
+  },
+  {
+    "slug": "all-florida-urethane-inc",
+    "name": "ALL FLORIDA URETHANE INC",
+    "phone": "321-259-1372",
+    "city": "Melbourne"
+  },
+  {
+    "slug": "airam-construction-group-inc",
+    "name": "AIRAM CONSTRUCTION GROUP INC",
+    "phone": "954-534-2220",
+    "city": "Oakland Park"
+  },
+  {
+    "slug": "ajf-roofing-inc",
+    "name": "AJF ROOFING INC",
+    "phone": "305-456-8006 ext 7128",
+    "city": "Miami"
+  },
+  {
+    "slug": "ajl-select-enterprises-llc",
+    "name": "AJL SELECT ENTERPRISES LLC",
+    "phone": "850-332-4782",
+    "city": "Panama City Beach"
+  },
+  {
+    "slug": "ak-certified-contracting-llc",
+    "name": "AK CERTIFIED CONTRACTING LLC",
+    "phone": "386-302-9063",
+    "city": "Palm Coast"
+  },
+  {
+    "slug": "akvm-construction-group-inc",
+    "name": "AKVM CONSTRUCTION GROUP INC",
+    "phone": "941-727-3996",
+    "city": "Bradenton"
+  },
+  {
+    "slug": "alan-s-roofing-inc",
+    "name": "ALAN\\",
+    "phone": "352-686-3330",
+    "city": "Brooksville"
+  },
+  {
+    "slug": "alan-taylor-roofing-llc",
+    "name": "ALAN TAYLOR ROOFING LLC",
+    "phone": "904-291-8438",
+    "city": "Orange Park"
+  },
+  {
+    "slug": "albright-roofing-contracting",
+    "name": "ALBRIGHT ROOFING & CONTRACTING",
+    "phone": "727-541-2949",
+    "city": "Clearwater"
+  },
+  {
+    "slug": "all-area-roofing-construction-inc",
+    "name": "ALL AREA ROOFING & CONSTRUCTION INC",
+    "phone": "772-464-6800",
+    "city": "Ft Pierce"
+  },
+  {
+    "slug": "allied-roofing-sheet-metal-inc",
+    "name": "ALLIED ROOFING & SHEET METAL INC",
+    "phone": "954-485-5922",
+    "city": "Ft Lauderdale"
+  },
+  {
+    "slug": "allied-roofing-inc",
+    "name": "ALLIED ROOFING INC",
+    "phone": "813-875-2727",
+    "city": "Tampa"
+  },
+  {
+    "slug": "all-phase-construction-usa-llc",
+    "name": "ALL PHASE CONSTRUCTION USA LLC",
+    "phone": "754-227-5605",
+    "city": "Deerfield Beach"
+  },
+  {
+    "slug": "all-pro-contracting-services-llc",
+    "name": "ALL PRO CONTRACTING SERVICES LLC",
+    "phone": "407-951-5288",
+    "city": "Casselberry"
+  },
+  {
+    "slug": "all-pro-roofing-consulting-llc",
+    "name": "ALL PRO ROOFING & CONSULTING LLC",
+    "phone": "904-337-1082",
+    "city": "Jacksonville"
+  },
+  {
+    "slug": "maddox-roofing-inc",
+    "name": "MADDOX ROOFING INC",
+    "phone": "561-968-2442",
+    "city": "Riviera Beach"
+  },
+  {
+    "slug": "alpha-roofing-sheet-metal-llc",
+    "name": "ALPHA ROOFING & SHEET METAL LLC",
+    "phone": "352-404-8802",
+    "city": "Orlando"
+  },
+  {
+    "slug": "altec-roofing",
+    "name": "ALTEC ROOFING",
+    "phone": "561-747-1990",
+    "city": "West Palm Beach"
+  },
+  {
+    "slug": "alvarez-roofing",
+    "name": "ALVAREZ ROOFING",
+    "phone": "813-986-4527",
+    "city": "Thonotosassa"
+  },
+  {
+    "slug": "pace-roofing-inc",
+    "name": "PACE ROOFING INC",
+    "phone": "561-642-8840",
+    "city": "Riviera Beach"
+  },
+  {
+    "slug": "amherst-roofing-inc",
+    "name": "AMHERST ROOFING INC",
+    "phone": "239-354-1133",
+    "city": "Naples"
+  },
+  {
+    "slug": "amick-roofing-inc",
+    "name": "AMICK ROOFING INC",
+    "phone": "941-751-1231",
+    "city": "Bradenton"
+  },
+  {
+    "slug": "anthony-c-leonard-enterprises-inc",
+    "name": "ANTHONY C LEONARD ENTERPRISES INC",
+    "phone": "941-474-3533",
+    "city": "Englewood"
+  },
+  {
+    "slug": "blackburn-roofing-sheet-metal-inc",
+    "name": "BLACKBURN ROOFING & SHEET METAL INC",
+    "phone": "239-348-8088",
+    "city": "Naples"
+  },
+  {
+    "slug": "byrne-roofing-inc",
+    "name": "BYRNE ROOFING INC",
+    "phone": "561-471-8363",
+    "city": "Palm City"
+  },
+  {
+    "slug": "gainesville-roofing-co-inc",
+    "name": "GAINESVILLE ROOFING & CO INC",
+    "phone": "352-335-1969",
+    "city": "Bronson"
+  },
+  {
+    "slug": "center-point-roofing-sheet-metal-inc",
+    "name": "CENTER POINT ROOFING & SHEET METAL INC",
+    "phone": "813-661-5814",
+    "city": "Brandon"
+  },
+  {
+    "slug": "florida-roof-systems-inc",
+    "name": "FLORIDA ROOF SYSTEMS INC",
+    "phone": "321-636-4448",
+    "city": "Cocoa"
+  },
+  {
+    "slug": "devlin-roofing-inc",
+    "name": "DEVLIN ROOFING INC",
+    "phone": "239-394-7000",
+    "city": "Goodland"
+  },
+  {
+    "slug": "eagle-i-construction-corp",
+    "name": "EAGLE I CONSTRUCTION CORP",
+    "phone": "561-768-1733",
+    "city": "Loxahatchee"
+  },
+  {
+    "slug": "bert-faircloth-roofing-inc",
+    "name": "BERT FAIRCLOTH ROOFING INC",
+    "phone": "386-238-6220",
+    "city": "Daytona Beach"
+  },
+  {
+    "slug": "evans-roofing-llc",
+    "name": "EVANS ROOFING LLC",
+    "phone": "352-288-3127",
+    "city": "Belleview"
+  },
+  {
+    "slug": "gulf-states-industries-inc",
+    "name": "GULF STATES INDUSTRIES INC",
+    "phone": "727-849-8376",
+    "city": "New Pt Richey"
+  },
+  {
+    "slug": "guy-s-diversified-inc",
+    "name": "GUY\\",
+    "phone": "863-967-9773",
+    "city": "Auburndale"
+  },
+  {
+    "slug": "tack-warren-inc",
+    "name": "TACK & WARREN INC",
+    "phone": "727-461-5014",
+    "city": "Clearwater"
+  },
+  {
+    "slug": "dimensional-roof-systems",
+    "name": "DIMENSIONAL ROOF SYSTEMS",
+    "phone": "407-341-5657",
+    "city": "Orlando"
+  },
+  {
+    "slug": "alan-lindsey-roofing-inc",
+    "name": "ALAN LINDSEY ROOFING INC",
+    "phone": "352-369-4381",
+    "city": "Ocala"
+  },
+  {
+    "slug": "whittle-s-roofing-company-inc",
+    "name": "WHITTLE\\",
+    "phone": "352-472-2410",
+    "city": "Newberry"
+  },
+  {
+    "slug": "palm-beach-roofing-maintenance-llc",
+    "name": "PALM BEACH ROOFING & MAINTENANCE LLC",
+    "phone": "561-293-1407",
+    "city": "West Palm Beach"
+  },
+  {
+    "slug": "pdf-roofing-llc",
+    "name": "PDF ROOFING LLC",
+    "phone": "941-316-9339",
+    "city": "Sarasota"
+  },
+  {
+    "slug": "john-gilmore-roofing-inc",
+    "name": "JOHN GILMORE ROOFING INC",
+    "phone": "904-880-8044",
+    "city": "Jacksonville"
+  },
+  {
+    "slug": "advantage-building-roofing-corp",
+    "name": "ADVANTAGE BUILDING & ROOFING CORP",
+    "phone": "561-716-0163",
+    "city": "Boca Raton"
+  },
+  {
+    "slug": "sal-vitale-the-roof-doctor-inc",
+    "name": "SAL VITALE THE ROOF DOCTOR INC",
+    "phone": "321-725-2104",
+    "city": "Melbourne"
+  },
+  {
+    "slug": "roof-repairs-only-inc",
+    "name": "ROOF REPAIRS ONLY INC",
+    "phone": "772-562-7663",
+    "city": "Vero Beach"
+  },
+  {
+    "slug": "rs-martin-roofing-inc",
+    "name": "RS MARTIN ROOFING INC",
+    "phone": "727-395-9493",
+    "city": "Largo"
+  },
+  {
+    "slug": "cjm-roofing-inc",
+    "name": "CJM ROOFING INC",
+    "phone": "561-242-9399",
+    "city": "W Palm Beach"
+  },
+  {
+    "slug": "st-johns-heating-air-conditioning",
+    "name": "ST JOHNS HEATING & AIR CONDITIONING",
+    "phone": "904-829-6076",
+    "city": "St Augustine"
+  },
+  {
+    "slug": "assure-u-at-home-services-inc",
+    "name": "ASSURE-U AT HOME SERVICES INC",
+    "phone": "407-970-9746",
+    "city": "Orlando"
+  },
+  {
+    "slug": "tampa-roofing-co-inc",
+    "name": "TAMPA ROOFING CO INC",
+    "phone": "813-238-6436",
+    "city": "Tampa"
+  },
+  {
+    "slug": "jim-wheeler-repairs-llc",
+    "name": "JIM WHEELER REPAIRS LLC",
+    "phone": "850-259-6104",
+    "city": "Destin"
+  },
+  {
+    "slug": "tom-sawyer-roofing",
+    "name": "TOM SAWYER ROOFING",
+    "phone": "386-760-2312",
+    "city": "Pt Orange"
+  },
+  {
+    "slug": "trans-coastal-construction-co-inc",
+    "name": "TRANS COASTAL CONSTRUCTION CO INC",
+    "phone": "561-835-9522",
+    "city": "W Palm Beach"
+  },
+  {
+    "slug": "watertite-roofing-co-llc",
+    "name": "WATERTITE ROOFING CO LLC",
+    "phone": "941-483-4630",
+    "city": "Nokomis"
+  },
+  {
+    "slug": "w-davis-llc",
+    "name": "W DAVIS LLC",
+    "phone": "386-562-3067",
+    "city": "New Smyrna Beach"
+  },
+  {
+    "slug": "west-coast-roofing-contracting-inc",
+    "name": "WEST COAST ROOFING & CONTRACTING INC",
+    "phone": "727-791-7078",
+    "city": "Clearwater"
+  },
+  {
+    "slug": "apachee-roofing-inc",
+    "name": "APACHEE ROOFING INC",
+    "phone": "850-893-3470",
+    "city": "Tallahassee"
+  },
+  {
+    "slug": "armor-roofing-home-improvement",
+    "name": "ARMOR ROOFING & HOME IMPROVEMENT",
+    "phone": "352-742-1050",
+    "city": "Tavares"
+  },
+  {
+    "slug": "arry-s-roofing-services-inc",
+    "name": "ARRY\\",
+    "phone": "727-938-9565",
+    "city": "Tarpon Springs"
+  },
+  {
+    "slug": "advanced-roofing-sheet-metal",
+    "name": "ADVANCED ROOFING & SHEET METAL",
+    "phone": "239-939-4412",
+    "city": "Ft Myers"
+  },
+  {
+    "slug": "american-roofing-sheet-metal-inc",
+    "name": "AMERICAN ROOFING & SHEET METAL INC",
+    "phone": "813-884-1815",
+    "city": "Tampa"
+  },
+  {
+    "slug": "art-construction-of-nw-fl-llc",
+    "name": "ART CONSTRUCTION OF NW FL LLC",
+    "phone": "850-215-3948",
+    "city": "Panama City"
+  },
+  {
+    "slug": "architectural-sheet-metal-inc",
+    "name": "ARCHITECTURAL SHEET METAL INC",
+    "phone": "407-855-7183",
+    "city": "Orlando"
+  },
+  {
+    "slug": "atlantic-roofing-exteriors-llc",
+    "name": "ATLANTIC ROOFING & EXTERIORS LLC",
+    "phone": "352-327-7663",
+    "city": "Gainesville"
+  },
+  {
+    "slug": "atlas-apex-roofing-llc",
+    "name": "ATLAS-APEX ROOFING LLC",
+    "phone": "954-565-1567",
+    "city": "Ft Lauderdale"
+  },
+  {
+    "slug": "b-d-roofing-of-central-fl-inc",
+    "name": "B&D ROOFING OF CENTRAL FL INC",
+    "phone": "386-734-6663",
+    "city": "Deland"
+  },
+  {
+    "slug": "john-son-roofing-inc",
+    "name": "JOHN & SON ROOFING INC",
+    "phone": "772-562-1270",
+    "city": "Vero Beach"
+  },
+  {
+    "slug": "murphy-builders-iinc",
+    "name": "MURPHY BUILDERS IINC",
+    "phone": "561-436-4677",
+    "city": "Lake Worth"
+  },
+  {
+    "slug": "port-orange-a-c-heating-inc",
+    "name": "PORT ORANGE A/C & HEATING INC",
+    "phone": "386-761-6690",
+    "city": "Pt Orange"
+  },
+  {
+    "slug": "white-s-roofing-co-inc",
+    "name": "WHITE\\",
+    "phone": "904-220-5546",
+    "city": "Jacksonville"
+  },
+  {
+    "slug": "avery-roof-services-llc",
+    "name": "AVERY ROOF SERVICES LLC",
+    "phone": "941-371-5544",
+    "city": "Sarasota"
+  },
+  {
+    "slug": "barrier-roofing-construction-inc",
+    "name": "BARRIER ROOFING & CONSTRUCTION INC",
+    "phone": "305-432-1441",
+    "city": "Miami Lakes"
+  },
+  {
+    "slug": "barrios-roofing-waterproofing-llc",
+    "name": "BARRIOS ROOFING & WATERPROOFING LLC",
+    "phone": "239-888-4078",
+    "city": "Ft Myers"
+  },
+  {
+    "slug": "bbg-contracting-group-inc",
+    "name": "BBG CONTRACTING GROUP INC",
+    "phone": "904-766-5800",
+    "city": "Jacksonville"
+  },
+  {
+    "slug": "beachfront-roofing-inc",
+    "name": "BEACHFRONT ROOFING INC",
+    "phone": "561-557-8534",
+    "city": "West Palm Beach"
+  },
+  {
+    "slug": "beaver-home-services-inc",
+    "name": "BEAVER HOME SERVICES INC",
+    "phone": "904-726-7080",
+    "city": "Orange Park"
+  },
+  {
+    "slug": "beery-roofing-redesign-llc",
+    "name": "BEERY ROOFING & REDESIGN LLC",
+    "phone": "386-717-1394",
+    "city": "Deland"
+  },
+  {
+    "slug": "jk-behan-general-roofing-contractor",
+    "name": "JK BEHAN GENERAL ROOFING CONTRACTOR",
+    "phone": "321-242-1911",
+    "city": "Melbourne"
+  },
+  {
+    "slug": "bela-roofing-inc",
+    "name": "BELA ROOFING INC",
+    "phone": "407-312-3115",
+    "city": "Orlando"
+  },
+  {
+    "slug": "andrew-palmer-roofing-inc",
+    "name": "ANDREW PALMER ROOFING INC",
+    "phone": "305-232-9211",
+    "city": "Miami"
+  },
+  {
+    "slug": "burger-roofing-co",
+    "name": "BURGER ROOFING CO",
+    "phone": "904-355-2756",
+    "city": "Jacksonville"
+  },
+  {
+    "slug": "john-carruth-retired",
+    "name": "JOHN CARRUTH - RETIRED",
+    "phone": "305-986-3449",
+    "city": "Tamarac"
+  },
+  {
+    "slug": "ralph-decicco",
+    "name": "RALPH DECICCO",
+    "phone": "904-635-0079",
+    "city": "Jacksonville"
+  },
+  {
+    "slug": "edgar-quintin-inc",
+    "name": "EDGAR QUINTIN INC",
+    "phone": "407-857-0098",
+    "city": "Orlando"
+  },
+  {
+    "slug": "vila-builders-inc",
+    "name": "VILA BUILDERS INC",
+    "phone": "305-992-7999",
+    "city": "Miami"
+  },
+  {
+    "slug": "leeward-roofing-llc",
+    "name": "LEEWARD ROOFING LLC",
+    "phone": "772-589-2400",
+    "city": "Sebastian"
+  },
+  {
+    "slug": "leo-roofing-construction",
+    "name": "LEO ROOFING & CONSTRUCTION",
+    "phone": "561-935-4979",
+    "city": "Palm Beach Gardens"
+  },
+  {
+    "slug": "roof-solutions-inc",
+    "name": "ROOF SOLUTIONS INC",
+    "phone": "954-815-0560",
+    "city": "Plantation"
+  },
+  {
+    "slug": "florida-roofing-of-palm-beach-county",
+    "name": "FLORIDA ROOFING OF PALM BEACH COUNTY",
+    "phone": "561-833-9704",
+    "city": "Boynton Beach"
+  },
+  {
+    "slug": "batchelor-s-inc-roofing-contractors",
+    "name": "BATCHELOR\\",
+    "phone": "850-432-4004",
+    "city": "Pensacola"
+  },
+  {
+    "slug": "petito-roofing-inc",
+    "name": "PETITO ROOFING INC",
+    "phone": "954-796-0772",
+    "city": "Coral Springs"
+  },
+  {
+    "slug": "r-r-roofing-of-brevard-inc",
+    "name": "R&R ROOFING OF BREVARD INC",
+    "phone": "321-259-3731",
+    "city": "Melbourne"
+  },
+  {
+    "slug": "stuart-roof-repair-inc",
+    "name": "STUART ROOF REPAIR INC",
+    "phone": "772-286-0444",
+    "city": "Pt Salerno"
+  },
+  {
+    "slug": "universal-roofing-inc",
+    "name": "UNIVERSAL ROOFING INC",
+    "phone": "954-923-5100",
+    "city": "Hollywood"
+  },
+  {
+    "slug": "michael-kevin-walsh-roofing-inc",
+    "name": "MICHAEL KEVIN WALSH ROOFING INC",
+    "phone": "772-781-0900",
+    "city": "Palm City"
+  },
+  {
+    "slug": "whitton-roofing-co",
+    "name": "WHITTON ROOFING CO",
+    "phone": "352-473-8962",
+    "city": "Melrose"
+  },
+  {
+    "slug": "bentley-roofing-llc",
+    "name": "BENTLEY ROOFING LLC",
+    "phone": "954-979-2233",
+    "city": "Pompano Beach"
+  },
+  {
+    "slug": "best-roofing",
+    "name": "BEST ROOFING",
+    "phone": "954-941-9111",
+    "city": "Ft Lauderdale"
+  },
+  {
+    "slug": "bfarr-contracting",
+    "name": "BFARR CONTRACTING",
+    "phone": "321-444-6446",
+    "city": "Winter Park"
+  },
+  {
+    "slug": "big-fish-roofing-waterproofing-llc",
+    "name": "BIG FISH ROOFING & WATERPROOFING LLC",
+    "phone": "904-685-8334",
+    "city": "Jacksonville"
+  },
+  {
+    "slug": "bigfoot-roofing-construction-inc",
+    "name": "BIGFOOT ROOFING & CONSTRUCTION INC",
+    "phone": "904-219-2044",
+    "city": "Jacksonville"
+  },
+  {
+    "slug": "benton-integrity-roofing-systems",
+    "name": "BENTON INTEGRITY ROOFING SYSTEMS",
+    "phone": "904-260-1372",
+    "city": "Jacksonville"
+  },
+  {
+    "slug": "bkm-roofing-inc",
+    "name": "BKM ROOFING INC",
+    "phone": "904-548-7536",
+    "city": "Yulee"
+  },
+  {
+    "slug": "hall-roofing-company-llc",
+    "name": "HALL ROOFING COMPANY LLC",
+    "phone": "850-229-1579",
+    "city": "Pt St Joe"
+  },
+  {
+    "slug": "blues-brothers-construction-corp",
+    "name": "BLUES BROTHERS CONSTRUCTION CORP",
+    "phone": "561-361-6378",
+    "city": "Boca Raton"
+  },
+  {
+    "slug": "blue-star-roofing-inc",
+    "name": "BLUE STAR ROOFING INC",
+    "phone": "407-636-7365",
+    "city": "Orlando"
+  },
+  {
+    "slug": "bob-jerry-s-roofing-inc",
+    "name": "BOB & JERRY\\",
+    "phone": "863-965-9595",
+    "city": "Auburndale"
+  },
+  {
+    "slug": "bodan-roofing-inc",
+    "name": "BODAN ROOFING INC",
+    "phone": "813-977-5919",
+    "city": "Wesley Chapel"
+  },
+  {
+    "slug": "bohemia-roofing-co-inc",
+    "name": "BOHEMIA ROOFING CO INC",
+    "phone": "904-859-3539",
+    "city": "Jacksonville"
+  },
+  {
+    "slug": "bowen-son-roofing-inc",
+    "name": "BOWEN & SON ROOFING INC",
+    "phone": "863-385-0351",
+    "city": "Sebring"
+  },
+  {
+    "slug": "brad-mcdonald-roofing-construction-inc",
+    "name": "BRAD MCDONALD ROOFING & CONSTRUCTION INC",
+    "phone": "727-856-7663",
+    "city": "New Port Richey"
+  },
+  {
+    "slug": "brickell-vizcaya-development-inc",
+    "name": "BRICKELL VIZCAYA DEVELOPMENT INC",
+    "phone": "786-683-2619",
+    "city": "MIami"
+  },
+  {
+    "slug": "john-keller-roofing",
+    "name": "JOHN KELLER ROOFING",
+    "phone": "407-332-0345",
+    "city": "Longwood"
+  },
+  {
+    "slug": "brilliant-roofing",
+    "name": "BRILLIANT ROOFING",
+    "phone": "772-222-7663",
+    "city": "Stuart"
+  },
+  {
+    "slug": "brite-top-roofing",
+    "name": "BRITE TOP ROOFING",
+    "phone": "407-895-1551",
+    "city": "Orlando"
+  },
+  {
+    "slug": "busy-bee-roofing",
+    "name": "BUSY BEE ROOFING",
+    "phone": "813-358-1356",
+    "city": "Tampa"
+  },
+  {
+    "slug": "clark-associates-contracting-inc",
+    "name": "CLARK & ASSOCIATES CONTRACTING INC",
+    "phone": "407-749-6600",
+    "city": "Orlando"
+  },
+  {
+    "slug": "cache-co-llc",
+    "name": "CACHE CO LLC",
+    "phone": "904-887-7663",
+    "city": "Jacksonville"
+  },
+  {
+    "slug": "caldwell-roofing",
+    "name": "CALDWELL ROOFING",
+    "phone": "561-392-0971",
+    "city": "Boca Raton"
+  },
+  {
+    "slug": "campany-roof-maintenance-llc",
+    "name": "CAMPANY ROOF MAINTENANCE LLC",
+    "phone": "561-881-3560",
+    "city": "W Palm Beach"
+  },
+  {
+    "slug": "capps-roofing-inc",
+    "name": "CAPPS ROOFING INC",
+    "phone": "772-545-3442",
+    "city": "Hobe Sound"
+  },
+  {
+    "slug": "cardinal-roofing-siding-co-inc",
+    "name": "CARDINAL ROOFING & SIDING CO INC",
+    "phone": "772-335-9550",
+    "city": "Pt St Lucie"
+  },
+  {
+    "slug": "cardinal-roofing",
+    "name": "CARDINAL ROOFING",
+    "phone": "813-689-7663",
+    "city": "Brandon"
+  },
+  {
+    "slug": "carpenter-s-roofing-sheet-metal-inc",
+    "name": "CARPENTER\\",
+    "phone": "561-833-0341",
+    "city": "Riviera Beach"
+  },
+  {
+    "slug": "castle-roofing-group-llc",
+    "name": "CASTLE ROOFING GROUP LLC",
+    "phone": "407-477-2823",
+    "city": "Apopka"
+  },
+  {
+    "slug": "the-roofing-experts",
+    "name": "THE ROOFING EXPERTS",
+    "phone": "407-730-9587",
+    "city": "Orlando"
+  },
+  {
+    "slug": "cedar-valley-exteriors-inc",
+    "name": "CEDAR VALLEY EXTERIORS INC",
+    "phone": "407-608-5566",
+    "city": "Sanford"
+  },
+  {
+    "slug": "centimark-corp",
+    "name": "CENTIMARK CORP",
+    "phone": "321-304-200",
+    "city": "Cape Coral"
+  },
+  {
+    "slug": "cochran-brothers-roofing-ii-inc",
+    "name": "COCHRAN BROTHERS ROOFING II INC",
+    "phone": "863-385-4690",
+    "city": "Sebring"
+  },
+  {
+    "slug": "copping-roofing-inc",
+    "name": "COPPING ROOFING INC",
+    "phone": "239-543-2255",
+    "city": "N Ft Myers"
+  },
+  {
+    "slug": "certified-best-roofing-inc",
+    "name": "CERTIFIED BEST ROOFING INC",
+    "phone": "407-602-3363",
+    "city": "Oviedo"
+  },
+  {
+    "slug": "certified-roofing-specialists-inc",
+    "name": "CERTIFIED ROOFING SPECIALISTS INC",
+    "phone": "954-781-7663",
+    "city": "Pompano Beach"
+  },
+  {
+    "slug": "certified-roofers-general-contractors-inc",
+    "name": "CERTIFIED ROOFERS & GENERAL CONTRACTORS INC",
+    "phone": "813-643-8333",
+    "city": "Valrico"
+  },
+  {
+    "slug": "central-florida-equity-builders",
+    "name": "CENTRAL FLORIDA EQUITY BUILDERS",
+    "phone": "407-314-9352",
+    "city": "Oviedo"
+  },
+  {
+    "slug": "robert-batson-roofing-inc",
+    "name": "ROBERT BATSON ROOFING INC",
+    "phone": "407-423-7570",
+    "city": "Orlando"
+  },
+  {
+    "slug": "boulais-roofing-co",
+    "name": "BOULAIS ROOFING CO",
+    "phone": "321-632-9623",
+    "city": "Cocoa"
+  },
+  {
+    "slug": "thermal-protective-coatings-of-fl",
+    "name": "THERMAL PROTECTIVE COATINGS OF FL",
+    "phone": "386-738-0300",
+    "city": "Deland"
+  },
+  {
+    "slug": "cfl-roofing-inc",
+    "name": "CFL ROOFING INC",
+    "phone": "407-917-7663",
+    "city": "Orlando"
+  },
+  {
+    "slug": "g-g-roofing",
+    "name": "G&G ROOFING",
+    "phone": "321-301-4470",
+    "city": "Rockledge"
+  },
+  {
+    "slug": "cfs-roofing-services-llc",
+    "name": "CFS ROOFING SERVICES LLC",
+    "phone": "239-561-2600",
+    "city": "Ft Myers"
+  },
+  {
+    "slug": "chase-roofing-contracting-inc",
+    "name": "CHASE ROOFING & CONTRACTING INC",
+    "phone": "954-680-8588",
+    "city": "Pompano Beach"
+  },
+  {
+    "slug": "cherry-roofing-enterprises-inc",
+    "name": "CHERRY ROOFING ENTERPRISES INC",
+    "phone": "954-963-2741",
+    "city": "West Park"
+  },
+  {
+    "slug": "citrus-roofing-contractors-llc",
+    "name": "CITRUS ROOFING CONTRACTORS LLC",
+    "phone": "407-815-7336",
+    "city": "Winter Park"
+  },
+  {
+    "slug": "coastal-acquisitions-of-florida-llc",
+    "name": "COASTAL ACQUISITIONS OF FLORIDA LLC",
+    "phone": "850-769-9423",
+    "city": "Panama City"
+  },
+  {
+    "slug": "coastal-roofing-systems-of-amelia",
+    "name": "COASTAL ROOFING SYSTEMS OF AMELIA",
+    "phone": "904-261-2233",
+    "city": "Amelia Island"
+  },
+  {
+    "slug": "sheet-metal-masters-inc",
+    "name": "SHEET METAL MASTERS INC",
+    "phone": "850-470-0960",
+    "city": "Pensacola"
+  },
+  {
+    "slug": "collis-roofing",
+    "name": "COLLIS ROOFING",
+    "phone": "321-441-2300",
+    "city": "Longwood"
+  },
+  {
+    "slug": "colonial-roofing-inc",
+    "name": "COLONIAL ROOFING INC",
+    "phone": "239-458-1000",
+    "city": "Lehigh Acres"
+  },
+  {
+    "slug": "armstrong-roofing-inc",
+    "name": "ARMSTRONG ROOFING INC",
+    "phone": "386-325-2023",
+    "city": "San Mateo"
+  },
+  {
+    "slug": "bowles-roofing",
+    "name": "BOWLES ROOFING",
+    "phone": "352-732-9855",
+    "city": "Ocala"
+  },
+  {
+    "slug": "flash-custom-metal-roofing-inc",
+    "name": "FLASH CUSTOM METAL ROOFING INC",
+    "phone": "941-766-1888",
+    "city": "Port Charlotte"
+  },
+  {
+    "slug": "champion-roofing-services-inc",
+    "name": "CHAMPION ROOFING SERVICES INC",
+    "phone": "904-396-4642",
+    "city": "Jacksonville"
+  },
+  {
+    "slug": "cw-s-quality-roofing-inc",
+    "name": "CW\\",
+    "phone": "941-766-8676",
+    "city": "Pt Charlotte"
+  },
+  {
+    "slug": "bama-roofing-construction-co",
+    "name": "BAMA ROOFING & CONSTRUCTION CO",
+    "phone": "954-680-8050",
+    "city": "Ft Lauderdale"
+  },
+  {
+    "slug": "harrell-roofing-llc",
+    "name": "HARRELL ROOFING LLC",
+    "phone": "850-575-9564",
+    "city": "Tallahassee"
+  },
+  {
+    "slug": "moody-s-roofing-inc",
+    "name": "MOODY\\",
+    "phone": "904-781-0569",
+    "city": "Jacksonville"
+  },
+  {
+    "slug": "ryan-holmes-contracting-inc",
+    "name": "RYAN HOLMES CONTRACTING INC",
+    "phone": "772-232-6988",
+    "city": "Stuart"
+  },
+  {
+    "slug": "sun-coast-roofing-inc",
+    "name": "SUN COAST ROOFING INC",
+    "phone": "239-352-8988",
+    "city": "Naples"
+  },
+  {
+    "slug": "tarpon-dock-metal-craft-inc",
+    "name": "TARPON DOCK METAL CRAFT INC",
+    "phone": "850-785-9568",
+    "city": "Panama City"
+  },
+  {
+    "slug": "thomas-roofing-solutions-llc",
+    "name": "THOMAS ROOFING SOLUTIONS LLC",
+    "phone": "850-401-7663",
+    "city": "Pensacola"
+  },
+  {
+    "slug": "copeland-s-complete-construction-llc",
+    "name": "COPELAND\\",
+    "phone": "863-585-0363",
+    "city": "Auburndale"
+  },
+  {
+    "slug": "core-roofing-systems-inc",
+    "name": "CORE ROOFING SYSTEMS INC",
+    "phone": "407-434-7170",
+    "city": "Orlando"
+  },
+  {
+    "slug": "cory-associates-inc",
+    "name": "CORY & ASSOCIATES INC",
+    "phone": "954-457-4132",
+    "city": "Hallandale"
+  },
+  {
+    "slug": "woody-cushing-roofing-inc",
+    "name": "WOODY CUSHING ROOFING INC",
+    "phone": "850-432-9109",
+    "city": "Pensacola"
+  },
+  {
+    "slug": "crawford-roofing-construction",
+    "name": "CRAWFORD ROOFING & CONSTRUCTION",
+    "phone": "321-676-3034",
+    "city": "Melbourne"
+  },
+  {
+    "slug": "crest-roofing-llc",
+    "name": "CREST ROOFING LLC",
+    "phone": "954-586-5866",
+    "city": "Deerfield Beach"
+  },
+  {
+    "slug": "crosier-son-roofing-inc",
+    "name": "CROSIER & SON ROOFING INC",
+    "phone": "352-372-0200",
+    "city": "Gainesville"
+  },
+  {
+    "slug": "crown-residential-services-llc",
+    "name": "CROWN RESIDENTIAL SERVICES LLC",
+    "phone": "855-276-9655",
+    "city": "Sarasota"
+  },
+  {
+    "slug": "crown-roofing-waterproofing-llc",
+    "name": "CROWN ROOFING & WATERPROOFING LLC",
+    "phone": "855-276-9655",
+    "city": "Sarasota"
+  },
+  {
+    "slug": "crowther-roofing-sheet-metal-of-fl-inc",
+    "name": "CROWTHER ROOFING & SHEET METAL OF FL INC",
+    "phone": "239-337-1300",
+    "city": "Ft Myers"
+  },
+  {
+    "slug": "c-s-roofing-co",
+    "name": "C&S ROOFING CO",
+    "phone": "352-489-4274",
+    "city": "Dunnellon"
+  },
+  {
+    "slug": "cye-enterprises-inc",
+    "name": "CYE ENTERPRISES INC",
+    "phone": "904-224-8224",
+    "city": "Jacksonville"
+  },
+  {
+    "slug": "dal-mar-roofing-industries-inc",
+    "name": "DAL MAR ROOFING INDUSTRIES INC",
+    "phone": "386-760-8240",
+    "city": "S Daytona"
+  },
+  {
+    "slug": "damar-construction-services-inc",
+    "name": "DAMAR CONSTRUCTION SERVICES INC",
+    "phone": "786-380-0143",
+    "city": "Miami"
+  },
+  {
+    "slug": "davis-roofing-sheet-metal-llc",
+    "name": "DAVIS ROOFING & SHEET METAL LLC",
+    "phone": "850-665-9072",
+    "city": "Milton"
+  },
+  {
+    "slug": "daylight-concepts-llc",
+    "name": "DAYLIGHT CONCEPTS LLC",
+    "phone": "813-886-5500",
+    "city": "Tampa"
+  },
+  {
+    "slug": "dynasty-building-solutions-llc",
+    "name": "DYNASTY BUILDING SOLUTIONS LLC",
+    "phone": "813-321-3269",
+    "city": "Tampa"
+  },
+  {
+    "slug": "dcg-roofing",
+    "name": "DCG ROOFING",
+    "phone": "786-348-3306",
+    "city": "Miami Lakes"
+  },
+  {
+    "slug": "destin-roofing-inc",
+    "name": "DESTIN ROOFING INC",
+    "phone": "850-837-2645",
+    "city": "Destin"
+  },
+  {
+    "slug": "dibble-roofing-co-inc",
+    "name": "DIBBLE ROOFING CO INC",
+    "phone": "904-408-8027",
+    "city": "Jacksonville"
+  },
+  {
+    "slug": "dickson-roofing-llc",
+    "name": "DICKSON ROOFING LLC",
+    "phone": "239-643-1004",
+    "city": "Naples"
+  },
+  {
+    "slug": "distinctive-roofing-inc",
+    "name": "DISTINCTIVE ROOFING INC",
+    "phone": "954-846-7663",
+    "city": "Pompano Beach"
+  },
+  {
+    "slug": "d-j-roofing-and-construction-inc",
+    "name": "D&J ROOFING AND CONSTRUCTION INC",
+    "phone": "941-909-4204",
+    "city": "Sarasota"
+  },
+  {
+    "slug": "dockside-roofing-inc",
+    "name": "DOCKSIDE ROOFING INC",
+    "phone": "813-983-9099",
+    "city": "Tampa"
+  },
+  {
+    "slug": "don-schmidt-contracting-roofing-inc",
+    "name": "DON SCHMIDT CONTRACTING & ROOFING INC",
+    "phone": "407-892-9884",
+    "city": "St Cloud"
+  },
+  {
+    "slug": "double-c-roofing-inc",
+    "name": "DOUBLE C ROOFING INC",
+    "phone": "386-734-9322",
+    "city": "DeLand"
+  },
+  {
+    "slug": "d-peck-roofing-inc",
+    "name": "D PECK ROOFING INC",
+    "phone": "239-489-2200",
+    "city": "Fort Myers"
+  },
+  {
+    "slug": "drew-roofing-llc",
+    "name": "DREW ROOFING LLC",
+    "phone": "727-522-3739",
+    "city": "Saint Petersburg"
+  },
+  {
+    "slug": "d-roofing-group-inc",
+    "name": "D\\",
+    "phone": "236-256-7788",
+    "city": "Naples"
+  },
+  {
+    "slug": "drs-of-central-florida-inc",
+    "name": "DRS OF CENTRAL FLORIDA INC",
+    "phone": "407-240-1225",
+    "city": "Orlando"
+  },
+  {
+    "slug": "durabilis-roofing-llc",
+    "name": "DURABILIS ROOFING LLC",
+    "phone": "239-347-9207",
+    "city": "Lehigh Acres"
+  },
+  {
+    "slug": "dynamic-national",
+    "name": "DYNAMIC NATIONAL",
+    "phone": "727-498-6204",
+    "city": "St Petersburg"
+  },
+  {
+    "slug": "dynamic-roofing-concepts-inc",
+    "name": "DYNAMIC ROOFING CONCEPTS INC",
+    "phone": "813-657-7663",
+    "city": "Brandon"
+  },
+  {
+    "slug": "elias-brothers-general-contractor-inc",
+    "name": "ELIAS BROTHERS GENERAL CONTRACTOR INC",
+    "phone": "239-293-2442",
+    "city": "Naples"
+  },
+  {
+    "slug": "eco-construction-group",
+    "name": "ECO CONSTRUCTION GROUP",
+    "phone": "352-504-0346",
+    "city": "Mt Dora"
+  },
+  {
+    "slug": "emerald-coast-roofscapes-inc",
+    "name": "EMERALD COAST ROOFSCAPES INC",
+    "phone": "850-685-7195",
+    "city": "Destin"
+  },
+  {
+    "slug": "edwards-roofing-co-inc",
+    "name": "EDWARDS ROOFING CO INC",
+    "phone": "850-478-0230",
+    "city": "Pensacola"
+  },
+  {
+    "slug": "eguard-roof-safety-systems-llc",
+    "name": "EGUARD ROOF & SAFETY SYSTEMS LLC",
+    "phone": "407-802-4112",
+    "city": "Orlando"
+  },
+  {
+    "slug": "elite-roofing-services",
+    "name": "ELITE ROOFING SERVICES",
+    "phone": "813-630-0800",
+    "city": "Tampa"
+  },
+  {
+    "slug": "elite-roofing-inc",
+    "name": "ELITE ROOFING INC",
+    "phone": "561-840-7663",
+    "city": "West Palm Beach"
+  },
+  {
+    "slug": "elo-roofing",
+    "name": "ELO ROOFING",
+    "phone": "904-528-0188",
+    "city": "Jacksonville"
+  },
+  {
+    "slug": "emc-roofing-llc",
+    "name": "EMC ROOFING LLC",
+    "phone": "813-535-1481",
+    "city": "Ocala"
+  },
+  {
+    "slug": "empire-roofing-co-se-llc",
+    "name": "EMPIRE ROOFING CO SE LLC",
+    "phone": "954-972-7338",
+    "city": "Sunrise"
+  },
+  {
+    "slug": "empire-roofing-sales-services-inc",
+    "name": "EMPIRE ROOFING SALES & SERVICES INC",
+    "phone": "904-391-1007",
+    "city": "Jacksonville"
+  },
+  {
+    "slug": "energy-roofing-technology-se-llc",
+    "name": "ENERGY ROOFING TECHNOLOGY SE LLC",
+    "phone": "855-766-3852",
+    "city": "Lake City"
+  },
+  {
+    "slug": "evans-roofing",
+    "name": "EVANS ROOFING",
+    "phone": "954-566-5238",
+    "city": "Oakland Park"
+  },
+  {
+    "slug": "e-z-general-roofing-contractors-inc",
+    "name": "E-Z GENERAL & ROOFING CONTRACTORS INC",
+    "phone": "954-418-8640",
+    "city": "Naples"
+  },
+  {
+    "slug": "ferber-sheet-metal-works-inc",
+    "name": "FERBER SHEET METAL WORKS INC",
+    "phone": "904-356-3042",
+    "city": "Jacksonville"
+  },
+  {
+    "slug": "fl-brees",
+    "name": "FL BREES",
+    "phone": "850-865-3210",
+    "city": "Destin"
+  },
+  {
+    "slug": "new-roofing-contractors",
+    "name": "NEW ROOFING CONTRACTORS",
+    "phone": "863-617-0504",
+    "city": "Orlando"
+  },
+  {
+    "slug": "creative-home-pros-llc",
+    "name": "CREATIVE HOME PROS LLC",
+    "phone": "904-504-1484",
+    "city": "Jacksonville"
+  },
+  {
+    "slug": "florida-legacy-roofing-llc",
+    "name": "FLORIDA LEGACY ROOFING LLC",
+    "phone": "727-264-8550",
+    "city": "New Port Richey"
+  },
+  {
+    "slug": "florida-roof-bros-llc",
+    "name": "FLORIDA ROOF BROS LLC",
+    "phone": "321-446-1702",
+    "city": "Palm Bay"
+  },
+  {
+    "slug": "florida-roof-llc",
+    "name": "FLORIDA ROOF LLC",
+    "phone": "850-281-0457",
+    "city": "Molino"
+  },
+  {
+    "slug": "florida-shelter-roofing-llc",
+    "name": "FLORIDA SHELTER ROOFING LLC",
+    "phone": "813-316-6260",
+    "city": "Tampa"
+  },
+  {
+    "slug": "smart-energy-inc",
+    "name": "SMART ENERGY INC",
+    "phone": "954-376-5515",
+    "city": "Pompano Beach"
+  },
+  {
+    "slug": "florida-southern-roofing-sheet-metal-inc",
+    "name": "FLORIDA SOUTHERN ROOFING & SHEET METAL INC",
+    "phone": "941-954-8811",
+    "city": "Sarasota"
+  },
+  {
+    "slug": "florida-roof-restorations",
+    "name": "FLORIDA ROOF RESTORATIONS",
+    "phone": "352-290-8815",
+    "city": "Ocala"
+  },
+  {
+    "slug": "fl-specialty-roofing",
+    "name": "FL SPECIALTY ROOFING",
+    "phone": "352-415-4596",
+    "city": "Ocala"
+  },
+  {
+    "slug": "florida-native-roofing",
+    "name": "FLORIDA NATIVE ROOFING",
+    "phone": "321-499-4448",
+    "city": "Palm Bay"
+  },
+  {
+    "slug": "foster-s-roofing-enterprises-inc",
+    "name": "FOSTER\\",
+    "phone": "352-799-0045",
+    "city": "Brooksville"
+  },
+  {
+    "slug": "frank-s-roofing-spraying-inc",
+    "name": "FRANK\\",
+    "phone": "239-369-9045",
+    "city": "Ft Myers"
+  },
+  {
+    "slug": "freeman-roofing",
+    "name": "FREEMAN ROOFING",
+    "phone": "850-994-1078",
+    "city": "Pace"
+  },
+  {
+    "slug": "fowler-s-sheet-metal-inc",
+    "name": "FOWLER\\",
+    "phone": "561-659-3309",
+    "city": "W Palm Beach"
+  },
+  {
+    "slug": "galaxy-builders-inc",
+    "name": "GALAXY BUILDERS INC",
+    "phone": "904-503-4164",
+    "city": "Jacksonville"
+  },
+  {
+    "slug": "galloway-roofing-llc",
+    "name": "GALLOWAY ROOFING LLC",
+    "phone": "941-697-3737",
+    "city": "Englewood"
+  },
+  {
+    "slug": "garabar-inc",
+    "name": "GARABAR INC",
+    "phone": "561-337-6798",
+    "city": "Lake Worth"
+  },
+  {
+    "slug": "gary-s-roofing-llc",
+    "name": "GARY\\",
+    "phone": "941-922-5199",
+    "city": "Sarasota"
+  },
+  {
+    "slug": "gulf-coast-roofing-co-inc",
+    "name": "GULF COAST ROOFING CO INC",
+    "phone": "239-597-9007",
+    "city": "Naples"
+  },
+  {
+    "slug": "giampri-corp",
+    "name": "GIAMPRI CORP",
+    "phone": "754-262-5773",
+    "city": "Weston"
+  },
+  {
+    "slug": "gibson-sons-roofing-inc",
+    "name": "GIBSON & SONS ROOFING INC",
+    "phone": "727-585-3143",
+    "city": "Largo"
+  },
+  {
+    "slug": "gustafson-industries",
+    "name": "GUSTAFSON INDUSTRIES",
+    "phone": "561-732-0656",
+    "city": "Boynton Beach"
+  },
+  {
+    "slug": "giza-roofing-solutions-inc",
+    "name": "GIZA ROOFING SOLUTIONS INC",
+    "phone": "239-980-2424",
+    "city": "Cape Coral"
+  },
+  {
+    "slug": "aastro-roofing-company-inc",
+    "name": "AASTRO ROOFING COMPANY INC",
+    "phone": "561-409-3280",
+    "city": "Deerfield Beach"
+  },
+  {
+    "slug": "nine-square-roofing-construction-llc",
+    "name": "NINE SQUARE ROOFING & CONSTRUCTION LLC",
+    "phone": "407-668-0033",
+    "city": "Orlando"
+  },
+  {
+    "slug": "the-roofing-company",
+    "name": "THE ROOFING COMPANY",
+    "phone": "727-916-3151",
+    "city": "New Pt Richey"
+  },
+  {
+    "slug": "americas-preferred-roofers-inc",
+    "name": "AMERICAS PREFERRED ROOFERS INC",
+    "phone": "786-277-3753",
+    "city": "Miami"
+  },
+  {
+    "slug": "ameri-con-enterprises-inc",
+    "name": "AMERI-CON ENTERPRISES INC",
+    "phone": "954-444-7717",
+    "city": "Lake Placid"
+  },
+  {
+    "slug": "a-star-contractors-inc",
+    "name": "A-STAR CONTRACTORS INC",
+    "phone": "954-922-5990",
+    "city": "Hollywood"
+  },
+  {
+    "slug": "a-to-z-contractors-inc",
+    "name": "A TO Z CONTRACTORS INC",
+    "phone": "941-391-5055",
+    "city": "Pt Charlotte"
+  },
+  {
+    "slug": "aztec-roofs-inc",
+    "name": "AZTEC ROOFS INC",
+    "phone": "239-834-7840",
+    "city": "Bokeelia"
+  },
+  {
+    "slug": "backbone-roofing-inc",
+    "name": "BACKBONE ROOFING INC",
+    "phone": "813-909-6736",
+    "city": "Plant City"
+  },
+  {
+    "slug": "bill-ramsey-your-roofing-contractor-llc",
+    "name": "BILL RAMSEY YOUR ROOFING CONTRACTOR LLC",
+    "phone": "727-344-6071",
+    "city": "St Petersburg"
+  },
+  {
+    "slug": "bp-roofing-inc",
+    "name": "BP ROOFING INC",
+    "phone": "239-275-7663",
+    "city": "Ft Myers"
+  },
+  {
+    "slug": "property-renovations-construction-llc",
+    "name": "PROPERTY RENOVATIONS & CONSTRUCTION LLC",
+    "phone": "321-421-6374",
+    "city": "Melbourne"
+  },
+  {
+    "slug": "complete-construction-and-development-inc",
+    "name": "COMPLETE CONSTRUCTION AND DEVELOPMENT INC",
+    "phone": "561-687-8878",
+    "city": "Riviera Beach"
+  },
+  {
+    "slug": "andrews-roofing-llc",
+    "name": "ANDREWS ROOFING LLC",
+    "phone": "561-688-1066",
+    "city": "Ft Myers"
+  },
+  {
+    "slug": "certified-construction",
+    "name": "CERTIFIED CONSTRUCTION",
+    "phone": "386-423-0404",
+    "city": "Port Orange"
+  },
+  {
+    "slug": "collins-roofing-inc",
+    "name": "COLLINS ROOFING INC",
+    "phone": "772-201-1352",
+    "city": "Ft Pierce"
+  },
+  {
+    "slug": "gary-southard-construction-llc",
+    "name": "GARY SOUTHARD CONSTRUCTION LLC",
+    "phone": "352-359-6842",
+    "city": "Bronson"
+  },
+  {
+    "slug": "ctr-roofing-llc",
+    "name": "CTR ROOFING LLC",
+    "phone": "407-509-8391",
+    "city": "St Cloud"
+  },
+  {
+    "slug": "graston-roofing-co-inc",
+    "name": "GRASTON ROOFING CO INC",
+    "phone": "904-707-3660",
+    "city": "St Johns"
+  },
+  {
+    "slug": "power-roofing-construction-llc",
+    "name": "POWER ROOFING & CONSTRUCTION LLC",
+    "phone": "407-566-2364",
+    "city": "Celebration"
+  },
+  {
+    "slug": "david-bange-roofing-llc",
+    "name": "DAVID BANGE ROOFING LLC",
+    "phone": "954-435-7663",
+    "city": "Davie"
+  },
+  {
+    "slug": "ddr-quality-roofing-sheet-metal",
+    "name": "DDR QUALITY ROOFING & SHEET METAL",
+    "phone": "386-437-7700",
+    "city": "Bunnell"
+  },
+  {
+    "slug": "rain-proof-roofing-contracting-llc",
+    "name": "RAIN PROOF ROOFING & CONTRACTING LLC",
+    "phone": "877-997-2737",
+    "city": "Cape Coral"
+  },
+  {
+    "slug": "d-squared-services-llc",
+    "name": "D SQUARED SERVICES LLC",
+    "phone": "863-993-5149",
+    "city": "Arcadia"
+  },
+  {
+    "slug": "east-coast-roofing-solutions-inc",
+    "name": "EAST COAST ROOFING SOLUTIONS INC",
+    "phone": "321-292-9803",
+    "city": "Cocoa Beach"
+  },
+  {
+    "slug": "ideal-home-solutions-llc",
+    "name": "IDEAL HOME SOLUTIONS LLC",
+    "phone": "833-433-2547",
+    "city": "Bradenton"
+  },
+  {
+    "slug": "five-star-roofing-of-north-east-fl-inc",
+    "name": "FIVE STAR ROOFING OF NORTH EAST FL INC",
+    "phone": "386-385-8504",
+    "city": "Flagler Beach"
+  },
+  {
+    "slug": "brandon-roofing",
+    "name": "BRANDON ROOFING",
+    "phone": "813-393-0241",
+    "city": "Tampa"
+  },
+  {
+    "slug": "florida-roofing-sheet-metal-llc",
+    "name": "FLORIDA ROOFING & SHEET METAL LLC",
+    "phone": "561-260-2012",
+    "city": "Palm Springs"
+  },
+  {
+    "slug": "florida-roof-design-inc",
+    "name": "FLORIDA ROOF DESIGN INC",
+    "phone": "321-750-2434",
+    "city": "Ocala"
+  },
+  {
+    "slug": "leonard-clark-roofing-inc",
+    "name": "LEONARD CLARK ROOFING INC",
+    "phone": "386-734-7823",
+    "city": "Deland"
+  },
+  {
+    "slug": "otis-joiner-roofing-contractor-inc",
+    "name": "OTIS JOINER ROOFING CONTRACTOR INC",
+    "phone": "941-729-1751",
+    "city": "Palmetto"
+  },
+  {
+    "slug": "all-south-roofing-company-inc",
+    "name": "ALL SOUTH ROOFING COMPANY INC",
+    "phone": "904-781-6363",
+    "city": "Jacksonville"
+  },
+  {
+    "slug": "jb-roofing-waterproofing-llc",
+    "name": "JB ROOFING & WATERPROOFING LLC",
+    "phone": "772-834-7663",
+    "city": "Stuart"
+  },
+  {
+    "slug": "jireh-roofing-contractor-usa-inc",
+    "name": "JIREH ROOFING CONTRACTOR USA INC",
+    "phone": "305-900-9322",
+    "city": "Miami"
+  },
+  {
+    "slug": "certified-industries-inc",
+    "name": "CERTIFIED INDUSTRIES INC",
+    "phone": "904-955-5431",
+    "city": "Palm Coast"
+  },
+  {
+    "slug": "jovil-roofing-corp",
+    "name": "JOVIL ROOFING CORP",
+    "phone": "954-941-4737",
+    "city": "Deerfield Beach"
+  },
+  {
+    "slug": "larry-neese-llc",
+    "name": "LARRY NEESE LLC",
+    "phone": "772-361-6580",
+    "city": "Ft Pierce"
+  },
+  {
+    "slug": "american-roofing-central-inc",
+    "name": "AMERICAN ROOFING CENTRAL INC",
+    "phone": "863-381-1453",
+    "city": "Sebring"
+  },
+  {
+    "slug": "luxury-roofing-service-llc",
+    "name": "LUXURY ROOFING SERVICE LLC",
+    "phone": "321-263-5071",
+    "city": "Sanford"
+  },
+  {
+    "slug": "marzo-roofing-inc",
+    "name": "MARZO ROOFING INC",
+    "phone": "772-871-2489",
+    "city": "Pt St Lucie"
+  },
+  {
+    "slug": "southern-style-roofing-inc",
+    "name": "SOUTHERN STYLE ROOFING INC",
+    "phone": "407-359-8147",
+    "city": "Orlando"
+  },
+  {
+    "slug": "dan-mccullers-incorporated",
+    "name": "DAN MCCULLERS INCORPORATED",
+    "phone": "727-538-0808",
+    "city": "Largo"
+  },
+  {
+    "slug": "moore-roofing-builders-inc",
+    "name": "MOORE ROOFING & BUILDERS INC",
+    "phone": "239-394-2100",
+    "city": "Marco Island"
+  },
+  {
+    "slug": "tecta-america-southeast-llc",
+    "name": "TECTA AMERICA SOUTHEAST LLC",
+    "phone": "407-330-9303",
+    "city": "Sanford"
+  },
+  {
+    "slug": "nemetz-roofing",
+    "name": "NEMETZ ROOFING",
+    "phone": "386-663-1800",
+    "city": "Pt Orange"
+  },
+  {
+    "slug": "new-south-roofing-inc",
+    "name": "NEW SOUTH ROOFING INC",
+    "phone": "229-515-3780",
+    "city": "Bainbridge"
+  },
+  {
+    "slug": "hinspeter-roofing-inc",
+    "name": "HINSPETER ROOFING INC",
+    "phone": "239-455-1216",
+    "city": "Naples"
+  },
+  {
+    "slug": "orem-construction-services-llc",
+    "name": "OREM CONSTRUCTION SERVICES LLC",
+    "phone": "407-908-2850",
+    "city": "Winter Garden"
+  },
+  {
+    "slug": "pro-tech-roofing-construction-llc",
+    "name": "PRO TECH ROOFING & CONSTRUCTION LLC",
+    "phone": "954-593-8240",
+    "city": "Davie"
+  },
+  {
+    "slug": "wayne-s-roofing-sheet-metal",
+    "name": "WAYNE\\",
+    "phone": "386-255-3633",
+    "city": "Ormond Beach"
+  },
+  {
+    "slug": "rci-roof-services-inc",
+    "name": "RCI ROOF SERVICES INC",
+    "phone": "772-202-7074",
+    "city": "Vero Beach"
+  },
+  {
+    "slug": "rh-quality-metal-of-florida-llc",
+    "name": "RH QUALITY METAL OF FLORIDA LLC",
+    "phone": "407-279-2454",
+    "city": "Davenport"
+  },
+  {
+    "slug": "robert-jones-roofing-general-contracting-llc",
+    "name": "ROBERT JONES ROOFING & GENERAL CONTRACTING LLC",
+    "phone": "321-403-5047",
+    "city": "Titusville"
+  },
+  {
+    "slug": "huey-services-inc",
+    "name": "HUEY SERVICES INC",
+    "phone": "813-881-9199",
+    "city": "Tampa"
+  },
+  {
+    "slug": "roofing-construction-corp",
+    "name": "ROOFING & CONSTRUCTION CORP",
+    "phone": "954-638-4580",
+    "city": "Ft Lauderdale"
+  },
+  {
+    "slug": "roof-pro",
+    "name": "ROOF PRO",
+    "phone": "561-249-0247",
+    "city": "Riviera Beach"
+  },
+  {
+    "slug": "roofpro-roofing-llc",
+    "name": "ROOFPRO ROOFING LLC",
+    "phone": "850-332-3330",
+    "city": "Destin"
+  },
+  {
+    "slug": "sand-dollar-roofing-inc",
+    "name": "SAND DOLLAR ROOFING INC",
+    "phone": "239-368-3900",
+    "city": "Ft Myers"
+  },
+  {
+    "slug": "story-bleich-roofing",
+    "name": "STORY & BLEICH ROOFING",
+    "phone": "850-776-1050",
+    "city": "Pensacola"
+  },
+  {
+    "slug": "summerfield-roofing-sheet-metal",
+    "name": "SUMMERFIELD ROOFING & SHEET METAL",
+    "phone": "352-347-7454",
+    "city": "Oklawaha"
+  },
+  {
+    "slug": "tim-riner-construction-inc",
+    "name": "TIM RINER CONSTRUCTION INC",
+    "phone": "863-967-8842",
+    "city": "Lake Alfred"
+  },
+  {
+    "slug": "tm-scott-inc",
+    "name": "TM SCOTT INC",
+    "phone": "863-465-7737",
+    "city": "Lake Placid"
+  },
+  {
+    "slug": "tmt-roofing-llc",
+    "name": "TMT ROOFING LLC",
+    "phone": "352-888-4676",
+    "city": "Lake City"
+  },
+  {
+    "slug": "warner-roof-consulting-inc",
+    "name": "WARNER ROOF CONSULTING INC",
+    "phone": "386-736-7515",
+    "city": "Pt Orange"
+  },
+  {
+    "slug": "weatherproof-roofing-inc",
+    "name": "WEATHERPROOF ROOFING INC",
+    "phone": "850-612-7000",
+    "city": "Crest View"
+  },
+  {
+    "slug": "we-brodbeck-roofing-co-inc",
+    "name": "WE BRODBECK ROOFING CO INC",
+    "phone": "561-582-0449",
+    "city": "Lake Worth"
+  },
+  {
+    "slug": "zenith-construction-services-llc",
+    "name": "ZENITH CONSTRUCTION SERVICES LLC",
+    "phone": "863-241-0855",
+    "city": "Frostproof"
+  },
+  {
+    "slug": "gold-key-roofing-llc",
+    "name": "GOLD KEY ROOFING LLC",
+    "phone": "407-851-0680",
+    "city": "Orlando"
+  },
+  {
+    "slug": "gomez-roofing-co",
+    "name": "GOMEZ ROOFING CO",
+    "phone": "954-974-4848",
+    "city": "Pompano Beach"
+  },
+  {
+    "slug": "tim-graboski-roofing-inc",
+    "name": "TIM GRABOSKI ROOFING INC",
+    "phone": "561-276-8252",
+    "city": "Deerfield Beach"
+  },
+  {
+    "slug": "greentek-property-solutions-llc",
+    "name": "GREENTEK PROPERTY SOLUTIONS LLC",
+    "phone": "813-333-1963",
+    "city": "Thonotosassa"
+  },
+  {
+    "slug": "gulf-coast-roofing",
+    "name": "GULF COAST ROOFING",
+    "phone": "850-465-7663",
+    "city": "Panama City"
+  },
+  {
+    "slug": "gwr-gulf-western",
+    "name": "GWR GULF WESTERN",
+    "phone": "800-277-0647",
+    "city": "Bonita Springs"
+  },
+  {
+    "slug": "gulledge-roofing-inc",
+    "name": "GULLEDGE ROOFING INC",
+    "phone": "386-738-1967",
+    "city": "Deland"
+  },
+  {
+    "slug": "gutterhawk-inc",
+    "name": "GUTTERHAWK INC",
+    "phone": "850-656-4295",
+    "city": "Tallahassee"
+  },
+  {
+    "slug": "hamilton-roofing-inc",
+    "name": "HAMILTON ROOFING INC",
+    "phone": "321-729-0548",
+    "city": "Malabar"
+  },
+  {
+    "slug": "handyman-home-repair-services-of-pinellas-inc",
+    "name": "HANDYMAN HOME REPAIR SERVICES OF PINELLAS INC",
+    "phone": "727-577-2468",
+    "city": "Clearwater"
+  },
+  {
+    "slug": "hartford-south-llc",
+    "name": "HARTFORD SOUTH LLC",
+    "phone": "407-857-9392",
+    "city": "Orlando"
+  },
+  {
+    "slug": "harvath-roofing-inc",
+    "name": "HARVATH ROOFING INC",
+    "phone": "941-761-3447",
+    "city": "Bradenton"
+  },
+  {
+    "slug": "hd-roofing-and-construction-llc",
+    "name": "HD ROOFING AND CONSTRUCTION LLC",
+    "phone": "407-401-5173",
+    "city": "Longwood"
+  },
+  {
+    "slug": "heart-of-florida-roofing",
+    "name": "HEART OF FLORIDA ROOFING",
+    "phone": "407-462-5414",
+    "city": "Orlando"
+  },
+  {
+    "slug": "hendrick-roofing-inc",
+    "name": "HENDRICK ROOFING INC",
+    "phone": "727-531-1025",
+    "city": "Largo"
+  },
+  {
+    "slug": "hercules-roofing-llc",
+    "name": "HERCULES ROOFING LLC",
+    "phone": "561-955-9889",
+    "city": "Boynton Beach"
+  },
+  {
+    "slug": "hermitage-roofing-co",
+    "name": "HERMITAGE ROOFING CO",
+    "phone": "561-235-7400",
+    "city": "Magnolia Park"
+  },
+  {
+    "slug": "hi-rise-commercial-roofing-inc",
+    "name": "HI-RISE COMMERCIAL ROOFING INC",
+    "phone": "954-792-5651",
+    "city": "Ft Lauderdale"
+  },
+  {
+    "slug": "high-tide-roofing-waterproofing-inc",
+    "name": "HIGH TIDE ROOFING & WATERPROOFING INC",
+    "phone": "904-460-6731",
+    "city": "St Augustine"
+  },
+  {
+    "slug": "high-tower-roofing-contracting-llc",
+    "name": "HIGH TOWER ROOFING & CONTRACTING LLC",
+    "phone": "863-510-5477",
+    "city": "Lakeland"
+  },
+  {
+    "slug": "bob-hilson-co-inc",
+    "name": "BOB HILSON & CO INC",
+    "phone": "305-246-0209",
+    "city": "Homestead"
+  },
+  {
+    "slug": "hopkins-roofing-inc",
+    "name": "HOPKINS ROOFING INC",
+    "phone": "727-739-8883",
+    "city": "St Petersburg"
+  },
+  {
+    "slug": "anchor-roofing-co",
+    "name": "ANCHOR ROOFING CO",
+    "phone": "305-691-7707",
+    "city": "Hialeah"
+  },
+  {
+    "slug": "richard-barfield-roofing-inc",
+    "name": "RICHARD BARFIELD ROOFING INC",
+    "phone": "850-229-7788",
+    "city": "Pt St Joe"
+  },
+  {
+    "slug": "b-t-metal-works-inc",
+    "name": "B&T METAL WORKS INC",
+    "phone": "352-236-6000",
+    "city": "Ocala"
+  },
+  {
+    "slug": "gullett-roofing-llc",
+    "name": "GULLETT ROOFING LLC",
+    "phone": "863-412-2821",
+    "city": "Lakeland"
+  },
+  {
+    "slug": "all-ways-roofing-llc",
+    "name": "ALL WAYS ROOFING LLC",
+    "phone": "407-925-6193",
+    "city": "Clermont"
+  },
+  {
+    "slug": "larry-miller-inc",
+    "name": "LARRY MILLER INC",
+    "phone": "813-931-4024",
+    "city": "Tampa"
+  },
+  {
+    "slug": "stuart-lyons-roofing-inc",
+    "name": "STUART LYONS ROOFING INC",
+    "phone": "386-257-1007",
+    "city": "Daytona Beach"
+  },
+  {
+    "slug": "mike-willis-roofing-construction-llc",
+    "name": "MIKE WILLIS ROOFING & CONSTRUCTION LLC",
+    "phone": "321-254-7176",
+    "city": "Melbourne"
+  },
+  {
+    "slug": "kilyn-construction-inc",
+    "name": "KILYN CONSTRUCTION INC",
+    "phone": "850-250-7374",
+    "city": "Panama City Beach"
+  },
+  {
+    "slug": "rock-home-improvements-llc",
+    "name": "ROCK HOME IMPROVEMENTS LLC",
+    "phone": "321-504-6282",
+    "city": "Cocoa"
+  },
+  {
+    "slug": "old-world-craftsmen-inc",
+    "name": "OLD WORLD CRAFTSMEN INC",
+    "phone": "386-758-3264",
+    "city": "Lake City"
+  },
+  {
+    "slug": "sentry-metals-llc",
+    "name": "SENTRY METALS LLC",
+    "phone": "941-539-6201",
+    "city": "Nokomis"
+  },
+  {
+    "slug": "hough-roofing-screen-rooms",
+    "name": "HOUGH ROOFING & SCREEN ROOMS",
+    "phone": "321-837-1838",
+    "city": "Palm Bay"
+  },
+  {
+    "slug": "high-quality-roofing-co",
+    "name": "HIGH QUALITY ROOFING CO",
+    "phone": "407-403-8932",
+    "city": "Citra"
+  },
+  {
+    "slug": "huber-associates",
+    "name": "HUBER & ASSOCIATES",
+    "phone": "386-487-1040",
+    "city": "Lake City"
+  },
+  {
+    "slug": "hurricane-roofer-llc",
+    "name": "HURRICANE ROOFER LLC",
+    "phone": "850-860-0253",
+    "city": "Windermere"
+  },
+  {
+    "slug": "hw-contracting-llc",
+    "name": "HW CONTRACTING LLC",
+    "phone": "904-217-0227",
+    "city": "St Johns"
+  },
+  {
+    "slug": "imperial-roofing-of-polk-county-inc",
+    "name": "IMPERIAL ROOFING OF POLK COUNTY INC",
+    "phone": "863-967-9244",
+    "city": "Winter Haven"
+  },
+  {
+    "slug": "ims-roofing-lc",
+    "name": "IMS ROOFING LC",
+    "phone": "386-215-3087",
+    "city": "Orlando"
+  },
+  {
+    "slug": "infinity-roofing-llc",
+    "name": "INFINITY ROOFING LLC",
+    "phone": "386-575-4007",
+    "city": "Deltona"
+  },
+  {
+    "slug": "integrity-roofing-gutters-inc",
+    "name": "INTEGRITY ROOFING & GUTTERS INC",
+    "phone": "407-960-4058",
+    "city": "Orlando"
+  },
+  {
+    "slug": "innovative-roofing-inc",
+    "name": "INNOVATIVE ROOFING INC",
+    "phone": "954-429-8845",
+    "city": "Pompano Beach"
+  },
+  {
+    "slug": "isaacs-roofing-insulation-corp",
+    "name": "ISAACS ROOFING & INSULATION CORP",
+    "phone": "305-234-5234",
+    "city": "Palmetto Bay"
+  },
+  {
+    "slug": "jada-roofing-llc",
+    "name": "JADA ROOFING LLC",
+    "phone": "904-606-7663",
+    "city": "Middleburg"
+  },
+  {
+    "slug": "james-roofing-services-inc",
+    "name": "JAMES ROOFING SERVICES INC",
+    "phone": "727-289-7171",
+    "city": "St Petersburg"
+  },
+  {
+    "slug": "janney-construction-services-llc",
+    "name": "JANNEY CONSTRUCTION SERVICES LLC",
+    "phone": "321-385-7663",
+    "city": "Orlando"
+  },
+  {
+    "slug": "jav-contractors-inc",
+    "name": "JAV CONTRACTORS INC",
+    "phone": "561-856-8720",
+    "city": "St Cloud"
+  },
+  {
+    "slug": "jack-c-wilson-roofing-co",
+    "name": "JACK C WILSON ROOFING CO",
+    "phone": "904-396-1546",
+    "city": "Jacksonville"
+  },
+  {
+    "slug": "jebco-weatherproofing-management-llc",
+    "name": "JEBCO WEATHERPROOFING MANAGEMENT LLC",
+    "phone": "904-419-7754",
+    "city": "Jacksonville"
+  },
+  {
+    "slug": "jeff-albert-roofing-inc",
+    "name": "JEFF ALBERT ROOFING INC",
+    "phone": "561-988-6001",
+    "city": "Delray Beach"
+  },
+  {
+    "slug": "jiffy-services-of-central-florida",
+    "name": "JIFFY SERVICES OF CENTRAL FLORIDA",
+    "phone": "410-984-6789",
+    "city": "Palm Coast"
+  },
+  {
+    "slug": "john-rogers-roofing-inc",
+    "name": "JOHN ROGERS ROOFING INC",
+    "phone": "239-455-3868",
+    "city": "Naples"
+  },
+  {
+    "slug": "johnson-s-air-conditioning-inc",
+    "name": "JOHNSON\\",
+    "phone": "239-597-4675",
+    "city": "Naples"
+  },
+  {
+    "slug": "earl-w-johnston-roofing-llc",
+    "name": "EARL W JOHNSTON ROOFING LLC",
+    "phone": "954-989-7794",
+    "city": "Hollywood"
+  },
+  {
+    "slug": "us-roofing-group-llc",
+    "name": "US ROOFING GROUP LLC",
+    "phone": "888-965-0305",
+    "city": "Tampa"
+  },
+  {
+    "slug": "jr-co",
+    "name": "JR & CO",
+    "phone": "239-308-0011",
+    "city": "Bonita Springs"
+  },
+  {
+    "slug": "jan-tukker-inc",
+    "name": "JAN TUKKER INC",
+    "phone": "407-767-6912",
+    "city": "Altamonte Springs"
+  },
+  {
+    "slug": "jto-contracting-inc",
+    "name": "JTO CONTRACTING INC",
+    "phone": "407-732-7500",
+    "city": "Sanford"
+  },
+  {
+    "slug": "jurin-roofing-services-inc",
+    "name": "JURIN ROOFING SERVICES INC",
+    "phone": "863-422-3176",
+    "city": "Dundee"
+  },
+  {
+    "slug": "jv-contractors-llc",
+    "name": "JV CONTRACTORS LLC",
+    "phone": "407-401-9050",
+    "city": "Deltona"
+  },
+  {
+    "slug": "kam-roofing-services-llc",
+    "name": "KAM ROOFING SERVICES LLC",
+    "phone": "727-637-6827",
+    "city": "Clearwater"
+  },
+  {
+    "slug": "k-g-construction-co-inc",
+    "name": "K&G CONSTRUCTION CO INC",
+    "phone": "904-772-1316",
+    "city": "Jacksonville"
+  },
+  {
+    "slug": "karma-roofing",
+    "name": "KARMA ROOFING",
+    "phone": "321-465-2762",
+    "city": "Orlando"
+  },
+  {
+    "slug": "key-roofing-exteriors",
+    "name": "KEY ROOFING & EXTERIORS",
+    "phone": "888-539-1717",
+    "city": "Sarasota"
+  },
+  {
+    "slug": "keys-roofing-inc",
+    "name": "KEYS ROOFING INC",
+    "phone": "305-451-5678",
+    "city": "Key Largo"
+  },
+  {
+    "slug": "king-roofing-service-inc",
+    "name": "KING ROOFING SERVICE INC",
+    "phone": "239-598-2414",
+    "city": "Naples"
+  },
+  {
+    "slug": "kirkey-roofing-inc",
+    "name": "KIRKEY ROOFING INC",
+    "phone": "941-474-2113",
+    "city": "Englewood"
+  },
+  {
+    "slug": "klr-roofing-corp",
+    "name": "KLR ROOFING CORP",
+    "phone": "561-603-9914",
+    "city": "West Palm Beach"
+  },
+  {
+    "slug": "kl-smith-inc",
+    "name": "KL SMITH INC",
+    "phone": "863-647-5560",
+    "city": "Lakeland"
+  },
+  {
+    "slug": "lamphier-company",
+    "name": "LAMPHIER & COMPANY",
+    "phone": "407-330-1628",
+    "city": "Sanford"
+  },
+  {
+    "slug": "latite-roofing-sheet-metal-co",
+    "name": "LATITE ROOFING & SHEET METAL CO",
+    "phone": "954-772-3446",
+    "city": "Pompano Beach"
+  },
+  {
+    "slug": "legacy-contracting-solutions-inc",
+    "name": "LEGACY CONTRACTING SOLUTIONS INC",
+    "phone": "561-844-4910",
+    "city": "Riviera Beach"
+  },
+  {
+    "slug": "legacy-roofing-srq",
+    "name": "LEGACY ROOFING SRQ",
+    "phone": "941-226-9200",
+    "city": "Sarasota"
+  },
+  {
+    "slug": "len-s-roofing-inc",
+    "name": "LEN\\",
+    "phone": "941-896-7897",
+    "city": "Bradenton"
+  },
+  {
+    "slug": "family-pride-roofing-inc",
+    "name": "FAMILY PRIDE ROOFING INC",
+    "phone": "941-429-6464",
+    "city": "North Port"
+  },
+  {
+    "slug": "greg-s-roofing-inc",
+    "name": "GREG\\",
+    "phone": "386-672-2821",
+    "city": "Ormond Beach"
+  },
+  {
+    "slug": "aaa-schwartz-roofing-inc",
+    "name": "AAA SCHWARTZ ROOFING INC",
+    "phone": "941-627-3869",
+    "city": "Pt Charlotte"
+  },
+  {
+    "slug": "lou-jezdimir-roofing-inc",
+    "name": "LOU JEZDIMIR ROOFING INC",
+    "phone": "954-761-7853",
+    "city": "Ormond Beach"
+  },
+  {
+    "slug": "luviano-roofing-co-inc",
+    "name": "LUVIANO ROOFING CO INC",
+    "phone": "863-357-3838",
+    "city": "Okeechobee"
+  },
+  {
+    "slug": "maco-construction-services-llc",
+    "name": "MACO CONSTRUCTION SERVICES LLC",
+    "phone": "561-844-2225",
+    "city": "West Palm Beach"
+  },
+  {
+    "slug": "magnum-roofing-restoration",
+    "name": "MAGNUM ROOFING & RESTORATION",
+    "phone": "813-606-4414",
+    "city": "Lutz"
+  },
+  {
+    "slug": "maintenx-international-roofing-division",
+    "name": "MAINTENX INTERNATIONAL ROOFING DIVISION",
+    "phone": "855-751-0075",
+    "city": "Tampa"
+  },
+  {
+    "slug": "manson-roofing-inc",
+    "name": "MANSON ROOFING INC",
+    "phone": "941-748-5547",
+    "city": "Bradenton"
+  },
+  {
+    "slug": "marathon-roofing-and-contracting-inc",
+    "name": "MARATHON ROOFING AND CONTRACTING INC",
+    "phone": "407-636-7663",
+    "city": "Longwood"
+  },
+  {
+    "slug": "mark-taylor-construction-llc",
+    "name": "MARK TAYLOR CONSTRUCTION LLC",
+    "phone": "850-554-5440",
+    "city": "Pensacola"
+  },
+  {
+    "slug": "martin-roofing-services-inc",
+    "name": "MARTIN ROOFING SERVICES INC",
+    "phone": "407-679-4553",
+    "city": "Winter Park"
+  },
+  {
+    "slug": "amw-contracting-inc",
+    "name": "AMW CONTRACTING INC",
+    "phone": "904-725-4197",
+    "city": "Jacksonville"
+  },
+  {
+    "slug": "mighty-dog-roofing",
+    "name": "MIGHTY DOG ROOFING",
+    "phone": "941-251-4257",
+    "city": "Bradenton"
+  },
+  {
+    "slug": "jackson-enterprises-of-brevard",
+    "name": "JACKSON ENTERPRISES OF BREVARD",
+    "phone": "321-727-3515",
+    "city": "Melbourne"
+  },
+  {
+    "slug": "mitchell-sons-roofing-llc",
+    "name": "MITCHELL & SONS ROOFING LLC",
+    "phone": "727-807-5217",
+    "city": "New Port Richey"
+  },
+  {
+    "slug": "mark-kaufman-roofing",
+    "name": "MARK KAUFMAN ROOFING",
+    "phone": "941-426-5241",
+    "city": "North Port"
+  },
+  {
+    "slug": "modtek-roofing-inc",
+    "name": "MODTEK ROOFING INC",
+    "phone": "772-213-8437",
+    "city": "Vero Beach"
+  },
+  {
+    "slug": "molsbee-roofing-inc",
+    "name": "MOLSBEE ROOFING INC",
+    "phone": "561-318-8624",
+    "city": "Lake Worth"
+  },
+  {
+    "slug": "montgomery-winslow-roofing",
+    "name": "MONTGOMERY-WINSLOW ROOFING",
+    "phone": "239-694-1056",
+    "city": "Ft Myers"
+  },
+  {
+    "slug": "moody-s-sheet-metal",
+    "name": "MOODY\\",
+    "phone": "386-252-4464",
+    "city": "Daytona Beach"
+  },
+  {
+    "slug": "morgan-conley-roofing-repair-llc",
+    "name": "MORGAN CONLEY ROOFING & REPAIR LLC",
+    "phone": "904-380-1563",
+    "city": "Jacksonville"
+  },
+  {
+    "slug": "movi-contractors-llc",
+    "name": "MOVI CONTRACTORS LLC",
+    "phone": "321-333-8405",
+    "city": "Kissimmee"
+  },
+  {
+    "slug": "affordable-roofing-of-central-fl",
+    "name": "AFFORDABLE ROOFING OF CENTRAL FL",
+    "phone": "386-938-2001",
+    "city": "Jennings"
+  },
+  {
+    "slug": "done-rite-roofing-inc",
+    "name": "DONE RITE ROOFING INC",
+    "phone": "727-771-8747",
+    "city": "Palm Harbor"
+  },
+  {
+    "slug": "d-r-martineau-construction-inc",
+    "name": "D.R. MARTINEAU CONSTRUCTION INC",
+    "phone": "239-332-1441",
+    "city": "Ft Myers"
+  },
+  {
+    "slug": "mullet-s-aluminum-products-inc",
+    "name": "MULLET\\",
+    "phone": "941-371-3502",
+    "city": "Sarasota"
+  },
+  {
+    "slug": "munyan-restoration-waterproofing",
+    "name": "MUNYAN RESTORATION WATERPROOFING",
+    "phone": "727-442-5062",
+    "city": "Clearwater"
+  },
+  {
+    "slug": "midwest-roofing-company-inc",
+    "name": "MIDWEST ROOFING COMPANY INC",
+    "phone": "321-425-3068",
+    "city": "Melbourne"
+  },
+  {
+    "slug": "complete-roofing-solutions-inc",
+    "name": "COMPLETE ROOFING SOLUTIONS INC",
+    "phone": "561-848-7663",
+    "city": "West Palm Beach"
+  },
+  {
+    "slug": "my-florida-roofing-contractor",
+    "name": "MY FLORIDA ROOFING CONTRACTOR",
+    "phone": "772-453-7219",
+    "city": "Vero Beach"
+  },
+  {
+    "slug": "roofsmith-of-tampa-bay-inc",
+    "name": "ROOFSMITH OF TAMPA BAY INC",
+    "phone": "813-419-0502",
+    "city": "Tampa"
+  },
+  {
+    "slug": "national-roofing-of-collier-inc",
+    "name": "NATIONAL ROOFING OF COLLIER INC",
+    "phone": "239-263-8043",
+    "city": "Naples"
+  },
+  {
+    "slug": "nations-roofing-construction-mechanical-llc",
+    "name": "NATIONS ROOFING CONSTRUCTION & MECHANICAL LLC",
+    "phone": "813-485-4440",
+    "city": "Dade City"
+  },
+  {
+    "slug": "nature-coast-roofing-solutions-inc",
+    "name": "NATURE COAST ROOFING SOLUTIONS INC",
+    "phone": "727-597-3414",
+    "city": "Hudson"
+  },
+  {
+    "slug": "national-building-contractors-inc",
+    "name": "NATIONAL BUILDING CONTRACTORS INC",
+    "phone": "770-860-1780",
+    "city": "Orange Park"
+  },
+  {
+    "slug": "neal-strickland-roofing-inc",
+    "name": "NEAL STRICKLAND ROOFING INC",
+    "phone": "386-328-5509",
+    "city": "E Palatka"
+  },
+  {
+    "slug": "new-south-systems-inc",
+    "name": "NEW SOUTH SYSTEMS INC",
+    "phone": "850-671-3333",
+    "city": "Tallahassee"
+  },
+  {
+    "slug": "neumann-construction-roofing-llc",
+    "name": "NEUMANN CONSTRUCTION & ROOFING LLC",
+    "phone": "877-762-6350",
+    "city": "San Antonio"
+  },
+  {
+    "slug": "ocala-roofing-inc",
+    "name": "OCALA ROOFING INC",
+    "phone": "352-622-5235",
+    "city": "Ocala"
+  },
+  {
+    "slug": "o-hara-s-son-roofing-co",
+    "name": "O\\",
+    "phone": "229-356-7647",
+    "city": "St Augustine"
+  },
+  {
+    "slug": "o-neal-roofing-company-inc",
+    "name": "O\\",
+    "phone": "386-752-7578",
+    "city": "Lake City"
+  },
+  {
+    "slug": "one-love-roofing",
+    "name": "ONE LOVE ROOFING",
+    "phone": "402-551-7744",
+    "city": "Omaha"
+  },
+  {
+    "slug": "orlando-roofing-company",
+    "name": "ORLANDO ROOFING COMPANY",
+    "phone": "407-275-9444",
+    "city": "Orlando"
+  },
+  {
+    "slug": "owens-contracting-services-inc",
+    "name": "OWENS CONTRACTING SERVICES INC",
+    "phone": "407-730-7212",
+    "city": "Orlando"
+  },
+  {
+    "slug": "protech-roofing-services-llc",
+    "name": "PROTECH ROOFING SERVICES LLC",
+    "phone": "352-601-0799",
+    "city": "Brooksville"
+  },
+  {
+    "slug": "ras-roofing-llc",
+    "name": "RAS ROOFING LLC",
+    "phone": "561-805-8564",
+    "city": "W Palm Beach"
+  },
+  {
+    "slug": "worley-roofing-inc",
+    "name": "WORLEY ROOFING INC",
+    "phone": "561-747-0046",
+    "city": "Jupiter"
+  },
+  {
+    "slug": "over-the-top-roof-repair-inc",
+    "name": "OVER THE TOP ROOF REPAIR INC",
+    "phone": "772-888-6535",
+    "city": "Stuart"
+  },
+  {
+    "slug": "p-a-roofing-sheet-metal-inc",
+    "name": "P&A ROOFING & SHEET METAL INC",
+    "phone": "407-650-9541",
+    "city": "Orlando"
+  },
+  {
+    "slug": "paletz-roofing-inspections-inc",
+    "name": "PALETZ ROOFING & INSPECTIONS INC",
+    "phone": "833-916-7663",
+    "city": "Davie"
+  },
+  {
+    "slug": "roofing-unlimited-sheet-metal-inc",
+    "name": "ROOFING UNLIMITED & SHEET METAL INC",
+    "phone": "561-842-0075",
+    "city": "W Palm Beach"
+  },
+  {
+    "slug": "palm-roofing-corp",
+    "name": "PALM ROOFING CORP",
+    "phone": "305-235-3833",
+    "city": "Miami"
+  },
+  {
+    "slug": "panda-roof",
+    "name": "PANDA ROOF",
+    "phone": "772-778-6803",
+    "city": "Vero Beach"
+  },
+  {
+    "slug": "patrick-roofing-inc",
+    "name": "PATRICK ROOFING INC",
+    "phone": "321-728-7865",
+    "city": "Melbourne"
+  },
+  {
+    "slug": "patriot-response-group",
+    "name": "PATRIOT RESPONSE GROUP",
+    "phone": "772-538-4008",
+    "city": "Vero Beach"
+  },
+  {
+    "slug": "paul-bange-roofing-inc",
+    "name": "PAUL BANGE ROOFING INC",
+    "phone": "954-981-7663",
+    "city": "Davie"
+  },
+  {
+    "slug": "pbrown-builders-llc",
+    "name": "PBROWN BUILDERS LLC",
+    "phone": "850-346-3175",
+    "city": "Pensacola"
+  },
+  {
+    "slug": "prime-choice-roofing-llc",
+    "name": "PRIME CHOICE ROOFING LLC",
+    "phone": "407-466-0372",
+    "city": "Haines City"
+  },
+  {
+    "slug": "peet-roofing",
+    "name": "PEET ROOFING",
+    "phone": "407-268-3178",
+    "city": "Maitland"
+  },
+  {
+    "slug": "pegasus-builders-inc",
+    "name": "PEGASUS BUILDERS INC",
+    "phone": "561-790-3116",
+    "city": "Wellington"
+  },
+  {
+    "slug": "perfect-choice-roofing-inc",
+    "name": "PERFECT CHOICE ROOFING INC",
+    "phone": "954-706-1500",
+    "city": "Pembroke Pines"
+  },
+  {
+    "slug": "performance-roofing-llc",
+    "name": "PERFORMANCE ROOFING LLC",
+    "phone": "407-210-1503",
+    "city": "Oviedo"
+  },
+  {
+    "slug": "perkins-roofing-corporation",
+    "name": "PERKINS ROOFING CORPORATION",
+    "phone": "305-687-6521",
+    "city": "Miami"
+  },
+  {
+    "slug": "perry-roofing-contractors",
+    "name": "PERRY ROOFING CONTRACTORS",
+    "phone": "352-373-2724",
+    "city": "Gainesville"
+  },
+  {
+    "slug": "pestana-roofing-co-inc",
+    "name": "PESTANA ROOFING CO INC",
+    "phone": "561-585-0541",
+    "city": "Lake Worth"
+  },
+  {
+    "slug": "pinnacle-roofing-group-llc",
+    "name": "PINNACLE ROOFING GROUP LLC",
+    "phone": "386-631-5566",
+    "city": "Sanford"
+  },
+  {
+    "slug": "pioneer-roofing-company-llc",
+    "name": "PIONEER ROOFING COMPANY LLC",
+    "phone": "954-920-7688",
+    "city": "Hollywood"
+  },
+  {
+    "slug": "pit-crew-roofing",
+    "name": "PIT CREW ROOFING",
+    "phone": "321-339-3000",
+    "city": "Melbourne"
+  },
+  {
+    "slug": "dick-pittman-roof-services-inc",
+    "name": "DICK PITTMAN ROOF SERVICES INC",
+    "phone": "904-824-1327",
+    "city": "Saint Augustine"
+  },
+  {
+    "slug": "polaris-roofing-inc",
+    "name": "POLARIS ROOFING INC",
+    "phone": "239-944-0622",
+    "city": "Estero"
+  },
+  {
+    "slug": "pooles-roofing-repairs-inc",
+    "name": "POOLES ROOFING & REPAIRS INC",
+    "phone": "239-348-2928",
+    "city": "Naples"
+  },
+  {
+    "slug": "poseidon-roofing-llc",
+    "name": "POSEIDON ROOFING LLC",
+    "phone": "239-737-4789",
+    "city": "Ft Myers"
+  },
+  {
+    "slug": "prattco-inc",
+    "name": "PRATTCO INC",
+    "phone": "813-973-4771",
+    "city": "Plant City"
+  },
+  {
+    "slug": "premium-roofing-systems-llc",
+    "name": "PREMIUM ROOFING SYSTEMS LLC",
+    "phone": "321-344-0083",
+    "city": "Melbourne"
+  },
+  {
+    "slug": "precision-exteriors-llc",
+    "name": "PRECISION EXTERIORS LLC",
+    "phone": "386-752-4022",
+    "city": "Jacksonville"
+  },
+  {
+    "slug": "prg-roofing-construction-inc",
+    "name": "PRG ROOFING & CONSTRUCTION INC",
+    "phone": "239-237-2906",
+    "city": "Ft Myers"
+  },
+  {
+    "slug": "prime-roofing",
+    "name": "PRIME ROOFING",
+    "phone": "904-530-1446",
+    "city": "Jacksonville"
+  },
+  {
+    "slug": "procraft-exteriors-inc",
+    "name": "PROCRAFT EXTERIORS INC",
+    "phone": "239-970-8116",
+    "city": "Marco Island"
+  },
+  {
+    "slug": "pro-s-choice-roofing-llc",
+    "name": "PRO\\",
+    "phone": "321-338-2456",
+    "city": "Merritt Island"
+  },
+  {
+    "slug": "pro-tech-roofing-of-brevard",
+    "name": "PRO-TECH ROOFING OF BREVARD",
+    "phone": "321-783-1694",
+    "city": "Cocoa Beach"
+  },
+  {
+    "slug": "providential-roofing-construction-inc",
+    "name": "PROVIDENTIAL ROOFING & CONSTRUCTION INC",
+    "phone": "941-226-4000",
+    "city": "Bradenton"
+  },
+  {
+    "slug": "psi-roofing",
+    "name": "PSI ROOFING",
+    "phone": "954-791-7663",
+    "city": "Oakland Park"
+  },
+  {
+    "slug": "quality-metals-inc",
+    "name": "QUALITY METALS INC",
+    "phone": "407-321-3181",
+    "city": "Sanford"
+  },
+  {
+    "slug": "quality-roofing-inc",
+    "name": "QUALITY ROOFING INC",
+    "phone": "813-620-4797",
+    "city": "Tampa"
+  },
+  {
+    "slug": "quality-roofing-solutions-llc",
+    "name": "QUALITY ROOFING SOLUTIONS LLC",
+    "phone": "850-777-0961",
+    "city": "Pensacola"
+  },
+  {
+    "slug": "quick-roofing-llc",
+    "name": "QUICK ROOFING LLC",
+    "phone": "863-738-2533",
+    "city": "Lakeland"
+  },
+  {
+    "slug": "r-j-group-inc",
+    "name": "R/J GROUP INC",
+    "phone": "386-760-0764",
+    "city": "Pt Orange"
+  },
+  {
+    "slug": "rainbow-roofing-solutions",
+    "name": "RAINBOW ROOFING SOLUTIONS",
+    "phone": "954-370-7879",
+    "city": "Davie"
+  },
+  {
+    "slug": "rainshield-roofing-corp",
+    "name": "RAINSHIELD ROOFING CORP",
+    "phone": "954-282-9111",
+    "city": "Deerfield Beach"
+  },
+  {
+    "slug": "ramcon-llc",
+    "name": "RAMCON LLC",
+    "phone": "813-663-9667",
+    "city": "Tampa"
+  },
+  {
+    "slug": "rbs-construction-llc",
+    "name": "RBS CONSTRUCTION LLC",
+    "phone": "407-859-8163",
+    "city": "Orlando"
+  },
+  {
+    "slug": "r-c-roofing-and-contracting-llc",
+    "name": "R&C ROOFING AND CONTRACTING LLC",
+    "phone": "407-286-2545",
+    "city": "Orlando"
+  },
+  {
+    "slug": "r-d-construction-and-roofing",
+    "name": "R&D CONSTRUCTION AND ROOFING",
+    "phone": "786-379-5843",
+    "city": "Miami"
+  },
+  {
+    "slug": "recovery-roofing-inc",
+    "name": "RECOVERY ROOFING INC",
+    "phone": "904-518-3558",
+    "city": "Jacksonville"
+  },
+  {
+    "slug": "red-dog-s-roofing-of-florida-inc",
+    "name": "RED DOG\\",
+    "phone": "941-210-5736",
+    "city": "Sarasota"
+  },
+  {
+    "slug": "red-stag-contracting-inc",
+    "name": "RED STAG CONTRACTING INC",
+    "phone": "904-880-4681",
+    "city": "Jacksonville"
+  },
+  {
+    "slug": "register-roofing-sheet-metal-inc",
+    "name": "REGISTER ROOFING & SHEET METAL INC",
+    "phone": "904-215-8533",
+    "city": "Jacksonville"
+  },
+  {
+    "slug": "reliable-roofing-of-florida-inc",
+    "name": "RELIABLE ROOFING OF FLORIDA INC",
+    "phone": "407-720-7188",
+    "city": "Windermere"
+  },
+  {
+    "slug": "reliant-roofing-solar-hurricane-shutters",
+    "name": "RELIANT ROOFING SOLAR & HURRICANE SHUTTERS",
+    "phone": "904-657-0880",
+    "city": "Jacksonville"
+  },
+  {
+    "slug": "reliant-roofing-services-llc",
+    "name": "RELIANT ROOFING SERVICES LLC",
+    "phone": "386-679-6228",
+    "city": "Deltona"
+  },
+  {
+    "slug": "restore-group-llc",
+    "name": "RESTORE GROUP LLC",
+    "phone": "407-955-4252",
+    "city": "Longwood"
+  },
+  {
+    "slug": "revildor",
+    "name": "REVILDOR",
+    "phone": "321-332-3392",
+    "city": "Orlando"
+  },
+  {
+    "slug": "rf-lusa-sons-sheet-metal-inc",
+    "name": "RF LUSA & SONS SHEET METAL INC",
+    "phone": "863-682-0798",
+    "city": "Lakeland"
+  },
+  {
+    "slug": "rich-moore-roofing-llc",
+    "name": "RICH MOORE ROOFING LLC",
+    "phone": "561-704-9223",
+    "city": "Lake Worth"
+  },
+  {
+    "slug": "lindholm-construction-inc",
+    "name": "LINDHOLM CONSTRUCTION INC",
+    "phone": "305-852-5730",
+    "city": "Islamorada"
+  },
+  {
+    "slug": "right-now-roofing-fl-inc",
+    "name": "RIGHT NOW ROOFING FL INC",
+    "phone": "941-246-2991",
+    "city": "Pt Charlotte"
+  },
+  {
+    "slug": "r-j-coatings-waterproofing-inc",
+    "name": "R&J COATINGS & WATERPROOFING INC",
+    "phone": "386-947-4888",
+    "city": "Daytona Beach"
+  },
+  {
+    "slug": "rms-orlando-inc",
+    "name": "RMS ORLANDO INC",
+    "phone": "407-245-7663",
+    "city": "Orlando"
+  },
+  {
+    "slug": "roberson-roofing-inc",
+    "name": "ROBERSON ROOFING INC",
+    "phone": "386-677-2211",
+    "city": "Ormond Beach"
+  },
+  {
+    "slug": "robert-binns-roofing-inc",
+    "name": "ROBERT BINNS ROOFING INC",
+    "phone": "863-984-9685",
+    "city": "Winter Haven"
+  },
+  {
+    "slug": "robinson-roofing-restoration-llc",
+    "name": "ROBINSON ROOFING & RESTORATION LLC",
+    "phone": "866-295-1114",
+    "city": "Tampa"
+  },
+  {
+    "slug": "rodemeyer-roofing-llc",
+    "name": "RODEMEYER ROOFING LLC",
+    "phone": "954-815-6028",
+    "city": "Deerfield Beach"
+  },
+  {
+    "slug": "roman-roofing-inc",
+    "name": "ROMAN ROOFING INC",
+    "phone": "239-458-7663",
+    "city": "Cape Coral"
+  },
+  {
+    "slug": "roofcrafters-roofing-llc",
+    "name": "ROOFCRAFTERS ROOFING LLC",
+    "phone": "877-676-6373",
+    "city": "Odessa"
+  },
+  {
+    "slug": "roof-right-llc",
+    "name": "ROOF RIGHT LLC",
+    "phone": "239-766-3669",
+    "city": "Ft Myers"
+  },
+  {
+    "slug": "summit-roofing-solar-llc",
+    "name": "SUMMIT ROOFING & SOLAR LLC",
+    "phone": "904-723-4950",
+    "city": "Jacksonville"
+  },
+  {
+    "slug": "roof-commander-inc",
+    "name": "ROOF COMMANDER INC",
+    "phone": "855-536-ROOF (7663)",
+    "city": "Tavares"
+  },
+  {
+    "slug": "roof-express-llc",
+    "name": "ROOF EXPRESS LLC",
+    "phone": "561-533-5325",
+    "city": "Lake Worth"
+  },
+  {
+    "slug": "roofing-by-curry",
+    "name": "ROOFING BY CURRY",
+    "phone": "941-921-9111",
+    "city": "Sarasota"
+  },
+  {
+    "slug": "roofing-pioneers-llc",
+    "name": "ROOFING PIONEERS LLC",
+    "phone": "407-634-1221",
+    "city": "Oviedo"
+  },
+  {
+    "slug": "roofing-reina",
+    "name": "ROOFING REINA",
+    "phone": "305-834-1882",
+    "city": "Davie"
+  },
+  {
+    "slug": "roofman-inc",
+    "name": "ROOFMAN INC",
+    "phone": "561-844-0892",
+    "city": "N Palm Beach"
+  },
+  {
+    "slug": "roofmaster-of-south-florida-inc",
+    "name": "ROOFMASTER OF SOUTH FLORIDA INC",
+    "phone": "239-337-5761",
+    "city": "Lehigh Acres"
+  },
+  {
+    "slug": "garrett-roofing-inc",
+    "name": "GARRETT ROOFING INC",
+    "phone": "813-717-7663",
+    "city": "Dover"
+  },
+  {
+    "slug": "roof-over-america-llc",
+    "name": "ROOF-OVER AMERICA LLC",
+    "phone": "407-607-9135",
+    "city": "Orlando"
+  },
+  {
+    "slug": "roof-pros-usa-llc",
+    "name": "ROOF PROS USA LLC",
+    "phone": "407-574-4856",
+    "city": "Longwood"
+  },
+  {
+    "slug": "rooftech-roofing-sheet-metal-inc",
+    "name": "ROOFTECH ROOFING & SHEET METAL INC",
+    "phone": "954-735-0807",
+    "city": "Pompano Beach"
+  },
+  {
+    "slug": "roof-technologies-llc",
+    "name": "ROOF TECHNOLOGIES LLC",
+    "phone": "954-900-4072",
+    "city": "Lauderhill"
+  },
+  {
+    "slug": "roof-top-services-of-central-florida-inc",
+    "name": "ROOF TOP SERVICES OF CENTRAL FLORIDA INC",
+    "phone": "407-696-7663",
+    "city": "Winter Springs"
+  },
+  {
+    "slug": "roof-x-inc",
+    "name": "ROOF X INC",
+    "phone": "844-877-6639",
+    "city": "Tampa"
+  },
+  {
+    "slug": "rouen-services-inc",
+    "name": "ROUEN SERVICES INC",
+    "phone": "786-877-6858",
+    "city": "Miami"
+  },
+  {
+    "slug": "r-r-industries-inc",
+    "name": "R&R INDUSTRIES INC",
+    "phone": "386-253-7627",
+    "city": "Holly Hill"
+  },
+  {
+    "slug": "ryskcon-construction-inc",
+    "name": "RYSKCON CONSTRUCTION INC",
+    "phone": "386-445-7945",
+    "city": "Palm Coast"
+  },
+  {
+    "slug": "saint-raphael-roofing-inc",
+    "name": "SAINT RAPHAEL ROOFING INC",
+    "phone": "239-220-5120",
+    "city": "Ft Myers"
+  },
+  {
+    "slug": "salomon-roofing-waterproofing",
+    "name": "SALOMON ROOFING & WATERPROOFING",
+    "phone": "305-883-1856",
+    "city": "Miami Gardens"
+  },
+  {
+    "slug": "salt-roofing",
+    "name": "SALT ROOFING",
+    "phone": "352-638-9118",
+    "city": "Eustis"
+  },
+  {
+    "slug": "sarasota-roofing-co-inc",
+    "name": "SARASOTA ROOFING CO INC",
+    "phone": "941-371-2801",
+    "city": "Sarasota"
+  },
+  {
+    "slug": "southern-coast-foundation-systems",
+    "name": "SOUTHERN COAST FOUNDATION SYSTEMS",
+    "phone": "954-426-3312",
+    "city": "Deerfield Beach"
+  },
+  {
+    "slug": "southern-coast-enterprises-inc",
+    "name": "SOUTHERN COAST ENTERPRISES INC",
+    "phone": "954-426-3312",
+    "city": "Deerfield Beach"
+  },
+  {
+    "slug": "schick-roofing-llc",
+    "name": "SCHICK ROOFING LLC",
+    "phone": "407-749-0808",
+    "city": "Orlando"
+  },
+  {
+    "slug": "scott-smith-roofing-inc",
+    "name": "SCOTT SMITH ROOFING INC",
+    "phone": "352-867-0044",
+    "city": "Ocala"
+  },
+  {
+    "slug": "sean-lilly-roofing-co-inc",
+    "name": "SEAN LILLY ROOFING CO INC",
+    "phone": "305-264-4449",
+    "city": "Miami"
+  },
+  {
+    "slug": "marion-service-roofing-sheet-metal-co",
+    "name": "MARION SERVICE ROOFING & SHEET METAL CO",
+    "phone": "352-622-7256",
+    "city": "Ocala"
+  },
+  {
+    "slug": "service-works-commercial-roofing-inc",
+    "name": "SERVICE WORKS COMMERCIAL ROOFING INC",
+    "phone": "813-626-7717",
+    "city": "Tampa"
+  },
+  {
+    "slug": "sheegog-contracting",
+    "name": "SHEEGOG CONTRACTING",
+    "phone": "407-637-5339",
+    "city": "Winter Park"
+  },
+  {
+    "slug": "sheet-metal-unlimited-pl-inc",
+    "name": "SHEET METAL UNLIMITED PL INC",
+    "phone": "954-793-1097",
+    "city": "Ft Lauderdale"
+  },
+  {
+    "slug": "shield-coatings-waterproofing-inc",
+    "name": "SHIELD COATINGS & WATERPROOFING INC",
+    "phone": "813-247-5421",
+    "city": "Tampa"
+  },
+  {
+    "slug": "shorebreak-inc",
+    "name": "SHOREBREAK INC",
+    "phone": "904-624-0225",
+    "city": "Yulee"
+  },
+  {
+    "slug": "simon-roofing",
+    "name": "SIMON ROOFING",
+    "phone": "866-641-7663",
+    "city": "Tampa"
+  },
+  {
+    "slug": "sinclair-construction",
+    "name": "SINCLAIR CONSTRUCTION",
+    "phone": "239-944-7077",
+    "city": "Cape Coral"
+  },
+  {
+    "slug": "alvin-j-singleton-inc",
+    "name": "ALVIN J SINGLETON INC",
+    "phone": "941-365-3359",
+    "city": "Sarasota"
+  },
+  {
+    "slug": "six-sigma-roofing-contractors-llc",
+    "name": "SIX SIGMA ROOFING CONTRACTORS LLC",
+    "phone": "239-888-6613",
+    "city": "Ft Myers"
+  },
+  {
+    "slug": "skilcon-inc",
+    "name": "SKILCON INC",
+    "phone": "954-712-7474",
+    "city": "Ft Lauderdale"
+  },
+  {
+    "slug": "sk-quality-roofing-inc",
+    "name": "SK QUALITY ROOFING INC",
+    "phone": "561-276-8040",
+    "city": "Delray Beach"
+  },
+  {
+    "slug": "skymark-roofing-llc",
+    "name": "SKYMARK ROOFING LLC",
+    "phone": "352-805-8935",
+    "city": "Mt Dora"
+  },
+  {
+    "slug": "smitty-s-welding-and-sheet-metal-fabrication-llc",
+    "name": "SMITTY\\",
+    "phone": "321-723-4533",
+    "city": "Melbourne"
+  },
+  {
+    "slug": "solace-roofing-llc",
+    "name": "SOLACE ROOFING LLC",
+    "phone": "772-446-3096",
+    "city": "Pt St Lucie"
+  },
+  {
+    "slug": "sonshine-roofing-inc",
+    "name": "SONSHINE ROOFING INC",
+    "phone": "941-377-9933",
+    "city": "Sarasota"
+  },
+  {
+    "slug": "southeastern-coatings-waterproofing-inc",
+    "name": "SOUTHEASTERN COATINGS & WATERPROOFING INC",
+    "phone": "386-365-8912",
+    "city": "Lake City"
+  },
+  {
+    "slug": "southern-coast-roofing-construction-inc",
+    "name": "SOUTHERN COAST ROOFING & CONSTRUCTION INC",
+    "phone": "904-305-8887",
+    "city": "Jacksonville"
+  },
+  {
+    "slug": "south-quality-roofing-llc",
+    "name": "SOUTH QUALITY ROOFING LLC",
+    "phone": "786-809-9507",
+    "city": "Homestead"
+  },
+  {
+    "slug": "southern-roofing-co-inc",
+    "name": "SOUTHERN ROOFING CO INC",
+    "phone": "813-251-5252 x220",
+    "city": "Tampa"
+  },
+  {
+    "slug": "specialty-roofers-inc",
+    "name": "SPECIALTY ROOFERS INC",
+    "phone": "850-974-7663",
+    "city": "Freeport"
+  },
+  {
+    "slug": "spilker-roofing-sheet-metal",
+    "name": "SPILKER ROOFING & SHEET METAL",
+    "phone": "321-459-1176",
+    "city": "Merritt Island"
+  },
+  {
+    "slug": "springer-peterson-roofing-sheet-metal-inc",
+    "name": "SPRINGER-PETERSON ROOFING & SHEET METAL INC",
+    "phone": "863-665-1163",
+    "city": "Eaton Park"
+  },
+  {
+    "slug": "s-s-roofing-systems-inc",
+    "name": "S&S ROOFING SYSTEMS INC",
+    "phone": "407-696-4334",
+    "city": "Longwood"
+  },
+  {
+    "slug": "ssi-construction-inc",
+    "name": "SSI CONSTRUCTION INC",
+    "phone": "954-771-3667",
+    "city": "Oakland Park"
+  },
+  {
+    "slug": "starpro-roofing-sheet-metal-inc",
+    "name": "STARPRO ROOFING & SHEET METAL INC",
+    "phone": "772-286-8308",
+    "city": "Stuart"
+  },
+  {
+    "slug": "state-pride-roofing-of-fl-inc",
+    "name": "STATE PRIDE ROOFING OF FL INC",
+    "phone": "561-686-8057",
+    "city": "West Palm Beach"
+  },
+  {
+    "slug": "state-roofing-i-llc",
+    "name": "STATE ROOFING I LLC",
+    "phone": "239-207-3409",
+    "city": "Fort Myers"
+  },
+  {
+    "slug": "stay-dry-roofing-llc",
+    "name": "STAY DRY ROOFING LLC",
+    "phone": "317-308-7773",
+    "city": "Fort Myers"
+  },
+  {
+    "slug": "steel-rudder-roofing-llc",
+    "name": "STEEL RUDDER ROOFING LLC",
+    "phone": "904-699-4573",
+    "city": "Jacksonville"
+  },
+  {
+    "slug": "steppi-roofing-inc",
+    "name": "STEPPI ROOFING INC",
+    "phone": "407-293-6574",
+    "city": "Orlando"
+  },
+  {
+    "slug": "stormforce-of-jacksonville",
+    "name": "STORMFORCE OF JACKSONVILLE",
+    "phone": "904-416-3441",
+    "city": "Jacksonville"
+  },
+  {
+    "slug": "stratus-roofing",
+    "name": "STRATUS ROOFING",
+    "phone": "407-652-5866",
+    "city": "Maitland"
+  },
+  {
+    "slug": "streamline-roofing-construction-inc",
+    "name": "STREAMLINE ROOFING & CONSTRUCTION INC",
+    "phone": "850-575-1168",
+    "city": "Tallahassee"
+  },
+  {
+    "slug": "sun-catcher-roofing-ii-inc",
+    "name": "SUN CATCHER ROOFING II INC",
+    "phone": "561-542-3851",
+    "city": "Ft Lauderdale"
+  },
+  {
+    "slug": "sun-coast-roofing-services-inc",
+    "name": "SUN COAST ROOFING SERVICES INC",
+    "phone": "386-428-0652",
+    "city": "New Smyrna Beach"
+  },
+  {
+    "slug": "sunshine-roofing-of-south-west-florida-inc",
+    "name": "SUNSHINE ROOFING OF SOUTH WEST FLORIDA INC",
+    "phone": "239-514-3092",
+    "city": "Naples"
+  },
+  {
+    "slug": "suntech-development-inc",
+    "name": "SUNTECH DEVELOPMENT INC",
+    "phone": "305-799-5678",
+    "city": "Miami"
+  },
+  {
+    "slug": "sutter-roofing-co-of-fl",
+    "name": "SUTTER ROOFING CO OF FL",
+    "phone": "941-377-1000",
+    "city": "Sarasota"
+  },
+  {
+    "slug": "tactical-roofing-solutions-llc",
+    "name": "TACTICAL ROOFING SOLUTIONS LLC",
+    "phone": "239-599-4164",
+    "city": "Cape Coral"
+  },
+  {
+    "slug": "tadlock-roofing-inc",
+    "name": "TADLOCK ROOFING INC",
+    "phone": "850-877-5516",
+    "city": "Tallahassee"
+  },
+  {
+    "slug": "tallahassee-roofing-inc",
+    "name": "TALLAHASSEE ROOFING INC",
+    "phone": "850-562-8366",
+    "city": "Tallahassee"
+  },
+  {
+    "slug": "cedar-cove-inc",
+    "name": "CEDAR COVE INC",
+    "phone": "352-564-8319",
+    "city": "Crystal River"
+  },
+  {
+    "slug": "don-poss-roofing-inc",
+    "name": "DON POSS ROOFING INC",
+    "phone": "352-637-6687",
+    "city": "Inverness"
+  },
+  {
+    "slug": "silvers-systems-inc",
+    "name": "SILVERS SYSTEMS INC",
+    "phone": "727-823-7700",
+    "city": "St Petersburg"
+  },
+  {
+    "slug": "sam-damm-roofing-inc",
+    "name": "SAM DAMM ROOFING INC",
+    "phone": "727-849-0377",
+    "city": "Pt Richey"
+  },
+  {
+    "slug": "the-roof-authority-inc",
+    "name": "THE ROOF AUTHORITY INC",
+    "phone": "772-468-7870",
+    "city": "Ft Pierce"
+  },
+  {
+    "slug": "tanenbaum-roofing",
+    "name": "TANENBAUM ROOFING",
+    "phone": "407-841-6471",
+    "city": "Orlando"
+  },
+  {
+    "slug": "tarheel-roofing-inc",
+    "name": "TARHEEL ROOFING INC",
+    "phone": "727-823-3455",
+    "city": "St Petersburg"
+  },
+  {
+    "slug": "taylor-s-roofing-llc",
+    "name": "TAYLOR\\",
+    "phone": "863-676-2555",
+    "city": "Lake Wales"
+  },
+  {
+    "slug": "childers-roofing-s-m-a-tecta-america-company-llc",
+    "name": "CHILDERS ROOFING & S/M A TECTA AMERICA COMPANY LLC",
+    "phone": "904-696-8550",
+    "city": "Jacksonville"
+  },
+  {
+    "slug": "reroof-america-contractors-of-fl-llc",
+    "name": "REROOF AMERICA CONTRACTORS OF FL LLC",
+    "phone": "386-254-3454",
+    "city": "Edmond"
+  },
+  {
+    "slug": "stonebridge-roofing",
+    "name": "STONEBRIDGE ROOFING",
+    "phone": "32256-1584",
+    "city": "6956 Phillips Pkwy Dr"
+  },
+  {
+    "slug": "fidus-roofing-construction-llc",
+    "name": "FIDUS ROOFING & CONSTRUCTION LLC",
+    "phone": "904-230-5548",
+    "city": "Saint Augustine"
+  },
+  {
+    "slug": "orlando-roofing-llc",
+    "name": "ORLANDO ROOFING LLC",
+    "phone": "561-202-4912",
+    "city": "Ocoee"
+  },
+  {
+    "slug": "thorne-metal-systems-inc",
+    "name": "THORNE METAL SYSTEMS INC",
+    "phone": "904-284-4353",
+    "city": "Middleburg"
+  },
+  {
+    "slug": "total-home-roofing",
+    "name": "TOTAL HOME ROOFING",
+    "phone": "321-210-5425",
+    "city": "Rockledge"
+  },
+  {
+    "slug": "tiger-team-roofing-inc",
+    "name": "TIGER TEAM ROOFING INC",
+    "phone": "954-801-7663",
+    "city": "Ft Lauderdale"
+  },
+  {
+    "slug": "timberman-roofing-inc",
+    "name": "TIMBERMAN ROOFING INC",
+    "phone": "850-803-5021",
+    "city": "Valparaiso"
+  },
+  {
+    "slug": "tip-top-roofing-co-inc",
+    "name": "TIP TOP ROOFING CO INC",
+    "phone": "407-660-2212",
+    "city": "Orlando"
+  },
+  {
+    "slug": "tlc-construction-industries-corp",
+    "name": "TLC CONSTRUCTION INDUSTRIES CORP",
+    "phone": "941-735-3935",
+    "city": "Melbourne"
+  },
+  {
+    "slug": "dunnrite-roofing-inc",
+    "name": "DUNNRITE ROOFING INC",
+    "phone": "352-438-0042",
+    "city": "Ocala"
+  },
+  {
+    "slug": "top-construction-services-llc",
+    "name": "TOP CONSTRUCTION SERVICES LLC",
+    "phone": "954-647-2132",
+    "city": "Lauderdale Lakes"
+  },
+  {
+    "slug": "top-gun-roofing-inc",
+    "name": "TOP GUN ROOFING INC",
+    "phone": "904-342-0211",
+    "city": "Jacksonville"
+  },
+  {
+    "slug": "total-quality-roofing-inc",
+    "name": "TOTAL QUALITY ROOFING INC",
+    "phone": "850-222-7663",
+    "city": "Tallahassee"
+  },
+  {
+    "slug": "total-roof-services-corp",
+    "name": "TOTAL ROOF SERVICES CORP",
+    "phone": "407-495-4151",
+    "city": "Orlando"
+  },
+  {
+    "slug": "trademark-roofing",
+    "name": "TRADEMARK ROOFING",
+    "phone": "239-848-6613",
+    "city": "Cape Coral"
+  },
+  {
+    "slug": "trade-winds-roofing-inc",
+    "name": "TRADE WINDS ROOFING INC",
+    "phone": "772-466-9420",
+    "city": "Ft Pierce"
+  },
+  {
+    "slug": "triple-m-roofing-corp",
+    "name": "TRIPLE M ROOFING CORP",
+    "phone": "954-524-7000",
+    "city": "Ft Lauderdale"
+  },
+  {
+    "slug": "tspark-enterprises-llc",
+    "name": "TSPARK ENTERPRISES LLC",
+    "phone": "850-766-1340",
+    "city": "Tallahassee"
+  },
+  {
+    "slug": "turley-roofing",
+    "name": "TURLEY ROOFING",
+    "phone": "352-624-9100",
+    "city": "Ocala"
+  },
+  {
+    "slug": "twister-roofing-const-llc",
+    "name": "TWISTER ROOFING & CONST LLC",
+    "phone": "407-777-7799",
+    "city": "Orlando"
+  },
+  {
+    "slug": "universal-contracting-solar",
+    "name": "UNIVERSAL CONTRACTING & SOLAR",
+    "phone": "239-321-5886",
+    "city": "Lehigh Acres"
+  },
+  {
+    "slug": "universal-roof-contracting",
+    "name": "UNIVERSAL ROOF & CONTRACTING",
+    "phone": "407-295-7403",
+    "city": "Orlando"
+  },
+  {
+    "slug": "bartlett-roofing-services-inc",
+    "name": "BARTLETT ROOFING SERVICES INC",
+    "phone": "727-847-5540",
+    "city": "Pt Richey"
+  },
+  {
+    "slug": "reed-roofing-co",
+    "name": "REED ROOFING CO",
+    "phone": "727-327-2488",
+    "city": "St Petersburg"
+  },
+  {
+    "slug": "vero-beach-roofing-inc",
+    "name": "VERO BEACH ROOFING INC",
+    "phone": "772-564-0822",
+    "city": "Vero Beach"
+  },
+  {
+    "slug": "veterans-national-property-services-llc",
+    "name": "VETERANS NATIONAL PROPERTY SERVICES LLC",
+    "phone": "813-609-5596",
+    "city": "Tampa"
+  },
+  {
+    "slug": "veteran-roofing-inc",
+    "name": "VETERAN ROOFING INC",
+    "phone": "954-202-2888",
+    "city": "Oakland Park"
+  },
+  {
+    "slug": "veterans-roofing-property-maintenance",
+    "name": "VETERANS ROOFING & PROPERTY MAINTENANCE",
+    "phone": "813-592-1121",
+    "city": "Winter Haven"
+  },
+  {
+    "slug": "vickers-metal-works-inc",
+    "name": "VICKERS METAL WORKS INC",
+    "phone": "407-297-7546",
+    "city": "Orlando"
+  },
+  {
+    "slug": "waypoint-roofing-construction-inc",
+    "name": "WAYPOINT ROOFING & CONSTRUCTION INC",
+    "phone": "321-343-1900",
+    "city": "Rockledge"
+  },
+  {
+    "slug": "west-coast-florida-enterprises-inc",
+    "name": "WEST COAST FLORIDA ENTERPRISES INC",
+    "phone": "239-433-9777",
+    "city": "Ft Myers"
+  },
+  {
+    "slug": "weatherguard-roofing-waterproofing-inc",
+    "name": "WEATHERGUARD ROOFING & WATERPROOFING INC",
+    "phone": "305-893-3939",
+    "city": "Hialeah"
+  },
+  {
+    "slug": "weather-recovery-solutions",
+    "name": "WEATHER RECOVERY SOLUTIONS",
+    "phone": "954-996-6600",
+    "city": "Deerfield Beach"
+  },
+  {
+    "slug": "weathershield-roofing-group-inc",
+    "name": "WEATHERSHIELD ROOFING GROUP INC",
+    "phone": "407-298-0100",
+    "city": "Longwood"
+  },
+  {
+    "slug": "wescon-construction-inc",
+    "name": "WESCON CONSTRUCTION INC",
+    "phone": "321-259-6789",
+    "city": "Melbourne"
+  },
+  {
+    "slug": "westfall-construction-inc",
+    "name": "WESTFALL CONSTRUCTION INC",
+    "phone": "813-264-5690",
+    "city": "Tampa"
+  },
+  {
+    "slug": "whale-roofing-construction-llc",
+    "name": "WHALE ROOFING & CONSTRUCTION LLC",
+    "phone": "561-778-7800",
+    "city": "Boca Raton"
+  },
+  {
+    "slug": "whitco-roofing-inc",
+    "name": "WHITCO ROOFING INC",
+    "phone": "888-399-2221",
+    "city": "Altamonte Springs"
+  },
+  {
+    "slug": "winter-park-roofing-inc",
+    "name": "WINTER PARK ROOFING INC",
+    "phone": "407-671-2666",
+    "city": "Winter Park"
+  },
+  {
+    "slug": "wormley-roofing-inc",
+    "name": "WORMLEY ROOFING INC",
+    "phone": "321-303-0766",
+    "city": "Apopka"
+  },
+  {
+    "slug": "worthmann-llc",
+    "name": "WORTHMANN LLC",
+    "phone": "352-472-3228",
+    "city": "High Springs"
+  },
+  {
+    "slug": "weather-shield-metal-roofing-inc",
+    "name": "WEATHER SHIELD METAL ROOFING INC",
+    "phone": "850-733-9321",
+    "city": "Gulf Breeze"
+  },
+  {
+    "slug": "advantage-roofing-inc",
+    "name": "ADVANTAGE ROOFING INC",
+    "phone": "407-678-9721",
+    "city": "Orlando"
+  },
+  {
+    "slug": "alfrey-roofing-inc",
+    "name": "ALFREY ROOFING INC",
+    "phone": "321-752-9417",
+    "city": "Melbourne"
+  },
+  {
+    "slug": "alfy-s-roofing-inc",
+    "name": "ALFY\\",
+    "phone": "386-566-6112",
+    "city": "Ormond Beach"
+  },
+  {
+    "slug": "all-around-roofing-inc",
+    "name": "ALL AROUND ROOFING INC",
+    "phone": "904-783-9500",
+    "city": "Jacksonville"
+  },
+  {
+    "slug": "ad-ler-roofing-inc",
+    "name": "AD-LER ROOFING INC",
+    "phone": "844-MY-ADLER",
+    "city": "Ft Myers"
+  },
+  {
+    "slug": "a-all-pro-roofing-inc",
+    "name": "A+ ALL PRO ROOFING INC",
+    "phone": "352-236-2719",
+    "city": "Ocala"
+  },
+  {
+    "slug": "arctic-enterprises-inc",
+    "name": "ARCTIC ENTERPRISES INC",
+    "phone": "904-272-6574",
+    "city": "Jacksonville"
+  },
+  {
+    "slug": "aj-wells-roofing-construction",
+    "name": "AJ WELLS ROOFING & CONSTRUCTION",
+    "phone": "904-553-0069",
+    "city": "Jacksonville"
+  },
+  {
+    "slug": "bcr-inc",
+    "name": "BCR INC",
+    "phone": "904-200-1600",
+    "city": "Green Cove Springs"
+  },
+  {
+    "slug": "b-z-custom-sheet-metal-inc",
+    "name": "B&Z CUSTOM SHEET METAL INC",
+    "phone": "407-859-1101",
+    "city": "Orlando"
+  },
+  {
+    "slug": "leeg-roofing-inc",
+    "name": "LEEG ROOFING INC",
+    "phone": "352-503-2273",
+    "city": "Homosassa"
+  },
+  {
+    "slug": "dc-roofing-inc",
+    "name": "DC ROOFING INC",
+    "phone": "321-802-9051",
+    "city": "Melbourne"
+  },
+  {
+    "slug": "dependable-roofing-inc",
+    "name": "DEPENDABLE ROOFING INC",
+    "phone": "772-569-0880",
+    "city": "Vero Beach"
+  },
+  {
+    "slug": "fnf-enterprises-inc",
+    "name": "FNF ENTERPRISES INC",
+    "phone": "352-509-3277",
+    "city": "Ocala"
+  },
+  {
+    "slug": "godwin-green-roofing",
+    "name": "GODWIN GREEN ROOFING",
+    "phone": "352-538-4795",
+    "city": "Gainesville"
+  },
+  {
+    "slug": "hopton-roofing-inc",
+    "name": "HOPTON ROOFING INC",
+    "phone": "386-228-3595",
+    "city": "Lake Helen"
+  },
+  {
+    "slug": "jim-taylor-roofing-inc",
+    "name": "JIM TAYLOR ROOFING INC",
+    "phone": "386-673-5216",
+    "city": "Ormond Beach"
+  },
+  {
+    "slug": "parlament-roofing-construction",
+    "name": "PARLAMENT ROOFING & CONSTRUCTION",
+    "phone": "727-571-4110",
+    "city": "Clearwater"
+  },
+  {
+    "slug": "global-roofing-and-contracting-llc",
+    "name": "GLOBAL ROOFING AND CONTRACTING LLC",
+    "phone": "239-653-9703",
+    "city": "Naples"
+  },
+  {
+    "slug": "wooley-brothers-inc",
+    "name": "WOOLEY BROTHERS INC",
+    "phone": "321-805-4327",
+    "city": "St Cloud"
+  },
+  {
+    "slug": "orange-county-roofing-inc",
+    "name": "ORANGE COUNTY ROOFING INC",
+    "phone": "407-568-7702",
+    "city": "Orlando"
+  },
+  {
+    "slug": "rlk-construction-co-of-naples-inc",
+    "name": "RLK CONSTRUCTION CO OF NAPLES INC",
+    "phone": "239-455-6683",
+    "city": "Naples"
+  },
+  {
+    "slug": "rodman-roofing-inc",
+    "name": "RODMAN ROOFING INC",
+    "phone": "305-264-3551",
+    "city": "Miami"
+  },
+  {
+    "slug": "roofing-company-llc",
+    "name": "ROOFING & COMPANY LLC",
+    "phone": "407-699-0088",
+    "city": "Casselberry"
+  },
+  {
+    "slug": "russ-noyes-roofing-inc-rhino-roofing",
+    "name": "RUSS NOYES ROOFING INC - RHINO ROOFING",
+    "phone": "407-388-7700",
+    "city": "Winter Springs"
+  },
+  {
+    "slug": "ferber-osteen-roofing-and-sheet-metal",
+    "name": "FERBER & OSTEEN ROOFING AND SHEET METAL",
+    "phone": "352-372-3666",
+    "city": "Gainesville"
+  },
+  {
+    "slug": "all-seasons-roofing-repair-of-orlando",
+    "name": "ALL SEASONS ROOFING & REPAIR OF ORLANDO",
+    "phone": "321-576-4256",
+    "city": "Orlando"
+  },
+  {
+    "slug": "yoder-roofing-inc",
+    "name": "YODER ROOFING INC",
+    "phone": "941-378-8061",
+    "city": "Sarasota"
+  },
+  {
+    "slug": "york-roofing-llc",
+    "name": "YORK ROOFING LLC",
+    "phone": "407-960-6384",
+    "city": "Longwood"
+  },
+  {
+    "slug": "all-weather-roofing",
+    "name": "ALL WEATHER ROOFING",
+    "phone": "941-747-4978",
+    "city": "Bradenton"
+  },
+  {
+    "slug": "endless-summer-roofing-co",
+    "name": "ENDLESS SUMMER ROOFING CO",
+    "phone": "904-357-0722",
+    "city": "Jacksonville"
+  },
+  {
+    "slug": "z-roofing-waterproofing-inc",
+    "name": "Z ROOFING & WATERPROOFING INC",
+    "phone": "305-623-7663",
+    "city": "Hialeah"
+  },
+  {
+    "slug": "megram-construction-co",
+    "name": "MEGRAM CONSTRUCTION CO",
+    "phone": "407-592-7360",
+    "city": "Oviedo"
+  },
+  {
+    "slug": "green-leaf-roofing-llc",
+    "name": "GREEN LEAF ROOFING LLC",
+    "phone": "813-577-2488",
+    "city": "Dunedin"
+  },
+  {
+    "slug": "fixd-roofing-llc",
+    "name": "FIXD ROOFING LLC",
+    "phone": "772-618-3493",
+    "city": "Pt St Lucie"
+  },
+  {
+    "slug": "mcenany-roofing-inc",
+    "name": "MCENANY ROOFING INC",
+    "phone": "813-988-1669",
+    "city": "Tampa"
+  },
+  {
+    "slug": "mccurdy-walden-inc",
+    "name": "MCCURDY-WALDEN INC",
+    "phone": "904-783-9000",
+    "city": "Jacksonville"
+  },
+  {
+    "slug": "mb-enterprises-roofing-sheet-metal-inc",
+    "name": "MB ENTERPRISES ROOFING & SHEET METAL INC",
+    "phone": "772-562-7549",
+    "city": "Vero Beach"
+  },
+  {
+    "slug": "mcdavid-roofing-inc",
+    "name": "MCDAVID ROOFING INC",
+    "phone": "386-462-4803",
+    "city": "Alachua"
+  },
+  {
+    "slug": "mcfadden-s-roofing-inc",
+    "name": "MCFADDEN\\",
+    "phone": "407-682-9082",
+    "city": "Longwood"
+  },
+  {
+    "slug": "maxxim-construction-rfg-llc",
+    "name": "MAXXIM CONSTRUCTION & RFG LLC",
+    "phone": "904-773-5150",
+    "city": "Fleming Island"
+  },
+  {
+    "slug": "metal-roofing-of-florida-llc",
+    "name": "METAL ROOFING OF FLORIDA LLC",
+    "phone": "850-662-1160",
+    "city": "Quincy"
+  },
+  {
+    "slug": "mcfall-builders-inc",
+    "name": "MCFALL BUILDERS INC",
+    "phone": "352-377-5512",
+    "city": "Gainesville"
+  },
+  {
+    "slug": "story-roofing-llc",
+    "name": "STORY ROOFING LLC",
+    "phone": "407-449-3800",
+    "city": "St Cloud"
+  },
+  {
+    "slug": "price-construction-roofing-inc",
+    "name": "PRICE CONSTRUCTION & ROOFING INC",
+    "phone": "863-533-3277",
+    "city": "Bartow"
+  },
+  {
+    "slug": "professional-roof-technology-llc",
+    "name": "PROFESSIONAL ROOF TECHNOLOGY LLC",
+    "phone": "727-823-3322",
+    "city": "Gulfport"
+  }
+]

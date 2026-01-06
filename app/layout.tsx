@@ -1,0 +1,28 @@
+import type { Metadata } from 'next';
+import './globals.css';
+import FontAwesomeSetup from '@/components/FontAwesomeSetup';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+
+export const metadata: Metadata = {
+  title: 'RIF Roofers In Florida | Stone-Coated Metal Roofing in Florida',
+  description:
+    'Find certified, trained roofers who install stone-coated metal roofing systems correctly and consistently across Florida.',
+};
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <html lang="en">
+      <body>
+        <FontAwesomeSetup />
+        <Header />
+        {children}
+        <Footer />
+      </body>
+    </html>
+  );
+}

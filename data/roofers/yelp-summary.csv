@@ -1,0 +1,5 @@
+Name,City,State,Phone,Website,Yelp Found,Yelp URL,Star Rating,Review Count,Synopsis,Positive Reviews,Negative Reviews,Total Reviews Analyzed
+1 ROOF LLC,Ponte Vedra,FL,904-679-3583,1roofllc.com,Yes,https://www.yelp.com/biz/1-roof-llc-ponte-vedra,4.8,23,"Highly rated with 83% positive reviews. Common themes include: professionalism, punctuality, work quality. Overall sentiment is very positive. Customers frequently recommend this business.",5,1,20
+3MG ROOFING LLC,Winter Park,FL,407-420-0201,3mgroofing.com,Yes,https://www.yelp.com/biz/3mg-roofing-winter-park,4.2,18,,3,2,15
+4TH GENERATION ROOFING & SHEET METAL LLC,Miami,FL,305-878-5631,4thgenerationroofing.com,Yes,https://www.yelp.com/biz/4th-generation-roofing-sheet-metal-miami,4.6,34,,4,1,25
+CF HANDYMAN LLC,Pinellas Park,FL,813-810-7099,10starshomes.com,No,,,0,,0,0,0

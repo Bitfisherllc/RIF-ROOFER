@@ -1,0 +1,14 @@
+PASSWORD FIELD IS INVISIBLE - THIS IS NORMAL!
+
+When you type your GitHub token, NOTHING will show on screen (no dots, no stars). This is for security.
+
+SOLUTION:
+1. Just TYPE your token (ghp_xxxxx) - even though you can't see it
+2. Press ENTER
+3. It should work!
+
+If it still doesn't work, try this first:
+git config --global credential.helper osxkeychain
+
+Then try pushing again.
+

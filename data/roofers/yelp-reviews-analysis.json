@@ -1,0 +1,50 @@
+[
+  {
+    "name": "CF HANDYMAN LLC",
+    "city": "Pinellas Park",
+    "state": "FL",
+    "phone": "813-810-7099",
+    "website": "10starshomes.com",
+    "yelp_found": false,
+    "yelp_url": null,
+    "star_rating": null,
+    "review_count": 0,
+    "review_analysis": {
+      "positive": [],
+      "negative": [],
+      "total_analyzed": 0
+    }
+  },
+  {
+    "name": "1 ROOF LLC",
+    "city": "Ponte Vedra",
+    "state": "FL",
+    "phone": "904-679-3583",
+    "website": "1roofllc.com",
+    "yelp_found": false,
+    "yelp_url": null,
+    "star_rating": null,
+    "review_count": 0,
+    "review_analysis": {
+      "positive": [],
+      "negative": [],
+      "total_analyzed": 0
+    }
+  },
+  {
+    "name": "360 DEGREEZ CONSULTING LLC",
+    "city": "Gainesville",
+    "state": "FL",
+    "phone": "352-600-0360",
+    "website": "1roofllc.com",
+    "yelp_found": false,
+    "yelp_url": null,
+    "star_rating": null,
+    "review_count": 0,
+    "review_analysis": {
+      "positive": [],
+      "negative": [],
+      "total_analyzed": 0
+    }
+  }
+]

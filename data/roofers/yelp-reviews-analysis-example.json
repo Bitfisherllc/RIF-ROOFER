@@ -1,0 +1,77 @@
+[
+  {
+    "name": "EXAMPLE ROOFING COMPANY",
+    "city": "Tampa",
+    "state": "FL",
+    "phone": "813-555-1234",
+    "website": "example-roofing.com",
+    "yelp_found": true,
+    "yelp_url": "https://www.yelp.com/biz/example-roofing-tampa",
+    "star_rating": 4.5,
+    "review_count": 47,
+    "review_analysis": {
+      "positive": [
+        {
+          "text": "Excellent service! They were professional, on time, and did a great job on our roof replacement. Highly recommend!",
+          "rating": 5,
+          "sentiment_score": 4
+        },
+        {
+          "text": "Great quality work and fair pricing. The team was responsive and cleaned up after themselves. Very satisfied.",
+          "rating": 5,
+          "sentiment_score": 3
+        },
+        {
+          "text": "Outstanding roofing company. They exceeded our expectations and the roof looks fantastic.",
+          "rating": 4,
+          "sentiment_score": 3
+        }
+      ],
+      "negative": [
+        {
+          "text": "Had some delays in the project timeline. Communication could have been better.",
+          "rating": 3,
+          "sentiment_score": -1
+        },
+        {
+          "text": "The work was okay but took longer than expected. Price was a bit high.",
+          "rating": 2,
+          "sentiment_score": -2
+        }
+      ],
+      "total_analyzed": 20
+    }
+  },
+  {
+    "name": "ANOTHER ROOFER LLC",
+    "city": "Miami",
+    "state": "FL",
+    "phone": "305-555-5678",
+    "website": "anotherroofer.com",
+    "yelp_found": false,
+    "yelp_url": null,
+    "star_rating": null,
+    "review_count": 0,
+    "review_analysis": {
+      "positive": [],
+      "negative": [],
+      "total_analyzed": 0
+    }
+  }
+]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

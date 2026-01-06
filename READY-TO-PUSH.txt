@@ -1,0 +1,11 @@
+READY TO PUSH TO: RIF-ROOFER
+
+After you create the repository on GitHub, run:
+
+git push -u origin main
+
+Username: Bitfisherllc
+Password: Your GitHub token (invisible when typing - just paste and press Enter)
+
+Repository URL: https://github.com/Bitfisherllc/RIF-ROOFER
+

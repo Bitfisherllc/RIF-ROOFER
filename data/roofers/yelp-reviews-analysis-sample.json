@@ -1,0 +1,170 @@
+[
+  {
+    "name": "1 ROOF LLC",
+    "city": "Ponte Vedra",
+    "state": "FL",
+    "phone": "904-679-3583",
+    "website": "1roofllc.com",
+    "yelp_found": true,
+    "yelp_url": "https://www.yelp.com/biz/1-roof-llc-ponte-vedra",
+    "star_rating": 4.8,
+    "review_count": 23,
+    "synopsis": "Highly rated with 83% positive reviews. Common themes include: professionalism, punctuality, work quality. Overall sentiment is very positive. Customers frequently recommend this business.",
+    "review_analysis": {
+      "positive": [
+        {
+          "text": "Excellent roofing company! They replaced our entire roof after hurricane damage. Professional, timely, and the quality is outstanding. Highly recommend!",
+          "rating": 5,
+          "sentiment_score": 5
+        },
+        {
+          "text": "Great experience from start to finish. The team was responsive, cleaned up thoroughly, and the roof looks fantastic. Fair pricing too.",
+          "rating": 5,
+          "sentiment_score": 4
+        },
+        {
+          "text": "Very professional service. They completed the job on time and within budget. The roofers were courteous and did excellent work.",
+          "rating": 5,
+          "sentiment_score": 3
+        },
+        {
+          "text": "Outstanding quality and service. They exceeded our expectations and the roof looks amazing. Would definitely use them again.",
+          "rating": 5,
+          "sentiment_score": 4
+        },
+        {
+          "text": "Professional team, great communication throughout the project. The roof replacement was done efficiently and looks great.",
+          "rating": 4,
+          "sentiment_score": 3
+        }
+      ],
+      "negative": [
+        {
+          "text": "Good work overall but there were some minor delays in the project timeline. Communication could have been better at times.",
+          "rating": 3,
+          "sentiment_score": -1
+        }
+      ],
+      "total_analyzed": 20,
+      "synopsis": "Highly rated with 83% positive reviews. Common themes include: professionalism, punctuality, work quality. Overall sentiment is very positive. Customers frequently recommend this business."
+    }
+  },
+  {
+    "name": "3MG ROOFING LLC",
+    "city": "Winter Park",
+    "state": "FL",
+    "phone": "407-420-0201",
+    "website": "3mgroofing.com",
+    "yelp_found": true,
+    "yelp_url": "https://www.yelp.com/biz/3mg-roofing-winter-park",
+    "star_rating": 4.2,
+    "review_count": 18,
+    "review_analysis": {
+      "positive": [
+        {
+          "text": "Great roofing company! They fixed our leak quickly and efficiently. Professional service and fair pricing.",
+          "rating": 5,
+          "sentiment_score": 3
+        },
+        {
+          "text": "Satisfied with the roof repair. The team was professional and the work was completed on time.",
+          "rating": 4,
+          "sentiment_score": 2
+        },
+        {
+          "text": "Good quality work. They replaced several damaged shingles and the roof looks good now.",
+          "rating": 4,
+          "sentiment_score": 2
+        }
+      ],
+      "negative": [
+        {
+          "text": "The work was okay but took longer than initially estimated. Had to follow up multiple times.",
+          "rating": 3,
+          "sentiment_score": -2
+        },
+        {
+          "text": "Average service. The roof repair was fine but communication could have been better throughout the process.",
+          "rating": 3,
+          "sentiment_score": -1
+        }
+      ],
+      "total_analyzed": 15
+    }
+  },
+  {
+    "name": "4TH GENERATION ROOFING & SHEET METAL LLC",
+    "city": "Miami",
+    "state": "FL",
+    "phone": "305-878-5631",
+    "website": "4thgenerationroofing.com",
+    "yelp_found": true,
+    "yelp_url": "https://www.yelp.com/biz/4th-generation-roofing-sheet-metal-miami",
+    "star_rating": 4.6,
+    "review_count": 34,
+    "review_analysis": {
+      "positive": [
+        {
+          "text": "Excellent roofing company with great attention to detail. They've been in business for generations and it shows in their work quality.",
+          "rating": 5,
+          "sentiment_score": 4
+        },
+        {
+          "text": "Outstanding service! They handled our commercial roofing project professionally. The team was knowledgeable and efficient.",
+          "rating": 5,
+          "sentiment_score": 4
+        },
+        {
+          "text": "Very satisfied with the roof replacement. Quality materials and excellent craftsmanship. Highly recommend!",
+          "rating": 5,
+          "sentiment_score": 3
+        },
+        {
+          "text": "Professional team that knows what they're doing. The roof looks fantastic and we're very happy with the results.",
+          "rating": 4,
+          "sentiment_score": 3
+        }
+      ],
+      "negative": [
+        {
+          "text": "Good work but the project took longer than expected. Some delays in material delivery.",
+          "rating": 3,
+          "sentiment_score": -1
+        }
+      ],
+      "total_analyzed": 25
+    }
+  },
+  {
+    "name": "CF HANDYMAN LLC",
+    "city": "Pinellas Park",
+    "state": "FL",
+    "phone": "813-810-7099",
+    "website": "10starshomes.com",
+    "yelp_found": false,
+    "yelp_url": null,
+    "star_rating": null,
+    "review_count": 0,
+    "review_analysis": {
+      "positive": [],
+      "negative": [],
+      "total_analyzed": 0
+    }
+  }
+]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

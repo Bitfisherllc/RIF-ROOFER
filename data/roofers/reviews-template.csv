@@ -1,0 +1,20 @@
+rooferId,reviewerName,rating,reviewText,reviewDate,googleReviewUrl,responseText,responseDate
+example-roofer-1,John Smith,5,"Excellent work! The team was professional, on time, and did a great job with our roof replacement. Highly recommend!",2024-01-15,https://www.google.com/maps/reviews/...,"Thank you for your kind words, John! We're so glad you're happy with your new roof.",2024-01-16
+example-roofer-1,Jane Doe,4,"Good service overall. The work was completed on schedule and the roof looks great. Minor communication issues but resolved quickly.",2024-01-10,https://www.google.com/maps/reviews/...,,
+example-roofer-1,Mike Johnson,5,"Outstanding quality and service. They handled everything from permits to cleanup. Very satisfied!",2024-01-05,https://www.google.com/maps/reviews/...,,
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

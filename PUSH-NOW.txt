@@ -1,0 +1,7 @@
+✅ FIXED: Removed large .next files from git
+
+Now run:
+git push -u origin main
+
+The large build cache files have been removed from the commit.
+

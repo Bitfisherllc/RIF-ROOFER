@@ -1,0 +1,205 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 35, 31, 32; /* RIF black */
+  --background-rgb: 255, 255, 255;
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: rgb(var(--background-rgb));
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', system-ui, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  background: #ffffff;
+}
+
+/* FontAwesome icon sizing */
+svg.svg-inline--fa {
+  display: inline-block;
+  font-size: inherit;
+  height: 1em;
+  overflow: visible;
+  vertical-align: -.125em;
+}
+
+/* Ensure Tailwind size classes work on FontAwesome icons */
+svg.h-4 {
+  height: 1rem;
+  width: 1rem;
+}
+
+svg.h-5 {
+  height: 1.25rem;
+  width: 1.25rem;
+}
+
+svg.h-6 {
+  height: 1.5rem;
+  width: 1.5rem;
+}
+
+svg.h-8 {
+  height: 2rem;
+  width: 2rem;
+}
+
+svg.w-4 {
+  width: 1rem;
+  height: 1rem;
+}
+
+svg.w-5 {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+svg.w-6 {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+svg.w-8 {
+  width: 2rem;
+  height: 2rem;
+}
+
+/* Hide scrollbar for overflow containers */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;  /* Chrome, Safari and Opera */
+}
+
+/* Leaflet map styles - Styled to match RIF blue theme */
+.leaflet-container {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', system-ui, sans-serif;
+  background: linear-gradient(to bottom, #e6eff8 0%, #cce0f1 100%); /* RIF blue gradient background */
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Style map tiles with subtle blue tint to complement RIF colors */
+.leaflet-tile-pane img,
+.leaflet-tile-container img {
+  filter: brightness(1.03) contrast(0.97) saturate(0.88) hue-rotate(-8deg);
+  -webkit-filter: brightness(1.03) contrast(0.97) saturate(0.88) hue-rotate(-8deg);
+  transition: filter 0.3s ease;
+}
+
+/* Enhance water/coastal areas with blue tint */
+.leaflet-tile-pane img[src*="cartocdn"] {
+  filter: brightness(1.05) contrast(0.95) saturate(0.9) hue-rotate(-10deg);
+  -webkit-filter: brightness(1.05) contrast(0.95) saturate(0.9) hue-rotate(-10deg);
+}
+
+/* Style popup to match site design */
+.leaflet-popup-content-wrapper {
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(37, 94, 171, 0.15), 0 2px 4px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(37, 94, 171, 0.1);
+  padding: 0;
+}
+
+.leaflet-popup-content {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', system-ui, sans-serif;
+}
+
+/* City tooltip styling - make city names more visible on hover */
+.leaflet-tooltip.city-tooltip {
+  background-color: rgba(255, 255, 255, 0.95);
+  border: 2px solid #255eab;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  font-weight: 600;
+  padding: 4px 8px;
+}
+
+.leaflet-tooltip-top.city-tooltip::before {
+  border-top-color: #255eab;
+}
+
+.leaflet-tooltip-bottom.city-tooltip::before {
+  border-bottom-color: #255eab;
+}
+
+.leaflet-tooltip-left.city-tooltip::before {
+  border-left-color: #255eab;
+}
+
+.leaflet-tooltip-right.city-tooltip::before {
+  border-right-color: #255eab;
+}
+
+.leaflet-popup-tip {
+  background: white;
+  border: 1px solid rgba(37, 94, 171, 0.1);
+  box-shadow: 0 2px 4px rgba(37, 94, 171, 0.1);
+}
+
+/* Style map controls to match RIF theme */
+.leaflet-control-zoom a {
+  background-color: white;
+  color: #255eab;
+  border: 1px solid rgba(37, 94, 171, 0.2);
+  box-shadow: 0 2px 4px rgba(37, 94, 171, 0.1);
+  transition: all 0.2s ease;
+}
+
+.leaflet-control-zoom a:hover {
+  background-color: #e6eff8;
+  color: #1e4a87;
+  border-color: #255eab;
+}
+
+.leaflet-control-zoom a:active {
+  background-color: #cce0f1;
+}
+
+/* Style attribution to be subtle */
+.leaflet-control-attribution {
+  background-color: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(37, 94, 171, 0.1);
+  border-radius: 6px;
+  padding: 4px 8px;
+  font-size: 11px;
+  color: #4b5563;
+}
+
+.leaflet-control-attribution a {
+  color: #255eab;
+}
+
+.leaflet-control-attribution a:hover {
+  color: #1e4a87;
+}
+
+/* Custom marker styles */
+.county-marker {
+  background: transparent !important;
+  border: none !important;
+}
+
+.custom-marker {
+  background: transparent !important;
+  border: none !important;
+}
+
+
+
+
