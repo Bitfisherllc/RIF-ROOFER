@@ -191,9 +191,9 @@ Submitted on: ${new Date().toLocaleString('en-US', { timeZone: 'America/New_York
 
     // Send email using Resend
     // Note: Resend's free tier only allows sending to verified email addresses
-    // To send to premiumroofingproducts@gmail.com, you need to verify a domain in Resend
+    // To send to info@roofersinflorida.com, you need to verify a domain in Resend
     const fromEmail = process.env.RESEND_FROM_EMAIL || 'RIF Roofing Contact Form <onboarding@resend.dev>';
-    const targetEmail = 'premiumroofingproducts@gmail.com';
+    const targetEmail = 'info@roofersinflorida.com';
     const verifiedEmail = process.env.RESEND_VERIFIED_EMAIL || 'craig@bitfisher.com';
     
     // Try to send to target email first
@@ -279,7 +279,7 @@ Submitted on: ${new Date().toLocaleString('en-US', { timeZone: 'America/New_York
           success: true, 
           message: 'Contact form submitted successfully. Email sent to verified address.',
           data: fallbackResult.data,
-          note: 'To send directly to premiumroofingproducts@gmail.com, verify a domain in Resend dashboard.'
+          note: 'To send directly to info@roofersinflorida.com, verify a domain in Resend dashboard.'
         },
         { status: 200 }
       );
