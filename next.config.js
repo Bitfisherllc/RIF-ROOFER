@@ -6,6 +6,11 @@ const nextConfig = {
     domains: [],
     unoptimized: true, // Disable image optimization for SVGs
   },
+  // Suppress warnings about dynamic routes during build
+  onDemandEntries: {
+    maxInactiveAge: 25 * 1000,
+    pagesBufferLength: 2,
+  },
   // Enable static exports if needed
   // output: 'export',
 };
