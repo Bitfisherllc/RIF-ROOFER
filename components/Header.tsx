@@ -38,7 +38,7 @@ export default function Header() {
 
               <Link
                 href="/free-estimate"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-rif-blue-500 text-white text-base font-semibold rounded-lg hover:bg-rif-blue-600 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 flex-shrink-0"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-green-600 text-white text-base font-semibold rounded-lg hover:bg-green-700 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 flex-shrink-0"
               >
                 Free Estimate
                 <FontAwesomeIcon icon={faArrowRight} className="h-4 w-4" />
