@@ -1,5 +1,6 @@
 {
   "passwordProtected": false,
-  "password": "letmein"
+  "password": "letmein",
+  "adminPassword": "Willy123#"
 }
 

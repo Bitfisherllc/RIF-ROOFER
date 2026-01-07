@@ -1,7 +1,8 @@
 'use client';
 
+import { useEffect, useState } from 'react';
+import { useRouter, usePathname } from 'next/navigation';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faUsers,
@@ -11,14 +12,37 @@ import {
   faCog,
   faCertificate,
   faLock,
+  faSpinner,
 } from '@fortawesome/free-solid-svg-icons';
+
+function getCookie(name: string): string | null {
+  if (typeof document === 'undefined') return null;
+  const value = `; ${document.cookie}`;
+  const parts = value.split(`; ${name}=`);
+  if (parts.length === 2) return parts.pop()?.split(';').shift() || null;
+  return null;
+}
 
 export default function AdminLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const router = useRouter();
   const pathname = usePathname();
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);
+
+  useEffect(() => {
+    // Check if admin password cookie exists
+    const adminCookie = getCookie('admin-password-verified');
+    if (adminCookie === 'true') {
+      setIsAuthenticated(true);
+    } else {
+      // Redirect to admin login if not authenticated
+      const currentPath = pathname || '/admin/roofers';
+      router.push(`/admin/login?redirect=${encodeURIComponent(currentPath)}`);
+    }
+  }, [pathname, router]);
 
   const menuItems = [
     {
@@ -52,6 +76,23 @@ export default function AdminLayout({
       label: 'Site Configuration',
     },
   ];
+
+  // Show loading state while checking authentication
+  if (isAuthenticated === null) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-center">
+          <FontAwesomeIcon icon={faSpinner} className="h-8 w-8 text-rif-blue-500 animate-spin mb-4" />
+          <p className="text-gray-600">Verifying access...</p>
+        </div>
+      </div>
+    );
+  }
+
+  // Don't render admin content if not authenticated (will redirect)
+  if (!isAuthenticated) {
+    return null;
+  }
 
   return (
     <div className="min-h-screen bg-gray-50">
