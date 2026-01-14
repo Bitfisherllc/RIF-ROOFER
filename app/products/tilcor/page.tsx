@@ -88,7 +88,7 @@ export default function TilcorProductPage() {
                 className="object-cover group-hover:scale-105 transition-transform duration-700"
                 priority
               />
-              <div className="absolute top-6 right-6 bg-white/95 backdrop-blur-sm rounded-lg p-4 shadow-xl">
+              <div className="absolute top-6 right-6 bg-gray-800 rounded-lg p-4 shadow-xl">
                 <Image
                   src="/products/logos/tilcor.png"
                   alt="Tilcor Logo"

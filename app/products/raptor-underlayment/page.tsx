@@ -79,13 +79,13 @@ export default function RaptorSyntheticUnderlaymentProductPage() {
                 priority
                 sizes="(max-width: 1024px) 100vw, 50vw"
               />
-              <div className="absolute top-6 right-6 bg-white/95 backdrop-blur-sm rounded-lg p-4 shadow-xl">
+              <div className="absolute top-6 right-6 bg-gray-800 rounded-lg p-4 shadow-xl">
                 <Image
                   src="/products/logos/raptor-underlayment.svg"
                   alt="Raptor Synthetic Underlayment Logo"
                   width={140}
                   height={65}
-                  className="brightness-0"
+                  className="object-contain"
                   priority
                 />
               </div>

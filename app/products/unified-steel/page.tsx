@@ -98,13 +98,13 @@ export default function UnifiedSteelProductPage() {
                 className="object-cover group-hover:scale-105 transition-transform duration-700"
                 priority
               />
-              <div className="absolute top-6 right-6 bg-white/95 backdrop-blur-sm rounded-lg p-4 shadow-xl">
+              <div className="absolute top-6 right-6 bg-gray-800 rounded-lg p-4 shadow-xl">
                 <Image
                   src="/products/logos/unified-steel.svg"
                   alt="Unified Steel Logo"
                   width={140}
                   height={65}
-                  className="brightness-0"
+                  className="object-contain"
                 />
               </div>
             </div>
