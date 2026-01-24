@@ -53,3 +53,4 @@ Once you have images:
 2. The `featuredImage` field in guide data will automatically reference them
 3. Images will appear on both listing and individual guide pages
 
+

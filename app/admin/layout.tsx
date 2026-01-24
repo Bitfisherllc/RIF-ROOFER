@@ -13,6 +13,9 @@ import {
   faCertificate,
   faLock,
   faSpinner,
+  faBook,
+  faEnvelope,
+  faImage,
 } from '@fortawesome/free-solid-svg-icons';
 
 function getCookie(name: string): string | null {
@@ -33,15 +36,30 @@ export default function AdminLayout({
   const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);
 
   useEffect(() => {
-    // Check if admin password cookie exists
-    const adminCookie = getCookie('admin-password-verified');
-    if (adminCookie === 'true') {
-      setIsAuthenticated(true);
-    } else {
-      // Redirect to admin login if not authenticated
-      const currentPath = pathname || '/admin/roofers';
-      router.push(`/admin/login?redirect=${encodeURIComponent(currentPath)}`);
-    }
+    const checkAuth = () => {
+      // Check if admin password cookie exists
+      const adminCookie = getCookie('admin-password-verified');
+      console.log('Admin layout auth check:', { pathname, cookie: adminCookie });
+      
+      if (adminCookie === 'true') {
+        setIsAuthenticated(true);
+      } else {
+        // Only redirect if we're not already on the login page
+        if (pathname !== '/admin/login') {
+          const currentPath = pathname || '/admin/roofers';
+          router.push(`/admin/login?redirect=${encodeURIComponent(currentPath)}`);
+        } else {
+          // We're on login page, so not authenticated
+          setIsAuthenticated(false);
+        }
+      }
+    };
+
+    checkAuth();
+    
+    // Re-check after a short delay in case cookie was just set
+    const timeout = setTimeout(checkAuth, 200);
+    return () => clearTimeout(timeout);
   }, [pathname, router]);
 
   const menuItems = [
@@ -71,6 +89,21 @@ export default function AdminLayout({
       label: 'Sync Reviews',
     },
     {
+      href: '/admin/mailing-list',
+      icon: faEnvelope,
+      label: 'Mailing List',
+    },
+    {
+      href: '/admin/guides',
+      icon: faBook,
+      label: 'Guide URLs',
+    },
+    {
+      href: '/admin/hero-background',
+      icon: faImage,
+      label: 'Hero Background',
+    },
+    {
       href: '/admin/config',
       icon: faLock,
       label: 'Site Configuration',
@@ -87,6 +120,11 @@ export default function AdminLayout({
         </div>
       </div>
     );
+  }
+
+  // If on login page, always render children (the login form)
+  if (pathname === '/admin/login') {
+    return <>{children}</>;
   }
 
   // Don't render admin content if not authenticated (will redirect)

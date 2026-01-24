@@ -10,6 +10,12 @@ import {
   faShield,
   faFileContract,
   faStar,
+  faFax,
+  faUsers,
+  faHistory,
+  faAward,
+  faTools,
+  faClock,
 } from '@fortawesome/free-solid-svg-icons';
 import type { Metadata } from 'next';
 import { getRooferBySlug, getAllRoofers } from '../data/roofers';
@@ -17,6 +23,7 @@ import { searchData } from '@/app/service-areas/data/search-data';
 import FavoriteButton from '@/components/FavoriteButton';
 import { getYelpReviewsForRoofer, hasYelpReviews } from '../data/yelp-reviews';
 import YelpReviewSummary from '@/components/YelpReviewSummary';
+import RooferLocationMap from '@/components/RooferLocationMap';
 
 export async function generateStaticParams() {
   const roofers = getAllRoofers();
@@ -342,6 +349,278 @@ export default function RooferProfilePage({
             </div>
           )}
 
+          {/* Additional Services */}
+          {(roofer as any).additionalServices && (roofer as any).additionalServices.length > 0 && (
+            <div className="bg-white p-8 rounded-2xl border border-gray-200">
+              <h2 className="flex items-center gap-3 text-2xl font-semibold text-rif-black mb-6">
+                <FontAwesomeIcon icon={faTools} className="h-6 w-6 text-rif-blue-500" />
+                Additional Services
+              </h2>
+              <ul className="space-y-2">
+                {(roofer as any).additionalServices.map((service: string, idx: number) => (
+                  <li key={idx} className="flex items-start gap-2 text-gray-700">
+                    <FontAwesomeIcon icon={faCertificate} className="h-4 w-4 text-rif-blue-500 mt-1 flex-shrink-0" />
+                    <span>{service}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          {/* Team Information */}
+          {(roofer as any).team && (
+            <div className="bg-white p-8 rounded-2xl border border-gray-200">
+              <h2 className="flex items-center gap-3 text-2xl font-semibold text-rif-black mb-6">
+                <FontAwesomeIcon icon={faUsers} className="h-6 w-6 text-rif-blue-500" />
+                Team Information
+              </h2>
+              <div className="space-y-4">
+                {(roofer as any).team.owner && (
+                  <div>
+                    <span className="text-sm font-medium text-gray-500">Owner:</span>
+                    <p className="text-gray-900 text-lg font-medium mt-1">{(roofer as any).team.owner}</p>
+                  </div>
+                )}
+                {(roofer as any).team.experience && (
+                  <div>
+                    <span className="text-sm font-medium text-gray-500">Team Experience:</span>
+                    <p className="text-gray-900 mt-1">{(roofer as any).team.experience}</p>
+                  </div>
+                )}
+                {(roofer as any).team.background && (
+                  <div>
+                    <span className="text-sm font-medium text-gray-500">Background:</span>
+                    <p className="text-gray-900 mt-1">{(roofer as any).team.background}</p>
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
+
+          {/* Company History */}
+          {(roofer as any).history && (
+            <div className="bg-white p-8 rounded-2xl border border-gray-200">
+              <h2 className="flex items-center gap-3 text-2xl font-semibold text-rif-black mb-6">
+                <FontAwesomeIcon icon={faHistory} className="h-6 w-6 text-rif-blue-500" />
+                Company History
+              </h2>
+              <div className="space-y-4">
+                {(roofer as any).history.founded && (
+                  <div className="flex items-start gap-3">
+                    <FontAwesomeIcon icon={faClock} className="h-5 w-5 text-rif-blue-500 mt-1 flex-shrink-0" />
+                    <div>
+                      <span className="text-sm font-medium text-gray-500">Founded:</span>
+                      <p className="text-gray-900 mt-1">
+                        {new Date((roofer as any).history.founded).toLocaleDateString('en-US', {
+                          year: 'numeric',
+                          month: 'long',
+                          day: 'numeric',
+                        })}
+                      </p>
+                    </div>
+                  </div>
+                )}
+                {(roofer as any).history.founderStarted && (
+                  <div className="flex items-start gap-3">
+                    <FontAwesomeIcon icon={faHistory} className="h-5 w-5 text-rif-blue-500 mt-1 flex-shrink-0" />
+                    <div>
+                      <span className="text-sm font-medium text-gray-500">Founder Started:</span>
+                      <p className="text-gray-900 mt-1">{(roofer as any).history.founderStarted}</p>
+                    </div>
+                  </div>
+                )}
+                {(roofer as any).history.movedToJacksonville && (
+                  <div className="flex items-start gap-3">
+                    <FontAwesomeIcon icon={faMapLocationDot} className="h-5 w-5 text-rif-blue-500 mt-1 flex-shrink-0" />
+                    <div>
+                      <span className="text-sm font-medium text-gray-500">Relocated to Jacksonville:</span>
+                      <p className="text-gray-900 mt-1">{(roofer as any).history.movedToJacksonville}</p>
+                    </div>
+                  </div>
+                )}
+                {(roofer as any).history.formedAfter && (
+                  <div className="flex items-start gap-3">
+                    <FontAwesomeIcon icon={faCertificate} className="h-5 w-5 text-rif-blue-500 mt-1 flex-shrink-0" />
+                    <div>
+                      <span className="text-sm font-medium text-gray-500">Company Formed After:</span>
+                      <p className="text-gray-900 mt-1">{(roofer as any).history.formedAfter}</p>
+                    </div>
+                  </div>
+                )}
+                {(roofer as any).history.notableAchievements && (roofer as any).history.notableAchievements.length > 0 && (
+                  <div>
+                    <span className="text-sm font-medium text-gray-500 mb-2 block">Notable Achievements:</span>
+                    <ul className="space-y-2 ml-6">
+                      {(roofer as any).history.notableAchievements.map((achievement: string, idx: number) => (
+                        <li key={idx} className="text-gray-900 list-disc">{achievement}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
+
+          {/* Certifications */}
+          {(roofer as any).certifications && (roofer as any).certifications.length > 0 && (
+            <div className="bg-white p-8 rounded-2xl border border-gray-200">
+              <h2 className="flex items-center gap-3 text-2xl font-semibold text-rif-black mb-6">
+                <FontAwesomeIcon icon={faAward} className="h-6 w-6 text-rif-blue-500" />
+                Certifications & Qualifications
+              </h2>
+              <div className="flex flex-wrap gap-3">
+                {(roofer as any).certifications.map((certification: string, idx: number) => (
+                  <span
+                    key={idx}
+                    className="inline-flex items-center gap-2 px-4 py-2 text-sm text-gray-700 bg-gradient-to-r from-blue-50 to-blue-100 hover:from-blue-100 hover:to-blue-200 rounded-lg transition-colors border border-blue-200"
+                  >
+                    <FontAwesomeIcon
+                      icon={faAward}
+                      className="h-4 w-4 text-blue-600"
+                    />
+                    {certification}
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Additional Services */}
+          {(roofer as any).additionalServices && (roofer as any).additionalServices.length > 0 && (
+            <div className="bg-white p-8 rounded-2xl border border-gray-200">
+              <h2 className="flex items-center gap-3 text-2xl font-semibold text-rif-black mb-6">
+                <FontAwesomeIcon icon={faTools} className="h-6 w-6 text-rif-blue-500" />
+                Additional Services
+              </h2>
+              <ul className="space-y-2">
+                {(roofer as any).additionalServices.map((service: string, idx: number) => (
+                  <li key={idx} className="flex items-start gap-2 text-gray-700">
+                    <FontAwesomeIcon icon={faCertificate} className="h-4 w-4 text-rif-blue-500 mt-1 flex-shrink-0" />
+                    <span>{service}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          {/* Team Information */}
+          {(roofer as any).team && (
+            <div className="bg-white p-8 rounded-2xl border border-gray-200">
+              <h2 className="flex items-center gap-3 text-2xl font-semibold text-rif-black mb-6">
+                <FontAwesomeIcon icon={faUsers} className="h-6 w-6 text-rif-blue-500" />
+                Team Information
+              </h2>
+              <div className="space-y-4">
+                {(roofer as any).team.owner && (
+                  <div>
+                    <span className="text-sm font-medium text-gray-500">Owner:</span>
+                    <p className="text-gray-900 text-lg font-medium mt-1">{(roofer as any).team.owner}</p>
+                  </div>
+                )}
+                {(roofer as any).team.experience && (
+                  <div>
+                    <span className="text-sm font-medium text-gray-500">Team Experience:</span>
+                    <p className="text-gray-900 mt-1">{(roofer as any).team.experience}</p>
+                  </div>
+                )}
+                {(roofer as any).team.background && (
+                  <div>
+                    <span className="text-sm font-medium text-gray-500">Background:</span>
+                    <p className="text-gray-900 mt-1">{(roofer as any).team.background}</p>
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
+
+          {/* Company History */}
+          {(roofer as any).history && (
+            <div className="bg-white p-8 rounded-2xl border border-gray-200">
+              <h2 className="flex items-center gap-3 text-2xl font-semibold text-rif-black mb-6">
+                <FontAwesomeIcon icon={faHistory} className="h-6 w-6 text-rif-blue-500" />
+                Company History
+              </h2>
+              <div className="space-y-4">
+                {(roofer as any).history.founded && (
+                  <div className="flex items-start gap-3">
+                    <FontAwesomeIcon icon={faClock} className="h-5 w-5 text-rif-blue-500 mt-1 flex-shrink-0" />
+                    <div>
+                      <span className="text-sm font-medium text-gray-500">Founded:</span>
+                      <p className="text-gray-900 mt-1">
+                        {new Date((roofer as any).history.founded).toLocaleDateString('en-US', {
+                          year: 'numeric',
+                          month: 'long',
+                          day: 'numeric',
+                        })}
+                      </p>
+                    </div>
+                  </div>
+                )}
+                {(roofer as any).history.founderStarted && (
+                  <div className="flex items-start gap-3">
+                    <FontAwesomeIcon icon={faHistory} className="h-5 w-5 text-rif-blue-500 mt-1 flex-shrink-0" />
+                    <div>
+                      <span className="text-sm font-medium text-gray-500">Founder Started:</span>
+                      <p className="text-gray-900 mt-1">{(roofer as any).history.founderStarted}</p>
+                    </div>
+                  </div>
+                )}
+                {(roofer as any).history.movedToJacksonville && (
+                  <div className="flex items-start gap-3">
+                    <FontAwesomeIcon icon={faMapLocationDot} className="h-5 w-5 text-rif-blue-500 mt-1 flex-shrink-0" />
+                    <div>
+                      <span className="text-sm font-medium text-gray-500">Relocated to Jacksonville:</span>
+                      <p className="text-gray-900 mt-1">{(roofer as any).history.movedToJacksonville}</p>
+                    </div>
+                  </div>
+                )}
+                {(roofer as any).history.formedAfter && (
+                  <div className="flex items-start gap-3">
+                    <FontAwesomeIcon icon={faCertificate} className="h-5 w-5 text-rif-blue-500 mt-1 flex-shrink-0" />
+                    <div>
+                      <span className="text-sm font-medium text-gray-500">Company Formed After:</span>
+                      <p className="text-gray-900 mt-1">{(roofer as any).history.formedAfter}</p>
+                    </div>
+                  </div>
+                )}
+                {(roofer as any).history.notableAchievements && (roofer as any).history.notableAchievements.length > 0 && (
+                  <div>
+                    <span className="text-sm font-medium text-gray-500 mb-2 block">Notable Achievements:</span>
+                    <ul className="space-y-2 ml-6">
+                      {(roofer as any).history.notableAchievements.map((achievement: string, idx: number) => (
+                        <li key={idx} className="text-gray-900 list-disc">{achievement}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
+
+          {/* Certifications */}
+          {(roofer as any).certifications && (roofer as any).certifications.length > 0 && (
+            <div className="bg-white p-8 rounded-2xl border border-gray-200">
+              <h2 className="flex items-center gap-3 text-2xl font-semibold text-rif-black mb-6">
+                <FontAwesomeIcon icon={faAward} className="h-6 w-6 text-rif-blue-500" />
+                Certifications & Qualifications
+              </h2>
+              <div className="flex flex-wrap gap-3">
+                {(roofer as any).certifications.map((certification: string, idx: number) => (
+                  <span
+                    key={idx}
+                    className="inline-flex items-center gap-2 px-4 py-2 text-sm text-gray-700 bg-gradient-to-r from-blue-50 to-blue-100 hover:from-blue-100 hover:to-blue-200 rounded-lg transition-colors border border-blue-200"
+                  >
+                    <FontAwesomeIcon
+                      icon={faAward}
+                      className="h-4 w-4 text-blue-600"
+                    />
+                    {certification}
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
+
           {/* Yelp Reviews Section */}
           {hasYelp && yelpData && (
             <YelpReviewSummary yelpData={yelpData} />
@@ -439,6 +718,17 @@ export default function RooferProfilePage({
                   </div>
                 </div>
               </div>
+            </div>
+          )}
+
+          {/* Location Map */}
+          {(roofer.address || roofer.city) && (
+            <div className="bg-white p-8 rounded-2xl border border-gray-200">
+              <h2 className="flex items-center gap-3 text-2xl font-semibold text-rif-black mb-6">
+                <FontAwesomeIcon icon={faMapLocationDot} className="h-6 w-6 text-rif-blue-500" />
+                Location
+              </h2>
+              <RooferLocationMap roofer={roofer} />
             </div>
           )}
         </div>

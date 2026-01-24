@@ -61,3 +61,4 @@ Would you like me to:
 - Set up the `/public/guides/` directory structure?
 - Add image display functionality to the guide pages?
 
+

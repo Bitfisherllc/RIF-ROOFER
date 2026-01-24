@@ -185,7 +185,7 @@ function formatEventForFile(event: TrainingEvent): string {
     date: '${event.date}',
     time: '${event.time}',
     location: '${event.location.replace(/'/g, "\\'")}',
-    address: '${event.address.replace(/'/g, "\\'")}',
+    fullAddress: '${event.fullAddress?.replace(/'/g, "\\'") || ''}',
     city: '${event.city.replace(/'/g, "\\'")}',
     state: '${event.state}',
     zipCode: '${event.zipCode}',

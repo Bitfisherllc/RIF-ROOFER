@@ -71,3 +71,4 @@ Once you add `bbbAccredited: true` to a roofer's data, a small "BBB Accredited" 
 
 The badge is clickable and will link to the BBB profile page (if `bbbUrl` is provided) or to BBB.org homepage.
 
+

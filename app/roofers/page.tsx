@@ -27,6 +27,8 @@ import {
 } from './data/roofers';
 import { searchData } from '@/app/service-areas/data/search-data';
 import FavoriteButton from '@/components/FavoriteButton';
+import { getRooferFastCoordinates } from '@/lib/fast-coordinates';
+import type { Coordinates } from '@/lib/geocoding';
 
 // Region mapping for display
 const regionNames: Record<string, string> = {
@@ -51,6 +53,29 @@ function getCountyName(countySlug: string): string {
     (item) => item.type === 'county' && item.slug === countySlug
   );
   return county ? county.name.replace(' County', '') : countySlug;
+}
+
+// Helper to get city name from slug
+function getCityName(citySlug: string): string {
+  const city = searchData.find(
+    (item) => item.type === 'city' && item.slug === citySlug
+  );
+  return city ? city.name : citySlug.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+}
+
+// Calculate distance between two coordinates using Haversine formula (in miles)
+function calculateDistance(coord1: Coordinates, coord2: Coordinates): number {
+  const R = 3959; // Earth's radius in miles
+  const dLat = (coord2.lat - coord1.lat) * (Math.PI / 180);
+  const dLon = (coord2.lng - coord1.lng) * (Math.PI / 180);
+  const a =
+    Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+    Math.cos(coord1.lat * (Math.PI / 180)) *
+      Math.cos(coord2.lat * (Math.PI / 180)) *
+      Math.sin(dLon / 2) *
+      Math.sin(dLon / 2);
+  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+  return R * c;
 }
 
 // Animated Stat Component
@@ -147,7 +172,7 @@ function AnimatedStat({ value, label, icon, delay = 0 }: AnimatedStatProps) {
 }
 
 // Enhanced Roofer Card Component
-function RooferCard({ roofer }: { roofer: RooferData }) {
+function RooferCard({ roofer, distance }: { roofer: RooferData; distance?: number }) {
   const router = useRouter();
   // Get service area display names
   const serviceAreaNames: string[] = [];
@@ -162,6 +187,13 @@ function RooferCard({ roofer }: { roofer: RooferData }) {
   if (roofer.serviceAreas?.counties) {
     roofer.serviceAreas.counties.forEach((slug) => {
       const name = getCountyName(slug);
+      if (name) serviceAreaNames.push(name);
+    });
+  }
+  
+  if (roofer.serviceAreas?.cities) {
+    roofer.serviceAreas.cities.forEach((slug) => {
+      const name = getCityName(slug);
       if (name) serviceAreaNames.push(name);
     });
   }
@@ -216,14 +248,32 @@ function RooferCard({ roofer }: { roofer: RooferData }) {
           {roofer.name}
         </h3>
         
-        <div className="space-y-2 mb-4">
-          {/* Hide city/address for General listings */}
-          {!isGeneral && roofer.city && (
-            <div className="flex items-center gap-2 text-gray-600">
-              <FontAwesomeIcon icon={faMapLocationDot} className="h-4 w-4 text-rif-blue-500" />
-              <span>{roofer.city}{roofer.state && `, ${roofer.state}`}</span>
+        {/* Address - Show for all roofers */}
+        {(roofer.address || roofer.city) && (
+          <div className="flex items-start gap-2 text-gray-600 mb-4">
+            <FontAwesomeIcon icon={faMapLocationDot} className="h-4 w-4 text-rif-blue-500 mt-0.5 flex-shrink-0" />
+            <div className="flex-1">
+              {roofer.address && (
+                <div>{roofer.address}</div>
+              )}
+              {(roofer.city || roofer.state || roofer.zipCode) && (
+                <div>
+                  {roofer.city && roofer.city}
+                  {roofer.city && roofer.state && ', '}
+                  {roofer.state && roofer.state}
+                  {roofer.zipCode && ` ${roofer.zipCode}`}
+                </div>
+              )}
+              {distance !== undefined && distance !== Infinity && (
+                <div className="mt-1 text-sm font-semibold text-rif-blue-600">
+                  {distance.toFixed(1)} miles away
+                </div>
+              )}
             </div>
-          )}
+          </div>
+        )}
+        
+        <div className="space-y-2 mb-4">
           
           {/* Hide phone for General listings */}
           {!isGeneral && roofer.phone && (
@@ -320,22 +370,49 @@ function RooferCard({ roofer }: { roofer: RooferData }) {
 }
 
 export default function RoofersPage() {
+  // #region agent log
+  useEffect(() => {
+    try {
+      fetch('http://127.0.0.1:7242/ingest/16419525-2d8f-4245-a872-e347769048b8',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'roofers/page.tsx:372',message:'Component render start',data:{timestamp:Date.now()},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'A'})}).catch(()=>{});
+    } catch (e) {}
+  }, []);
+  // #endregion
   const [searchTerm, setSearchTerm] = useState('');
   const [filterRegion, setFilterRegion] = useState<string>('all');
   const [filterPreferred, setFilterPreferred] = useState<'all' | 'preferred' | 'other'>('all');
+  const [userLocation, setUserLocation] = useState<Coordinates | null>(null);
+  const [locationError, setLocationError] = useState<string | null>(null);
+  const [locationLoading, setLocationLoading] = useState(true);
+  const [showNearMe, setShowNearMe] = useState(false);
+  const [userLocationAddress, setUserLocationAddress] = useState<string | null>(null);
+  const [generalDisplayLimit, setGeneralDisplayLimit] = useState(3);
+
   
-  // Safely get roofers with error handling
-  let allRoofers: RooferData[] = [];
-  let preferredRoofers: RooferData[] = [];
-  let otherRoofers: RooferData[] = [];
-  
-  try {
-    allRoofers = getAllRoofers();
-    preferredRoofers = getPreferredRoofers();
-    otherRoofers = getOtherRoofers();
-  } catch (error) {
-    console.error('Error loading roofers:', error);
-    // Return error state
+  // Safely get roofers with error handling - memoize to prevent excessive re-renders
+  const { allRoofers, preferredRoofers, otherRoofers, hasError } = useMemo(() => {
+    try {
+      const all = getAllRoofers();
+      const preferred = getPreferredRoofers();
+      const other = getOtherRoofers();
+      return {
+        allRoofers: all,
+        preferredRoofers: preferred,
+        otherRoofers: other,
+        hasError: false,
+      };
+    } catch (error) {
+      console.error('Error loading roofers:', error);
+      return {
+        allRoofers: [],
+        preferredRoofers: [],
+        otherRoofers: [],
+        hasError: true,
+      };
+    }
+  }, []); // Empty deps - only load once
+
+  // Show error state if roofers failed to load
+  if (hasError || (allRoofers.length === 0 && preferredRoofers.length === 0 && otherRoofers.length === 0)) {
     return (
       <div className="min-h-screen bg-white flex items-center justify-center p-6">
         <div className="text-center">
@@ -346,6 +423,83 @@ export default function RoofersPage() {
     );
   }
 
+  // Reverse geocode coordinates to get address (with timeout)
+  const reverseGeocode = async (coords: Coordinates) => {
+    try {
+      // Create a timeout promise that rejects after 3 seconds
+      const timeoutPromise = new Promise<never>((_, reject) => {
+        setTimeout(() => reject(new Error('Reverse geocoding timeout')), 3000);
+      });
+
+      // Race between the fetch and timeout
+      const response = await Promise.race([
+        fetch(
+          `https://nominatim.openstreetmap.org/reverse?format=json&lat=${coords.lat}&lon=${coords.lng}`,
+          {
+            headers: {
+              'User-Agent': 'Florida Roofers Application',
+            },
+          }
+        ),
+        timeoutPromise,
+      ]) as Response;
+
+      const data = await response.json();
+      if (data.display_name) {
+        setUserLocationAddress(data.display_name);
+      }
+      // If no display_name, keep the coordinates that were already set
+    } catch (error) {
+      // Silently fail - coordinates are already displayed as fallback
+      console.debug('Reverse geocoding failed or timed out, using coordinates');
+    }
+  };
+
+  // Get user's location when "Roofers Near Me" is clicked
+  const handleNearMeClick = () => {
+    if (typeof window === 'undefined' || !navigator.geolocation) {
+      setLocationError('Geolocation is not supported by your browser');
+      return;
+    }
+
+    setLocationLoading(true);
+    setLocationError(null);
+
+    const options: PositionOptions = {
+      enableHighAccuracy: true,
+      timeout: 10000,
+      maximumAge: 300000, // Cache location for 5 minutes
+    };
+
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        const coords = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude,
+        };
+        // Set coordinates immediately and show roofers
+        setUserLocation(coords);
+        setLocationError(null);
+        setLocationLoading(false);
+        setShowNearMe(true);
+        // Show coordinates as fallback immediately
+        setUserLocationAddress(`${coords.lat.toFixed(4)}, ${coords.lng.toFixed(4)}`);
+        // Reverse geocode in the background (non-blocking)
+        reverseGeocode(coords).catch((error) => {
+          console.error('Reverse geocoding error:', error);
+          // Keep the coordinates display if geocoding fails
+        });
+      },
+      (error) => {
+        console.error('Geolocation error:', error);
+        setLocationError(error.message);
+        setLocationLoading(false);
+        setShowNearMe(false);
+      },
+      options
+    );
+  };
+
   // Get unique regions from all roofers
   const availableRegions = useMemo(() => {
     const regions = new Set<string>();
@@ -354,6 +508,9 @@ export default function RoofersPage() {
     });
     return Array.from(regions).sort();
   }, [allRoofers]);
+
+  // Store distances for roofers (when using 'closest' filter)
+  const [rooferDistances, setRooferDistances] = useState<Map<string, number>>(new Map());
 
   // Filter roofers
   const filteredRoofers = useMemo(() => {
@@ -386,24 +543,174 @@ export default function RoofersPage() {
       );
     }
 
-    // Sort: Certified (preferred) first, then Sponsored, then General, then alphabetical
-    return filtered.sort((a, b) => {
-      // Category ranking: Certified (preferred) first, then Sponsored, then General
-      const categoryRank = (category?: string, isPreferred?: boolean) => {
-        if (category === 'preferred' || isPreferred) return 1; // Certified/Preferred
-        if (category === 'sponsored') return 2; // Sponsored
-        if (category === 'general') return 3; // General
-        return 4; // No category
+    // Calculate distances and add to roofers if "near me" mode is active and user location is available
+    if (showNearMe && userLocation) {
+      // Helper function to determine category
+      const getCategory = (roofer: RooferData): 'preferred' | 'sponsored' | 'general' => {
+        if (roofer.category === 'preferred' || roofer.isPreferred) return 'preferred';
+        if (roofer.category === 'sponsored') return 'sponsored';
+        return 'general';
       };
-      
-      const rankA = categoryRank(a.category, a.isPreferred);
-      const rankB = categoryRank(b.category, b.isPreferred);
-      
-      if (rankA !== rankB) return rankA - rankB;
-      
-      return a.name.localeCompare(b.name);
-    });
-  }, [allRoofers, searchTerm, filterRegion, filterPreferred]);
+
+      // Add distance to each roofer and filter out those without coordinates
+      const roofersWithDistance = filtered
+        .map((roofer) => {
+          const rooferCoords = getRooferFastCoordinates(roofer);
+          if (rooferCoords) {
+            const distance = calculateDistance(userLocation, rooferCoords);
+            return { roofer, distance, category: getCategory(roofer) };
+          }
+          return null;
+        })
+        .filter((r): r is { roofer: RooferData; distance: number; category: 'preferred' | 'sponsored' | 'general' } => r !== null);
+
+
+      // Separate by category
+      const preferredRoofers = roofersWithDistance.filter((r) => r.category === 'preferred');
+      const sponsoredRoofers = roofersWithDistance.filter((r) => r.category === 'sponsored');
+      const generalRoofers = roofersWithDistance.filter((r) => r.category === 'general');
+
+
+      // Sort each category by distance
+      preferredRoofers.sort((a, b) => a.distance - b.distance);
+      sponsoredRoofers.sort((a, b) => a.distance - b.distance);
+      generalRoofers.sort((a, b) => a.distance - b.distance);
+
+      // Take the closest from each category: 3 preferred, 3 sponsored, 5 general
+      const closestPreferred = preferredRoofers.slice(0, 3).map((r) => r.roofer);
+      const closestSponsored = sponsoredRoofers.slice(0, 3).map((r) => r.roofer);
+      const closestGeneral = generalRoofers.slice(0, 5).map((r) => r.roofer);
+
+
+      // Combine in priority order: Preferred first, then Sponsored, then General
+      filtered = [...closestPreferred, ...closestSponsored, ...closestGeneral];
+    } else {
+      // Sort: Certified (preferred) first, then Sponsored, then General, then alphabetical
+      filtered.sort((a, b) => {
+        // Category ranking: Certified (preferred) first, then Sponsored, then General
+        const categoryRank = (category?: string, isPreferred?: boolean) => {
+          if (category === 'preferred' || isPreferred) return 1; // Certified/Preferred
+          if (category === 'sponsored') return 2; // Sponsored
+          if (category === 'general') return 3; // General
+          return 4; // No category
+        };
+        
+        const rankA = categoryRank(a.category, a.isPreferred);
+        const rankB = categoryRank(b.category, b.isPreferred);
+        
+        if (rankA !== rankB) return rankA - rankB;
+        
+        return a.name.localeCompare(b.name);
+      });
+    }
+
+    return filtered;
+  }, [allRoofers, searchTerm, filterRegion, filterPreferred, userLocation, showNearMe]);
+
+  // Limit displayed roofers: show all preferred, all sponsored, then limit general
+  // (Skip limiting if "near me" mode is active, as it already has its own limits)
+  const { displayedRoofers, remainingGeneralCount } = useMemo(() => {
+    // #region agent log
+    try {
+      fetch('http://127.0.0.1:7242/ingest/16419525-2d8f-4245-a872-e347769048b8',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'roofers/page.tsx:592',message:'displayedRoofers useMemo start',data:{filteredCount:filteredRoofers.length,showNearMe,generalDisplayLimit},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'B'})}).catch(()=>{});
+    } catch (e) {}
+    // #endregion
+    try {
+      if (showNearMe) {
+        // "Near me" mode already limits to 3 preferred, 3 sponsored, 5 general
+        return { displayedRoofers: filteredRoofers, remainingGeneralCount: 0 };
+      }
+
+      // Helper function to determine category
+      const getCategory = (roofer: RooferData): 'preferred' | 'sponsored' | 'general' => {
+        if (roofer.category === 'preferred' || roofer.isPreferred) return 'preferred';
+        if (roofer.category === 'sponsored') return 'sponsored';
+        return 'general';
+      };
+
+      // Separate by category
+      const preferred = filteredRoofers.filter((r) => getCategory(r) === 'preferred');
+      const sponsored = filteredRoofers.filter((r) => getCategory(r) === 'sponsored');
+      const general = filteredRoofers.filter((r) => getCategory(r) === 'general');
+
+      // Show all preferred, all sponsored, and limited general
+      const limitedGeneral = general.slice(0, generalDisplayLimit);
+      // Calculate remaining: if we've shown all general roofers, remaining is 0
+      const remainingGeneral = Math.max(0, general.length - generalDisplayLimit);
+
+      // #region agent log
+      try {
+        fetch('http://127.0.0.1:7242/ingest/16419525-2d8f-4245-a872-e347769048b8',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'roofers/page.tsx:637',message:'displayedRoofers calculation',data:{generalLength:general.length,generalDisplayLimit,limitedGeneralLength:limitedGeneral.length,remainingGeneral,calculation:'general.length - generalDisplayLimit'},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'D'})}).catch(()=>{});
+      } catch (e) {}
+      // #endregion
+
+      return {
+        displayedRoofers: [...preferred, ...sponsored, ...limitedGeneral],
+        remainingGeneralCount: remainingGeneral,
+      };
+    } catch (error) {
+      // #region agent log
+      try {
+        fetch('http://127.0.0.1:7242/ingest/16419525-2d8f-4245-a872-e347769048b8',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'roofers/page.tsx:618',message:'displayedRoofers useMemo error',data:{error:error instanceof Error?error.message:String(error)},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'B'})}).catch(()=>{});
+      } catch (e) {}
+      // #endregion
+      console.error('Error in displayedRoofers useMemo:', error);
+      // Fallback to showing all filtered roofers
+      return { displayedRoofers: filteredRoofers, remainingGeneralCount: 0 };
+    }
+  }, [filteredRoofers, showNearMe, generalDisplayLimit]);
+
+  // Reset general display limit when filters change
+  useEffect(() => {
+    setGeneralDisplayLimit(3);
+  }, [searchTerm, filterRegion, filterPreferred, showNearMe]);
+
+  // #region agent log
+  // Monitor click events to see if they're being blocked
+  useEffect(() => {
+    const handleClick = (e: MouseEvent) => {
+      try {
+        const target = e.target as HTMLElement;
+        const isLink = target.closest('a') || target.tagName === 'A';
+        const linkHref = target.closest('a')?.getAttribute('href') || (target.tagName === 'A' ? (target as HTMLAnchorElement).href : null);
+        const computedStyle = window.getComputedStyle(target);
+        const pointerEvents = computedStyle.pointerEvents;
+        const zIndex = computedStyle.zIndex;
+        fetch('http://127.0.0.1:7242/ingest/16419525-2d8f-4245-a872-e347769048b8',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'roofers/page.tsx:660',message:'Click event detected',data:{isLink,linkHref,tagName:target.tagName,id:target.id,className:target.className,defaultPrevented:e.defaultPrevented,pointerEvents,zIndex},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'C'})}).catch(()=>{});
+      } catch (err) {
+        try {
+          fetch('http://127.0.0.1:7242/ingest/16419525-2d8f-4245-a872-e347769048b8',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'roofers/page.tsx:660',message:'Click handler error',data:{error:err instanceof Error?err.message:String(err)},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'C'})}).catch(()=>{});
+        } catch {}
+      }
+    };
+    document.addEventListener('click', handleClick, true);
+    // #region agent log
+    try {
+      fetch('http://127.0.0.1:7242/ingest/16419525-2d8f-4245-a872-e347769048b8',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'roofers/page.tsx:670',message:'Click listener attached',data:{timestamp:Date.now()},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'C'})}).catch(()=>{});
+    } catch {}
+    // #endregion
+    return () => document.removeEventListener('click', handleClick, true);
+  }, []);
+  // #endregion
+
+  // Calculate and store distances separately in useEffect to avoid infinite re-renders
+  useEffect(() => {
+    if (showNearMe && userLocation) {
+      const distancesMap = new Map<string, number>();
+      filteredRoofers.forEach((roofer) => {
+        const rooferCoords = getRooferFastCoordinates(roofer);
+        if (rooferCoords) {
+          const distance = calculateDistance(userLocation, rooferCoords);
+          distancesMap.set(roofer.id, distance);
+        } else {
+          distancesMap.set(roofer.id, Infinity);
+        }
+      });
+      setRooferDistances(distancesMap);
+    } else {
+      setRooferDistances(new Map());
+    }
+  }, [filteredRoofers, showNearMe, userLocation]);
 
   // Statistics
   const stats = useMemo(() => {
@@ -438,6 +745,17 @@ export default function RoofersPage() {
             specific product systems, and held to higher standards for installation
             quality and code compliance.
           </p>
+          <button
+            onClick={handleNearMeClick}
+            disabled={locationLoading}
+            className="inline-flex items-center gap-2 px-6 py-3 bg-rif-blue-500 text-white rounded-lg hover:bg-rif-blue-600 transition-colors font-medium disabled:opacity-50 disabled:cursor-not-allowed"
+          >
+            <FontAwesomeIcon 
+              icon={faMapLocationDot} 
+              className={locationLoading ? 'animate-bounce' : ''}
+            />
+            {locationLoading ? 'Getting Location...' : 'Roofers Near Me'}
+          </button>
         </div>
       </section>
 
@@ -525,7 +843,10 @@ export default function RoofersPage() {
               <FontAwesomeIcon icon={faMapLocationDot} className="text-gray-400" />
               <select
                 value={filterRegion}
-                onChange={(e) => setFilterRegion(e.target.value)}
+                onChange={(e) => {
+                  setFilterRegion(e.target.value);
+                  setShowNearMe(false);
+                }}
                 className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rif-blue-500 focus:border-transparent min-w-[180px]"
               >
                 <option value="all">All Regions</option>
@@ -548,9 +869,24 @@ export default function RoofersPage() {
           </div>
 
           {/* Active Filters Display */}
-          {(searchTerm || filterRegion !== 'all' || filterPreferred !== 'all') && (
+          {(searchTerm || (filterRegion !== 'all') || filterPreferred !== 'all' || showNearMe) && (
             <div className="mt-4 flex flex-wrap items-center gap-2">
               <span className="text-sm text-gray-600">Active filters:</span>
+              {showNearMe && (
+                <span className="inline-flex items-center gap-1 px-3 py-1 bg-rif-blue-100 text-rif-blue-700 rounded-full text-sm">
+                  <FontAwesomeIcon icon={faMapLocationDot} />
+                  Roofers Near Me
+                  <button
+                    onClick={() => {
+                      setShowNearMe(false);
+                      setUserLocationAddress(null);
+                    }}
+                    className="hover:text-rif-blue-900"
+                  >
+                    <FontAwesomeIcon icon={faTimes} className="h-3 w-3" />
+                  </button>
+                </span>
+              )}
               {searchTerm && (
                 <span className="inline-flex items-center gap-1 px-3 py-1 bg-rif-blue-100 text-rif-blue-700 rounded-full text-sm">
                   Search: "{searchTerm}"
@@ -589,11 +925,40 @@ export default function RoofersPage() {
                   setSearchTerm('');
                   setFilterRegion('all');
                   setFilterPreferred('all');
+                  setShowNearMe(false);
+                  setUserLocationAddress(null);
                 }}
                 className="text-sm text-gray-600 hover:text-rif-blue-500 underline"
               >
                 Clear all
               </button>
+            </div>
+          )}
+          
+          {/* Location Status */}
+          {showNearMe && (
+            <div className="mt-4">
+              {locationLoading && (
+                <div className="flex items-center gap-2 text-sm text-gray-600">
+                  <FontAwesomeIcon icon={faMapLocationDot} className="h-4 w-4 animate-pulse" />
+                  <span>Getting your location...</span>
+                </div>
+              )}
+              {locationError && (
+                <div className="flex items-center gap-2 text-sm text-amber-600 bg-amber-50 px-3 py-2 rounded-lg">
+                  <FontAwesomeIcon icon={faMapLocationDot} className="h-4 w-4" />
+                  <span>Unable to get your location. Please try again.</span>
+                </div>
+              )}
+              {userLocation && !locationError && !locationLoading && (
+                <div className="flex items-center gap-2 text-sm text-green-600 bg-green-50 px-3 py-2 rounded-lg">
+                  <FontAwesomeIcon icon={faMapLocationDot} className="h-4 w-4" />
+                  <span>
+                    Showing closest roofers: 3 Certified, 3 Sponsored, 5 General
+                    {userLocationAddress && ` (${userLocationAddress})`}
+                  </span>
+                </div>
+              )}
             </div>
           )}
         </div>
@@ -615,6 +980,11 @@ export default function RoofersPage() {
                   {filteredRoofers.filter((r) => r.isPreferred).length} preferred
                   {filteredRoofers.filter((r) => !r.isPreferred).length > 0 &&
                     `, ${filteredRoofers.filter((r) => !r.isPreferred).length} other`}
+                  {!showNearMe && displayedRoofers.length < filteredRoofers.length && (
+                    <span className="ml-2 text-rif-blue-600">
+                      (Showing {displayedRoofers.length} of {filteredRoofers.length})
+                    </span>
+                  )}
                 </p>
               )}
             </div>
@@ -635,6 +1005,8 @@ export default function RoofersPage() {
                   setSearchTerm('');
                   setFilterRegion('all');
                   setFilterPreferred('all');
+                  setShowNearMe(false);
+                  setUserLocationAddress(null);
                 }}
                 className="text-rif-blue-500 hover:text-rif-blue-600 underline"
               >
@@ -642,11 +1014,44 @@ export default function RoofersPage() {
               </button>
             </div>
           ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {filteredRoofers.map((roofer) => (
-                <RooferCard key={roofer.id} roofer={roofer} />
-              ))}
-            </div>
+            <>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {displayedRoofers.map((roofer) => (
+                  <RooferCard 
+                    key={roofer.id} 
+                    roofer={roofer}
+                    distance={rooferDistances.get(roofer.id)}
+                  />
+                ))}
+              </div>
+              {/* Load More Button */}
+              {!showNearMe && remainingGeneralCount > 0 && (
+                <div className="mt-8 text-center">
+                  <button
+                    onClick={() => {
+                      // #region agent log
+                      try {
+                        fetch('http://127.0.0.1:7242/ingest/16419525-2d8f-4245-a872-e347769048b8',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'roofers/page.tsx:1030',message:'Load More button clicked',data:{currentLimit:generalDisplayLimit,remainingBefore:remainingGeneralCount},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'D'})}).catch(()=>{});
+                      } catch (e) {}
+                      // #endregion
+                      setGeneralDisplayLimit((prev) => {
+                        const newLimit = prev + 10;
+                        // #region agent log
+                        try {
+                          fetch('http://127.0.0.1:7242/ingest/16419525-2d8f-4245-a872-e347769048b8',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'roofers/page.tsx:1035',message:'setGeneralDisplayLimit called',data:{prev,newLimit},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'D'})}).catch(()=>{});
+                        } catch (e) {}
+                        // #endregion
+                        return newLimit;
+                      });
+                    }}
+                    className="px-6 py-3 bg-rif-blue-500 text-white rounded-lg hover:bg-rif-blue-600 transition-colors font-medium inline-flex items-center gap-2"
+                  >
+                    <FontAwesomeIcon icon={faArrowRight} className="h-4 w-4" />
+                    Load More Roofers ({remainingGeneralCount} remaining)
+                  </button>
+                </div>
+              )}
+            </>
           )}
         </div>
       </section>

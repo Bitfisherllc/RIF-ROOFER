@@ -64,19 +64,6 @@ export default function FreeEstimatePage() {
         
         if (data.authenticated) {
           setIsAuthenticated(true);
-          
-          // Load favorite roofers from localStorage
-          try {
-            const stored = localStorage.getItem(STORAGE_KEY);
-            if (stored) {
-              const favorites = JSON.parse(stored) as FavoriteRoofer[];
-              setFavoriteRoofers(favorites);
-              // Pre-select all saved roofers
-              setSelectedRoofers(new Set(favorites.map(r => r.id)));
-            }
-          } catch (error) {
-            console.error('Error loading favorites:', error);
-          }
         }
       } catch (error) {
         console.error('Error checking auth:', error);
@@ -84,6 +71,19 @@ export default function FreeEstimatePage() {
     };
 
     checkAuth();
+
+    // Load favorite roofers from localStorage (available to all users)
+    try {
+      const stored = localStorage.getItem(STORAGE_KEY);
+      if (stored) {
+        const favorites = JSON.parse(stored) as FavoriteRoofer[];
+        setFavoriteRoofers(favorites);
+        // Pre-select all saved roofers
+        setSelectedRoofers(new Set(favorites.map(r => r.id)));
+      }
+    } catch (error) {
+      console.error('Error loading favorites:', error);
+    }
   }, []);
 
   const handleChange = (
@@ -468,20 +468,18 @@ export default function FreeEstimatePage() {
                 </div>
               </div>
 
-              {/* Saved Roofers Section - Only for logged-in users */}
-              {isAuthenticated && (
+              {/* Favorite Roofers Section */}
+              {favoriteRoofers.length > 0 && (
                 <div className="border-t border-gray-200 pt-6">
-                  {favoriteRoofers.length > 0 ? (
-                    <>
-                      <div className="flex items-center justify-between mb-4">
-                        <div>
-                          <h3 className="text-xl font-semibold text-rif-black mb-1">
-                            Include Saved Roofers
-                          </h3>
-                          <p className="text-sm text-gray-600">
-                            Select any saved roofers you'd like us to contact for your estimate
-                          </p>
-                        </div>
+                  <div className="flex items-center justify-between mb-4">
+                    <div>
+                      <h3 className="text-xl font-semibold text-rif-black mb-1">
+                        Include Your Favorite Roofers
+                      </h3>
+                      <p className="text-sm text-gray-600">
+                        Select any favorite roofers you'd like us to contact for your estimate
+                      </p>
+                    </div>
                         <button
                           type="button"
                           onClick={() => {
@@ -530,28 +528,6 @@ export default function FreeEstimatePage() {
                           {selectedRoofers.size} roofer{selectedRoofers.size !== 1 ? 's' : ''} will be included in your estimate request
                         </p>
                       )}
-                    </>
-                  ) : (
-                    <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-                      <div className="flex items-start gap-3">
-                        <FontAwesomeIcon icon={faHeart} className="h-5 w-5 text-blue-600 mt-0.5 flex-shrink-0" />
-                        <div className="flex-1">
-                          <h3 className="text-sm font-semibold text-blue-900 mb-1">
-                            Save Roofers for Easy Access
-                          </h3>
-                          <p className="text-sm text-blue-800 mb-2">
-                            You don't have any saved roofers yet. Save your favorite roofers to quickly include them in estimate requests.
-                          </p>
-                          <Link
-                            href="/roofers"
-                            className="text-sm text-blue-600 hover:text-blue-700 font-medium inline-flex items-center gap-1"
-                          >
-                            Browse Roofers →
-                          </Link>
-                        </div>
-                      </div>
-                    </div>
-                  )}
                 </div>
               )}
 

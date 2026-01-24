@@ -50,3 +50,4 @@ fs.writeFileSync(
 
 console.log('\n✅ Company list saved to: roofers-for-bbb-search.json');
 
+

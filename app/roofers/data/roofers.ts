@@ -161,12 +161,13 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">A-1 AMERICAN ROOFING & SHEET METAL INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, A-1 AMERICAN ROOFING & SHEET METAL INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['southwest-florida'],
+      counties: ['charlotte'],
       cities: ['rotonda-west']
-  },
+    },
     isPreferred: false,
-    isHidden: false
+    isHidden: false,
+    category: "sponsored"
   },
 
   'aam-industries-inc': {
@@ -187,10 +188,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">AAM INDUSTRIES INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, AAM INDUSTRIES INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['south-florida'],
+      counties: ['palm-beach-south'],
       cities: ['boynton-beach']
-  },
+    },
     isPreferred: false,
     isHidden: false, category: "sponsored" },
 
@@ -212,10 +213,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">A BARTLETT ROOFING & CONSTRUCTION SERVICES LLC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, A BARTLETT ROOFING & CONSTRUCTION SERVICES LLC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['sun-coast'],
+      counties: ['pasco'],
       cities: ['zephyrhills']
-  },
+    },
     isPreferred: false,
     isHidden: false,
     category: "preferred"},
@@ -238,10 +239,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">AMERICAN BUILDING CONTRACTORS offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, AMERICAN BUILDING CONTRACTORS brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['south-florida'],
+      counties: ['palm-beach-south'],
       cities: ['deerfield-beach']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -264,10 +265,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">ABC ROOFING CORP offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, ABC ROOFING CORP brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['south-florida'],
+      counties: ['broward'],
       cities: ['coral-springs']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -316,10 +317,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">ACOMA ROOFING INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, ACOMA ROOFING INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['sun-coast'],
+      counties: ['pinellas'],
       cities: ['oldsmar']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -394,10 +395,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">ADVANCED ROOFING INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, ADVANCED ROOFING INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['south-florida'],
+      counties: ['broward'],
       cities: ['ft-lauderdale']
-  },
+    },
     isPreferred: false,
     isHidden: false, category: "sponsored"},
 
@@ -522,10 +523,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">AIRAM CONSTRUCTION GROUP INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, AIRAM CONSTRUCTION GROUP INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
-      cities: ['oakland-park']
-  },
+      regions: ['central-florida'],
+      counties: ['orange'],
+      cities: ['oakland', 'oakland-park']
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -574,10 +575,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">AJL SELECT ENTERPRISES LLC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, AJL SELECT ENTERPRISES LLC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['florida-panhandle'],
+      counties: ['bay'],
       cities: ['panama-city-beach']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -626,10 +627,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">AKVM CONSTRUCTION GROUP INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, AKVM CONSTRUCTION GROUP INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['southwest-florida'],
+      counties: ['sarasota'],
       cities: ['bradenton']
-  },
+    },
     isPreferred: false,
     isHidden: false,
     category: "sponsored"},
@@ -679,9 +680,9 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, ALAN TAYLOR ROOFING LLC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
       regions: ['north-florida'],
-      counties: ['clay'],
+      counties: ['duval', 'clay'],
       cities: ['orange-park']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -729,10 +730,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">ALL AREA ROOFING & CONSTRUCTION INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, ALL AREA ROOFING & CONSTRUCTION INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['south-florida'],
+      counties: ['palm-beach-south'],
       cities: ['ft-pierce']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -755,10 +756,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">ALLIED ROOFING & SHEET METAL INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, ALLIED ROOFING & SHEET METAL INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['south-florida'],
+      counties: ['broward'],
       cities: ['ft-lauderdale']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -807,10 +808,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">ALL PHASE CONSTRUCTION USA LLC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, ALL PHASE CONSTRUCTION USA LLC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['south-florida'],
+      counties: ['palm-beach-south'],
       cities: ['deerfield-beach']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -833,10 +834,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">ALL PRO CONTRACTING SERVICES LLC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, ALL PRO CONTRACTING SERVICES LLC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['central-florida'],
+      counties: ['seminole'],
       cities: ['casselberry']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -885,10 +886,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">MADDOX ROOFING INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, MADDOX ROOFING INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['south-florida'],
+      counties: ['palm-beach-south'],
       cities: ['riviera-beach']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -989,10 +990,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">PACE ROOFING INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, PACE ROOFING INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['south-florida'],
+      counties: ['palm-beach-south'],
       cities: ['riviera-beach']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -1041,10 +1042,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">AMICK ROOFING INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, AMICK ROOFING INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['southwest-florida'],
+      counties: ['sarasota'],
       cities: ['bradenton']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -1067,10 +1068,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">ANTHONY C LEONARD ENTERPRISES INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, ANTHONY C LEONARD ENTERPRISES INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['southwest-florida'],
+      counties: ['sarasota'],
       cities: ['englewood']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -1117,10 +1118,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">BYRNE ROOFING INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, BYRNE ROOFING INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['south-florida'],
+      counties: ['palm-beach-south'],
       cities: ['palm-city']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -1142,10 +1143,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">GAINESVILLE ROOFING & CO INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, GAINESVILLE ROOFING & CO INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['north-florida'],
+      counties: ['alachua'],
       cities: ['bronson']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -1167,10 +1168,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">CENTER POINT ROOFING & SHEET METAL INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, CENTER POINT ROOFING & SHEET METAL INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['sun-coast'],
+      counties: ['hillsborough'],
       cities: ['brandon']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -1217,10 +1218,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">DEVLIN ROOFING INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, DEVLIN ROOFING INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['southwest-florida'],
+      counties: ['collier'],
       cities: ['goodland']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -1316,10 +1317,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">GULF STATES INDUSTRIES INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, GULF STATES INDUSTRIES INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['sun-coast'],
+      counties: ['pasco'],
       cities: ['new-pt-richey']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -1341,10 +1342,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">GUY\ offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, GUY\ brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['central-florida'],
+      counties: ['polk'],
       cities: ['auburndale']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -1441,10 +1442,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">WHITTLE\ offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, WHITTLE\ brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['north-florida'],
+      counties: ['alachua'],
       cities: ['newberry']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -1641,10 +1642,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">CJM ROOFING INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, CJM ROOFING INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['south-florida'],
+      counties: ['palm-beach-south'],
       cities: ['w-palm-beach']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -1741,10 +1742,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">JIM WHEELER REPAIRS LLC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, JIM WHEELER REPAIRS LLC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['florida-panhandle'],
+      counties: ['escambia'],
       cities: ['destin']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -1791,10 +1792,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">TRANS COASTAL CONSTRUCTION CO INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, TRANS COASTAL CONSTRUCTION CO INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['south-florida'],
+      counties: ['palm-beach-south'],
       cities: ['w-palm-beach']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -1816,10 +1817,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">WATERTITE ROOFING CO LLC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, WATERTITE ROOFING CO LLC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['southwest-florida'],
+      counties: ['sarasota'],
       cities: ['nokomis']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -1918,10 +1919,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">ARMOR ROOFING & HOME IMPROVEMENT offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, ARMOR ROOFING & HOME IMPROVEMENT brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['central-florida'],
+      counties: ['lake'],
       cities: ['tavares']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -1944,10 +1945,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">ARRY\ offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, ARRY\ brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['sun-coast'],
+      counties: ['pinellas'],
       cities: ['tarpon-springs']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -1970,10 +1971,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">ADVANCED ROOFING & SHEET METAL offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, ADVANCED ROOFING & SHEET METAL brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['southwest-florida'],
+      counties: ['charlotte'],
       cities: ['ft-myers']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -2024,8 +2025,8 @@ export const rooferData: Record<string, RooferData | any> = {
     serviceAreas: {
       regions: ['florida-panhandle'],
       counties: ['bay'],
-      cities: ['panama-city']
-  },
+      cities: ['panama-city-beach', 'panama-city']
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -2100,10 +2101,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">ATLAS-APEX ROOFING LLC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, ATLAS-APEX ROOFING LLC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['south-florida'],
+      counties: ['broward'],
       cities: ['ft-lauderdale']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -2125,10 +2126,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">B&D ROOFING OF CENTRAL FL INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, B&D ROOFING OF CENTRAL FL INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['central-florida'],
+      counties: ['orange'],
       cities: ['deland']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -2175,10 +2176,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">MURPHY BUILDERS IINC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, MURPHY BUILDERS IINC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['south-florida'],
+      counties: ['palm-beach-south'],
       cities: ['lake-worth']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -2277,10 +2278,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">BARRIER ROOFING & CONSTRUCTION INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, BARRIER ROOFING & CONSTRUCTION INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
-      cities: ['miami-lakes']
-  },
+      regions: ['south-florida'],
+      counties: ['miami-dade'],
+      cities: ['miami-lakes', 'miami']
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -2381,9 +2382,9 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, BEAVER HOME SERVICES INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
       regions: ['north-florida'],
-      counties: ['clay'],
+      counties: ['duval', 'clay'],
       cities: ['orange-park']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -2406,10 +2407,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">BEERY ROOFING & REDESIGN LLC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, BEERY ROOFING & REDESIGN LLC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['central-florida'],
+      counties: ['orange'],
       cities: ['deland']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -2533,10 +2534,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">JOHN CARRUTH - RETIRED offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, JOHN CARRUTH - RETIRED brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['south-florida'],
+      counties: ['broward'],
       cities: ['tamarac']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -2658,10 +2659,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">LEO ROOFING & CONSTRUCTION offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, LEO ROOFING & CONSTRUCTION brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['south-florida'],
+      counties: ['palm-beach-south'],
       cities: ['palm-beach-gardens']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -2683,10 +2684,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">ROOF SOLUTIONS INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, ROOF SOLUTIONS INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['south-florida'],
+      counties: ['broward'],
       cities: ['plantation']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -2708,10 +2709,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">FLORIDA ROOFING OF PALM BEACH COUNTY offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, FLORIDA ROOFING OF PALM BEACH COUNTY brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['south-florida'],
+      counties: ['palm-beach-south'],
       cities: ['boynton-beach']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -2758,10 +2759,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">PETITO ROOFING INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, PETITO ROOFING INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['south-florida'],
+      counties: ['broward'],
       cities: ['coral-springs']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -2808,10 +2809,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">STUART ROOF REPAIR INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, STUART ROOF REPAIR INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['south-florida'],
+      counties: ['palm-beach-south'],
       cities: ['pt-salerno']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -2858,10 +2859,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">MICHAEL KEVIN WALSH ROOFING INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, MICHAEL KEVIN WALSH ROOFING INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['south-florida'],
+      counties: ['palm-beach-south'],
       cities: ['palm-city']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -2883,10 +2884,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">WHITTON ROOFING CO offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, WHITTON ROOFING CO brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['north-florida'],
+      counties: ['alachua'],
       cities: ['melrose']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -2935,10 +2936,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">BEST ROOFING offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, BEST ROOFING brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['south-florida'],
+      counties: ['broward'],
       cities: ['ft-lauderdale']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -3065,10 +3066,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">BKM ROOFING INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, BKM ROOFING INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['first-coast'],
+      counties: ['st-johns-fc'],
       cities: ['yulee']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -3091,10 +3092,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">HALL ROOFING COMPANY LLC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, HALL ROOFING COMPANY LLC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['florida-panhandle'],
+      counties: ['bay'],
       cities: ['pt-st-joe']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -3169,10 +3170,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">BOB & JERRY\ offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, BOB & JERRY\ brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['central-florida'],
+      counties: ['polk'],
       cities: ['auburndale']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -3247,10 +3248,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">BOWEN & SON ROOFING INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, BOWEN & SON ROOFING INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['central-florida'],
+      counties: ['polk'],
       cities: ['sebring']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -3325,10 +3326,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">JOHN KELLER ROOFING offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, JOHN KELLER ROOFING brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['central-florida'],
+      counties: ['seminole'],
       cities: ['longwood']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -3351,10 +3352,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">BRILLIANT ROOFING offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, BRILLIANT ROOFING brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: ['treasure-coast'],
-      counties: ['martin'],
+      regions: ['south-florida', 'treasure-coast'],
+      counties: ['martin', 'palm-beach-south'],
       cities: ['stuart']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -3507,10 +3508,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">CAMPANY ROOF MAINTENANCE LLC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, CAMPANY ROOF MAINTENANCE LLC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['south-florida'],
+      counties: ['palm-beach-south'],
       cities: ['w-palm-beach']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -3533,10 +3534,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">CAPPS ROOFING INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, CAPPS ROOFING INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['south-florida'],
+      counties: ['palm-beach-south'],
       cities: ['hobe-sound']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -3559,10 +3560,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">CARDINAL ROOFING & SIDING CO INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, CARDINAL ROOFING & SIDING CO INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['south-florida'],
+      counties: ['palm-beach-south'],
       cities: ['pt-st-lucie']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -3585,10 +3586,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">CARDINAL ROOFING offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, CARDINAL ROOFING brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['sun-coast'],
+      counties: ['hillsborough'],
       cities: ['brandon']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -3611,10 +3612,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">CARPENTER\ offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, CARPENTER\ brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['south-florida'],
+      counties: ['palm-beach-south'],
       cities: ['riviera-beach']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -3637,10 +3638,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">CASTLE ROOFING GROUP LLC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, CASTLE ROOFING GROUP LLC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['central-florida'],
+      counties: ['orange'],
       cities: ['apopka']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -3741,10 +3742,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">COCHRAN BROTHERS ROOFING II INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, COCHRAN BROTHERS ROOFING II INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['central-florida'],
+      counties: ['polk'],
       cities: ['sebring']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -3767,10 +3768,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">COPPING ROOFING INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, COPPING ROOFING INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['southwest-florida'],
+      counties: ['charlotte'],
       cities: ['n-ft-myers']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -3793,10 +3794,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">CERTIFIED BEST ROOFING INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, CERTIFIED BEST ROOFING INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['central-florida'],
+      counties: ['seminole'],
       cities: ['oviedo']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -3871,10 +3872,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">CENTRAL FLORIDA EQUITY BUILDERS offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, CENTRAL FLORIDA EQUITY BUILDERS brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['central-florida'],
+      counties: ['seminole'],
       cities: ['oviedo']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -3946,10 +3947,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">THERMAL PROTECTIVE COATINGS OF FL offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, THERMAL PROTECTIVE COATINGS OF FL brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['central-florida'],
+      counties: ['orange'],
       cities: ['deland']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -4021,10 +4022,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">CFS ROOFING SERVICES LLC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, CFS ROOFING SERVICES LLC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['southwest-florida'],
+      counties: ['charlotte'],
       cities: ['ft-myers']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -4073,10 +4074,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">CHERRY ROOFING ENTERPRISES INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, CHERRY ROOFING ENTERPRISES INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['south-florida'],
+      counties: ['broward'],
       cities: ['west-park']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -4127,8 +4128,8 @@ export const rooferData: Record<string, RooferData | any> = {
     serviceAreas: {
       regions: ['florida-panhandle'],
       counties: ['bay'],
-      cities: ['panama-city']
-  },
+      cities: ['panama-city-beach', 'panama-city']
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -4151,10 +4152,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">COASTAL ROOFING SYSTEMS OF AMELIA offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, COASTAL ROOFING SYSTEMS OF AMELIA brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['first-coast'],
+      counties: ['clay-fc'],
       cities: ['amelia-island']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -4203,10 +4204,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">COLLIS ROOFING offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, COLLIS ROOFING brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['central-florida'],
+      counties: ['seminole'],
       cities: ['longwood']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -4229,10 +4230,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">COLONIAL ROOFING INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, COLONIAL ROOFING INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['southwest-florida'],
+      counties: ['lee'],
       cities: ['lehigh-acres']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -4354,10 +4355,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">CW\ offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, CW\ brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['southwest-florida'],
+      counties: ['charlotte'],
       cities: ['pt-charlotte']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -4379,10 +4380,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">BAMA ROOFING & CONSTRUCTION CO offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, BAMA ROOFING & CONSTRUCTION CO brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['south-florida'],
+      counties: ['broward'],
       cities: ['ft-lauderdale']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -4454,10 +4455,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">RYAN HOLMES CONTRACTING INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, RYAN HOLMES CONTRACTING INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: ['treasure-coast'],
-      counties: ['martin'],
+      regions: ['south-florida', 'treasure-coast'],
+      counties: ['martin', 'palm-beach-south'],
       cities: ['stuart']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -4506,8 +4507,8 @@ export const rooferData: Record<string, RooferData | any> = {
     serviceAreas: {
       regions: ['florida-panhandle'],
       counties: ['bay'],
-      cities: ['panama-city']
-  },
+      cities: ['panama-city-beach', 'panama-city']
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -4555,10 +4556,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">COPELAND\ offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, COPELAND\ brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['central-florida'],
+      counties: ['polk'],
       cities: ['auburndale']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -4607,10 +4608,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">CORY & ASSOCIATES INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, CORY & ASSOCIATES INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['south-florida'],
+      counties: ['broward'],
       cities: ['hallandale']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -4658,10 +4659,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">MICHAEL E WARREN INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, MICHAEL E WARREN INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['florida-panhandle'],
+      counties: ['escambia'],
       cities: ['niceville']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -4710,10 +4711,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">CREST ROOFING LLC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, CREST ROOFING LLC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['south-florida'],
+      counties: ['palm-beach-south'],
       cities: ['deerfield-beach']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -4814,10 +4815,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">CROWTHER ROOFING & SHEET METAL OF FL INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, CROWTHER ROOFING & SHEET METAL OF FL INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['southwest-florida'],
+      counties: ['charlotte'],
       cities: ['ft-myers']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -4944,10 +4945,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">DAVIS ROOFING & SHEET METAL LLC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, DAVIS ROOFING & SHEET METAL LLC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['florida-panhandle'],
+      counties: ['escambia'],
       cities: ['milton']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -5022,10 +5023,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">DCG ROOFING offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, DCG ROOFING brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
-      cities: ['miami-lakes']
-  },
+      regions: ['south-florida'],
+      counties: ['miami-dade'],
+      cities: ['miami-lakes', 'miami']
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -5048,10 +5049,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">DESTIN ROOFING INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, DESTIN ROOFING INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['florida-panhandle'],
+      counties: ['escambia'],
       cities: ['destin']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -5204,10 +5205,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">DON SCHMIDT CONTRACTING & ROOFING INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, DON SCHMIDT CONTRACTING & ROOFING INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['central-florida'],
+      counties: ['osceola'],
       cities: ['st-cloud']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -5230,10 +5231,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">DOUBLE C ROOFING INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, DOUBLE C ROOFING INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['central-florida'],
+      counties: ['orange'],
       cities: ['deland']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -5282,10 +5283,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">DREW ROOFING LLC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, DREW ROOFING LLC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
-      cities: ['saint-petersburg']
-  },
+      regions: ['sun-coast'],
+      counties: ['pinellas'],
+      cities: ['st-petersburg', 'saint-petersburg']
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -5360,10 +5361,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">DURABILIS ROOFING LLC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, DURABILIS ROOFING LLC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['southwest-florida'],
+      counties: ['lee'],
       cities: ['lehigh-acres']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -5412,10 +5413,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">DYNAMIC ROOFING CONCEPTS INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, DYNAMIC ROOFING CONCEPTS INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['sun-coast'],
+      counties: ['hillsborough'],
       cities: ['brandon']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -5464,10 +5465,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">ECO CONSTRUCTION GROUP offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, ECO CONSTRUCTION GROUP brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['central-florida'],
+      counties: ['orange'],
       cities: ['mt-dora']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -5490,10 +5491,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">EMERALD COAST ROOFSCAPES INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, EMERALD COAST ROOFSCAPES INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['florida-panhandle'],
+      counties: ['escambia'],
       cities: ['destin']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -5698,10 +5699,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">EMPIRE ROOFING CO SE LLC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, EMPIRE ROOFING CO SE LLC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['south-florida'],
+      counties: ['broward'],
       cities: ['sunrise']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -5750,10 +5751,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">ENERGY ROOFING TECHNOLOGY SE LLC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, ENERGY ROOFING TECHNOLOGY SE LLC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['first-coast'],
+      counties: ['st-johns-fc'],
       cities: ['lake-city']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -5776,10 +5777,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">EVANS ROOFING offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, EVANS ROOFING brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
-      cities: ['oakland-park']
-  },
+      regions: ['central-florida'],
+      counties: ['orange'],
+      cities: ['oakland', 'oakland-park']
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -5854,10 +5855,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">FL BREES offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, FL BREES brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['florida-panhandle'],
+      counties: ['escambia'],
       cities: ['destin']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -5984,10 +5985,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">FLORIDA ROOF LLC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, FLORIDA ROOF LLC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['florida-panhandle'],
+      counties: ['escambia'],
       cities: ['molino']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -6088,10 +6089,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">FLORIDA ROOF RESTORATIONS offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, FLORIDA ROOF RESTORATIONS brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['central-florida'],
+      counties: ['orange'],
       cities: ['ocala']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -6191,10 +6192,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">FRANK\ offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, FRANK\ brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['southwest-florida'],
+      counties: ['charlotte'],
       cities: ['ft-myers']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -6217,10 +6218,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">FREEMAN ROOFING offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, FREEMAN ROOFING brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['florida-panhandle'],
+      counties: ['escambia'],
       cities: ['pace']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -6243,10 +6244,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">FOWLER\ offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, FOWLER\ brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['south-florida'],
+      counties: ['palm-beach-south'],
       cities: ['w-palm-beach']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -6295,10 +6296,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">GALLOWAY ROOFING LLC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, GALLOWAY ROOFING LLC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['southwest-florida'],
+      counties: ['sarasota'],
       cities: ['englewood']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -6321,10 +6322,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">GARABAR INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, GARABAR INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['south-florida'],
+      counties: ['palm-beach-south'],
       cities: ['lake-worth']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -6399,10 +6400,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">GIAMPRI CORP offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, GIAMPRI CORP brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['south-florida'],
+      counties: ['broward'],
       cities: ['weston']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -6451,10 +6452,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">GUSTAFSON INDUSTRIES offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, GUSTAFSON INDUSTRIES brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['south-florida'],
+      counties: ['palm-beach-south'],
       cities: ['boynton-beach']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -6502,10 +6503,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">AASTRO ROOFING COMPANY INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, AASTRO ROOFING COMPANY INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['south-florida'],
+      counties: ['palm-beach-south'],
       cities: ['deerfield-beach']
-  },
+    },
     isPreferred: false,
     isHidden: false,
     category: "preferred"},
@@ -6552,10 +6553,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">THE ROOFING COMPANY offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, THE ROOFING COMPANY brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['sun-coast'],
+      counties: ['pasco'],
       cities: ['new-pt-richey']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -6602,10 +6603,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">AMERI-CON ENTERPRISES INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, AMERI-CON ENTERPRISES INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['central-florida'],
+      counties: ['polk'],
       cities: ['lake-placid']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -6651,10 +6652,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">A TO Z CONTRACTORS INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, A TO Z CONTRACTORS INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['southwest-florida'],
+      counties: ['charlotte'],
       cities: ['pt-charlotte']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -6676,10 +6677,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">AZTEC ROOFS INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, AZTEC ROOFS INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['southwest-florida'],
+      counties: ['charlotte'],
       cities: ['bokeelia']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -6701,10 +6702,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">BACKBONE ROOFING INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, BACKBONE ROOFING INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['sun-coast'],
+      counties: ['hillsborough'],
       cities: ['plant-city']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -6751,10 +6752,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">BP ROOFING INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, BP ROOFING INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['southwest-florida'],
+      counties: ['charlotte'],
       cities: ['ft-myers']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -6801,10 +6802,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">COMPLETE CONSTRUCTION AND DEVELOPMENT INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, COMPLETE CONSTRUCTION AND DEVELOPMENT INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['south-florida'],
+      counties: ['palm-beach-south'],
       cities: ['riviera-beach']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -6826,10 +6827,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">ANDREWS ROOFING LLC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, ANDREWS ROOFING LLC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['southwest-florida'],
+      counties: ['charlotte'],
       cities: ['ft-myers']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -6876,10 +6877,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">COLLINS ROOFING INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, COLLINS ROOFING INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['south-florida'],
+      counties: ['palm-beach-south'],
       cities: ['ft-pierce']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -6901,10 +6902,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">GARY SOUTHARD CONSTRUCTION LLC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, GARY SOUTHARD CONSTRUCTION LLC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['north-florida'],
+      counties: ['alachua'],
       cities: ['bronson']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -6926,10 +6927,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">CTR ROOFING LLC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, CTR ROOFING LLC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['central-florida'],
+      counties: ['osceola'],
       cities: ['st-cloud']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -6951,10 +6952,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">GRASTON ROOFING CO INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, GRASTON ROOFING CO INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['first-coast'],
+      counties: ['duval-fc'],
       cities: ['st-johns']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -6976,10 +6977,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">POWER ROOFING & CONSTRUCTION LLC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, POWER ROOFING & CONSTRUCTION LLC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['central-florida'],
+      counties: ['osceola'],
       cities: ['celebration']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -7001,10 +7002,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">DAVID BANGE ROOFING LLC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, DAVID BANGE ROOFING LLC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['south-florida'],
+      counties: ['broward'],
       cities: ['davie']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -7076,10 +7077,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">D SQUARED SERVICES LLC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, D SQUARED SERVICES LLC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['southwest-florida'],
+      counties: ['sarasota'],
       cities: ['arcadia']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -7126,10 +7127,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">IDEAL HOME SOLUTIONS LLC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, IDEAL HOME SOLUTIONS LLC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['southwest-florida'],
+      counties: ['sarasota'],
       cities: ['bradenton']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -7201,10 +7202,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">FLORIDA ROOFING & SHEET METAL LLC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, FLORIDA ROOFING & SHEET METAL LLC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['south-florida'],
+      counties: ['palm-beach-south'],
       cities: ['palm-springs']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -7251,10 +7252,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">LEONARD CLARK ROOFING INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, LEONARD CLARK ROOFING INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['central-florida'],
+      counties: ['orange'],
       cities: ['deland']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -7276,10 +7277,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">OTIS JOINER ROOFING CONTRACTOR INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, OTIS JOINER ROOFING CONTRACTOR INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['southwest-florida'],
+      counties: ['sarasota'],
       cities: ['palmetto']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -7326,10 +7327,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">JB ROOFING & WATERPROOFING LLC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, JB ROOFING & WATERPROOFING LLC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: ['treasure-coast'],
-      counties: ['martin'],
+      regions: ['south-florida', 'treasure-coast'],
+      counties: ['martin', 'palm-beach-south'],
       cities: ['stuart']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -7401,10 +7402,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">JOVIL ROOFING CORP offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, JOVIL ROOFING CORP brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['south-florida'],
+      counties: ['broward'],
       cities: ['deerfield-beach']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -7426,10 +7427,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">LARRY NEESE LLC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, LARRY NEESE LLC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['south-florida'],
+      counties: ['palm-beach-south'],
       cities: ['ft-pierce']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -7451,10 +7452,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">AMERICAN ROOFING CENTRAL INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, AMERICAN ROOFING CENTRAL INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['central-florida'],
+      counties: ['polk'],
       cities: ['sebring']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -7501,10 +7502,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">MARZO ROOFING INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, MARZO ROOFING INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['south-florida'],
+      counties: ['palm-beach-south'],
       cities: ['pt-st-lucie']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -7576,10 +7577,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">MOORE ROOFING & BUILDERS INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, MOORE ROOFING & BUILDERS INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['southwest-florida'],
+      counties: ['collier'],
       cities: ['marco-island']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -7725,10 +7726,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">PRO TECH ROOFING & CONSTRUCTION LLC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, PRO TECH ROOFING & CONSTRUCTION LLC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['south-florida'],
+      counties: ['broward'],
       cities: ['davie']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -7800,10 +7801,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">RH QUALITY METAL OF FLORIDA LLC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, RH QUALITY METAL OF FLORIDA LLC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['central-florida'],
+      counties: ['polk'],
       cities: ['davenport']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -7825,10 +7826,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">ROBERT JONES ROOFING & GENERAL CONTRACTING LLC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, ROBERT JONES ROOFING & GENERAL CONTRACTING LLC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['central-florida'],
+      counties: ['orange'],
       cities: ['titusville']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -7875,10 +7876,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">ROOFING & CONSTRUCTION CORP offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, ROOFING & CONSTRUCTION CORP brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['south-florida'],
+      counties: ['broward'],
       cities: ['ft-lauderdale']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -7900,10 +7901,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">ROOF PRO offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, ROOF PRO brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['south-florida'],
+      counties: ['palm-beach-south'],
       cities: ['riviera-beach']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -7925,10 +7926,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">ROOFPRO ROOFING LLC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, ROOFPRO ROOFING LLC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['florida-panhandle'],
+      counties: ['escambia'],
       cities: ['destin']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -7950,10 +7951,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">SAND DOLLAR ROOFING INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, SAND DOLLAR ROOFING INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['southwest-florida'],
+      counties: ['charlotte'],
       cities: ['ft-myers']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -8025,10 +8026,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">TIM RINER CONSTRUCTION INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, TIM RINER CONSTRUCTION INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['central-florida'],
+      counties: ['polk'],
       cities: ['lake-alfred']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -8050,10 +8051,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">TM SCOTT INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, TM SCOTT INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['central-florida'],
+      counties: ['polk'],
       cities: ['lake-placid']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -8075,10 +8076,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">TMT ROOFING LLC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, TMT ROOFING LLC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['first-coast'],
+      counties: ['st-johns-fc'],
       cities: ['lake-city']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -8125,10 +8126,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">WEATHERPROOF ROOFING INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, WEATHERPROOF ROOFING INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['florida-panhandle'],
+      counties: ['escambia'],
       cities: ['crest-view']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -8150,10 +8151,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">WE BRODBECK ROOFING CO INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, WE BRODBECK ROOFING CO INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['south-florida'],
+      counties: ['palm-beach-south'],
       cities: ['lake-worth']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -8175,10 +8176,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">ZENITH CONSTRUCTION SERVICES LLC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, ZENITH CONSTRUCTION SERVICES LLC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['central-florida'],
+      counties: ['polk'],
       cities: ['frostproof']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -8253,10 +8254,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">TIM GRABOSKI ROOFING INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, TIM GRABOSKI ROOFING INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['south-florida'],
+      counties: ['palm-beach-south'],
       cities: ['deerfield-beach']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -8307,8 +8308,8 @@ export const rooferData: Record<string, RooferData | any> = {
     serviceAreas: {
       regions: ['florida-panhandle'],
       counties: ['bay'],
-      cities: ['panama-city']
-  },
+      cities: ['panama-city-beach', 'panama-city']
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -8331,10 +8332,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">GWR GULF WESTERN offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, GWR GULF WESTERN brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['southwest-florida'],
+      counties: ['lee'],
       cities: ['bonita-springs']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -8357,10 +8358,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">GULLEDGE ROOFING INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, GULLEDGE ROOFING INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['central-florida'],
+      counties: ['orange'],
       cities: ['deland']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -8487,10 +8488,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">HARVATH ROOFING INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, HARVATH ROOFING INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['southwest-florida'],
+      counties: ['sarasota'],
       cities: ['bradenton']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -8513,10 +8514,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">HD ROOFING AND CONSTRUCTION LLC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, HD ROOFING AND CONSTRUCTION LLC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['central-florida'],
+      counties: ['seminole'],
       cities: ['longwood']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -8591,10 +8592,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">HERCULES ROOFING LLC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, HERCULES ROOFING LLC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['south-florida'],
+      counties: ['palm-beach-south'],
       cities: ['boynton-beach']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -8617,10 +8618,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">HERMITAGE ROOFING CO offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, HERMITAGE ROOFING CO brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['south-florida'],
+      counties: ['palm-beach-south'],
       cities: ['magnolia-park']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -8643,10 +8644,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">HI-RISE COMMERCIAL ROOFING INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, HI-RISE COMMERCIAL ROOFING INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['south-florida'],
+      counties: ['broward'],
       cities: ['ft-lauderdale']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -8721,10 +8722,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">BOB HILSON & CO INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, BOB HILSON & CO INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['south-florida'],
+      counties: ['miami-dade'],
       cities: ['homestead']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -8772,10 +8773,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">ANCHOR ROOFING CO offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, ANCHOR ROOFING CO brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['south-florida'],
+      counties: ['miami-dade'],
       cities: ['hialeah']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -8797,10 +8798,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">RICHARD BARFIELD ROOFING INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, RICHARD BARFIELD ROOFING INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['florida-panhandle'],
+      counties: ['bay'],
       cities: ['pt-st-joe']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -8972,10 +8973,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">KILYN CONSTRUCTION INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, KILYN CONSTRUCTION INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['florida-panhandle'],
+      counties: ['bay'],
       cities: ['panama-city-beach']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -9022,10 +9023,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">OLD WORLD CRAFTSMEN INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, OLD WORLD CRAFTSMEN INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['first-coast'],
+      counties: ['st-johns-fc'],
       cities: ['lake-city']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -9047,10 +9048,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">SENTRY METALS LLC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, SENTRY METALS LLC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['southwest-florida'],
+      counties: ['sarasota'],
       cities: ['nokomis']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -9125,10 +9126,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">HUBER & ASSOCIATES offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, HUBER & ASSOCIATES brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['first-coast'],
+      counties: ['st-johns-fc'],
       cities: ['lake-city']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -9151,10 +9152,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">HURRICANE ROOFER LLC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, HURRICANE ROOFER LLC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['central-florida'],
+      counties: ['orange'],
       cities: ['windermere']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -9177,10 +9178,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">HW CONTRACTING LLC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, HW CONTRACTING LLC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['first-coast'],
+      counties: ['duval-fc'],
       cities: ['st-johns']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -9255,10 +9256,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">INFINITY ROOFING LLC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, INFINITY ROOFING LLC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['central-florida'],
+      counties: ['orange'],
       cities: ['deltona']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -9333,10 +9334,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">ISAACS ROOFING & INSULATION CORP offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, ISAACS ROOFING & INSULATION CORP brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['south-florida'],
+      counties: ['miami-dade'],
       cities: ['palmetto-bay']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -9359,10 +9360,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">JADA ROOFING LLC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, JADA ROOFING LLC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['first-coast'],
+      counties: ['st-johns-fc'],
       cities: ['middleburg']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -9437,10 +9438,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">JAV CONTRACTORS INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, JAV CONTRACTORS INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['central-florida'],
+      counties: ['osceola'],
       cities: ['st-cloud']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -9515,10 +9516,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">JEFF ALBERT ROOFING INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, JEFF ALBERT ROOFING INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['south-florida'],
+      counties: ['palm-beach-south'],
       cities: ['delray-beach']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -9671,10 +9672,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">JR & CO offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, JR & CO brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['southwest-florida'],
+      counties: ['lee'],
       cities: ['bonita-springs']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -9749,10 +9750,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">JURIN ROOFING SERVICES INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, JURIN ROOFING SERVICES INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['central-florida'],
+      counties: ['polk'],
       cities: ['dundee']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -9775,10 +9776,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">JV CONTRACTORS LLC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, JV CONTRACTORS LLC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['central-florida'],
+      counties: ['orange'],
       cities: ['deltona']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -9905,10 +9906,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">KEYS ROOFING INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, KEYS ROOFING INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
-      cities: ['key-largo']
-  },
+      regions: ['sun-coast'],
+      counties: ['pinellas'],
+      cities: ['key-largo', 'largo']
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -9957,10 +9958,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">KIRKEY ROOFING INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, KIRKEY ROOFING INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['southwest-florida'],
+      counties: ['sarasota'],
       cities: ['englewood']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -10087,10 +10088,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">LEGACY CONTRACTING SOLUTIONS INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, LEGACY CONTRACTING SOLUTIONS INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['south-florida'],
+      counties: ['palm-beach-south'],
       cities: ['riviera-beach']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -10139,10 +10140,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">LEN\ offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, LEN\ brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['southwest-florida'],
+      counties: ['sarasota'],
       cities: ['bradenton']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -10165,10 +10166,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">FAMILY PRIDE ROOFING INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, FAMILY PRIDE ROOFING INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['southwest-florida'],
+      counties: ['sarasota'],
       cities: ['north-port']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -10217,10 +10218,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">AAA SCHWARTZ ROOFING INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, AAA SCHWARTZ ROOFING INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['southwest-florida'],
+      counties: ['charlotte'],
       cities: ['pt-charlotte']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -10269,10 +10270,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">LUVIANO ROOFING CO INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, LUVIANO ROOFING CO INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['south-florida'],
+      counties: ['palm-beach-south'],
       cities: ['okeechobee']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -10373,10 +10374,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">MANSON ROOFING INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, MANSON ROOFING INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['southwest-florida'],
+      counties: ['sarasota'],
       cities: ['bradenton']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -10399,10 +10400,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">MARATHON ROOFING AND CONTRACTING INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, MARATHON ROOFING AND CONTRACTING INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['central-florida'],
+      counties: ['seminole'],
       cities: ['longwood']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -10503,10 +10504,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">MIGHTY DOG ROOFING 151 offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, MIGHTY DOG ROOFING 151 brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['central-florida'],
+      counties: ['orange'],
       cities: ['windermere']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -10529,10 +10530,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">MIGHTY DOG ROOFING offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, MIGHTY DOG ROOFING brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['southwest-florida'],
+      counties: ['sarasota'],
       cities: ['bradenton']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -10607,10 +10608,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">MARK KAUFMAN ROOFING offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, MARK KAUFMAN ROOFING brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['southwest-florida'],
+      counties: ['sarasota'],
       cities: ['north-port']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -10659,10 +10660,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">MOLSBEE ROOFING INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, MOLSBEE ROOFING INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['south-florida'],
+      counties: ['palm-beach-south'],
       cities: ['lake-worth']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -10685,10 +10686,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">MONTGOMERY-WINSLOW ROOFING offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, MONTGOMERY-WINSLOW ROOFING brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['southwest-florida'],
+      counties: ['charlotte'],
       cities: ['ft-myers']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -10788,10 +10789,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">AFFORDABLE ROOFING OF CENTRAL FL offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, AFFORDABLE ROOFING OF CENTRAL FL brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['first-coast'],
+      counties: ['st-johns-fc'],
       cities: ['jennings']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -10813,10 +10814,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">DONE RITE ROOFING INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, DONE RITE ROOFING INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['sun-coast'],
+      counties: ['pinellas'],
       cities: ['palm-harbor']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -10838,10 +10839,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">D.R. MARTINEAU CONSTRUCTION INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, D.R. MARTINEAU CONSTRUCTION INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['southwest-florida'],
+      counties: ['charlotte'],
       cities: ['ft-myers']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -11046,10 +11047,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">NATIONS ROOFING CONSTRUCTION & MECHANICAL LLC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, NATIONS ROOFING CONSTRUCTION & MECHANICAL LLC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['sun-coast'],
+      counties: ['pasco'],
       cities: ['dade-city']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -11072,10 +11073,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">NATURE COAST ROOFING SOLUTIONS INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, NATURE COAST ROOFING SOLUTIONS INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['sun-coast'],
+      counties: ['pasco'],
       cities: ['hudson']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -11099,9 +11100,9 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, NATIONAL BUILDING CONTRACTORS INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
       regions: ['north-florida'],
-      counties: ['clay'],
+      counties: ['duval', 'clay'],
       cities: ['orange-park']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -11176,10 +11177,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">NEUMANN CONSTRUCTION & ROOFING LLC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, NEUMANN CONSTRUCTION & ROOFING LLC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['sun-coast'],
+      counties: ['pasco'],
       cities: ['san-antonio']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -11254,10 +11255,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">O\ offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, O\ brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['first-coast'],
+      counties: ['st-johns-fc'],
       cities: ['lake-city']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -11382,10 +11383,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">RAS ROOFING LLC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, RAS ROOFING LLC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['south-florida'],
+      counties: ['palm-beach-south'],
       cities: ['w-palm-beach']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -11407,10 +11408,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">WORLEY ROOFING INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, WORLEY ROOFING INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: ['treasure-coast'],
-      counties: ['palm-beach'],
+      regions: ['south-florida', 'treasure-coast'],
+      counties: ['palm-beach-south', 'palm-beach'],
       cities: ['jupiter']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -11433,10 +11434,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">OVER THE TOP ROOF REPAIR INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, OVER THE TOP ROOF REPAIR INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: ['treasure-coast'],
-      counties: ['martin'],
+      regions: ['south-florida', 'treasure-coast'],
+      counties: ['martin', 'palm-beach-south'],
       cities: ['stuart']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -11485,10 +11486,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">PALETZ ROOFING & INSPECTIONS INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, PALETZ ROOFING & INSPECTIONS INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['south-florida'],
+      counties: ['broward'],
       cities: ['davie']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -11511,10 +11512,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">ROOFING UNLIMITED & SHEET METAL INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, ROOFING UNLIMITED & SHEET METAL INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['south-florida'],
+      counties: ['palm-beach-south'],
       cities: ['w-palm-beach']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -11615,10 +11616,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">PATRIOT RESPONSE GROUP offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, PATRIOT RESPONSE GROUP brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: ['treasure-coast'],
-      counties: ['indian-river'],
+      regions: ['treasure-coast', 'central-florida'],
+      counties: ['indian-river', 'orange'],
       cities: ['vero-beach']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -11641,10 +11642,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">PAUL BANGE ROOFING INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, PAUL BANGE ROOFING INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['south-florida'],
+      counties: ['broward'],
       cities: ['davie']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -11693,10 +11694,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">PRIME CHOICE ROOFING LLC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, PRIME CHOICE ROOFING LLC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['central-florida'],
+      counties: ['polk'],
       cities: ['haines-city']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -11719,10 +11720,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">PEET ROOFING offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, PEET ROOFING brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['central-florida'],
+      counties: ['orange'],
       cities: ['maitland']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -11745,10 +11746,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">PEGASUS BUILDERS INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, PEGASUS BUILDERS INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['south-florida'],
+      counties: ['palm-beach-south'],
       cities: ['wellington']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -11771,10 +11772,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">PERFECT CHOICE ROOFING INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, PERFECT CHOICE ROOFING INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['south-florida'],
+      counties: ['broward'],
       cities: ['pembroke-pines']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -11797,10 +11798,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">PERFORMANCE ROOFING LLC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, PERFORMANCE ROOFING LLC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['central-florida'],
+      counties: ['seminole'],
       cities: ['oviedo']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -11875,10 +11876,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">PESTANA ROOFING CO INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, PESTANA ROOFING CO INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['south-florida'],
+      counties: ['palm-beach-south'],
       cities: ['lake-worth']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -11979,10 +11980,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">DICK PITTMAN ROOF SERVICES INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, DICK PITTMAN ROOF SERVICES INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
-      cities: ['saint-augustine']
-  },
+      regions: ['north-florida'],
+      counties: ['st-johns'],
+      cities: ['st-augustine', 'saint-augustine']
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -12005,10 +12006,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">POLARIS ROOFING INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, POLARIS ROOFING INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['southwest-florida'],
+      counties: ['lee'],
       cities: ['estero']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -12057,10 +12058,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">POSEIDON ROOFING LLC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, POSEIDON ROOFING LLC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['southwest-florida'],
+      counties: ['charlotte'],
       cities: ['ft-myers']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -12083,10 +12084,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">PRATTCO INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, PRATTCO INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['sun-coast'],
+      counties: ['hillsborough'],
       cities: ['plant-city']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -12161,10 +12162,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">PRG ROOFING & CONSTRUCTION INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, PRG ROOFING & CONSTRUCTION INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['southwest-florida'],
+      counties: ['charlotte'],
       cities: ['ft-myers']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -12213,10 +12214,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">PROCRAFT EXTERIORS INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, PROCRAFT EXTERIORS INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['southwest-florida'],
+      counties: ['collier'],
       cities: ['marco-island']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -12291,10 +12292,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">PROVIDENTIAL ROOFING & CONSTRUCTION INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, PROVIDENTIAL ROOFING & CONSTRUCTION INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['southwest-florida'],
+      counties: ['sarasota'],
       cities: ['bradenton']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -12317,10 +12318,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">PSI ROOFING offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, PSI ROOFING brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
-      cities: ['oakland-park']
-  },
+      regions: ['central-florida'],
+      counties: ['orange'],
+      cities: ['oakland', 'oakland-park']
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -12473,10 +12474,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">RAINBOW ROOFING SOLUTIONS offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, RAINBOW ROOFING SOLUTIONS brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['south-florida'],
+      counties: ['broward'],
       cities: ['davie']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -12499,10 +12500,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">RAINSHIELD ROOFING CORP offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, RAINSHIELD ROOFING CORP brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['south-florida'],
+      counties: ['palm-beach-south'],
       cities: ['deerfield-beach']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -12733,10 +12734,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">RELIABLE ROOFING OF FLORIDA INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, RELIABLE ROOFING OF FLORIDA INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['central-florida'],
+      counties: ['orange'],
       cities: ['windermere']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -12785,10 +12786,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">RELIANT ROOFING SERVICES LLC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, RELIANT ROOFING SERVICES LLC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['central-florida'],
+      counties: ['orange'],
       cities: ['deltona']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -12811,10 +12812,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">RESTORE GROUP LLC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, RESTORE GROUP LLC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['central-florida'],
+      counties: ['seminole'],
       cities: ['longwood']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -12889,10 +12890,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">RICH MOORE ROOFING LLC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, RICH MOORE ROOFING LLC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['south-florida'],
+      counties: ['palm-beach-south'],
       cities: ['lake-worth']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -12915,10 +12916,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">LINDHOLM CONSTRUCTION INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, LINDHOLM CONSTRUCTION INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['south-florida'],
+      counties: ['broward'],
       cities: ['islamorada']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -12941,10 +12942,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">RIGHT NOW ROOFING FL INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, RIGHT NOW ROOFING FL INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['southwest-florida'],
+      counties: ['charlotte'],
       cities: ['pt-charlotte']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -13097,10 +13098,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">RODEMEYER ROOFING LLC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, RODEMEYER ROOFING LLC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['south-florida'],
+      counties: ['broward'],
       cities: ['deerfield-beach']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -13149,10 +13150,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">ROOFCRAFTERS ROOFING LLC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, ROOFCRAFTERS ROOFING LLC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['sun-coast'],
+      counties: ['pasco'],
       cities: ['odessa']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -13175,10 +13176,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">ROOF RIGHT LLC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, ROOF RIGHT LLC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['southwest-florida'],
+      counties: ['charlotte'],
       cities: ['ft-myers']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -13227,10 +13228,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">ROOF COMMANDER INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, ROOF COMMANDER INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['central-florida'],
+      counties: ['lake'],
       cities: ['tavares']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -13253,10 +13254,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">ROOF EXPRESS LLC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, ROOF EXPRESS LLC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['south-florida'],
+      counties: ['palm-beach-south'],
       cities: ['lake-worth']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -13305,10 +13306,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">ROOFING PIONEERS LLC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, ROOFING PIONEERS LLC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['central-florida'],
+      counties: ['seminole'],
       cities: ['oviedo']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -13331,10 +13332,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">ROOFING REINA offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, ROOFING REINA brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['south-florida'],
+      counties: ['broward'],
       cities: ['davie']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -13357,10 +13358,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">ROOFMAN INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, ROOFMAN INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['south-florida'],
+      counties: ['palm-beach-south'],
       cities: ['n-palm-beach']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -13383,10 +13384,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">ROOFMASTER OF SOUTH FLORIDA INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, ROOFMASTER OF SOUTH FLORIDA INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['southwest-florida'],
+      counties: ['lee'],
       cities: ['lehigh-acres']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -13461,10 +13462,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">ROOF PROS USA LLC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, ROOF PROS USA LLC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['central-florida'],
+      counties: ['seminole'],
       cities: ['longwood']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -13513,10 +13514,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">ROOF TECHNOLOGIES LLC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, ROOF TECHNOLOGIES LLC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['south-florida'],
+      counties: ['broward'],
       cities: ['lauderhill']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -13539,10 +13540,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">ROOF TOP SERVICES OF CENTRAL FLORIDA INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, ROOF TOP SERVICES OF CENTRAL FLORIDA INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['central-florida'],
+      counties: ['seminole'],
       cities: ['winter-springs']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -13669,10 +13670,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">SAINT RAPHAEL ROOFING INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, SAINT RAPHAEL ROOFING INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['southwest-florida'],
+      counties: ['charlotte'],
       cities: ['ft-myers']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -13695,10 +13696,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">SALOMON ROOFING & WATERPROOFING offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, SALOMON ROOFING & WATERPROOFING brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
-      cities: ['miami-gardens']
-  },
+      regions: ['south-florida'],
+      counties: ['miami-dade'],
+      cities: ['miami-gardens', 'miami']
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -13721,10 +13722,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">SALT ROOFING offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, SALT ROOFING brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['central-florida'],
+      counties: ['lake'],
       cities: ['eustis']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -13773,10 +13774,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">SOUTHERN COAST FOUNDATION SYSTEMS offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, SOUTHERN COAST FOUNDATION SYSTEMS brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['south-florida'],
+      counties: ['palm-beach-south'],
       cities: ['deerfield-beach']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -13799,10 +13800,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">SOUTHERN COAST ENTERPRISES INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, SOUTHERN COAST ENTERPRISES INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['south-florida'],
+      counties: ['palm-beach-south'],
       cities: ['deerfield-beach']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -13981,10 +13982,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">SHEET METAL UNLIMITED PL INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, SHEET METAL UNLIMITED PL INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['south-florida'],
+      counties: ['broward'],
       cities: ['ft-lauderdale']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -14033,10 +14034,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">SHOREBREAK INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, SHOREBREAK INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['first-coast'],
+      counties: ['st-johns-fc'],
       cities: ['yulee']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -14137,10 +14138,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">SIX SIGMA ROOFING CONTRACTORS LLC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, SIX SIGMA ROOFING CONTRACTORS LLC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['southwest-florida'],
+      counties: ['charlotte'],
       cities: ['ft-myers']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -14188,10 +14189,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">SK QUALITY ROOFING INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, SK QUALITY ROOFING INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['south-florida'],
+      counties: ['palm-beach-south'],
       cities: ['delray-beach']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -14214,10 +14215,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">SKYMARK ROOFING LLC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, SKYMARK ROOFING LLC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['central-florida'],
+      counties: ['orange'],
       cities: ['mt-dora']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -14266,10 +14267,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">SOLACE ROOFING LLC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, SOLACE ROOFING LLC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['south-florida'],
+      counties: ['palm-beach-south'],
       cities: ['pt-st-lucie']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -14318,10 +14319,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">SOUTHEASTERN COATINGS & WATERPROOFING INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, SOUTHEASTERN COATINGS & WATERPROOFING INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['first-coast'],
+      counties: ['st-johns-fc'],
       cities: ['lake-city']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -14370,10 +14371,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">SOUTH QUALITY ROOFING LLC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, SOUTH QUALITY ROOFING LLC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['south-florida'],
+      counties: ['miami-dade'],
       cities: ['homestead']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -14422,10 +14423,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">SPECIALTY ROOFERS INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, SPECIALTY ROOFERS INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['florida-panhandle'],
+      counties: ['bay'],
       cities: ['freeport']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -14474,10 +14475,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">SPRINGER-PETERSON ROOFING & SHEET METAL INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, SPRINGER-PETERSON ROOFING & SHEET METAL INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['central-florida'],
+      counties: ['polk'],
       cities: ['eaton-park']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -14500,10 +14501,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">S&S ROOFING SYSTEMS INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, S&S ROOFING SYSTEMS INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['central-florida'],
+      counties: ['seminole'],
       cities: ['longwood']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -14526,10 +14527,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">SSI CONSTRUCTION INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, SSI CONSTRUCTION INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
-      cities: ['oakland-park']
-  },
+      regions: ['central-florida'],
+      counties: ['orange'],
+      cities: ['oakland', 'oakland-park']
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -14552,10 +14553,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">STARPRO ROOFING & SHEET METAL INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, STARPRO ROOFING & SHEET METAL INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: ['treasure-coast'],
-      counties: ['martin'],
+      regions: ['south-florida', 'treasure-coast'],
+      counties: ['martin', 'palm-beach-south'],
       cities: ['stuart']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -14708,10 +14709,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">STGO PRO4MANCE LLC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, STGO PRO4MANCE LLC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['central-florida'],
+      counties: ['polk'],
       cities: ['davenport']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -14760,10 +14761,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">STRATUS ROOFING offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, STRATUS ROOFING brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['central-florida'],
+      counties: ['orange'],
       cities: ['maitland']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -14812,10 +14813,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">SUN CATCHER ROOFING II INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, SUN CATCHER ROOFING II INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['south-florida'],
+      counties: ['broward'],
       cities: ['ft-lauderdale']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -15098,10 +15099,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">SAM DAMM ROOFING INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, SAM DAMM ROOFING INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['sun-coast'],
+      counties: ['pasco'],
       cities: ['pt-richey']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -15124,10 +15125,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">THE ROOF AUTHORITY INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, THE ROOF AUTHORITY INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['south-florida'],
+      counties: ['palm-beach-south'],
       cities: ['ft-pierce']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -15202,10 +15203,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">TAYLOR\ offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, TAYLOR\ brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['central-florida'],
+      counties: ['polk'],
       cities: ['lake-wales']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -15306,10 +15307,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">FIDUS ROOFING & CONSTRUCTION LLC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, FIDUS ROOFING & CONSTRUCTION LLC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
-      cities: ['saint-augustine']
-  },
+      regions: ['north-florida'],
+      counties: ['st-johns'],
+      cities: ['st-augustine', 'saint-augustine']
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -15332,10 +15333,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">ORLANDO ROOFING LLC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, ORLANDO ROOFING LLC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['central-florida'],
+      counties: ['orange'],
       cities: ['ocoee']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -15358,10 +15359,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">THORNE METAL SYSTEMS INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, THORNE METAL SYSTEMS INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['first-coast'],
+      counties: ['st-johns-fc'],
       cities: ['middleburg']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -15410,10 +15411,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">TIGER TEAM ROOFING INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, TIGER TEAM ROOFING INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['south-florida'],
+      counties: ['broward'],
       cities: ['ft-lauderdale']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -15436,10 +15437,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">TIMBERMAN ROOFING INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, TIMBERMAN ROOFING INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['florida-panhandle'],
+      counties: ['escambia'],
       cities: ['valparaiso']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -15540,10 +15541,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">TOP CONSTRUCTION SERVICES LLC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, TOP CONSTRUCTION SERVICES LLC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['south-florida'],
+      counties: ['broward'],
       cities: ['lauderdale-lakes']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -15670,10 +15671,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">TRADE WINDS ROOFING INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, TRADE WINDS ROOFING INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['south-florida'],
+      counties: ['palm-beach-south'],
       cities: ['ft-pierce']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -15696,10 +15697,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">TRIPLE M ROOFING CORP offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, TRIPLE M ROOFING CORP brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['south-florida'],
+      counties: ['broward'],
       cities: ['ft-lauderdale']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -15800,10 +15801,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">UNIVERSAL CONTRACTING & SOLAR offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, UNIVERSAL CONTRACTING & SOLAR brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['southwest-florida'],
+      counties: ['lee'],
       cities: ['lehigh-acres']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -15851,10 +15852,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">BARTLETT ROOFING SERVICES INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, BARTLETT ROOFING SERVICES INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['sun-coast'],
+      counties: ['pasco'],
       cities: ['pt-richey']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -15954,10 +15955,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">VETERAN ROOFING INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, VETERAN ROOFING INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
-      cities: ['oakland-park']
-  },
+      regions: ['central-florida'],
+      counties: ['orange'],
+      cities: ['oakland', 'oakland-park']
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -16058,10 +16059,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">WEST COAST FLORIDA ENTERPRISES INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, WEST COAST FLORIDA ENTERPRISES INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['southwest-florida'],
+      counties: ['charlotte'],
       cities: ['ft-myers']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -16084,10 +16085,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">WEATHERGUARD ROOFING & WATERPROOFING INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, WEATHERGUARD ROOFING & WATERPROOFING INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['south-florida'],
+      counties: ['miami-dade'],
       cities: ['hialeah']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -16110,10 +16111,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">WEATHER RECOVERY SOLUTIONS offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, WEATHER RECOVERY SOLUTIONS brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['south-florida'],
+      counties: ['palm-beach-south'],
       cities: ['deerfield-beach']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -16136,10 +16137,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">WEATHERSHIELD ROOFING GROUP INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, WEATHERSHIELD ROOFING GROUP INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['central-florida'],
+      counties: ['seminole'],
       cities: ['longwood']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -16292,10 +16293,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">WORMLEY ROOFING INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, WORMLEY ROOFING INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['central-florida'],
+      counties: ['orange'],
       cities: ['apopka']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -16318,10 +16319,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">WORTHMANN LLC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, WORTHMANN LLC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['north-florida'],
+      counties: ['alachua'],
       cities: ['high-springs']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -16344,10 +16345,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">WEATHER SHIELD METAL ROOFING INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, WEATHER SHIELD METAL ROOFING INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['florida-panhandle'],
+      counties: ['escambia'],
       cities: ['gulf-breeze']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -16469,10 +16470,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">AD-LER ROOFING INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, AD-LER ROOFING INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['southwest-florida'],
+      counties: ['charlotte'],
       cities: ['ft-myers']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -16569,10 +16570,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">BCR INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, BCR INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['first-coast'],
+      counties: ['st-johns-fc'],
       cities: ['green-cove-springs']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -16744,10 +16745,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">HOPTON ROOFING INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, HOPTON ROOFING INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['central-florida'],
+      counties: ['orange'],
       cities: ['lake-helen']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -16844,10 +16845,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">WOOLEY BROTHERS INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, WOOLEY BROTHERS INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['central-florida'],
+      counties: ['osceola'],
       cities: ['st-cloud']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -16944,10 +16945,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">ROOFING & COMPANY LLC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, ROOFING & COMPANY LLC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['central-florida'],
+      counties: ['seminole'],
       cities: ['casselberry']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -16969,10 +16970,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">RUSS NOYES ROOFING INC - RHINO ROOFING offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, RUSS NOYES ROOFING INC - RHINO ROOFING brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['central-florida'],
+      counties: ['seminole'],
       cities: ['winter-springs']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -17071,10 +17072,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">YORK ROOFING LLC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, YORK ROOFING LLC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['central-florida'],
+      counties: ['seminole'],
       cities: ['longwood']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -17097,10 +17098,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">ALL WEATHER ROOFING offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, ALL WEATHER ROOFING brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['southwest-florida'],
+      counties: ['sarasota'],
       cities: ['bradenton']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -17149,10 +17150,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">Z ROOFING & WATERPROOFING INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, Z ROOFING & WATERPROOFING INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['south-florida'],
+      counties: ['miami-dade'],
       cities: ['hialeah']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -17175,10 +17176,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">MEGRAM CONSTRUCTION CO offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, MEGRAM CONSTRUCTION CO brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['central-florida'],
+      counties: ['seminole'],
       cities: ['oviedo']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -17200,10 +17201,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">GREEN LEAF ROOFING LLC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, GREEN LEAF ROOFING LLC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['sun-coast'],
+      counties: ['pinellas'],
       cities: ['dunedin']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -17226,10 +17227,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">FIXD ROOFING LLC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, FIXD ROOFING LLC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['south-florida'],
+      counties: ['palm-beach-south'],
       cities: ['pt-st-lucie']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -17328,10 +17329,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">MCDAVID ROOFING INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, MCDAVID ROOFING INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['north-florida'],
+      counties: ['alachua'],
       cities: ['alachua']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -17353,10 +17354,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">MCFADDEN\ offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, MCFADDEN\ brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['central-florida'],
+      counties: ['seminole'],
       cities: ['longwood']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -17378,10 +17379,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">MAXXIM CONSTRUCTION & RFG LLC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, MAXXIM CONSTRUCTION & RFG LLC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['first-coast'],
+      counties: ['st-johns-fc'],
       cities: ['fleming-island']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -17455,10 +17456,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">STORY ROOFING LLC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, STORY ROOFING LLC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['central-florida'],
+      counties: ['osceola'],
       cities: ['st-cloud']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -17479,10 +17480,10 @@ export const rooferData: Record<string, RooferData | any> = {
 <p class="mb-6">PRICE CONSTRUCTION & ROOFING INC offers comprehensive roofing solutions including roof installation, replacement, and repair services. The company works with various roofing materials and systems designed to withstand Florida's unique weather conditions, including high heat, humidity, and occasional severe weather.</p>
 <p class="mb-0">Whether you need a new roof installation, roof replacement after storm damage, or routine maintenance and repairs, PRICE CONSTRUCTION & ROOFING INC brings professional expertise and quality workmanship to every project. Their knowledge of local building codes and roofing best practices makes them a trusted partner for your roofing needs.</p>`,
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['central-florida'],
+      counties: ['polk'],
       cities: ['bartow']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -17511,10 +17512,10 @@ export const rooferData: Record<string, RooferData | any> = {
       'Roof Maintenance',
     ],
     serviceAreas: {
-      regions: [],
-      counties: [],
+      regions: ['sun-coast'],
+      counties: ['pinellas'],
       cities: ['gulfport']
-  },
+    },
     isPreferred: false,
     isHidden: false
   },
@@ -17565,10 +17566,10 @@ export const rooferData: Record<string, RooferData | any> = {
     isPreferred: false,
     isHidden: false,
     serviceAreas: {
-      regions: ['northeast-florida'],
-      counties: ['duval', 'st-johns', 'flagler', 'volusia'],
-      cities: ['jacksonville', 'ponte-vedra', 'st-augustine', 'palm-coast', 'orange-park', 'saint-johns', 'jacksonville-beach']
-  },
+      regions: ['north-florida', 'northeast-florida'],
+      counties: ['duval', 'volusia', 'st-johns', 'flagler'],
+      cities: ['ponte-vedra', 'ponte-vedra-beach', 'st-augustine', 'saint-johns', 'orange-park', 'jacksonville', 'palm-coast', 'jacksonville-beach']
+    },
     // BBB Information
     bbbRating: 'A+',
     bbbAccredited: false,

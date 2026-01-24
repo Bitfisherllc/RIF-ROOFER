@@ -15,6 +15,7 @@
 .next/
 .vscode/*
 app/api/auth/users.json
+data/mailing-list.json
 dist
 dist-ssr
 lerna-debug.log*
@@ -25,3 +26,4 @@ pnpm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .github
+

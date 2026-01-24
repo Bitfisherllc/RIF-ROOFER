@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowRight, faExternalLink, faShield, faLeaf, faHome, faWrench, faSun, faWind, faBolt, faDollarSign, faCertificate } from '@fortawesome/free-solid-svg-icons';
+import { faArrowRight, faExternalLink, faShield, faLeaf, faHome, faWrench, faSun, faWind, faBolt, faDollarSign, faCertificate, faFire, faCloudRain, faSnowflake, faRecycle, faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import type { Metadata } from 'next';
 import StickyProductNav from '@/components/StickyProductNav';
 
@@ -22,20 +22,49 @@ export const metadata: Metadata = {
 
 const productLines = [
   { 
-    name: 'Tile Profile', 
-    slug: 'tile-profile',
-    description: 'Authentic tile appearance with the durability of steel. Available in multiple colors to complement any architectural style.',
+    name: 'DECRA Villa Tile', 
+    slug: 'villa-tile',
+    description: 'Replicate the vivid level of detail and dimension of Old-World Italian clay tile. Perfect for Mediterranean and Spanish-style homes seeking authentic tile aesthetics with modern durability.',
+    image: '/products/decra/villa-tile-capri-clay-1.jpg',
   },
   { 
-    name: 'Shake Profile', 
-    slug: 'shake-profile',
-    description: 'Traditional shake aesthetic with modern performance. Perfect for coastal and high-wind areas.',
+    name: 'DECRA Tile', 
+    slug: 'tile',
+    description: 'Replicate the look of scalloped Mediterranean tile. Classic elegance with the strength of stone-coated steel, available in multiple colors.',
+    image: '/products/decra/villa-tile-tuscan-sun.jpg',
   },
   { 
-    name: 'Shingle Profile', 
-    slug: 'shingle-profile',
-    description: 'Classic shingle look with superior durability. Ideal for residential applications requiring traditional appeal.',
+    name: 'DECRA Shake', 
+    slug: 'shake',
+    description: 'Achieve the rich and distinctive shadow lines of cedar shake. Traditional shake aesthetic with modern performance, perfect for coastal and high-wind areas.',
+    image: '/products/decra/shake-charcoal-56sq.jpg',
   },
+  { 
+    name: 'DECRA Shake XD', 
+    slug: 'shake-xd',
+    description: 'Achieve the rustic beauty and architectural detail of hand-split wood shake. Enhanced dimensional profile for maximum visual impact.',
+    image: '/products/decra/shake-xd-pinnacle-grey-1.jpg',
+  },
+  { 
+    name: 'DECRA Shingle XD', 
+    slug: 'shingle-xd',
+    description: 'Get the appearance of deep, distinctive shadow lines of traditional asphalt shingles. Classic shingle look with superior durability and performance.',
+    image: '/products/decra/shingle-xd-natural-slate.webp',
+  },
+];
+
+const galleryImages = [
+  { src: '/products/decra/villa-tile-capri-clay-1.jpg', alt: 'DECRA Villa Tile Capri Clay' },
+  { src: '/products/decra/villa-tile-capri-clay-2.jpg', alt: 'DECRA Villa Tile Capri Clay Detail' },
+  { src: '/products/decra/villa-tile-capri-clay-3.jpg', alt: 'DECRA Villa Tile Capri Clay Installation' },
+  { src: '/products/decra/villa-tile-rustico-clay.jpg', alt: 'DECRA Villa Tile Rustico Clay' },
+  { src: '/products/decra/villa-tile-tuscan-sun.jpg', alt: 'DECRA Villa Tile Tuscan Sun' },
+  { src: '/products/decra/villa-tile-venetian-gold.jpg', alt: 'DECRA Villa Tile Venetian Gold' },
+  { src: '/products/decra/shake-charcoal-56sq.jpg', alt: 'DECRA Shake Charcoal' },
+  { src: '/products/decra/shake-charcoal-70sq.jpg', alt: 'DECRA Shake Charcoal Large' },
+  { src: '/products/decra/shake-xd-pinnacle-grey-1.jpg', alt: 'DECRA Shake XD Pinnacle Grey' },
+  { src: '/products/decra/shake-xd-pinnacle-grey-30sq.jpg', alt: 'DECRA Shake XD Pinnacle Grey Detail' },
+  { src: '/products/decra/shingle-xd-natural-slate.webp', alt: 'DECRA Shingle XD Natural Slate' },
 ];
 
 export default function DecraProductPage() {
@@ -77,10 +106,24 @@ export default function DecraProductPage() {
                 </Link>
               </div>
             </div>
-            <div className="relative h-96 lg:h-[500px] rounded-2xl overflow-hidden shadow-2xl bg-gray-800 flex items-center justify-center">
-              <div className="text-gray-400 text-center">
-                <FontAwesomeIcon icon={faHome} className="h-24 w-24 mb-4" />
-                <p className="text-lg">Decra Product Image</p>
+            <div className="relative h-96 lg:h-[500px] rounded-2xl overflow-hidden shadow-2xl group">
+              <Image
+                src="/products/decra/hero.webp"
+                alt="DECRA Stone-Coated Steel Roofing"
+                fill
+                className="object-cover group-hover:scale-105 transition-transform duration-700"
+                priority
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+              <div className="absolute top-6 right-6 bg-gray-800/90 rounded-lg p-4 shadow-xl">
+                <Image
+                  src="/products/logos/decra.svg"
+                  alt="DECRA Logo"
+                  width={140}
+                  height={65}
+                  className="object-contain"
+                  priority
+                />
               </div>
             </div>
           </div>
@@ -100,15 +143,69 @@ export default function DecraProductPage() {
               </h3>
               <div className="prose prose-lg max-w-none">
                 <p className="text-lg text-gray-700 leading-relaxed mb-4">
-                  <strong>Decra</strong> is a leading manufacturer of premium stone-coated steel roofing systems. With a focus on quality, innovation, and performance, Decra produces roofing solutions that provide exceptional durability, weather resistance, and aesthetic appeal for both residential and commercial applications.
+                  <strong>DECRA Metal Roofing</strong> is the #1 stone-coated steel manufacturer for residential and commercial roofing, backed by a <strong>lifetime warranty</strong> to guarantee protection. When it comes to premium roofing solutions, DECRA stands as the gold standard.
+                </p>
+                <p className="text-lg text-gray-700 leading-relaxed mb-4">
+                  Renowned for its innovative <strong>stone-coated steel technology</strong>, DECRA combines the timeless appeal of traditional roofing materials with the unmatched durability of steel. Whether you're seeking the rugged charm of cedar shakes, the elegance of Mediterranean tiles, or the modern look of architectural shingles, DECRA offers a product line designed to enhance your home's beauty while providing superior protection.
+                </p>
+                <p className="text-lg text-gray-700 leading-relaxed">
+                  With over <strong>60 years of experience</strong>, DECRA has earned its reputation as a leader in stone-coated metal roofing, trusted by professionals worldwide for its ease of installation and consistent performance.
                 </p>
               </div>
             </div>
-            <div className="relative h-96 rounded-2xl overflow-hidden shadow-xl bg-gray-100 flex items-center justify-center">
-              <div className="text-gray-400 text-center">
-                <FontAwesomeIcon icon={faHome} className="h-24 w-24 mb-4" />
-                <p>Decra Logo</p>
+            <div className="relative h-96 rounded-2xl overflow-hidden shadow-xl">
+              <Image
+                src="/products/decra/villa-tile-capri-clay-1.jpg"
+                alt="DECRA Stone-Coated Steel Roofing - Villa Tile"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Performance Ratings */}
+      <section className="py-20 px-6 bg-rif-blue-500 text-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl md:text-5xl font-semibold mb-4">
+              Built for the Extreme. Proven to Last.
+            </h2>
+            <p className="text-xl text-blue-100 max-w-3xl mx-auto">
+              DECRA roofs are engineered to withstand the harshest elements with industry-leading ratings and warranties.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="bg-white/10 backdrop-blur-sm p-8 rounded-2xl border border-white/20">
+              <div className="w-16 h-16 bg-white/20 rounded-xl flex items-center justify-center mb-6">
+                <FontAwesomeIcon icon={faCloudRain} className="h-8 w-8 text-white" />
               </div>
+              <h3 className="text-2xl font-semibold mb-4">Hail Protection</h3>
+              <p className="text-blue-100 leading-relaxed mb-4">
+                DECRA roofs are backed by a <strong>warranty against hailstones up to 2.5 inches in diameter</strong>. Our stone-coated steel profiles hold the <strong>highest Class 4 impact rating</strong> from Underwriters Laboratories.
+              </p>
+            </div>
+
+            <div className="bg-white/10 backdrop-blur-sm p-8 rounded-2xl border border-white/20">
+              <div className="w-16 h-16 bg-white/20 rounded-xl flex items-center justify-center mb-6">
+                <FontAwesomeIcon icon={faFire} className="h-8 w-8 text-white" />
+              </div>
+              <h3 className="text-2xl font-semibold mb-4">Fire Resistance</h3>
+              <p className="text-blue-100 leading-relaxed mb-4">
+                When it comes to fire safety, DECRA leads the way. Our roofing systems are <strong>rated Class A, the highest level of fire resistance available</strong>, providing protection and peace of mind for your property.
+              </p>
+            </div>
+
+            <div className="bg-white/10 backdrop-blur-sm p-8 rounded-2xl border border-white/20">
+              <div className="w-16 h-16 bg-white/20 rounded-xl flex items-center justify-center mb-6">
+                <FontAwesomeIcon icon={faWind} className="h-8 w-8 text-white" />
+              </div>
+              <h3 className="text-2xl font-semibold mb-4">Wind Performance</h3>
+              <p className="text-blue-100 leading-relaxed mb-4">
+                DECRA roofs can <strong>withstand winds up to 120 mph</strong>, making them ideal for hurricane-prone areas like Florida. The interlocking panel design ensures superior wind resistance.
+              </p>
             </div>
           </div>
         </div>
@@ -122,25 +219,25 @@ export default function DecraProductPage() {
               <div className="w-16 h-16 bg-rif-blue-500 rounded-xl flex items-center justify-center mb-6">
                 <FontAwesomeIcon icon={faShield} className="h-8 w-8 text-white" />
               </div>
-              <h3 className="text-2xl font-semibold text-rif-black mb-4">Superior Durability & Weather Resistance</h3>
+              <h3 className="text-2xl font-semibold text-rif-black mb-4">Durability That Outlasts Traditional Roofing</h3>
               <p className="text-gray-600 leading-relaxed mb-4">
-                Decra stone-coated steel roofing systems are engineered to withstand Florida's challenging climate, including intense sun, high humidity, hurricanes, and severe weather. The premium steel construction provides exceptional protection against UV radiation, corrosion, and impact damage.
+                Unlike asphalt shingles or clay tiles, DECRA roofs are made with <strong>stone-coated steel</strong>, offering unparalleled strength without compromising on style. These roofs are resistant to cracking, warping, and rust, making them an investment in long-term performance.
               </p>
               <p className="text-gray-600 leading-relaxed">
-                These systems offer Class A fire resistance, high wind ratings, and excellent impact resistance, making them ideal for Florida's demanding weather conditions.
+                Built to last for decades, DECRA products provide peace of mind with an industry-leading lifetime warranty.
               </p>
             </div>
 
             <div className="bg-white p-8 rounded-2xl shadow-lg">
               <div className="w-16 h-16 bg-rif-blue-500 rounded-xl flex items-center justify-center mb-6">
-                <FontAwesomeIcon icon={faLeaf} className="h-8 w-8 text-white" />
+                <FontAwesomeIcon icon={faRecycle} className="h-8 w-8 text-white" />
               </div>
-              <h3 className="text-2xl font-semibold text-rif-black mb-4">Energy Efficiency & Performance</h3>
+              <h3 className="text-2xl font-semibold text-rif-black mb-4">Sustainable and Energy-Efficient</h3>
               <p className="text-gray-600 leading-relaxed mb-4">
-                Decra metal roofing systems feature advanced energy-efficient properties. The metal surface reflects solar heat, reducing cooling costs and improving overall energy performance. This makes them an excellent choice for Florida homeowners seeking to reduce energy consumption.
+                DECRA roofing isn't just tough—it's environmentally friendly. Made from <strong>recyclable materials</strong>, their products are designed with sustainability in mind.
               </p>
               <p className="text-gray-600 leading-relaxed">
-                The interlocking panel design ensures superior water resistance and prevents leaks, while the lightweight construction reduces structural load on your home.
+                The reflective properties of metal can also improve energy efficiency by keeping homes cooler in summer and reducing energy costs, making them an excellent choice for Florida homeowners.
               </p>
             </div>
 
@@ -148,12 +245,12 @@ export default function DecraProductPage() {
               <div className="w-16 h-16 bg-rif-blue-500 rounded-xl flex items-center justify-center mb-6">
                 <FontAwesomeIcon icon={faHome} className="h-8 w-8 text-white" />
               </div>
-              <h3 className="text-2xl font-semibold text-rif-black mb-4">Versatile Product Line</h3>
+              <h3 className="text-2xl font-semibold text-rif-black mb-4">A Style for Every Home</h3>
               <p className="text-gray-600 leading-relaxed mb-4">
-                Decra offers a comprehensive product line including tile, shake, and shingle profiles, each designed to meet specific aesthetic and performance requirements. With a wide range of colors, finishes, and profiles, you can achieve the exact look you want for your property.
+                With a variety of profiles, textures, and colors, DECRA products seamlessly blend with any architectural style. Whether it's the rustic appeal of <strong>DECRA Shake</strong>, the bold character of <strong>DECRA Villa Tile</strong>, or the sleek sophistication of <strong>DECRA Shingle XD</strong>, there's a roofing solution to match your aesthetic vision.
               </p>
               <p className="text-gray-600 leading-relaxed">
-                Whether you prefer the classic elegance of tile, the rustic charm of shake, or the traditional appeal of shingles, Decra has a solution that combines beauty with performance.
+                The interlocking panel design ensures superior water resistance and prevents leaks, while the lightweight construction reduces structural load on your home.
               </p>
             </div>
           </div>
@@ -164,14 +261,64 @@ export default function DecraProductPage() {
       <section className="py-20 px-6 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-semibold text-rif-black mb-4">Decra</h2>
-            <h3 className="text-2xl font-light text-gray-600">Product Line</h3>
+            <h2 className="text-4xl md:text-5xl font-semibold text-rif-black mb-4">DECRA</h2>
+            <h3 className="text-2xl font-light text-gray-600">Roofing Products</h3>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {productLines.map((line) => (
-              <div key={line.slug} className="bg-gray-50 rounded-2xl p-8 border border-gray-200 hover:shadow-lg transition-shadow">
-                <h4 className="text-2xl font-semibold text-rif-black mb-4">{line.name}</h4>
-                <p className="text-gray-600 leading-relaxed">{line.description}</p>
+              <div key={line.slug} className="bg-gray-50 rounded-2xl overflow-hidden border border-gray-200 hover:shadow-xl transition-all group">
+                {line.image && (
+                  <div className="relative h-48 overflow-hidden">
+                    <Image
+                      src={line.image}
+                      alt={line.name}
+                      fill
+                      className="object-cover group-hover:scale-110 transition-transform duration-500"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    />
+                  </div>
+                )}
+                <div className="p-6">
+                  <h4 className="text-2xl font-semibold text-rif-black mb-4">{line.name}</h4>
+                  <p className="text-gray-600 leading-relaxed">{line.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Gallery Section */}
+      <section className="py-20 px-6 bg-gray-50">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl md:text-5xl font-semibold text-rif-black mb-4">
+              DECRA Gallery
+            </h2>
+            <h3 className="text-2xl font-light text-gray-600">
+              Sophisticated Style with the Strength of Steel
+            </h3>
+            <p className="text-lg text-gray-600 mt-4 max-w-3xl mx-auto">
+              Breathtaking designs are what you see at first glance, but underneath are layers of pure protection. DECRA's proprietary stone-coating process involves adhering natural stone granules to the top of base steel sheets to provide a wide range of styles, colors, and textures.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {galleryImages.map((image, index) => (
+              <div key={index} className="relative h-64 rounded-xl overflow-hidden group cursor-pointer">
+                <Image
+                  src={image.src}
+                  alt={image.alt}
+                  fill
+                  className="object-cover group-hover:scale-110 transition-transform duration-500"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                />
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
+                  <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <p className="text-white font-medium text-sm px-4 py-2 bg-black/50 rounded-lg backdrop-blur-sm">
+                      {image.alt}
+                    </p>
+                  </div>
+                </div>
               </div>
             ))}
           </div>
@@ -238,21 +385,41 @@ export default function DecraProductPage() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-semibold text-rif-black mb-4">
-              Unparalleled Benefits
+              Added Value for Discerning Customers
             </h2>
             <h3 className="text-2xl font-light text-gray-600">
-              for Every Property Owner
+              Unparalleled Benefits for Every Property Owner
             </h3>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+            <div className="bg-gray-50 p-8 rounded-2xl">
+              <div className="w-16 h-16 bg-rif-blue-500 rounded-xl flex items-center justify-center mb-6">
+                <FontAwesomeIcon icon={faWrench} className="h-8 w-8 text-white" />
+              </div>
+              <h3 className="text-2xl font-semibold text-rif-black mb-4">Low Maintenance, High Performance</h3>
+              <p className="text-gray-600 leading-relaxed">
+                Homeowners will appreciate the <strong>minimal upkeep required</strong> with DECRA roofs. Resistant to mold, mildew, and pests, these roofs retain their beauty and performance for decades with little effort. This translates to fewer headaches and reduced costs over time.
+              </p>
+            </div>
+
             <div className="bg-gray-50 p-8 rounded-2xl">
               <div className="w-16 h-16 bg-rif-blue-500 rounded-xl flex items-center justify-center mb-6">
                 <FontAwesomeIcon icon={faShield} className="h-8 w-8 text-white" />
               </div>
-              <h3 className="text-2xl font-semibold text-rif-black mb-4">Superior Protection</h3>
+              <h3 className="text-2xl font-semibold text-rif-black mb-4">An Investment in Safety</h3>
               <p className="text-gray-600 leading-relaxed">
-                Decra products provide <strong>comprehensive protection</strong> for your property, designed to withstand the elements and maintain performance over time.
+                Safety is at the core of DECRA's design philosophy. The roofs are <strong>non-combustible and hold a Class A fire rating</strong>, providing an extra layer of protection for families and homes.
+              </p>
+            </div>
+
+            <div className="bg-gray-50 p-8 rounded-2xl">
+              <div className="w-16 h-16 bg-rif-blue-500 rounded-xl flex items-center justify-center mb-6">
+                <FontAwesomeIcon icon={faCertificate} className="h-8 w-8 text-white" />
+              </div>
+              <h3 className="text-2xl font-semibold text-rif-black mb-4">Trusted by Professionals</h3>
+              <p className="text-gray-600 leading-relaxed">
+                Roofing professionals worldwide trust DECRA for its <strong>ease of installation and consistent performance</strong>. With over 60 years of experience, DECRA has earned its reputation as a leader in stone-coated metal roofing.
               </p>
             </div>
 
@@ -262,17 +429,27 @@ export default function DecraProductPage() {
               </div>
               <h3 className="text-2xl font-semibold text-rif-black mb-4">Long-Term Value</h3>
               <p className="text-gray-600 leading-relaxed">
-                Investing in Decra means investing in <strong>long-term value</strong>. Our products are designed to last, reducing the need for frequent replacements and maintenance.
+                Investing in DECRA means investing in <strong>long-term value</strong>. Unlike asphalt shingles or clay tiles, DECRA products are designed to last for decades, reducing the need for frequent replacements and maintenance.
               </p>
             </div>
 
             <div className="bg-gray-50 p-8 rounded-2xl">
               <div className="w-16 h-16 bg-rif-blue-500 rounded-xl flex items-center justify-center mb-6">
-                <FontAwesomeIcon icon={faCertificate} className="h-8 w-8 text-white" />
+                <FontAwesomeIcon icon={faCheckCircle} className="h-8 w-8 text-white" />
               </div>
-              <h3 className="text-2xl font-semibold text-rif-black mb-4">Professional Grade</h3>
+              <h3 className="text-2xl font-semibold text-rif-black mb-4">Lifetime Warranty</h3>
               <p className="text-gray-600 leading-relaxed">
-                Decra products are <strong>trusted by professionals</strong> throughout the roofing industry for their quality, reliability, and consistent performance.
+                DECRA Metal Roofing is backed by a <strong>lifetime warranty</strong> to guarantee protection. This industry-leading warranty provides peace of mind and demonstrates our confidence in the product's durability and performance.
+              </p>
+            </div>
+
+            <div className="bg-gray-50 p-8 rounded-2xl">
+              <div className="w-16 h-16 bg-rif-blue-500 rounded-xl flex items-center justify-center mb-6">
+                <FontAwesomeIcon icon={faSun} className="h-8 w-8 text-white" />
+              </div>
+              <h3 className="text-2xl font-semibold text-rif-black mb-4">Energy Efficiency</h3>
+              <p className="text-gray-600 leading-relaxed">
+                The reflective properties of DECRA metal roofing can <strong>improve energy efficiency</strong> by keeping homes cooler in summer, reducing cooling costs and improving overall energy performance for Florida homeowners.
               </p>
             </div>
           </div>
@@ -288,13 +465,16 @@ export default function DecraProductPage() {
           </div>
           <div className="bg-white rounded-2xl p-8 md:p-12 shadow-lg max-w-4xl mx-auto">
             <h4 className="text-2xl font-semibold text-rif-black mb-4 text-center">
-              Your Trusted Source for Decra
+              Your Trusted Source for DECRA Roofing
             </h4>
             <p className="text-lg text-gray-700 leading-relaxed mb-6 text-center">
-              As an authorized distributor, we are proud to bring the quality and innovation of Decra to our customers. Our team is here to help you explore the Decra product line, answer your questions, and guide you toward the perfect solution for your roofing needs.
+              As an authorized distributor, we are proud to bring the quality and innovation of DECRA roofing to our customers. Our team is here to help you explore the DECRA product line, answer your questions, and guide you toward the perfect solution for your roofing needs.
+            </p>
+            <p className="text-lg text-gray-700 leading-relaxed mb-6 text-center">
+              Upgrade your home with a DECRA roof—a choice that combines timeless beauty, unmatched durability, and sustainable performance. Whether you're looking for the rustic appeal of DECRA Shake, the bold character of DECRA Villa Tile, or the sleek sophistication of DECRA Shingle XD, we have the solution for you.
             </p>
             <p className="text-lg text-gray-700 leading-relaxed mb-8 text-center">
-              Contact us today to learn more about Decra or to schedule a consultation with one of our roofing experts!
+              Contact us today to learn more about DECRA or to schedule a consultation with one of our roofing experts!
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link

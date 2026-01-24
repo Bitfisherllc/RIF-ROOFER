@@ -3,11 +3,12 @@
 import { useState, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLock, faSpinner, faExclamationTriangle, faCog } from '@fortawesome/free-solid-svg-icons';
+import { faLock, faSpinner, faExclamationTriangle, faCog, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
 function AdminLoginForm() {
   const router = useRouter();
   const searchParams = useSearchParams();
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
@@ -25,27 +26,36 @@ function AdminLoginForm() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ password }),
+        credentials: 'include', // Include cookies in request
+        body: JSON.stringify({ 
+          email: email.trim(), 
+          password: password 
+        }),
       });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        setError(errorData.error || 'Invalid email or password. Please try again.');
+        setPassword('');
+        return;
+      }
 
       const data = await response.json();
 
       if (data.success) {
-        // Set cookie to remember verification (expires in 24 hours)
-        const expiryDate = new Date();
-        expiryDate.setHours(expiryDate.getHours() + 24);
-        document.cookie = `admin-password-verified=true; expires=${expiryDate.toUTCString()}; path=/;`;
-        
-        // Redirect to original page
-        router.push(redirect);
-        router.refresh();
+        // Cookie is set server-side by the API
+        // Small delay to ensure cookie is set, then redirect
+        setTimeout(() => {
+          window.location.href = redirect || '/admin/roofers';
+        }, 100);
       } else {
-        setError('Incorrect password. Please try again.');
+        setError(data.error || 'Invalid email or password. Please try again.');
         setPassword('');
       }
     } catch (error) {
-      console.error('Error verifying password:', error);
+      console.error('Error verifying credentials:', error);
       setError('An error occurred. Please try again.');
+      setLoading(false);
     } finally {
       setLoading(false);
     }
@@ -64,25 +74,52 @@ function AdminLoginForm() {
               Admin Portal
             </h1>
             <p className="text-gray-600">
-              This area is restricted. Please enter the admin password to continue.
+              This area is restricted. Please enter your admin credentials to continue.
             </p>
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
-              <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-2">
-                Admin Password
+              <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                Email Address
               </label>
-              <input
-                id="password"
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rif-blue-500 focus:border-rif-blue-500 transition-colors"
-                placeholder="Enter admin password"
-                autoFocus
-                disabled={loading}
-              />
+              <div className="relative">
+                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                  <FontAwesomeIcon icon={faEnvelope} className="h-5 w-5 text-gray-400" />
+                </div>
+                <input
+                  id="email"
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rif-blue-500 focus:border-rif-blue-500 transition-colors"
+                  placeholder="Enter your email"
+                  autoFocus
+                  disabled={loading}
+                  required
+                />
+              </div>
+            </div>
+
+            <div>
+              <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-2">
+                Password
+              </label>
+              <div className="relative">
+                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                  <FontAwesomeIcon icon={faLock} className="h-5 w-5 text-gray-400" />
+                </div>
+                <input
+                  id="password"
+                  type="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rif-blue-500 focus:border-rif-blue-500 transition-colors"
+                  placeholder="Enter your password"
+                  disabled={loading}
+                  required
+                />
+              </div>
             </div>
 
             {error && (
@@ -94,7 +131,7 @@ function AdminLoginForm() {
 
             <button
               type="submit"
-              disabled={loading || !password}
+              disabled={loading || !email || !password}
               className="w-full px-6 py-3 bg-rif-blue-500 text-white rounded-lg hover:bg-rif-blue-600 transition-colors font-medium disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
             >
               {loading ? (
@@ -124,4 +161,5 @@ export default function AdminLoginPage() {
     </Suspense>
   );
 }
+
 

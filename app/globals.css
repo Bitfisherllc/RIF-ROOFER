@@ -200,6 +200,20 @@ svg.w-8 {
   border: none !important;
 }
 
+/* Hero background blur animation */
+@keyframes blurTransition {
+  0% {
+    filter: blur(0px);
+  }
+  100% {
+    filter: blur(8px);
+  }
+}
+
+.hero-background-blur {
+  animation: blurTransition 3s ease-in-out forwards;
+}
+
 
 
 

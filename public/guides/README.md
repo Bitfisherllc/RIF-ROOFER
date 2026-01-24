@@ -37,3 +37,4 @@ The featured image will automatically display on:
 - Individual guide pages (hero section)
 - Guide listing pages (thumbnail)
 
+

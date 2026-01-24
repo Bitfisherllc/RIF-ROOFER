@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
-import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faArrowLeft,
@@ -11,6 +10,7 @@ import {
   faChevronRight,
 } from '@fortawesome/free-solid-svg-icons';
 import { getGuideData, getAllGuides, type GuideData } from '../data/guides';
+import GuideIconImage from '@/components/GuideIconImage';
 
 interface GuidePageProps {
   params: { slug: string };
@@ -119,22 +119,19 @@ export default function GuidePage({ params }: GuidePageProps) {
         </div>
       </section>
 
-      {/* Featured Image */}
-      {guide.featuredImage && (
-        <section className="px-6 py-8 bg-white">
-          <div className="max-w-4xl mx-auto">
-            <div className="relative w-full h-64 md:h-96 rounded-2xl overflow-hidden shadow-lg">
-              <Image
-                src={guide.featuredImage}
-                alt={guide.title}
-                fill
-                className="object-cover"
-                priority
-              />
-            </div>
+      {/* Featured Icon */}
+      <section className="px-6 py-8 bg-white">
+        <div className="max-w-4xl mx-auto">
+          <div className="relative w-full rounded-2xl overflow-hidden shadow-lg">
+            <GuideIconImage 
+              slug={guide.slug} 
+              title={guide.title}
+              category={guide.category}
+              size="lg"
+            />
           </div>
-        </section>
-      )}
+        </div>
+      </section>
 
       {/* Main Content */}
       <article className="py-12 px-6">

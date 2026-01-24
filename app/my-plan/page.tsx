@@ -24,6 +24,7 @@ import {
   faClock,
   faBox,
   faPlus,
+  faInfoCircle,
 } from '@fortawesome/free-solid-svg-icons';
 import { faStar as faStarRegular } from '@fortawesome/free-regular-svg-icons';
 import Image from 'next/image';
@@ -162,6 +163,31 @@ export default function MyPlanPage() {
               <p className="text-lg text-gray-600 font-light">
                 Manage your roofing project, saved roofers, and preferences
               </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Account Creation Banner */}
+      <section className="px-6 py-4 bg-rif-blue-50 border-b border-rif-blue-100">
+        <div className="max-w-7xl mx-auto">
+          <div className="bg-white rounded-lg border border-rif-blue-200 p-4 flex items-start gap-4">
+            <div className="flex-shrink-0 mt-0.5">
+              <FontAwesomeIcon icon={faInfoCircle} className="h-5 w-5 text-rif-blue-500" />
+            </div>
+            <div className="flex-1">
+              <p className="text-sm text-gray-700 leading-relaxed">
+                <strong className="text-rif-black">Save your plan for later:</strong> Create a free account to save your favorite roofers, products, and locations. Your saved items will be available whenever you return to the site, even if you switch browsers or devices.
+              </p>
+            </div>
+            <div className="flex-shrink-0">
+              <Link
+                href="/signup"
+                className="inline-flex items-center gap-2 px-4 py-2 bg-rif-blue-500 text-white text-sm font-semibold rounded-lg hover:bg-rif-blue-600 transition-colors whitespace-nowrap"
+              >
+                Create Account
+                <FontAwesomeIcon icon={faArrowRight} className="h-4 w-4" />
+              </Link>
             </div>
           </div>
         </div>
@@ -578,14 +604,30 @@ export default function MyPlanPage() {
                 </p>
               </div>
 
-              <div className="bg-white rounded-2xl shadow-lg p-12 text-center">
-                <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gray-100 mb-6">
-                  <FontAwesomeIcon icon={faFileInvoiceDollar} className="h-10 w-10 text-gray-400" />
+              <div className="bg-white rounded-2xl shadow-lg p-12">
+                <div className="text-center mb-8">
+                  <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gray-100 mb-6">
+                    <FontAwesomeIcon icon={faFileInvoiceDollar} className="h-10 w-10 text-gray-400" />
+                  </div>
+                  <h3 className="text-2xl font-semibold text-rif-black mb-4">No Projects Yet</h3>
                 </div>
-                <h3 className="text-2xl font-semibold text-rif-black mb-4">No Projects Yet</h3>
-                <p className="text-gray-600 mb-8 max-w-md mx-auto">
-                  Once you request an estimate or start a project, it will appear here for easy tracking.
-                </p>
+
+                {/* Information about favoriting */}
+                <div className="bg-rif-blue-50 border border-rif-blue-200 rounded-lg p-6 mb-8">
+                  <div className="flex items-start gap-4">
+                    <FontAwesomeIcon icon={faInfoCircle} className="h-5 w-5 text-rif-blue-500 mt-0.5 flex-shrink-0" />
+                    <div>
+                      <h4 className="font-semibold text-rif-black mb-2">How to Get Started</h4>
+                      <p className="text-gray-700 text-sm leading-relaxed mb-3">
+                        Browse our site and favorite any products, roofers, and locations you're interested in. Simply click the favorite button on any product page, roofer profile, or location page to save them for later.
+                      </p>
+                      <p className="text-gray-700 text-sm leading-relaxed">
+                        Once you've saved your favorites, come back here to create a request for more information or to request a free estimate. Your saved favorites will be automatically included in your estimate request.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <Link
                     href="/free-estimate"

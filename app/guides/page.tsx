@@ -1,10 +1,10 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
-import Image from 'next/image';
 import { getAllGuides, getGuidesByCategory } from './data/guides';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBook, faCalendar, faArrowRight, faMapLocationDot, faCloudRain, faBoxes, faClipboardList, faCalendarAlt, faDollarSign, faWrench, faFileContract, faLeaf, faBuilding, faUmbrellaBeach } from '@fortawesome/free-solid-svg-icons';
 import GuidesNavigation from './GuidesNavigation';
+import GuideIconImage from '@/components/GuideIconImage';
 
 export const metadata: Metadata = {
   title: 'Roofing Guides & Resources | RIF Roofing',
@@ -127,17 +127,13 @@ export default function GuidesPage({ searchParams }: GuidesPageProps) {
                     href={`/guides/${guide.slug}`}
                     className="block bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-lg transition-shadow group"
                   >
-                    {guide.featuredImage && (
-                      <div className="relative w-full h-48 bg-gray-100">
-                        <Image
-                          src={guide.featuredImage}
-                          alt={guide.title}
-                          fill
-                          className="object-cover group-hover:scale-105 transition-transform duration-300"
-                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                        />
-                      </div>
-                    )}
+                    <GuideIconImage 
+                      slug={guide.slug} 
+                      title={guide.title}
+                      category={guide.category}
+                      size="md"
+                      className="group-hover:scale-105 transition-transform duration-300"
+                    />
                     <div className="p-6">
                       <div className="flex items-center gap-2 text-sm text-rif-blue-500 mb-3">
                         <FontAwesomeIcon 

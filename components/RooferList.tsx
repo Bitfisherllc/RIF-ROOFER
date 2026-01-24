@@ -35,6 +35,12 @@ function getCountyName(countySlug: string): string {
   return county ? county.name.replace(' County', '') : countySlug;
 }
 
+// Helper to get city name from slug
+function getCityName(citySlug: string): string {
+  const city = searchData.find((item) => item.type === 'city' && item.slug === citySlug);
+  return city ? city.name : citySlug.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+}
+
 // Roofer Card Component
 function RooferCard({ roofer }: { roofer: RooferData }) {
   const router = useRouter();
@@ -51,6 +57,13 @@ function RooferCard({ roofer }: { roofer: RooferData }) {
   if (roofer.serviceAreas?.counties) {
     roofer.serviceAreas.counties.forEach((slug) => {
       const name = getCountyName(slug);
+      if (name) serviceAreaNames.push(name);
+    });
+  }
+
+  if (roofer.serviceAreas?.cities) {
+    roofer.serviceAreas.cities.forEach((slug) => {
+      const name = getCityName(slug);
       if (name) serviceAreaNames.push(name);
     });
   }
@@ -105,17 +118,27 @@ function RooferCard({ roofer }: { roofer: RooferData }) {
           {roofer.name}
         </h3>
 
-        <div className="space-y-2 mb-4">
-          {/* Hide city/address for General listings */}
-          {!isGeneral && roofer.city && (
-            <div className="flex items-center gap-2 text-gray-600">
-              <FontAwesomeIcon icon={faMapLocationDot} className="h-4 w-4 text-rif-blue-500" />
-              <span>
-                {roofer.city}
-                {roofer.state && `, ${roofer.state}`}
-              </span>
+        {/* Address - Show for all roofers */}
+        {(roofer.address || roofer.city) && (
+          <div className="flex items-start gap-2 text-gray-600 mb-4">
+            <FontAwesomeIcon icon={faMapLocationDot} className="h-4 w-4 text-rif-blue-500 mt-0.5 flex-shrink-0" />
+            <div className="flex-1">
+              {roofer.address && (
+                <div>{roofer.address}</div>
+              )}
+              {(roofer.city || roofer.state || roofer.zipCode) && (
+                <div>
+                  {roofer.city && roofer.city}
+                  {roofer.city && roofer.state && ', '}
+                  {roofer.state && roofer.state}
+                  {roofer.zipCode && ` ${roofer.zipCode}`}
+                </div>
+              )}
             </div>
-          )}
+          </div>
+        )}
+
+        <div className="space-y-2 mb-4">
 
           {/* Hide phone for General listings */}
           {!isGeneral && roofer.phone && (

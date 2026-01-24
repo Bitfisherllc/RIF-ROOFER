@@ -11,8 +11,8 @@ export interface TrainingPath {
   upcomingSessions?: number;
 }
 
-export const trainingPaths: TrainingPath[] = [
-  {
+export const trainingPaths: Record<string, TrainingPath> = {
+  'sales-training': {
     id: 'sales-training',
     title: 'STONE COATED METAL ROOFING SALES TRAINING',
     description: 'Master the art of selling stone-coated metal roofing systems. Learn product knowledge, sales techniques, and proven strategies to close more deals and grow your business.',
@@ -41,7 +41,7 @@ export const trainingPaths: TrainingPath[] = [
     ],
     upcomingSessions: 3,
   },
-  {
+  'installation-training': {
     id: 'installation-training',
     title: 'STONE COATED METAL ROOFING INSTALLATION TRAINING',
     description: 'Hands-on training for proper installation techniques. Learn from certified experts and become a master installer with RIF certification.',
@@ -71,13 +71,13 @@ export const trainingPaths: TrainingPath[] = [
     ],
     upcomingSessions: 4,
   },
-];
+};
 
 export function getAllTrainingPaths(): TrainingPath[] {
-  return trainingPaths;
+  return Object.values(trainingPaths);
 }
 
 export function getTrainingPathById(id: string): TrainingPath | undefined {
-  return trainingPaths.find(path => path.id === id);
+  return trainingPaths[id];
 }
 

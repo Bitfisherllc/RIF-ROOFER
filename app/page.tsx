@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -12,7 +12,15 @@ import {
   faBoxes,
   faDollarSign,
   faGraduationCap,
+  faPhone,
+  faEnvelope,
+  faGlobe,
+  faStar,
+  faBullhorn,
 } from '@fortawesome/free-solid-svg-icons';
+import Logo from '@/components/Logo';
+import { getPreferredRoofers, getSponsoredRoofers } from '@/app/roofers/data/roofers';
+import type { RooferData } from '@/app/roofers/data/roofers';
 
 // Error boundary for debugging
 if (typeof window !== 'undefined') {
@@ -25,6 +33,12 @@ if (typeof window !== 'undefined') {
 }
 
 const heroSlides = [
+  {
+    showLogo: true,
+    headline: 'Welcome to',
+    headlineHighlight: 'Roofers In Florida',
+    subtitle: 'Your trusted resource for finding a Stone Coated Roofer In Florida. We connect homeowners with certified, trained professionals who install stone-coated metal roofing systems correctly and consistently across the Sunshine State.',
+  },
   {
     headline: 'Find a Stone-Coated Metal',
     headlineHighlight: 'Roofer in Florida',
@@ -54,20 +68,104 @@ const heroSlides = [
 
 export default function HomePage() {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [featuredPreferred, setFeaturedPreferred] = useState<RooferData | null>(null);
+  const [featuredSponsored, setFeaturedSponsored] = useState<RooferData | null>(null);
+  const [heroBackgroundImage, setHeroBackgroundImage] = useState<string | null>(null);
+  const heroSectionRef = useRef<HTMLElement>(null);
+  const [scrollY, setScrollY] = useState(0);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
-    }, 5000); // Rotate every 5 seconds
+    // First slide (index 0) stays visible longer - 10 seconds
+    // All other slides rotate every 5 seconds
+    const getSlideDuration = (slideIndex: number) => {
+      return slideIndex === 0 ? 10000 : 5000;
+    };
 
-    return () => clearInterval(interval);
+    const scheduleNext = () => {
+      const duration = getSlideDuration(currentSlide);
+      const timeout = setTimeout(() => {
+        setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
+      }, duration);
+      return timeout;
+    };
+
+    const timeout = scheduleNext();
+
+    return () => clearTimeout(timeout);
+  }, [currentSlide]);
+
+  // Load hero background image
+  useEffect(() => {
+    const fetchHeroBackground = async () => {
+      try {
+        const response = await fetch('/api/admin/hero-background');
+        if (response.ok) {
+          const data = await response.json();
+          if (data.imageUrl) {
+            setHeroBackgroundImage(data.imageUrl);
+          }
+        }
+      } catch (error) {
+        console.error('Error fetching hero background:', error);
+      }
+    };
+    fetchHeroBackground();
+  }, []);
+
+  // Parallax scroll effect
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Load and randomly select featured roofers on mount
+  useEffect(() => {
+    try {
+      const preferred = getPreferredRoofers();
+      const sponsored = getSponsoredRoofers();
+
+      // Randomly select one preferred roofer
+      if (preferred.length > 0) {
+        const randomPreferred = preferred[Math.floor(Math.random() * preferred.length)];
+        setFeaturedPreferred(randomPreferred);
+      }
+
+      // Randomly select one sponsored roofer
+      if (sponsored.length > 0) {
+        const randomSponsored = sponsored[Math.floor(Math.random() * sponsored.length)];
+        setFeaturedSponsored(randomSponsored);
+      }
+    } catch (error) {
+      console.error('Error loading featured roofers:', error);
+    }
   }, []);
 
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section - Rotating Carousel */}
-      <section className="pt-20 pb-16 px-6 relative overflow-hidden">
-        <div className="max-w-5xl mx-auto text-center">
+      <section 
+        ref={heroSectionRef}
+        className="pt-20 pb-16 px-6 relative overflow-hidden"
+      >
+        {/* Background image with blur animation and parallax */}
+        {heroBackgroundImage && (
+          <div
+            className="absolute inset-0 hero-background-blur"
+            style={{
+              backgroundImage: `url('${heroBackgroundImage}')`,
+              backgroundSize: 'cover',
+              backgroundPosition: `center ${50 + scrollY * 0.3}%`,
+              backgroundRepeat: 'no-repeat',
+              transform: `translateY(${scrollY * 0.5}px)`,
+              willChange: 'transform, background-position',
+            }}
+          />
+        )}
+        <div className="max-w-5xl mx-auto text-center relative z-10">
           <div className="relative h-[280px] md:h-[320px] flex items-center justify-center">
             {heroSlides.map((slide, index) => (
               <div
@@ -78,6 +176,11 @@ export default function HomePage() {
                     : 'opacity-0 z-0 pointer-events-none'
                 }`}
               >
+                {slide.showLogo && (
+                  <div className="mb-6">
+                    <Logo variant="full" color="blue" width={240} priority={index === 0} />
+                  </div>
+                )}
                 <h1 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-rif-black mb-4 tracking-tight">
                   {slide.headline}
                   <br />
@@ -91,7 +194,7 @@ export default function HomePage() {
           </div>
           
           {/* Carousel Indicators */}
-          <div className="flex justify-center gap-2 mb-8">
+          <div className="flex justify-center gap-2">
             {heroSlides.map((_, index) => (
               <button
                 key={index}
@@ -104,44 +207,6 @@ export default function HomePage() {
                 aria-label={`Go to slide ${index + 1}`}
               />
             ))}
-          </div>
-
-          {/* Free Estimate CTA */}
-          <div className="mb-8">
-            <Link
-              href="/free-estimate"
-              className="inline-flex items-center gap-3 px-8 py-4 bg-rif-blue-500 text-white text-lg font-semibold rounded-lg hover:bg-rif-blue-600 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
-            >
-              Get Your Free Estimate
-              <FontAwesomeIcon
-                icon={faArrowRight}
-                className="h-5 w-5"
-              />
-            </Link>
-          </div>
-
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Link
-              href="/service-areas"
-              className="flex items-center gap-2 text-base text-rif-blue-500 hover:text-rif-blue-600 transition-colors group"
-            >
-              Find Roofers by Location
-              <FontAwesomeIcon
-                icon={faArrowRight}
-                className="h-4 w-4 group-hover:translate-x-1 transition-transform"
-              />
-            </Link>
-            <span className="hidden sm:inline text-gray-300">|</span>
-            <Link
-              href="/roofers"
-              className="flex items-center gap-2 text-base text-rif-blue-500 hover:text-rif-blue-600 transition-colors group"
-            >
-              Browse All Roofers
-              <FontAwesomeIcon
-                icon={faArrowRight}
-                className="h-4 w-4 group-hover:translate-x-1 transition-transform"
-              />
-            </Link>
           </div>
         </div>
       </section>
@@ -286,6 +351,176 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* Featured Roofers Section */}
+      {(featuredPreferred || featuredSponsored) && (
+        <section className="py-20 px-6 bg-white border-t border-gray-200">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-4xl md:text-5xl font-semibold text-rif-black mb-4">
+                Featured Roofers
+              </h2>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                Meet some of our certified and sponsored roofing professionals
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {/* Featured Certified Roofer */}
+              {featuredPreferred && (
+                <Link
+                  href={`/roofers/${featuredPreferred.slug}`}
+                  className="group block bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-2xl p-8 border-2 border-yellow-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+                >
+                  <div className="flex items-start justify-between mb-4">
+                    <div className="flex items-center gap-3">
+                      <div className="p-3 bg-yellow-500 rounded-xl">
+                        <FontAwesomeIcon icon={faCertificate} className="h-6 w-6 text-white" />
+                      </div>
+                      <div>
+                        <span className="inline-block px-3 py-1 bg-yellow-500 text-yellow-900 text-xs font-bold rounded-full mb-2">
+                          CERTIFIED ROOFER
+                        </span>
+                        <h3 className="text-2xl font-bold text-rif-black group-hover:text-rif-blue-600 transition-colors">
+                          {featuredPreferred.name}
+                        </h3>
+                      </div>
+                    </div>
+                    <FontAwesomeIcon
+                      icon={faArrowRight}
+                      className="h-5 w-5 text-gray-400 group-hover:text-rif-blue-500 group-hover:translate-x-1 transition-all"
+                    />
+                  </div>
+
+                  {(featuredPreferred.city || featuredPreferred.state) && (
+                    <div className="flex items-center gap-2 text-gray-600 mb-4">
+                      <FontAwesomeIcon icon={faMapLocationDot} className="h-4 w-4 text-rif-blue-500" />
+                      <span>
+                        {featuredPreferred.city && featuredPreferred.city}
+                        {featuredPreferred.city && featuredPreferred.state && ', '}
+                        {featuredPreferred.state && featuredPreferred.state}
+                      </span>
+                    </div>
+                  )}
+
+                  {featuredPreferred.phone && (
+                    <div className="flex items-center gap-2 text-gray-700 mb-2">
+                      <FontAwesomeIcon icon={faPhone} className="h-4 w-4 text-rif-blue-500" />
+                      <a
+                        href={`tel:${featuredPreferred.phone}`}
+                        onClick={(e) => e.stopPropagation()}
+                        className="hover:text-rif-blue-500 transition-colors"
+                      >
+                        {featuredPreferred.phone}
+                      </a>
+                    </div>
+                  )}
+
+                  {featuredPreferred.websiteUrl && (
+                    <div className="flex items-center gap-2 text-gray-700 mb-4">
+                      <FontAwesomeIcon icon={faGlobe} className="h-4 w-4 text-rif-blue-500" />
+                      <a
+                        href={featuredPreferred.websiteUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={(e) => e.stopPropagation()}
+                        className="hover:text-rif-blue-500 transition-colors text-sm truncate"
+                      >
+                        Visit Website
+                      </a>
+                    </div>
+                  )}
+
+                  <div className="mt-4 pt-4 border-t border-yellow-300">
+                    <span className="text-sm text-gray-600">View Full Profile →</span>
+                  </div>
+                </Link>
+              )}
+
+              {/* Featured Sponsored Roofer */}
+              {featuredSponsored && (
+                <Link
+                  href={`/roofers/${featuredSponsored.slug}`}
+                  className="group block bg-gradient-to-br from-purple-50 to-purple-100 rounded-2xl p-8 border-2 border-purple-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+                >
+                  <div className="flex items-start justify-between mb-4">
+                    <div className="flex items-center gap-3">
+                      <div className="p-3 bg-purple-500 rounded-xl">
+                        <FontAwesomeIcon icon={faBullhorn} className="h-6 w-6 text-white" />
+                      </div>
+                      <div>
+                        <span className="inline-block px-3 py-1 bg-purple-500 text-white text-xs font-bold rounded-full mb-2">
+                          SPONSORED ROOFER
+                        </span>
+                        <h3 className="text-2xl font-bold text-rif-black group-hover:text-rif-blue-600 transition-colors">
+                          {featuredSponsored.name}
+                        </h3>
+                      </div>
+                    </div>
+                    <FontAwesomeIcon
+                      icon={faArrowRight}
+                      className="h-5 w-5 text-gray-400 group-hover:text-rif-blue-500 group-hover:translate-x-1 transition-all"
+                    />
+                  </div>
+
+                  {(featuredSponsored.city || featuredSponsored.state) && (
+                    <div className="flex items-center gap-2 text-gray-600 mb-4">
+                      <FontAwesomeIcon icon={faMapLocationDot} className="h-4 w-4 text-rif-blue-500" />
+                      <span>
+                        {featuredSponsored.city && featuredSponsored.city}
+                        {featuredSponsored.city && featuredSponsored.state && ', '}
+                        {featuredSponsored.state && featuredSponsored.state}
+                      </span>
+                    </div>
+                  )}
+
+                  {featuredSponsored.phone && (
+                    <div className="flex items-center gap-2 text-gray-700 mb-2">
+                      <FontAwesomeIcon icon={faPhone} className="h-4 w-4 text-rif-blue-500" />
+                      <a
+                        href={`tel:${featuredSponsored.phone}`}
+                        onClick={(e) => e.stopPropagation()}
+                        className="hover:text-rif-blue-500 transition-colors"
+                      >
+                        {featuredSponsored.phone}
+                      </a>
+                    </div>
+                  )}
+
+                  {featuredSponsored.websiteUrl && (
+                    <div className="flex items-center gap-2 text-gray-700 mb-4">
+                      <FontAwesomeIcon icon={faGlobe} className="h-4 w-4 text-rif-blue-500" />
+                      <a
+                        href={featuredSponsored.websiteUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={(e) => e.stopPropagation()}
+                        className="hover:text-rif-blue-500 transition-colors text-sm truncate"
+                      >
+                        Visit Website
+                      </a>
+                    </div>
+                  )}
+
+                  <div className="mt-4 pt-4 border-t border-purple-300">
+                    <span className="text-sm text-gray-600">View Full Profile →</span>
+                  </div>
+                </Link>
+              )}
+            </div>
+
+            <div className="text-center mt-8">
+              <Link
+                href="/roofers"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-rif-blue-500 text-white text-lg font-semibold rounded-lg hover:bg-rif-blue-600 transition-colors"
+              >
+                View All Roofers
+                <FontAwesomeIcon icon={faArrowRight} className="h-5 w-5" />
+              </Link>
+            </div>
+          </div>
+        </section>
+      )}
     </div>
   );
 }

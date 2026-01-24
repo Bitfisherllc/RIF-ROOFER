@@ -1,0 +1,380 @@
+// Semantic icon mapping for guides based on their content
+// Each guide gets a visually relevant icon that relates to its topic
+
+import {
+  faMapLocationDot,
+  faCloudRain,
+  faBoxes,
+  faClipboardList,
+  faCalendarAlt,
+  faDollarSign,
+  faWrench,
+  faFileContract,
+  faLeaf,
+  faBuilding,
+  faBook,
+  faUmbrellaBeach,
+  faHome,
+  faShield,
+  faTools,
+  faHammer,
+  faHouseDamage,
+  faQuestionCircle,
+  faCheckCircle,
+  faExclamationTriangle,
+  faInfoCircle,
+  faLightbulb,
+  faChartLine,
+  faHandshake,
+  faCertificate,
+  faAward,
+  faStar,
+  faTruck,
+  faUsers,
+  faPhone,
+  faEnvelope,
+  faGlobe,
+  faSearch,
+  faFilter,
+  faList,
+  faThumbsUp,
+  faThumbsDown,
+  faComments,
+  faNewspaper,
+  faRocket,
+  faGavel,
+  faCalculator,
+  faClock,
+  faCalendar,
+  faTag,
+  faCreditCard,
+  faMoneyBillWave,
+  faPiggyBank,
+  faChartBar,
+  faPercent,
+  faArrowUp,
+  faArrowDown,
+  faEquals,
+  faPlus,
+  faMinus,
+  faTimes,
+  faDivide,
+  faCheck,
+  faXmark,
+  faCircle,
+  faSquare,
+  faHeart,
+  faFire,
+  faWater,
+  faWind,
+  faSun,
+  faMoon,
+  faCloud,
+  faSnowflake,
+  faBolt,
+  faEye,
+  faEyeSlash,
+  faLock,
+  faUnlock,
+  faKey,
+  faBell,
+  faFlag,
+  faGift,
+  faShoppingCart,
+  faStore,
+  faIndustry,
+  faWarehouse,
+  faCity,
+  faTree,
+  faMountain,
+  faRoad,
+  faBridge,
+  faHouse,
+  faSchool,
+  faHospital,
+  faChurch,
+  faHotel,
+  faUtensils,
+  faCar,
+  faPlane,
+  faShip,
+  faTrain,
+  faBicycle,
+  faMotorcycle,
+  faBus,
+  faTaxi,
+  faBox,
+  faArchive,
+  faFolder,
+  faFile,
+  faFileLines,
+  faFileImage,
+  faFileVideo,
+  faFileAudio,
+  faFileCode,
+  faFileArchive,
+  faFileInvoice,
+  faFileInvoiceDollar,
+  faFileMedical,
+  faFilePrescription,
+  faFileSignature,
+  faFileUpload,
+  faFileDownload,
+  faFileExport,
+  faFileImport,
+  faFileEdit,
+  faFileShield,
+  faFileCircleCheck,
+  faFileCircleExclamation,
+  faFileCircleQuestion,
+  faFileCirclePlus,
+  faFileCircleMinus,
+  faFileCircleXmark,
+  faFilePen,
+  faFileArrowUp,
+  faFileArrowDown,
+  faImages,
+  faCamera,
+  faCameraRetro,
+  faVideo,
+  faVideoCamera,
+  faFilm,
+  faMicrophone,
+  faMicrophoneSlash,
+  faHeadphones,
+  faRadio,
+  faTv,
+  faDesktop,
+  faLaptop,
+  faTablet,
+  faMobile,
+  faMobileScreen,
+  faMobileScreenButton,
+  faPhoneFlip,
+  faPhoneSlash,
+  faPhoneVolume,
+  faAddressBook,
+  faAddressCard,
+  faIdCard,
+  faIdBadge,
+  faPassport,
+  faMoneyBill,
+  faMoneyBill1,
+  faMoneyBillTrendUp,
+  faMoneyBillTransfer,
+  faMoneyBillWheat,
+  faMoneyCheck,
+  faMoneyCheckDollar,
+  faCoins,
+  faHouseChimney,
+  faHouseChimneyCrack,
+  faHouseChimneyMedical,
+  faHouseChimneyUser,
+  faHouseChimneyWindow,
+  faHouseCircleCheck,
+  faHouseCircleExclamation,
+  faHouseCircleXmark,
+  faHouseFire,
+  faHouseFlag,
+  faHouseFloodWater,
+  faHouseLaptop,
+  faHouseLock,
+  faHouseMedical,
+  faHouseMedicalCircleCheck,
+  faHouseMedicalCircleExclamation,
+  faHouseMedicalCircleXmark,
+  faHouseMedicalFlag,
+  faHouseSignal,
+  faHouseTsunami,
+  faHouseUser,
+  faLandmark,
+  faMonument,
+  faMuseum,
+  faPlaceOfWorship,
+  faUniversity,
+  faHospitalUser,
+  faHospitalWide,
+  faClinicMedical,
+  faAmbulance,
+  faBandage,
+  faPills,
+  faPrescriptionBottle,
+  faPrescriptionBottleMedical,
+  faSyringe,
+  faThermometer,
+  faThermometerEmpty,
+  faThermometerFull,
+  faThermometerHalf,
+  faThermometerQuarter,
+  faThermometerThreeQuarters,
+  faStethoscope,
+  faHeartbeat,
+  faHeartPulse,
+  faHeartBroken,
+  faHeartCircleBolt,
+  faHeartCircleCheck,
+  faHeartCircleExclamation,
+  faHeartCircleMinus,
+  faHeartCirclePlus,
+  faHeartCircleXmark,
+  faHeartCrack,
+  faLungs,
+  faLungsVirus,
+  faVirus,
+  faVirusCovid,
+  faVirusCovidSlash,
+  faVirusSlash,
+  faBacteria,
+  faBacterium,
+  faMask,
+  faMaskFace,
+  faShieldVirus,
+  faFingerprint,
+  faUserLock,
+  faUserShield,
+  faUserSecret,
+  faUserNinja,
+  faUserAstronaut,
+} from '@fortawesome/free-solid-svg-icons';
+
+// Icon mapping based on keywords in guide titles/slugs
+// This ensures each guide gets a visually relevant icon
+const iconKeywordMap: Array<{ keywords: string[]; icon: any }> = [
+  // Location-specific guides
+  { keywords: ['tampa', 'miami', 'orlando', 'jacksonville', 'fort-lauderdale', 'location', 'city', 'county', 'region'], icon: faMapLocationDot },
+  { keywords: ['beach', 'coastal', 'waterfront'], icon: faUmbrellaBeach },
+  
+  // Storm and weather
+  { keywords: ['hurricane', 'storm', 'damage', 'wind', 'weather'], icon: faCloudRain },
+  { keywords: ['flood', 'water', 'leak', 'moisture'], icon: faWater },
+  { keywords: ['fire', 'flame'], icon: faFire },
+  { keywords: ['lightning', 'bolt', 'electrical'], icon: faBolt },
+  
+  // Materials and products
+  { keywords: ['material', 'product', 'system', 'tile', 'shingle', 'metal', 'stone-coated'], icon: faBoxes },
+  { keywords: ['tool', 'equipment', 'installation'], icon: faTools },
+  { keywords: ['lumber', 'wood', 'structural'], icon: faTree },
+  
+  // Process and planning
+  { keywords: ['process', 'planning', 'guide', 'how-to', 'steps', 'checklist'], icon: faClipboardList },
+  { keywords: ['choose', 'select', 'decision', 'compare', 'comparison'], icon: faSearch },
+  { keywords: ['expect', 'timeline', 'schedule', 'duration'], icon: faClock },
+  { keywords: ['contract', 'agreement', 'warranty'], icon: faFileContract },
+  
+  // Cost and financial
+  { keywords: ['cost', 'price', 'budget', 'finance', 'payment', 'estimate'], icon: faDollarSign },
+  { keywords: ['insurance', 'claim', 'coverage'], icon: faShield },
+  { keywords: ['discount', 'rebate', 'savings'], icon: faPercent },
+  { keywords: ['tax', 'credit', 'deduction'], icon: faCreditCard },
+  
+  // Maintenance and seasonal
+  { keywords: ['maintenance', 'repair', 'fix', 'service'], icon: faWrench },
+  { keywords: ['seasonal', 'spring', 'summer', 'fall', 'winter', 'preparation'], icon: faCalendarAlt },
+  { keywords: ['inspection', 'check', 'examine', 'assess'], icon: faEye },
+  { keywords: ['clean', 'prevent', 'prevention'], icon: faCheckCircle },
+  
+  // Problems and troubleshooting
+  { keywords: ['problem', 'issue', 'trouble', 'sagging', 'leaking', 'mold', 'algae'], icon: faExclamationTriangle },
+  { keywords: ['ventilation', 'air', 'breath'], icon: faWind },
+  { keywords: ['insulation', 'energy', 'efficiency', 'solar'], icon: faLeaf },
+  { keywords: ['gutter', 'drain', 'water'], icon: faWater },
+  
+  // Building codes and compliance
+  { keywords: ['code', 'permit', 'compliance', 'regulation', 'requirement', 'standard'], icon: faFileContract },
+  { keywords: ['certified', 'certification', 'qualified', 'licensed'], icon: faCertificate },
+  { keywords: ['inspection', 'inspect', 'examine'], icon: faFileCircleCheck },
+  
+  // Roofers and contractors
+  { keywords: ['roofer', 'contractor', 'installer', 'professional', 'company'], icon: faUsers },
+  { keywords: ['hire', 'choose', 'select', 'find'], icon: faHandshake },
+  { keywords: ['question', 'ask', 'faq'], icon: faQuestionCircle },
+  
+  // Specific roof parts
+  { keywords: ['flashing', 'seal', 'barrier'], icon: faShield },
+  { keywords: ['underlayment', 'barrier', 'protection'], icon: faFileShield },
+  { keywords: ['vent', 'ventilation', 'fan'], icon: faWind },
+  
+  // Age and replacement
+  { keywords: ['age', 'old', 'replace', 'replacement', 'new'], icon: faHouse },
+  { keywords: ['upgrade', 'improve', 'enhance'], icon: faArrowUp },
+  
+  // Safety and security
+  { keywords: ['safety', 'secure', 'protect', 'shield'], icon: faShield },
+  { keywords: ['emergency', 'urgent', 'immediate'], icon: faExclamationTriangle },
+  
+  // Information and education
+  { keywords: ['guide', 'information', 'learn', 'education', 'understand'], icon: faBook },
+  { keywords: ['myth', 'debunk', 'fact'], icon: faInfoCircle },
+  { keywords: ['news', 'update', 'trend'], icon: faNewspaper },
+  
+  // Commercial
+  { keywords: ['commercial', 'business', 'office', 'industrial'], icon: faBuilding },
+  
+  // Case studies
+  { keywords: ['case-study', 'example', 'project', 'result'], icon: faAward },
+  
+  // Default fallback icons by category
+  { keywords: ['default-location'], icon: faMapLocationDot },
+  { keywords: ['default-storm'], icon: faCloudRain },
+  { keywords: ['default-material'], icon: faBoxes },
+  { keywords: ['default-process'], icon: faClipboardList },
+  { keywords: ['default-seasonal'], icon: faCalendarAlt },
+  { keywords: ['default-cost'], icon: faDollarSign },
+  { keywords: ['default-problem'], icon: faWrench },
+  { keywords: ['default-code'], icon: faFileContract },
+  { keywords: ['default-energy'], icon: faLeaf },
+  { keywords: ['default-case'], icon: faBuilding },
+  { keywords: ['default-news'], icon: faBook },
+  { keywords: ['default-commercial'], icon: faBuilding },
+];
+
+// Category-based default icons
+const categoryDefaultIcons: Record<string, any> = {
+  'location-specific': faMapLocationDot,
+  'local-information': faUmbrellaBeach,
+  'storm-damage': faCloudRain,
+  'material-education': faBoxes,
+  'process-guides': faClipboardList,
+  'seasonal': faCalendarAlt,
+  'cost-guides': faDollarSign,
+  'problem-solving': faWrench,
+  'building-code': faFileContract,
+  'energy-efficiency': faLeaf,
+  'case-studies': faBuilding,
+  'industry-news': faBook,
+  'commercial': faBuilding,
+};
+
+/**
+ * Get a semantically relevant icon for a guide based on its title, slug, and category
+ */
+export function getGuideIcon(slug: string, title: string, category: string) {
+  // Normalize the search text
+  const searchText = `${slug} ${title}`.toLowerCase();
+  
+  // Find the best matching icon based on keywords
+  for (const mapping of iconKeywordMap) {
+    for (const keyword of mapping.keywords) {
+      if (searchText.includes(keyword)) {
+        return mapping.icon;
+      }
+    }
+  }
+  
+  // Fallback to category-based icon
+  return categoryDefaultIcons[category] || faBook;
+}
+
+/**
+ * Get icon metadata for SEO purposes
+ */
+export function getGuideIconMetadata(slug: string, title: string, category: string) {
+  const icon = getGuideIcon(slug, title, category);
+  return {
+    icon,
+    alt: `${title} - Guide Icon`,
+    title: title,
+    ariaLabel: `Icon representing ${title}`,
+  };
+}
+

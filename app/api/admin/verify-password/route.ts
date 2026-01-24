@@ -13,26 +13,64 @@ function getConfig() {
   } catch (error) {
     console.error('Error reading config file:', error);
   }
-  return { adminPassword: 'Willy123#' };
+  return { 
+    adminEmail: 'info@roofersinflorida.com',
+    adminPasswordNew: 'Hottinroof123#'
+  };
 }
 
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { password } = body;
+    const { email, password } = body;
     const config = getConfig();
 
-    // Default password if not set in config
-    const adminPassword = config.adminPassword || 'Willy123#';
+    // Get admin credentials from config
+    const adminEmail = config.adminEmail || 'info@roofersinflorida.com';
+    const adminPassword = config.adminPasswordNew || config.adminPassword || 'Hottinroof123#';
 
-    if (password === adminPassword) {
-      return NextResponse.json({ success: true });
+    // Normalize email (lowercase, trim)
+    const normalizedEmail = email?.toLowerCase().trim();
+    const normalizedAdminEmail = adminEmail.toLowerCase().trim();
+
+    // Debug logging (remove in production)
+    console.log('Admin login attempt:', {
+      providedEmail: normalizedEmail,
+      expectedEmail: normalizedAdminEmail,
+      emailMatch: normalizedEmail === normalizedAdminEmail,
+      passwordLength: password?.length,
+      passwordMatch: password === adminPassword,
+    });
+
+    // Verify both email and password
+    if (normalizedEmail === normalizedAdminEmail && password === adminPassword) {
+      // Set cookie server-side with proper settings
+      const response = NextResponse.json({ success: true });
+      const expiryDate = new Date();
+      expiryDate.setHours(expiryDate.getHours() + 24);
+      
+      response.cookies.set('admin-password-verified', 'true', {
+        expires: expiryDate,
+        path: '/',
+        httpOnly: false, // Allow client-side access for layout check
+        sameSite: 'lax',
+        secure: process.env.NODE_ENV === 'production',
+      });
+      
+      return response;
     } else {
-      return NextResponse.json({ success: false }, { status: 401 });
+      return NextResponse.json({ 
+        success: false, 
+        error: 'Invalid email or password' 
+      }, { status: 401 });
     }
   } catch (error) {
-    console.error('Error verifying admin password:', error);
-    return NextResponse.json({ success: false }, { status: 500 });
+    console.error('Error verifying admin credentials:', error);
+    return NextResponse.json({ 
+      success: false, 
+      error: 'Server error. Please try again.' 
+    }, { status: 500 });
   }
 }
+
 

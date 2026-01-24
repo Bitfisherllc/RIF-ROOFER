@@ -120,3 +120,4 @@ If you have questions or need help:
 - Make sure the path in the code starts with `/guides/` (Next.js serves `/public/` at root)
 - Check the browser console for any 404 errors
 
+

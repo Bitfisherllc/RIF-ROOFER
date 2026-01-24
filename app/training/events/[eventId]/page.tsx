@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
+import dynamic from 'next/dynamic';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faArrowLeft,
@@ -10,8 +11,20 @@ import {
   faUsers,
   faEnvelope,
   faExternalLinkAlt,
+  faLaptop,
+  faBuilding,
 } from '@fortawesome/free-solid-svg-icons';
 import { getEventById, getAllEvents } from '../../data/events';
+
+// Dynamically import LocationMap to avoid SSR issues
+const LocationMap = dynamic(() => import('@/components/LocationMap'), {
+  ssr: false,
+  loading: () => (
+    <div className="w-full h-64 bg-gray-100 rounded-lg flex items-center justify-center border border-gray-200">
+      <p className="text-gray-500 text-sm">Loading map...</p>
+    </div>
+  ),
+});
 
 interface EventPageProps {
   params: { eventId: string };
@@ -67,9 +80,39 @@ export default function EventPage({ params }: EventPageProps) {
             <span>Back to Training</span>
           </Link>
 
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-rif-black mb-6 tracking-tight">
-            {event.title}
-          </h1>
+          <div className="flex items-start justify-between gap-4 mb-6">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-rif-black tracking-tight flex-1">
+              {event.title}
+            </h1>
+            <div className="flex flex-wrap gap-2">
+              <span className={`px-3 py-1 rounded-full text-sm font-medium ${
+                event.category === 'sales' 
+                  ? 'bg-blue-100 text-blue-800'
+                  : event.category === 'installation'
+                  ? 'bg-green-100 text-green-800'
+                  : 'bg-purple-100 text-purple-800'
+              }`}>
+                {event.category === 'sales' 
+                  ? 'Sales Training'
+                  : event.category === 'installation'
+                  ? 'Installation Training'
+                  : 'Both'}
+              </span>
+              <span className={`px-3 py-1 rounded-full text-sm font-medium ${
+                event.deliveryMode === 'in-person'
+                  ? 'bg-orange-100 text-orange-800'
+                  : event.deliveryMode === 'virtual'
+                  ? 'bg-indigo-100 text-indigo-800'
+                  : 'bg-teal-100 text-teal-800'
+              }`}>
+                {event.deliveryMode === 'in-person'
+                  ? 'In-Person'
+                  : event.deliveryMode === 'virtual'
+                  ? 'Virtual'
+                  : 'Hybrid'}
+              </span>
+            </div>
+          </div>
 
           <div className="flex flex-wrap items-center gap-6 text-gray-600">
             <div className="flex items-center gap-2">
@@ -80,10 +123,18 @@ export default function EventPage({ params }: EventPageProps) {
               <FontAwesomeIcon icon={faClock} className="h-5 w-5 text-rif-blue-500" />
               <span>{event.time}</span>
             </div>
-            <div className="flex items-center gap-2">
-              <FontAwesomeIcon icon={faMapLocationDot} className="h-5 w-5 text-rif-blue-500" />
-              <span>{event.city}, {event.state}</span>
-            </div>
+            {event.deliveryMode !== 'virtual' && (
+              <div className="flex items-center gap-2">
+                <FontAwesomeIcon icon={faMapLocationDot} className="h-5 w-5 text-rif-blue-500" />
+                <span>{event.fullAddress || `${event.city}, ${event.state}`}</span>
+              </div>
+            )}
+            {event.deliveryMode === 'virtual' && (
+              <div className="flex items-center gap-2">
+                <FontAwesomeIcon icon={faLaptop} className="h-5 w-5 text-rif-blue-500" />
+                <span>Virtual Event</span>
+              </div>
+            )}
           </div>
         </div>
       </section>
@@ -95,10 +146,26 @@ export default function EventPage({ params }: EventPageProps) {
             {/* Main Content */}
             <div className="md:col-span-2">
               <div className="prose prose-lg max-w-none mb-8">
-                <p className="text-xl text-gray-700 leading-relaxed">
-                  {event.description}
-                </p>
+                <div 
+                  className="text-gray-700 leading-relaxed"
+                  dangerouslySetInnerHTML={{ __html: event.description }}
+                />
               </div>
+
+              {/* Location Map */}
+              {event.deliveryMode !== 'virtual' && event.lat && event.lng && (
+                <div className="mb-8">
+                  <h3 className="text-xl font-semibold text-rif-black mb-4">Location</h3>
+                  <div className="rounded-lg overflow-hidden border border-gray-200">
+                    <LocationMap
+                      lat={event.lat}
+                      lng={event.lng}
+                      address={event.fullAddress || `${event.location}, ${event.city}, ${event.state} ${event.zipCode}`}
+                      locationName={event.location}
+                    />
+                  </div>
+                </div>
+              )}
             </div>
 
             {/* Sidebar */}
@@ -129,10 +196,46 @@ export default function EventPage({ params }: EventPageProps) {
                       Location
                     </div>
                     <div className="text-gray-900">
-                      <p className="font-medium">{event.location}</p>
-                      <p className="text-sm">{event.address}</p>
-                      <p className="text-sm">{event.city}, {event.state} {event.zipCode}</p>
+                      {event.location && (
+                        <p className="font-medium mb-1">{event.location}</p>
+                      )}
+                      {event.fullAddress ? (
+                        <p className="text-sm">{event.fullAddress}</p>
+                      ) : (
+                        <p className="text-sm">{event.city}, {event.state} {event.zipCode}</p>
+                      )}
                     </div>
+                  </div>
+
+                  <div>
+                    <div className="flex items-center gap-2 text-sm font-medium text-gray-500 mb-1">
+                      <FontAwesomeIcon icon={faBuilding} className="h-4 w-4" />
+                      Category
+                    </div>
+                    <p className="text-gray-900">
+                      {event.category === 'sales' 
+                        ? 'Sales Training'
+                        : event.category === 'installation'
+                        ? 'Installation Training'
+                        : 'Both Sales & Installation'}
+                    </p>
+                  </div>
+
+                  <div>
+                    <div className="flex items-center gap-2 text-sm font-medium text-gray-500 mb-1">
+                      <FontAwesomeIcon 
+                        icon={event.deliveryMode === 'virtual' ? faLaptop : event.deliveryMode === 'hybrid' ? faBuilding : faMapLocationDot} 
+                        className="h-4 w-4" 
+                      />
+                      Delivery Mode
+                    </div>
+                    <p className="text-gray-900">
+                      {event.deliveryMode === 'in-person'
+                        ? 'In-Person'
+                        : event.deliveryMode === 'virtual'
+                        ? 'Virtual'
+                        : 'Hybrid'}
+                    </p>
                   </div>
 
                   {event.instructor && (
