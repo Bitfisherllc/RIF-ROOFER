@@ -215,21 +215,20 @@ export default function RegionPage({ params }: { params: { region: string } }) {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Section */}
-      <section className="relative pt-20 pb-12 px-6 overflow-hidden">
+      {/* Hero Section - light background to separate from content below */}
+      <section className="relative pt-20 pb-12 px-6 overflow-hidden bg-gray-100">
         {/* Background Image */}
         <div 
-          className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
+          className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat opacity-30"
           style={{
             backgroundImage: `url(${backgroundImagePath})`,
           }}
-        >
-          {/* Overlay for text readability */}
-          <div className="absolute inset-0 bg-white/85 backdrop-blur-sm" />
-        </div>
+        />
+        {/* Light overlay so section reads as one light block */}
+        <div className="absolute inset-0 z-[1] bg-gray-100/95" aria-hidden />
         
         {/* Content */}
-        <div className="relative z-10 max-w-4xl mx-auto">
+        <div className="relative z-20 max-w-4xl mx-auto">
           <Link
             href="/service-areas"
             className="inline-flex items-center gap-2 text-sm text-gray-600 hover:text-rif-blue-500 mb-6 transition-colors"

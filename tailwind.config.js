@@ -22,6 +22,44 @@ module.exports = {
         },
         'rif-black': '#231f20',
         'rif-white': '#ffffff',
+        // Roofer card badges: Sponsored (blue) and Certified (green)
+        'card-blue': {
+          100: '#e0e9f5',
+          200: '#c1d3eb',
+          500: '#2461a9',
+          600: '#1d4e87',
+          700: '#163b66',
+          800: '#0f2844',
+        },
+        'card-green': {
+          100: '#e2f3ea',
+          200: '#c5e7d5',
+          500: '#24a961',
+          600: '#1d8750',
+          700: '#16653e',
+          800: '#0f432b',
+        },
+      },
+      animation: {
+        'bounce-in': 'bounceIn 0.8s ease-out forwards',
+      },
+      keyframes: {
+        bounceIn: {
+          '0%': {
+            opacity: '0',
+            transform: 'scale(0.3) translateY(-50px)',
+          },
+          '50%': {
+            opacity: '1',
+            transform: 'scale(1.05) translateY(0)',
+          },
+          '70%': {
+            transform: 'scale(0.9)',
+          },
+          '100%': {
+            transform: 'scale(1)',
+          },
+        },
       },
     },
   },

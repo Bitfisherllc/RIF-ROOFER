@@ -44,6 +44,7 @@ export default function AdminRoofersPage() {
   const [editingId, setEditingId] = useState<string | null>(null);
   const [editingData, setEditingData] = useState<Partial<Roofer>>({});
   const [categoryFilter, setCategoryFilter] = useState<'all' | 'preferred' | 'sponsored' | 'general'>('all');
+  const [readOnly, setReadOnly] = useState(false);
 
   // Extract location options from searchData
   const regions = searchData.filter((item) => item.type === 'region');
@@ -59,6 +60,7 @@ export default function AdminRoofersPage() {
       const response = await fetch('/api/admin/roofers');
       if (response.ok) {
         const data = await response.json();
+        setReadOnly(!!data.readOnly);
         // Default category to 'general' if not set
         const roofersWithDefaults = (data.roofers || []).map((r: Roofer) => ({
           ...r,
@@ -177,7 +179,15 @@ export default function AdminRoofersPage() {
         setEditingData({});
       } else {
         const error = await response.json();
-        alert(`Failed to update roofer: ${error.message || 'Unknown error'}`);
+        if (error.code === 'BLOB_NOT_CONFIGURED') {
+          alert(
+            'Blob storage is not configured.\n\n' +
+              'Please set BLOB_READ_WRITE_TOKEN in Vercel environment variables. ' +
+              'Get your token from: https://vercel.com/docs/storage/blob/quickstart'
+          );
+        } else {
+          alert(`Failed to update roofer: ${error.message || 'Unknown error'}`);
+        }
       }
     } catch (error) {
       console.error('Failed to save roofer:', error);
@@ -218,6 +228,7 @@ export default function AdminRoofersPage() {
         <h2 className="text-3xl font-semibold text-rif-black mb-2">Manage Roofers</h2>
         <p className="text-gray-600">View and manage all roofers in the system. All roofers default to General category.</p>
       </div>
+
 
       {/* Category Filter Tabs */}
       <div className="mb-6 bg-white rounded-lg shadow-sm border border-gray-200 p-4">

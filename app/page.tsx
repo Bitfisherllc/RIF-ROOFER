@@ -370,31 +370,31 @@ export default function HomePage() {
               {featuredPreferred && (
                 <Link
                   href={`/roofers/${featuredPreferred.slug}`}
-                  className="group block bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-2xl p-8 border-2 border-yellow-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+                  className="group block bg-gradient-to-br from-green-50 to-card-green-100 rounded-2xl p-8 border-2 border-card-green-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
                 >
                   <div className="flex items-start justify-between mb-4">
                     <div className="flex items-center gap-3">
-                      <div className="p-3 bg-yellow-500 rounded-xl">
+                      <div className="p-3 bg-card-green-500 rounded-xl">
                         <FontAwesomeIcon icon={faCertificate} className="h-6 w-6 text-white" />
                       </div>
                       <div>
-                        <span className="inline-block px-3 py-1 bg-yellow-500 text-yellow-900 text-xs font-bold rounded-full mb-2">
+                        <span className="inline-block px-3 py-1 bg-card-green-500 text-white text-xs font-bold rounded-full mb-2">
                           CERTIFIED ROOFER
                         </span>
-                        <h3 className="text-2xl font-bold text-rif-black group-hover:text-rif-blue-600 transition-colors">
+                        <h3 className="text-2xl font-bold text-rif-black group-hover:text-card-green-600 transition-colors">
                           {featuredPreferred.name}
                         </h3>
                       </div>
                     </div>
                     <FontAwesomeIcon
                       icon={faArrowRight}
-                      className="h-5 w-5 text-gray-400 group-hover:text-rif-blue-500 group-hover:translate-x-1 transition-all"
+                      className="h-5 w-5 text-gray-400 group-hover:text-card-green-500 group-hover:translate-x-1 transition-all"
                     />
                   </div>
 
                   {(featuredPreferred.city || featuredPreferred.state) && (
                     <div className="flex items-center gap-2 text-gray-600 mb-4">
-                      <FontAwesomeIcon icon={faMapLocationDot} className="h-4 w-4 text-rif-blue-500" />
+                      <FontAwesomeIcon icon={faMapLocationDot} className="h-4 w-4 text-card-green-500" />
                       <span>
                         {featuredPreferred.city && featuredPreferred.city}
                         {featuredPreferred.city && featuredPreferred.state && ', '}
@@ -405,11 +405,11 @@ export default function HomePage() {
 
                   {featuredPreferred.phone && (
                     <div className="flex items-center gap-2 text-gray-700 mb-2">
-                      <FontAwesomeIcon icon={faPhone} className="h-4 w-4 text-rif-blue-500" />
+                      <FontAwesomeIcon icon={faPhone} className="h-4 w-4 text-card-green-500" />
                       <a
                         href={`tel:${featuredPreferred.phone}`}
                         onClick={(e) => e.stopPropagation()}
-                        className="hover:text-rif-blue-500 transition-colors"
+                        className="hover:text-card-green-600 transition-colors"
                       >
                         {featuredPreferred.phone}
                       </a>
@@ -418,20 +418,20 @@ export default function HomePage() {
 
                   {featuredPreferred.websiteUrl && (
                     <div className="flex items-center gap-2 text-gray-700 mb-4">
-                      <FontAwesomeIcon icon={faGlobe} className="h-4 w-4 text-rif-blue-500" />
+                      <FontAwesomeIcon icon={faGlobe} className="h-4 w-4 text-card-green-500" />
                       <a
                         href={featuredPreferred.websiteUrl}
                         target="_blank"
                         rel="noopener noreferrer"
                         onClick={(e) => e.stopPropagation()}
-                        className="hover:text-rif-blue-500 transition-colors text-sm truncate"
+                        className="hover:text-card-green-600 transition-colors text-sm truncate"
                       >
                         Visit Website
                       </a>
                     </div>
                   )}
 
-                  <div className="mt-4 pt-4 border-t border-yellow-300">
+                  <div className="mt-4 pt-4 border-t border-card-green-200">
                     <span className="text-sm text-gray-600">View Full Profile →</span>
                   </div>
                 </Link>
@@ -441,15 +441,15 @@ export default function HomePage() {
               {featuredSponsored && (
                 <Link
                   href={`/roofers/${featuredSponsored.slug}`}
-                  className="group block bg-gradient-to-br from-purple-50 to-purple-100 rounded-2xl p-8 border-2 border-purple-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+                  className="group block bg-gradient-to-br from-rif-blue-50 to-rif-blue-100 rounded-2xl p-8 border-2 border-rif-blue-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
                 >
                   <div className="flex items-start justify-between mb-4">
                     <div className="flex items-center gap-3">
-                      <div className="p-3 bg-purple-500 rounded-xl">
+                      <div className="p-3 bg-rif-blue-500 rounded-xl">
                         <FontAwesomeIcon icon={faBullhorn} className="h-6 w-6 text-white" />
                       </div>
                       <div>
-                        <span className="inline-block px-3 py-1 bg-purple-500 text-white text-xs font-bold rounded-full mb-2">
+                        <span className="inline-block px-3 py-1 bg-rif-blue-500 text-white text-xs font-bold rounded-full mb-2">
                           SPONSORED ROOFER
                         </span>
                         <h3 className="text-2xl font-bold text-rif-black group-hover:text-rif-blue-600 transition-colors">
@@ -495,14 +495,14 @@ export default function HomePage() {
                         target="_blank"
                         rel="noopener noreferrer"
                         onClick={(e) => e.stopPropagation()}
-                        className="hover:text-rif-blue-500 transition-colors text-sm truncate"
+                        className="hover:text-rif-blue-600 transition-colors text-sm truncate"
                       >
                         Visit Website
                       </a>
                     </div>
                   )}
 
-                  <div className="mt-4 pt-4 border-t border-purple-300">
+                  <div className="mt-4 pt-4 border-t border-rif-blue-200">
                     <span className="text-sm text-gray-600">View Full Profile →</span>
                   </div>
                 </Link>

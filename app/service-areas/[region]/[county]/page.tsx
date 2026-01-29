@@ -633,8 +633,8 @@ export default function CountyPage({
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Section */}
-      <section className="pt-20 pb-12 px-6">
+      {/* Hero Section - light background to separate from content below */}
+      <section className="pt-20 pb-12 px-6 bg-gray-100">
         <div className="max-w-4xl mx-auto">
           <div className="flex items-center gap-4 mb-6">
             <Link
@@ -668,15 +668,6 @@ export default function CountyPage({
           <p className="text-xl text-gray-600 leading-relaxed mb-8">
             {county.intro}
           </p>
-          <div className="flex items-center gap-4">
-            <Link
-              href={`/roofers/map?county=${params.county}`}
-              className="inline-flex items-center gap-2 px-4 py-2 bg-rif-blue-500 text-white rounded-lg hover:bg-rif-blue-600 transition-colors text-sm font-medium"
-            >
-              <FontAwesomeIcon icon={faMapLocationDot} className="h-4 w-4" />
-              Show on Map
-            </Link>
-          </div>
         </div>
       </section>
 

@@ -239,6 +239,13 @@ export const searchData: SearchResult[] = [
   { type: 'city', name: 'Longboat Key', slug: 'longboat-key', path: cityPath('southwest-florida', 'sarasota', 'Longboat Key'), county: 'Sarasota County', region: 'Southwest Florida' },
   { type: 'city', name: 'Siesta Key', slug: 'siesta-key', path: cityPath('southwest-florida', 'sarasota', 'Siesta Key'), county: 'Sarasota County', region: 'Southwest Florida' },
 
+  // ===== NASSAU COUNTY CITIES (First Coast) =====
+  { type: 'city', name: 'Fernandina Beach', slug: 'fernandina-beach', path: cityPath('first-coast', 'nassau', 'Fernandina Beach'), county: 'Nassau County', region: 'First Coast' },
+  { type: 'city', name: 'Yulee', slug: 'yulee', path: cityPath('first-coast', 'nassau', 'Yulee'), county: 'Nassau County', region: 'First Coast' },
+  { type: 'city', name: 'Callahan', slug: 'callahan', path: cityPath('first-coast', 'nassau', 'Callahan'), county: 'Nassau County', region: 'First Coast' },
+  { type: 'city', name: 'Hilliard', slug: 'hilliard', path: cityPath('first-coast', 'nassau', 'Hilliard'), county: 'Nassau County', region: 'First Coast' },
+  { type: 'city', name: 'American Beach', slug: 'american-beach', path: cityPath('first-coast', 'nassau', 'American Beach'), county: 'Nassau County', region: 'First Coast' },
+
   // ===== DUVAL COUNTY CITIES (North Florida) =====
   { type: 'city', name: 'Jacksonville', slug: 'jacksonville', path: cityPath('north-florida', 'duval', 'Jacksonville'), county: 'Duval County', region: 'North Florida' },
   { type: 'city', name: 'Jacksonville Beach', slug: 'jacksonville-beach', path: cityPath('north-florida', 'duval', 'Jacksonville Beach'), county: 'Duval County', region: 'North Florida' },

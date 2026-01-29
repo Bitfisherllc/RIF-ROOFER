@@ -3,7 +3,7 @@
 import { useEffect, useState, useMemo, useRef, Suspense } from 'react';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
-import { useSearchParams } from 'next/navigation';
+import { useSearchParams, useRouter } from 'next/navigation';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faMapLocationDot,
@@ -13,7 +13,6 @@ import {
   faPhone,
   faGlobe,
   faExternalLink,
-  faSearch,
   faTimes,
   faFilter,
   faStar,
@@ -22,8 +21,9 @@ import { getAllRoofers, type RooferData } from '../data/roofers';
 import { batchGeocode, type Coordinates } from '@/lib/geocoding';
 import { getCountyCoordinates } from '@/lib/county-coordinates';
 import { getRegionCoordinates } from '@/lib/region-coordinates';
-import { getRooferFastCoordinates } from '@/lib/fast-coordinates';
+import { getRooferFastCoordinates, getFastCoordinates } from '@/lib/fast-coordinates';
 import { searchData } from '@/app/service-areas/data/search-data';
+import { getCitiesForCounty, createCitySlug } from '@/app/service-areas/data/cities';
 
 // Dynamically import Leaflet components to avoid SSR issues
 const MapContainer = dynamic(
@@ -97,6 +97,7 @@ interface CityGroup {
   preferredCount: number;
   countyName?: string;
   countySlug?: string;
+  regionSlug?: string;
 }
 
 // Component to handle map zooming when region, county, or city is selected
@@ -108,7 +109,8 @@ function MapZoomHandler({
   regionGroups,
   countyGroups,
   cityGroups,
-  mapRef
+  mapRef,
+  roofersWithCoords
 }: { 
   selectedRegion: string | null;
   selectedCounty: string | null;
@@ -117,88 +119,192 @@ function MapZoomHandler({
   countyGroups: CountyGroup[];
   cityGroups: CityGroup[];
   mapRef: React.MutableRefObject<any>;
+  roofersWithCoords?: RooferWithCoordinates[];
 }) {
+  const [useMapHook, setUseMapHook] = useState<any>(null);
+  
+  // Load useMap hook dynamically
   useEffect(() => {
-    if (!mapRef.current) return;
+    if (typeof window !== 'undefined') {
+      import('react-leaflet').then((mod) => {
+        setUseMapHook(() => mod.useMap);
+      });
+    }
+  }, []);
+  
+  if (!useMapHook) return null;
+  
+  const ZoomHandlerComponent = () => {
+    const map = useMapHook();
     
-    // Wait for map to be fully initialized
-    const map = mapRef.current;
-    if (!map || !map.getContainer || !map.getContainer()) return;
+    // Store map in ref for parent component
+    useEffect(() => {
+      if (map) {
+        mapRef.current = map;
+      }
+    }, [map, mapRef]);
     
-    // Use a small timeout to ensure map is ready
-    const timeoutId = setTimeout(() => {
-      try {
-    // If county is selected, zoom to show individual roofers (Level 3: Roofers)
-    // We'll use fitBounds in the parent component to show all roofers, so skip here
-    // This handler will be called after roofers are loaded
-        
-        // If region is selected, zoom to region to show all counties (Level 2: Counties)
-        if (selectedRegion && regionGroups.length > 0) {
-          const regionGroup = regionGroups.find(g => g.regionSlug === selectedRegion);
-          if (regionGroup && map) {
+    useEffect(() => {
+      if (!map) return;
+      
+      // Skip this effect if we're in city view - let the city zoom effect handle it
+      if (selectedCounty && !selectedCity) {
+        return;
+      }
+      
+      // Use a timeout to ensure counties are filtered
+      const timeoutId = setTimeout(() => {
+        try {
+          // If region is selected (but no county), zoom to show all counties in that region
+          if (selectedRegion && !selectedCounty && countyGroups.length > 0) {
             // Filter counties for this region
             const regionCounties = countyGroups.filter(c => c.regionSlug === selectedRegion);
             
             // If we have counties for this region, fit bounds to show all of them
-            if (regionCounties.length > 0 && map.fitBounds) {
-              // Calculate bounds to fit all counties
-              const lats = regionCounties.map(c => c.coordinates.lat);
-              const lngs = regionCounties.map(c => c.coordinates.lng);
-              const bounds = [
-                [Math.min(...lats), Math.min(...lngs)],
-                [Math.max(...lats), Math.max(...lngs)]
-              ] as [[number, number], [number, number]];
+            if (regionCounties.length > 0) {
+              // Get Leaflet from window
+              const L = (window as any).L;
               
-              // Fit bounds with padding
-              map.fitBounds(bounds, {
-                padding: [50, 50]
-              });
-            } else if (map.setView) {
-              // No counties yet, use lower zoom to show region area
-              map.setView(
-                [regionGroup.coordinates.lat, regionGroup.coordinates.lng],
-                7,
-                { animate: true, duration: 0.5 }
-              );
+              if (L && L.latLngBounds) {
+                // Use Leaflet's LatLngBounds for accurate bounds calculation
+                const bounds = L.latLngBounds(
+                  regionCounties.map(c => L.latLng(c.coordinates.lat, c.coordinates.lng))
+                );
+                
+                // Expand bounds by 40% to ensure all counties are visible with space around
+                const sw = bounds.getSouthWest();
+                const ne = bounds.getNorthEast();
+                const latCenter = (sw.lat + ne.lat) / 2;
+                const lngCenter = (sw.lng + ne.lng) / 2;
+                const latRange = ne.lat - sw.lat;
+                const lngRange = ne.lng - sw.lng;
+                
+                const expandedBounds = L.latLngBounds(
+                  L.latLng(latCenter - latRange * 0.7, lngCenter - lngRange * 0.7),
+                  L.latLng(latCenter + latRange * 0.7, lngCenter + lngRange * 0.7)
+                );
+                
+                // Fit bounds with generous padding and lower maxZoom
+                map.fitBounds(expandedBounds, {
+                  padding: [150, 150], // Increased padding for more space
+                  maxZoom: 8 // Lower maxZoom to prevent zooming in too far
+                });
+              } else {
+                // Fallback: manual bounds calculation with larger buffer
+                const lats = regionCounties.map(c => c.coordinates.lat);
+                const lngs = regionCounties.map(c => c.coordinates.lng);
+                
+                // Add larger buffer (40% on each side, minimum 0.3 degrees) for better visibility
+                const latRange = Math.max(...lats) - Math.min(...lats);
+                const lngRange = Math.max(...lngs) - Math.min(...lngs);
+                const latBuffer = Math.max(latRange * 0.4, 0.3); // Increased buffer
+                const lngBuffer = Math.max(lngRange * 0.4, 0.3); // Increased buffer
+                
+                const bounds = [
+                  [Math.min(...lats) - latBuffer, Math.min(...lngs) - lngBuffer],
+                  [Math.max(...lats) + latBuffer, Math.max(...lngs) + lngBuffer]
+                ] as [[number, number], [number, number]];
+                
+                map.fitBounds(bounds, {
+                  padding: [150, 150], // Increased padding
+                  maxZoom: 8 // Lower maxZoom
+                });
+              }
             }
           }
+          
+        } catch (error) {
+          console.error('Error updating map view:', error);
         }
-      } catch (error) {
-        console.error('Error updating map view:', error);
-      }
-    }, 100);
-    
-    return () => clearTimeout(timeoutId);
-  }, [selectedRegion, selectedCounty, regionGroups, countyGroups, mapRef]);
-  
-  // Clear city selection when zooming out
-  useEffect(() => {
-    if (!mapRef.current) return;
-    const map = mapRef.current;
-    if (!map || !map.getContainer || !map.getContainer()) return;
-    
-    try {
-      const handleZoom = () => {
-        const zoom = map?.getZoom() || 0;
-        if (zoom <= 11 && selectedCity) {
-          // Zoomed out, clear city selection
-          // This will be handled by parent component
-        }
-      };
+      }, 300); // Wait for counties to be filtered
       
-      map.on('zoomend', handleZoom);
-      return () => {
-        if (map && map.off) {
-          map.off('zoomend', handleZoom);
+      return () => clearTimeout(timeoutId);
+    }, [map, selectedRegion, selectedCounty, selectedCity, countyGroups]);
+    
+    // Separate effect for city zoom - triggers when cities are loaded (zoomed in closer than county zoom)
+    useEffect(() => {
+      if (!map || !selectedCounty || selectedCity) return;
+      
+      // Only zoom if we have cities for this county
+      if (!cityGroups || cityGroups.length === 0) {
+        return; // Wait for cities to load
+      }
+      
+      const countyCities = cityGroups.filter(c => c.countySlug === selectedCounty);
+      
+      if (countyCities.length === 0) {
+        return; // No cities for this county
+      }
+      
+      // Use a timeout to ensure cities are filtered
+      const timeoutId = setTimeout(() => {
+        try {
+          // Get Leaflet from window
+          const L = (window as any).L;
+          
+          if (L && L.latLngBounds) {
+            // Use Leaflet's LatLngBounds for accurate bounds calculation
+            const bounds = L.latLngBounds(
+              countyCities.map(c => L.latLng(c.coordinates.lat, c.coordinates.lng))
+            );
+            
+            // Expand bounds by only 10% to zoom in closer and show only the city area
+            const sw = bounds.getSouthWest();
+            const ne = bounds.getNorthEast();
+            const latCenter = (sw.lat + ne.lat) / 2;
+            const lngCenter = (sw.lng + ne.lng) / 2;
+            const latRange = ne.lat - sw.lat;
+            const lngRange = ne.lng - sw.lng;
+            
+            // Add minimum range to prevent zooming in too close
+            const minLatRange = 0.08; // ~8.8 km
+            const minLngRange = 0.08;
+            const finalLatRange = Math.max(latRange, minLatRange);
+            const finalLngRange = Math.max(lngRange, minLngRange);
+            
+            const expandedBounds = L.latLngBounds(
+              L.latLng(latCenter - finalLatRange * 0.55, lngCenter - finalLngRange * 0.55),
+              L.latLng(latCenter + finalLatRange * 0.55, lngCenter + finalLngRange * 0.55)
+            );
+            
+            // Fit bounds with minimal padding to zoom in closer and show only city area
+            map.fitBounds(expandedBounds, {
+              padding: [50, 50], // Minimal padding to show only city area
+              maxZoom: 10 // Higher maxZoom to allow closer zoom
+            });
+          } else {
+            // Fallback: manual bounds calculation with smaller buffer
+            const lats = countyCities.map(c => c.coordinates.lat);
+            const lngs = countyCities.map(c => c.coordinates.lng);
+            
+            // Add smaller buffer (10% on each side, minimum 0.08 degrees) to zoom in closer
+            const latRange = Math.max(...lats) - Math.min(...lats);
+            const lngRange = Math.max(...lngs) - Math.min(...lngs);
+            const latBuffer = Math.max(latRange * 0.1, 0.08);
+            const lngBuffer = Math.max(lngRange * 0.1, 0.08);
+            
+            const bounds = [
+              [Math.min(...lats) - latBuffer, Math.min(...lngs) - lngBuffer],
+              [Math.max(...lats) + latBuffer, Math.max(...lngs) + lngBuffer]
+            ] as [[number, number], [number, number]];
+            
+            map.fitBounds(bounds, {
+              padding: [50, 50], // Minimal padding to show only city area
+              maxZoom: 10 // Higher maxZoom to allow closer zoom
+            });
+          }
+        } catch (error) {
+          console.error('Error zooming to cities:', error);
         }
-      };
-    } catch (error) {
-      console.error('Error setting up zoom handler:', error);
-      return undefined;
-    }
-  }, [selectedCity, mapRef]);
+      }, 300); // Wait for cities to be filtered
+      
+      return () => clearTimeout(timeoutId);
+    }, [map, selectedCounty, selectedCity, cityGroups]);
+    
+    return null;
+  };
   
-  return null;
+  return <ZoomHandlerComponent />;
 }
 
 // Component to get map instance and store in ref
@@ -284,6 +390,7 @@ const createRegularIcon = (leaflet: any) => {
 
 function RoofersMapPageContent() {
   const searchParams = useSearchParams();
+  const router = useRouter();
   const [roofers, setRoofers] = useState<RooferWithCoordinates[]>([]);
   const [loading, setLoading] = useState(true);
   const [geocodingProgress, setGeocodingProgress] = useState({ current: 0, total: 0 });
@@ -291,6 +398,7 @@ function RoofersMapPageContent() {
   const [leafletLoaded, setLeafletLoaded] = useState<any>(null);
   const [regionGroups, setRegionGroups] = useState<RegionGroup[]>([]);
   const [countyGroups, setCountyGroups] = useState<CountyGroup[]>([]);
+  const [cityGroups, setCityGroups] = useState<CityGroup[]>([]);
   const [showIndividualMarkers, setShowIndividualMarkers] = useState(false);
   const [selectedRegion, setSelectedRegion] = useState<string | null>(null);
   const [selectedCounty, setSelectedCounty] = useState<string | null>(null);
@@ -329,9 +437,15 @@ function RoofersMapPageContent() {
             shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-shadow.png',
           });
         }
-        setLeafletLoaded(leaflet);
+        if (leaflet && typeof leaflet.divIcon === 'function') {
+          setLeafletLoaded(leaflet);
+        } else {
+          console.error('Leaflet loaded but divIcon function not found');
+        }
       }).catch((err) => {
         console.error('Failed to load Leaflet:', err);
+        // Set a flag so we can show an error message
+        setLeafletLoaded(false);
       });
     }
   }, []);
@@ -417,10 +531,19 @@ function RoofersMapPageContent() {
         
         setRegionGroups(regionGroupsList);
         setCountyGroups(countyGroupsList);
+        // Always set mapReady to true, even if no regions/counties found
+        // The map should still display
         setMapReady(true);
         setLoading(false);
+        
+        // Log if no regions/counties were found
+        if (regionGroupsList.length === 0 && countyGroupsList.length === 0) {
+          console.warn('No regions or counties found with coordinates. Map will display but may be empty.');
+        }
       } catch (error) {
         console.error('Error loading regions and counties:', error);
+        // Still set mapReady to true so map can display even if there are grouping issues
+        setMapReady(true);
         setLoading(false);
       }
     };
@@ -428,8 +551,34 @@ function RoofersMapPageContent() {
     loadRegionsAndCounties();
   }, []);
 
-  // Handle query parameters to auto-select county/city
+  // Load initial state from URL params or sessionStorage (for return from city page)
   useEffect(() => {
+    // Check sessionStorage first (for return navigation from city page)
+    if (typeof window !== 'undefined') {
+      const savedMapState = sessionStorage.getItem('mapState');
+      if (savedMapState) {
+        try {
+          const mapState = JSON.parse(savedMapState);
+          // Restore the map state (region and county) to show cities again
+          if (mapState.region) {
+            setSelectedRegion(mapState.region);
+          }
+          if (mapState.county) {
+            setSelectedCounty(mapState.county);
+            // Don't set city - we want to show all cities in the county
+            setSelectedCity(null);
+          }
+          // Clear after using
+          sessionStorage.removeItem('mapState');
+          // Don't check URL params if we restored from sessionStorage
+          return;
+        } catch (e) {
+          console.error('Error parsing saved map state:', e);
+        }
+      }
+    }
+    
+    // Then check URL params (only if no sessionStorage state)
     const countyParam = searchParams.get('county');
     const cityParam = searchParams.get('city');
     
@@ -438,14 +587,10 @@ function RoofersMapPageContent() {
       const countyExists = countyGroups.some(g => g.countySlug === countyParam);
       if (countyExists) {
         setSelectedCounty(countyParam);
-        setShowIndividualMarkers(true);
+        setShowIndividualMarkers(false); // Show cities, not individual roofers
         
-        // If city is also specified, select it after a short delay to allow city groups to load
-        if (cityParam) {
-          setTimeout(() => {
-            setSelectedCity(cityParam);
-          }, 500);
-        }
+        // If city is also specified, we don't select it - user should click on the city marker
+        // This allows them to see all cities and choose which one to view
       }
     }
   }, [searchParams, countyGroups]);
@@ -720,19 +865,54 @@ function RoofersMapPageContent() {
     return filtered;
   }, [countyGroups, selectedRegion, selectedLocation, rooferFilter]);
 
+  // Filter city groups based on selected county and roofer type
+  const filteredCityGroups = useMemo(() => {
+    if (!selectedCounty) return [];
+    
+    let filtered = cityGroups.filter((group) => group.countySlug === selectedCounty);
+    
+    // Filter by roofer type - recalculate counts
+    if (rooferFilter === 'preferred') {
+      filtered = filtered.map((group) => {
+        const filteredRoofers = group.roofers.filter((r) => r.isPreferred);
+        
+        return {
+          ...group,
+          rooferCount: filteredRoofers.length,
+          preferredCount: filteredRoofers.filter((r) => r.isPreferred).length,
+          roofers: filteredRoofers,
+        };
+      }).filter((group) => group.rooferCount > 0);
+    }
+    
+    return filtered;
+  }, [cityGroups, selectedCounty, rooferFilter]);
+
   // Filter roofers with valid coordinates (using filtered list)
+  // When a city is selected, show roofers from that city
   // When a county is selected, show roofers from that county that have coordinates
   const roofersWithCoords = useMemo(() => {
-    if (selectedCounty) {
+    if (selectedCity) {
+      // When city is selected, filter by city
+      const citySlug = selectedCity;
+      return filteredRoofers.filter((roofer) => {
+        if (!roofer.coordinates) return false;
+        // Check if roofer serves this city explicitly or if roofer's city matches
+        const servesCity = roofer.serviceAreas?.cities?.includes(citySlug);
+        const rooferCitySlug = roofer.city ? createCitySlug(roofer.city) : '';
+        const cityMatches = rooferCitySlug === citySlug;
+        return servesCity || cityMatches;
+      });
+    } else if (selectedCounty) {
       // When county is selected, filter from the filteredRoofers (which already has the preferred filter applied)
       return filteredRoofers.filter((roofer) => {
         if (!roofer.coordinates) return false;
         return (roofer.serviceAreas?.counties?.includes(selectedCounty) ?? false);
       });
     }
-    // When no county selected, only show roofers with coordinates
+    // When no county/city selected, only show roofers with coordinates
     return filteredRoofers.filter((roofer) => roofer.coordinates);
-  }, [filteredRoofers, selectedCounty]);
+  }, [filteredRoofers, selectedCounty, selectedCity]);
 
   // Offset markers that are too close together
   // This function calculates offsets to separate markers that are within a certain distance
@@ -848,8 +1028,68 @@ function RoofersMapPageContent() {
     return offsetMap;
   }, [roofersWithCoords, selectedCounty, leafletLoaded]);
 
-  // City groups are no longer used - we skip directly from counties to roofers
-  const cityGroups: CityGroup[] = [];
+  // Load city groups when a county is selected
+  useEffect(() => {
+    if (!selectedCounty || !selectedRegion) {
+      setCityGroups([]);
+      return;
+    }
+
+    try {
+      const allRoofers = getAllRoofers();
+      
+      // Get all cities from static data (same as county page uses)
+      const allCities = getCitiesForCounty(selectedRegion, selectedCounty);
+      
+      // Create city groups with roofer counts - same logic as county page
+      const cityGroupsList: CityGroup[] = allCities
+        .map(city => {
+          const citySlug = createCitySlug(city.name);
+          
+          // Find roofers that serve this city (same logic as county page)
+          const cityRoofers = allRoofers.filter(roofer => {
+            // Only count roofers who explicitly serve this city
+            return roofer.serviceAreas?.cities?.includes(citySlug);
+          });
+          
+          // Only include cities that have at least one roofer
+          if (cityRoofers.length === 0) {
+            return null;
+          }
+          
+          // Get coordinates for the city
+          let coords: Coordinates | null = null;
+          if (city.latitude && city.longitude) {
+            coords = { lat: city.latitude, lng: city.longitude };
+          } else {
+            // Use fast coordinates (city name lookup)
+            coords = getFastCoordinates(city.name, selectedCounty);
+          }
+          
+          if (!coords) {
+            return null; // Skip cities without coordinates
+          }
+          
+          return {
+            cityName: city.displayName || city.name,
+            citySlug: citySlug,
+            coordinates: coords,
+            rooferCount: cityRoofers.length,
+            roofers: cityRoofers,
+            preferredCount: cityRoofers.filter(r => r.isPreferred).length,
+            countyName: city.countyName,
+            countySlug: selectedCounty,
+            regionSlug: selectedRegion,
+          };
+        })
+        .filter((group): group is NonNullable<typeof group> => group !== null) as CityGroup[];
+      
+      setCityGroups(cityGroupsList);
+    } catch (error) {
+      console.error('Error loading city groups:', error);
+      setCityGroups([]);
+    }
+  }, [selectedCounty, selectedRegion]);
 
   // Determine which level we're at
   const mapLevel = useMemo(() => {
@@ -859,48 +1099,38 @@ function RoofersMapPageContent() {
     if (selectedRegion && !selectedCounty) {
       return 'counties'; // Level 2: Counties (within selected region)
     }
-    if (selectedCounty) {
-      return 'roofers'; // Level 3: Individual Roofers (within selected county)
+    if (selectedCounty && !selectedCity) {
+      return 'cities'; // Level 3: Cities (within selected county)
+    }
+    // When a city is selected, stay at city level (don't show individual roofer markers)
+    if (selectedCounty && selectedCity) {
+      return 'cities'; // Stay at city level, show list below map instead
     }
     return 'regions';
-  }, [selectedRegion, selectedCounty]);
+  }, [selectedRegion, selectedCounty, selectedCity]);
 
-  // Calculate map bounds to fit all markers (counties or individual roofers)
+  // Calculate map bounds to fit all markers (counties, cities, or individual roofers)
   const mapBounds = useMemo(() => {
-    if (mapLevel === 'roofers' && roofersWithCoords.length > 0) {
-      // Filter roofers by selected county if applicable
-      const visibleRoofers = roofersWithCoords.filter((r) => {
-        if (!r.coordinates) return false;
-        if (selectedCounty) {
-          return (r.serviceAreas?.counties?.includes(selectedCounty) ?? false);
-        }
-        return true;
-      });
-      
+    // When "Preferred Contractors" is active, fit bounds to preferred roofer markers
+    if (rooferFilter === 'preferred' && roofersWithCoords.length > 0) {
+      const visibleRoofers = roofersWithCoords.filter((r): r is typeof r & { coordinates: NonNullable<typeof r.coordinates> } => !!r.coordinates);
       if (visibleRoofers.length === 0) return null;
-      
-      // Use offset positions if available, otherwise use original coordinates
+
       const positions = visibleRoofers.map((r) => {
         const offset = offsetMarkers.get(r.id);
-        return offset 
+        return offset
           ? [offset.lat, offset.lng] as [number, number]
-          : [r.coordinates!.lat, r.coordinates!.lng] as [number, number];
+          : [r.coordinates.lat, r.coordinates.lng] as [number, number];
       });
-      
       const lats = positions.map((p) => p[0]);
       const lngs = positions.map((p) => p[1]);
-      
-      // If all markers are at the same location, expand bounds slightly
       const latRange = Math.max(...lats) - Math.min(...lats);
       const lngRange = Math.max(...lngs) - Math.min(...lngs);
-      const minRange = 0.001; // Minimum range in degrees (about 100 meters)
-      
+      const minRange = 0.02;
       let minLat = Math.min(...lats);
       let maxLat = Math.max(...lats);
       let minLng = Math.min(...lngs);
       let maxLng = Math.max(...lngs);
-      
-      // Expand bounds if they're too small to ensure visibility
       if (latRange < minRange) {
         const centerLat = (minLat + maxLat) / 2;
         minLat = centerLat - minRange / 2;
@@ -911,10 +1141,20 @@ function RoofersMapPageContent() {
         minLng = centerLng - minRange / 2;
         maxLng = centerLng + minRange / 2;
       }
-      
       return [
         [minLat, minLng],
         [maxLat, maxLng],
+      ] as [[number, number], [number, number]];
+    }
+    if (mapLevel === 'cities' && filteredCityGroups.length > 0) {
+      const lats = filteredCityGroups.map((g) => g.coordinates.lat);
+      const lngs = filteredCityGroups.map((g) => g.coordinates.lng);
+      
+      if (lats.length === 0) return null;
+      
+      return [
+        [Math.min(...lats), Math.min(...lngs)],
+        [Math.max(...lats), Math.max(...lngs)]
       ] as [[number, number], [number, number]];
     } else if (mapLevel === 'counties' && filteredCountyGroups.length > 0) {
       const lats = filteredCountyGroups.map((g) => g.coordinates.lat);
@@ -934,7 +1174,7 @@ function RoofersMapPageContent() {
       ] as [[number, number], [number, number]];
     }
     return null;
-  }, [roofersWithCoords, filteredCountyGroups, filteredRegionGroups, mapLevel, selectedCounty, offsetMarkers]);
+  }, [rooferFilter, roofersWithCoords, filteredCityGroups, filteredCountyGroups, filteredRegionGroups, mapLevel, selectedCounty, offsetMarkers]);
 
   // Update map bounds when filter changes or markers update
   useEffect(() => {
@@ -950,8 +1190,8 @@ function RoofersMapPageContent() {
         const lngs = mapBounds[0][1] === mapBounds[1][1] ? undefined : mapBounds.map(b => b[1]);
         
         if (lats && lngs && lats.length > 0 && lngs.length > 0 && map.fitBounds) {
-          // When showing individual roofers, use more padding and ensure we zoom in enough
-          const isRooferLevel = mapLevel === 'roofers';
+          // When showing individual roofers (Preferred Contractors), use more padding and zoom
+          const isRooferLevel = rooferFilter === 'preferred';
           const padding = isRooferLevel ? [100, 100] : [50, 50]; // More padding for roofer level
           
           map.fitBounds(mapBounds, {
@@ -1053,6 +1293,41 @@ function RoofersMapPageContent() {
     });
   };
 
+  // Create city marker icon with count (smaller than county, using lighter blue)
+  const createCityIcon = (count: number, preferredCount: number) => {
+    if (!leafletLoaded) return undefined;
+    const size = Math.max(36, 28 + count.toString().length * 3);
+    return leafletLoaded.divIcon({
+      className: 'city-marker',
+      html: `<div style="
+        background: ${preferredCount > 0 
+          ? 'linear-gradient(135deg, #4a7bc0 0%, #255eab 100%)' 
+          : 'linear-gradient(135deg, #66a2d5 0%, #4a7bc0 100%)'};
+        color: white;
+        width: ${size}px;
+        height: ${size}px;
+        border-radius: 50%;
+        border: 2px solid white;
+        box-shadow: 0 2px 8px rgba(37, 94, 171, 0.3), 0 1px 2px rgba(0,0,0,0.15);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-weight: 600;
+        font-size: 13px;
+        cursor: pointer;
+        text-align: center;
+        line-height: 1.1;
+        font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', system-ui, sans-serif;
+      ">
+        <div style="font-size: 14px; line-height: 1;">${count}</div>
+        ${preferredCount > 0 ? `<div style="font-size: 8px; opacity: 0.9; margin-top: 1px; font-weight: 600;">${preferredCount}★</div>` : ''}
+      </div>`,
+      iconSize: [size, size],
+      iconAnchor: [size / 2, size / 2],
+    });
+  };
+
   if (loading) {
     return (
       <div className="min-h-screen bg-white flex items-center justify-center p-6">
@@ -1101,111 +1376,8 @@ function RoofersMapPageContent() {
             marker to view roofer details and contact information.
           </p>
           
-          {/* Search and Filters */}
+          {/* Filter Buttons and Stats */}
           <div className="mt-6 space-y-4">
-            {/* Search Bar */}
-            <div className="relative" ref={searchRef}>
-              <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                <FontAwesomeIcon icon={faSearch} className="h-5 w-5 text-gray-400" />
-              </div>
-              <input
-                type="text"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                onFocus={() => searchQuery.trim().length > 0 && setIsSearchOpen(true)}
-                placeholder="Search by city, county, region, or town..."
-                className="w-full pl-12 pr-12 py-3 text-base border-2 border-gray-300 rounded-xl focus:border-rif-blue-500 focus:outline-none focus:ring-2 focus:ring-rif-blue-200 bg-white"
-              />
-              {searchQuery && (
-                <button
-                  onClick={() => {
-                    setSearchQuery('');
-                    setSelectedLocation(null);
-                    setIsSearchOpen(false);
-                  }}
-                  className="absolute inset-y-0 right-0 pr-4 flex items-center"
-                >
-                  <FontAwesomeIcon icon={faTimes} className="h-5 w-5 text-gray-400 hover:text-gray-600" />
-                </button>
-              )}
-              
-              {/* Search Results Dropdown */}
-              {isSearchOpen && searchResults.length > 0 && (
-                <div className="absolute z-50 w-full mt-2 bg-white border border-gray-200 rounded-xl shadow-xl max-h-80 overflow-y-auto">
-                  {searchResults.map((result, idx) => (
-                    <button
-                      key={idx}
-                      onClick={() => {
-                        setSelectedLocation(result);
-                        setSearchQuery(result.name);
-                        setIsSearchOpen(false);
-                        // Auto-navigate based on selection type
-                        if (result.type === 'region') {
-                          setSelectedRegion(result.slug);
-                          setSelectedCounty(null);
-                          setSelectedCity(null);
-                          setShowIndividualMarkers(false);
-                        } else if (result.type === 'county') {
-                          // Find the region for this county
-                          const countyData = searchData.find(item => item.type === 'county' && item.slug === result.slug);
-                          if (countyData?.region) {
-                            const regionData = searchData.find(item => item.type === 'region' && item.name === countyData.region);
-                            if (regionData) {
-                              setSelectedRegion(regionData.slug);
-                            }
-                          }
-                          setSelectedCounty(result.slug);
-                          setSelectedCity(null);
-                          setShowIndividualMarkers(true);
-                        } else if (result.type === 'city') {
-                          // For cities, find the county and region, then show roofers in that county
-                          const cityData = searchData.find(item => item.type === 'city' && item.slug === result.slug);
-                          if (cityData?.county) {
-                            const countyData = searchData.find(item => item.type === 'county' && item.name === cityData.county);
-                            if (countyData) {
-                              setSelectedCounty(countyData.slug);
-                              if (countyData.region) {
-                                const regionData = searchData.find(item => item.type === 'region' && item.name === countyData.region);
-                                if (regionData) {
-                                  setSelectedRegion(regionData.slug);
-                                }
-                              }
-                            }
-                          }
-                          setSelectedCity(null); // Don't filter by city, show all roofers in the county
-                          setShowIndividualMarkers(true);
-                        }
-                      }}
-                      className="w-full flex items-center gap-3 px-4 py-3 hover:bg-rif-blue-50 transition-colors border-b border-gray-100 last:border-b-0 text-left"
-                    >
-                      <FontAwesomeIcon
-                        icon={faMapLocationDot}
-                        className={`h-4 w-4 flex-shrink-0 ${
-                          result.type === 'region' ? 'text-rif-blue-600' :
-                          result.type === 'county' ? 'text-rif-blue-500' :
-                          'text-rif-blue-400'
-                        }`}
-                      />
-                      <div className="flex-1 min-w-0">
-                        <div className="font-medium text-sm text-gray-900 truncate">{result.name}</div>
-                        {(result.county || result.region) && (
-                          <div className="text-xs text-gray-500 truncate">
-                            {result.county && `${result.county}`}
-                            {result.county && result.region && ' • '}
-                            {result.region && result.region}
-                          </div>
-                        )}
-                      </div>
-                      <span className="text-xs text-gray-400 uppercase flex-shrink-0 font-medium">
-                        {result.type === 'region' ? 'Region' : result.type === 'county' ? 'County' : 'City'}
-                      </span>
-                    </button>
-                  ))}
-                </div>
-              )}
-            </div>
-            
-            {/* Filter Buttons and Stats */}
             <div className="flex flex-wrap gap-4 items-center">
               {/* Roofer Type Filter */}
               <div className="flex items-center gap-2 bg-gray-100 rounded-lg p-1">
@@ -1243,21 +1415,36 @@ function RoofersMapPageContent() {
                 <div className="flex items-center gap-2">
                   <div className="w-4 h-4 bg-rif-blue-500 rounded-full"></div>
                   <span className="text-gray-700">
-                    {mapLevel === 'roofers' 
-                      ? `${roofersWithCoords.length} Roofers`
+                    {selectedCity
+                      ? (() => {
+                          const cityGroup = cityGroups.find(c => c.citySlug === selectedCity);
+                          return cityGroup ? `${cityGroup.rooferCount} Roofers in ${cityGroup.cityName}` : 'Roofers';
+                        })()
+                      : mapLevel === 'cities'
+                      ? `${filteredCityGroups.length} Cities • ${filteredCityGroups.reduce((sum, g) => sum + g.rooferCount, 0)} Roofers`
                       : mapLevel === 'counties'
                       ? `${filteredCountyGroups.length} Counties • ${filteredCountyGroups.reduce((sum, g) => sum + g.rooferCount, 0)} Roofers`
                       : `${filteredRegionGroups.length} Regions • ${filteredRegionGroups.reduce((sum, g) => sum + g.rooferCount, 0)} Roofers`}
                   </span>
                 </div>
-                {(mapLevel === 'roofers' ? roofersWithCoords.filter((r) => r.isPreferred).length > 0 :
+                {(selectedCity
+                  ? (() => {
+                      const cityGroup = cityGroups.find(c => c.citySlug === selectedCity);
+                      return cityGroup ? cityGroup.preferredCount > 0 : false;
+                    })()
+                  : mapLevel === 'cities' ? filteredCityGroups.reduce((sum, g) => sum + g.preferredCount, 0) > 0 :
                   mapLevel === 'counties' ? filteredCountyGroups.reduce((sum, g) => sum + g.preferredCount, 0) > 0 :
                   filteredRegionGroups.reduce((sum, g) => sum + g.preferredCount, 0) > 0) && (
                   <div className="flex items-center gap-2">
                     <div className="w-4 h-4 bg-rif-blue-700 rounded-full"></div>
                     <span className="text-gray-700">
-                      {mapLevel === 'roofers'
-                        ? roofersWithCoords.filter((r) => r.isPreferred).length
+                      {selectedCity
+                        ? (() => {
+                            const cityGroup = cityGroups.find(c => c.citySlug === selectedCity);
+                            return cityGroup ? cityGroup.preferredCount : 0;
+                          })()
+                        : mapLevel === 'cities'
+                        ? filteredCityGroups.reduce((sum, g) => sum + g.preferredCount, 0)
                         : mapLevel === 'counties'
                         ? filteredCountyGroups.reduce((sum, g) => sum + g.preferredCount, 0)
                         : filteredRegionGroups.reduce((sum, g) => sum + g.preferredCount, 0)} Preferred
@@ -1266,25 +1453,11 @@ function RoofersMapPageContent() {
                 )}
               </div>
               
-              {/* Clear Location Filter */}
-              {selectedLocation && (
-                <button
-                  onClick={() => {
-                    setSelectedLocation(null);
-                    setSearchQuery('');
-                  }}
-                  className="ml-auto px-3 py-1.5 text-sm text-rif-blue-600 hover:text-rif-blue-700 hover:bg-rif-blue-50 rounded-lg transition-colors flex items-center gap-1.5"
-                >
-                  <FontAwesomeIcon icon={faTimes} className="h-3.5 w-3.5" />
-                  Clear Location
-                </button>
-              )}
-              
               {/* Back Button - Show when not at region level */}
               {mapLevel !== 'regions' && (
                 <button
                   onClick={() => {
-                    if (mapLevel === 'roofers') {
+                    if (mapLevel === 'cities') {
                       // Level 3 -> Level 2: Go back to counties view
                       setSelectedCounty(null);
                       setSelectedCity(null);
@@ -1318,7 +1491,7 @@ function RoofersMapPageContent() {
                   className="px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors text-sm font-medium flex items-center gap-2"
                 >
                   <FontAwesomeIcon icon={faArrowLeft} className="h-4 w-4" />
-                  {mapLevel === 'roofers' ? 'Back to Counties' : 'Back to Regions'}
+                  {mapLevel === 'cities' ? 'Back to Counties' : 'Back to Regions'}
                 </button>
               )}
             </div>
@@ -1328,11 +1501,42 @@ function RoofersMapPageContent() {
 
       {/* Map Container */}
       <section className="relative bg-gradient-to-b from-gray-50 to-rif-blue-50" style={{ height: 'calc(100vh - 280px)', minHeight: '600px' }}>
+        {!mapReady && (
+          <div className="absolute inset-0 flex items-center justify-center bg-gray-100">
+            <div className="text-center">
+              <FontAwesomeIcon
+                icon={faSpinner}
+                className="h-8 w-8 text-rif-blue-500 mb-3 animate-spin"
+              />
+              <p className="text-gray-600">Loading map...</p>
+            </div>
+          </div>
+        )}
+        {mapReady && !leafletLoaded && (
+          <div className="absolute inset-0 flex items-center justify-center bg-gray-100">
+            <div className="text-center">
+              {leafletLoaded === false ? (
+                <>
+                  <p className="text-red-600 mb-2 font-semibold">Failed to load map library</p>
+                  <p className="text-gray-600 text-sm">Please refresh the page to try again.</p>
+                </>
+              ) : (
+                <>
+                  <FontAwesomeIcon
+                    icon={faSpinner}
+                    className="h-8 w-8 text-rif-blue-500 mb-3 animate-spin"
+                  />
+                  <p className="text-gray-600">Initializing map library...</p>
+                </>
+              )}
+            </div>
+          </div>
+        )}
         {mapReady && leafletLoaded && (
           <MapContainer
             center={[floridaCenter.lat, floridaCenter.lng]}
             zoom={7}
-            bounds={mapBounds || undefined}
+            bounds={mapLevel === 'cities' ? undefined : (mapBounds || undefined)}
             boundsOptions={{ padding: [50, 50] }}
             style={{ height: '100%', width: '100%', zIndex: 0 }}
             scrollWheelZoom={false}
@@ -1359,15 +1563,16 @@ function RoofersMapPageContent() {
             <MapZoomHandler 
               selectedRegion={selectedRegion}
               selectedCounty={selectedCounty}
-              selectedCity={null}
+              selectedCity={selectedCity}
               regionGroups={filteredRegionGroups}
               countyGroups={filteredCountyGroups}
-              cityGroups={[]}
+              cityGroups={filteredCityGroups}
               mapRef={mapRef}
+              roofersWithCoords={roofersWithCoords}
             />
             
-            {/* Level 1: Show region markers when no region is selected */}
-            {mapLevel === 'regions' && leafletLoaded && filteredRegionGroups.map((group) => (
+            {/* Level 1: Show region markers when no region is selected (hide when Preferred filter shows individual pins) */}
+            {mapLevel === 'regions' && rooferFilter !== 'preferred' && leafletLoaded && filteredRegionGroups.map((group) => (
               <Marker
                 key={`region-${group.regionSlug}`}
                 position={[group.coordinates.lat, group.coordinates.lng]}
@@ -1424,28 +1629,35 @@ function RoofersMapPageContent() {
               </Marker>
             ))}
             
-            {/* Level 2: Show county markers when region is selected */}
-            {mapLevel === 'counties' && leafletLoaded && filteredCountyGroups.map((group) => (
+            {/* Level 2: Show county markers when region is selected (hide when Preferred filter) */}
+            {mapLevel === 'counties' && rooferFilter !== 'preferred' && leafletLoaded && filteredCountyGroups.map((group) => {
+              const regionSlug = group.regionSlug || selectedRegion;
+              const countySlug = group.countySlug;
+              const countyUrl = regionSlug && countySlug ? `/service-areas/${regionSlug}/${countySlug}` : null;
+
+              return (
               <Marker
                 key={`county-${group.countySlug}`}
                 position={[group.coordinates.lat, group.coordinates.lng]}
                 icon={createCountyIcon(group.rooferCount, group.preferredCount)}
                 eventHandlers={{
                   click: () => {
-                    // Level 2 -> Level 3: Click county to show individual roofers
-                    setSelectedCounty(group.countySlug);
-                    setSelectedCity(null); // Clear any city selection
-                    setShowIndividualMarkers(true);
+                    if (countyUrl) {
+                      window.location.href = countyUrl;
+                    }
                   },
                 }}
               >
-                <Tooltip permanent={false} direction="top" offset={[0, -10]}>
-                  <div className="text-center">
+                <Tooltip permanent={true} direction="top" offset={[0, -10]}>
+                  <div className="text-center cursor-pointer">
                     <div className="font-semibold text-rif-black text-sm">
                       {group.countyName}
                     </div>
                     <div className="text-xs text-gray-600 mt-0.5">
                       {group.rooferCount} {group.rooferCount === 1 ? 'Roofer' : 'Roofers'}
+                    </div>
+                    <div className="text-xs text-green-600 mt-1 font-medium">
+                      Click to view →
                     </div>
                   </div>
                 </Tooltip>
@@ -1464,31 +1676,105 @@ function RoofersMapPageContent() {
                         </div>
                       )}
                     </div>
-                    <button
-                      onClick={() => {
-                        // Level 2 -> Level 3: Click county to show individual roofers
-                        setSelectedCounty(group.countySlug);
-                        setSelectedCity(null); // Clear any city selection
-                        setShowIndividualMarkers(true);
-                      }}
-                      className="w-full px-3 py-1.5 bg-rif-blue-500 text-white rounded hover:bg-rif-blue-600 transition-colors text-sm font-medium"
-                    >
-                      View Roofers
-                    </button>
+                    {countyUrl && (
+                      <a
+                        href={countyUrl}
+                        className="block w-full px-3 py-1.5 bg-green-500 text-white rounded hover:bg-green-600 transition-colors text-sm font-medium text-center"
+                      >
+                        View {group.countyName} page
+                      </a>
+                    )}
                   </div>
                 </Popup>
               </Marker>
-            ))}
+              );
+            })}
             
-            {/* Level 3: Show individual roofer markers when county is selected */}
-            {mapLevel === 'roofers' && leafletLoaded && roofersWithCoords
+            {/* Level 3: Show city markers when county is selected */}
+            {mapLevel === 'cities' && rooferFilter !== 'preferred' && leafletLoaded && filteredCityGroups.map((group) => {
+              // Ensure we have region and county for navigation
+              const region = group.regionSlug || selectedRegion;
+              const county = group.countySlug || selectedCounty;
+              const city = group.citySlug;
+              
+              return (
+                <Marker
+                  key={`city-${group.citySlug}`}
+                  position={[group.coordinates.lat, group.coordinates.lng]}
+                  icon={createCityIcon(group.rooferCount, group.preferredCount)}
+                  eventHandlers={{
+                    click: (e: any) => {
+                      console.log('City marker clicked:', { 
+                        citySlug: city, 
+                        region: region, 
+                        county: county,
+                        groupRegionSlug: group.regionSlug,
+                        groupCountySlug: group.countySlug,
+                        selectedRegion,
+                        selectedCounty
+                      });
+                      
+                      // Navigate immediately on click
+                      if (region && county && city) {
+                        // Store current map state in sessionStorage for return navigation
+                        if (typeof window !== 'undefined') {
+                          sessionStorage.setItem('mapState', JSON.stringify({
+                            region: region,
+                            county: county
+                          }));
+                        }
+                        
+                        console.log('Navigating to:', `/service-areas/${region}/${county}/${city}`);
+                        // Navigate to city page
+                        window.location.href = `/service-areas/${region}/${county}/${city}`;
+                      } else {
+                        console.error('Missing required values for navigation:', { region, county, city });
+                      }
+                    },
+                    mouseover: (e: any) => {
+                      // Make cursor pointer on hover
+                      const marker = e.target;
+                      if (marker && marker.getElement) {
+                        const element = marker.getElement();
+                        if (element) {
+                          element.style.cursor = 'pointer';
+                        }
+                      }
+                    },
+                  }}
+                >
+                  <Tooltip permanent={true} direction="top" offset={[0, -10]}>
+                    <div className="text-center cursor-pointer">
+                      <div className="font-semibold text-rif-black text-sm">
+                        {group.cityName}
+                      </div>
+                      <div className="text-xs text-gray-600 mt-0.5">
+                        {group.rooferCount} {group.rooferCount === 1 ? 'Roofer' : 'Roofers'}
+                      </div>
+                      <div className="text-xs text-green-600 mt-1 font-medium">
+                        Click to view →
+                      </div>
+                    </div>
+                  </Tooltip>
+                </Marker>
+              );
+            })}
+            
+            {/* Level 4: Individual roofer markers — show when Preferred Contractors filter or after drilling to city/county */}
+            {(showIndividualMarkers || rooferFilter === 'preferred') && leafletLoaded && roofersWithCoords
               .filter((roofer): roofer is typeof roofer & { coordinates: NonNullable<typeof roofer.coordinates> } => {
-                // Filter by selected county
+                // Filter by selected city or county
                 if (!roofer.coordinates) return false;
-                if (selectedCounty) {
+                if (selectedCity) {
+                  const citySlug = selectedCity;
+                  const servesCity = roofer.serviceAreas?.cities?.includes(citySlug);
+                  const rooferCitySlug = roofer.city ? createCitySlug(roofer.city) : '';
+                  const cityMatches = rooferCitySlug === citySlug;
+                  return servesCity || cityMatches;
+                } else if (selectedCounty) {
                   return (roofer.serviceAreas?.counties?.includes(selectedCounty) ?? false);
                 }
-                return true; // Show all roofers when no county selected
+                return true; // Show all roofers when no county/city selected
               })
               .map((roofer, index) => {
               // At this point, we know roofer has coordinates (filtered above)
@@ -1664,6 +1950,7 @@ function RoofersMapPageContent() {
           </div>
         )}
       </section>
+
 
       {/* Footer Info */}
       <section className="py-6 px-6 bg-gray-50 border-t border-gray-200">

@@ -68,7 +68,7 @@ export default function ServiceAreaSearch({ variant = 'sticky', className = '' }
         <div className="max-w-4xl mx-auto">
           <div className="relative">
             <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-              <FontAwesomeIcon icon={faSearch} className="h-5 w-5 text-gray-400" />
+              <FontAwesomeIcon icon={faSearch} className="h-4 w-4 text-gray-400" />
             </div>
             <input
               ref={inputRef}
@@ -77,7 +77,7 @@ export default function ServiceAreaSearch({ variant = 'sticky', className = '' }
               onChange={(e) => setQuery(e.target.value)}
               onFocus={() => query.trim().length > 0 && setIsOpen(true)}
               placeholder="Search by city, county, or region..."
-              className="w-full pl-12 pr-12 py-4 text-lg border-2 border-gray-300 rounded-2xl focus:border-rif-blue-500 focus:outline-none focus:ring-2 focus:ring-rif-blue-200"
+              className="w-full pl-12 pr-12 h-[42px] text-base border-2 border-gray-300 rounded-2xl focus:border-rif-blue-500 focus:outline-none focus:ring-2 focus:ring-rif-blue-200"
             />
             {query && (
               <button
@@ -87,7 +87,7 @@ export default function ServiceAreaSearch({ variant = 'sticky', className = '' }
                 }}
                 className="absolute inset-y-0 right-0 pr-4 flex items-center"
               >
-                <FontAwesomeIcon icon={faTimes} className="h-5 w-5 text-gray-400 hover:text-gray-600" />
+                <FontAwesomeIcon icon={faTimes} className="h-4 w-4 text-gray-400 hover:text-gray-600" />
               </button>
             )}
           </div>

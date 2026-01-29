@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faMapLocationDot,
@@ -10,6 +11,8 @@ import {
   faEnvelope,
   faPhone,
   faMapPin,
+  faArrowRight,
+  faClipboardList,
 } from '@fortawesome/free-solid-svg-icons';
 import {
   faFacebook,
@@ -24,7 +27,72 @@ export default function Footer() {
   return (
     <footer className="bg-gray-900 text-gray-300">
       <div className="max-w-7xl mx-auto px-6 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+        {/* Mobile Layout */}
+        <div className="md:hidden space-y-6 mb-8 text-center">
+          {/* Logo and Description - 2 columns */}
+          <div className="grid grid-cols-2 gap-4">
+            <div className="flex flex-col items-center justify-center">
+              <Link href="/" className="inline-block mb-4">
+                <Logo variant="full" color="white" width={120} />
+              </Link>
+            </div>
+            <div className="flex flex-col items-center justify-center">
+              <p className="text-xs leading-relaxed">
+                RIF (Roofers In Florida) is a U.S. owned roofing installation network built around quality control, installer accountability, and distributor-backed materials.
+              </p>
+            </div>
+          </div>
+
+          {/* Contact Info - 2 columns */}
+          <div className="grid grid-cols-2 gap-4">
+            <div className="space-y-3 flex flex-col items-center">
+              <a
+                href="tel:813-777-8272"
+                className="flex flex-col items-center gap-2 text-sm hover:text-white transition-colors"
+              >
+                <FontAwesomeIcon icon={faPhone} className="h-4 w-4" />
+                <div className="text-center">
+                  <div className="font-semibold text-xs">Cell</div>
+                  <div className="text-xs">813-777-8272</div>
+                </div>
+              </a>
+              <a
+                href="tel:813-803-4599"
+                className="flex flex-col items-center gap-2 text-sm hover:text-white transition-colors"
+              >
+                <FontAwesomeIcon icon={faPhone} className="h-4 w-4" />
+                <div className="text-center">
+                  <div className="font-semibold text-xs">Office</div>
+                  <div className="text-xs">813-803-4599</div>
+                </div>
+              </a>
+            </div>
+            <div className="flex flex-col items-center justify-center">
+              <div className="flex flex-col items-center gap-2 text-sm">
+                <FontAwesomeIcon icon={faMapPin} className="h-4 w-4" />
+                <div className="text-center">
+                  <div className="font-semibold text-xs">Warehouse</div>
+                  <div className="text-xs">8037 Treiman Blvd</div>
+                  <div className="text-xs">Webster, FL 33597</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Quick Links Button */}
+          <div className="pt-4">
+            <Link
+              href="/quick-links"
+              className="inline-flex items-center justify-center gap-2 w-full px-6 py-3 bg-rif-blue-500 text-white text-base font-semibold rounded-lg hover:bg-rif-blue-600 transition-colors"
+            >
+              Quick Links
+              <FontAwesomeIcon icon={faArrowRight} className="h-4 w-4" />
+            </Link>
+          </div>
+        </div>
+
+        {/* Desktop Layout */}
+        <div className="hidden md:grid grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
           {/* Logo and Contact Info */}
           <div>
             <Link href="/" className="inline-block mb-4">
@@ -103,9 +171,9 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/investment-opportunity" className="flex items-center gap-2 text-sm hover:text-white transition-colors">
-                  <FontAwesomeIcon icon={faMapLocationDot} className="h-4 w-4" />
-                  Investment Opportunity
+                <Link href="/free-estimate" className="flex items-center gap-2 text-sm hover:text-white transition-colors">
+                  <FontAwesomeIcon icon={faClipboardList} className="h-4 w-4" />
+                  Free Estimate
                 </Link>
               </li>
             </ul>
@@ -241,7 +309,21 @@ export default function Footer() {
           <p className="text-sm">
             Copyright © {new Date().getFullYear()} RIF Roofers In Florida. All rights reserved.
           </p>
-          <p className="text-sm">Made with ♥ in Florida</p>
+          <a
+            href="https://bitfisher.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex flex-col items-center gap-2 text-sm hover:text-white transition-colors"
+          >
+            <span>Site design by Bitfisher</span>
+            <Image
+              src="https://bitfisher.com/wp-content/uploads/2023/08/light-logo.svg"
+              alt="Bitfisher Design"
+              width={120}
+              height={26}
+              className="h-6 w-auto opacity-80 hover:opacity-100 transition-opacity"
+            />
+          </a>
         </div>
       </div>
     </footer>

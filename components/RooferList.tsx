@@ -1,5 +1,6 @@
 'use client';
 
+import { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -11,6 +12,8 @@ import {
   faArrowRight,
   faEnvelope,
   faShield,
+  faChevronDown,
+  faChevronUp,
 } from '@fortawesome/free-solid-svg-icons';
 import FavoriteButton from './FavoriteButton';
 import { getRoofersByServiceArea, type RooferData } from '@/app/roofers/data/roofers';
@@ -68,13 +71,13 @@ function RooferCard({ roofer }: { roofer: RooferData }) {
     });
   }
 
-  // Determine category label and styling
+  // Determine category label and styling (card-blue = Sponsored, card-green = Certified)
   const getCategoryLabel = () => {
     if (roofer.category === 'preferred' || roofer.isPreferred) {
-      return { label: 'Certified', bg: 'bg-blue-100', text: 'text-blue-800' };
+      return { label: 'Certified', bg: 'bg-card-green-100', text: 'text-card-green-800' };
     }
     if (roofer.category === 'sponsored') {
-      return { label: 'Sponsored', bg: 'bg-purple-100', text: 'text-purple-800' };
+      return { label: 'Sponsored', bg: 'bg-card-blue-100', text: 'text-card-blue-800' };
     }
     if (roofer.category === 'general') {
       return { label: 'General', bg: 'bg-gray-100', text: 'text-gray-800' };
@@ -229,6 +232,8 @@ function RooferCard({ roofer }: { roofer: RooferData }) {
   );
 }
 
+const INITIAL_DISPLAY_COUNT = 3;
+
 export default function RooferList({ regionSlug, countySlug, citySlug, locationName }: RooferListProps) {
   // Get roofers for this service area (already sorted by category)
   const allRoofers = getRoofersByServiceArea(regionSlug, countySlug, citySlug);
@@ -236,7 +241,12 @@ export default function RooferList({ regionSlug, countySlug, citySlug, locationN
   // Separate by category (getRoofersByServiceArea already sorts them correctly)
   const certifiedRoofers = allRoofers.filter((roofer) => roofer.category === 'preferred' || roofer.isPreferred);
   const sponsoredRoofers = allRoofers.filter((roofer) => roofer.category === 'sponsored');
-  const generalRoofers = allRoofers.filter((roofer) => roofer.category === 'general');
+  const generalRoofers = allRoofers.filter((roofer) => roofer.category === 'general' || roofer.category === undefined);
+
+  // Show 3 per section initially; "View more" expands in place
+  const [certifiedExpanded, setCertifiedExpanded] = useState(false);
+  const [sponsoredExpanded, setSponsoredExpanded] = useState(false);
+  const [generalExpanded, setGeneralExpanded] = useState(false);
 
   if (allRoofers.length === 0) {
     return (
@@ -266,17 +276,38 @@ export default function RooferList({ regionSlug, countySlug, citySlug, locationN
       {certifiedRoofers.length > 0 && (
         <div>
           <div className="flex items-center gap-3 mb-6">
-            <div className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-full text-sm font-bold">
+            <div className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-card-green-500 to-card-green-600 text-white rounded-full text-sm font-bold">
               <FontAwesomeIcon icon={faCertificate} className="h-4 w-4" />
               Certified RIF Contractors
             </div>
             <span className="text-sm text-gray-600">({certifiedRoofers.length})</span>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {certifiedRoofers.map((roofer) => (
+            {(certifiedExpanded ? certifiedRoofers : certifiedRoofers.slice(0, INITIAL_DISPLAY_COUNT)).map((roofer) => (
               <RooferCard key={roofer.id} roofer={roofer} />
             ))}
           </div>
+          {certifiedRoofers.length > INITIAL_DISPLAY_COUNT && (
+            <div className="mt-6 text-center">
+              <button
+                type="button"
+                onClick={() => setCertifiedExpanded((v) => !v)}
+                className="inline-flex items-center gap-2 px-5 py-2.5 bg-card-green-100 text-card-green-800 rounded-lg hover:bg-card-green-200 transition-colors font-semibold text-sm"
+              >
+                {certifiedExpanded ? (
+                  <>
+                    <FontAwesomeIcon icon={faChevronUp} className="h-4 w-4" />
+                    Show less
+                  </>
+                ) : (
+                  <>
+                    View more ({certifiedRoofers.length - INITIAL_DISPLAY_COUNT} more)
+                    <FontAwesomeIcon icon={faChevronDown} className="h-4 w-4" />
+                  </>
+                )}
+              </button>
+            </div>
+          )}
         </div>
       )}
 
@@ -284,17 +315,38 @@ export default function RooferList({ regionSlug, countySlug, citySlug, locationN
       {sponsoredRoofers.length > 0 && (
         <div>
           <div className="flex items-center gap-3 mb-6">
-            <div className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-purple-500 to-purple-600 text-white rounded-full text-sm font-bold">
+            <div className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-card-blue-500 to-card-blue-600 text-white rounded-full text-sm font-bold">
               <FontAwesomeIcon icon={faCertificate} className="h-4 w-4" />
               Sponsored Roofers
             </div>
             <span className="text-sm text-gray-600">({sponsoredRoofers.length})</span>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {sponsoredRoofers.map((roofer) => (
+            {(sponsoredExpanded ? sponsoredRoofers : sponsoredRoofers.slice(0, INITIAL_DISPLAY_COUNT)).map((roofer) => (
               <RooferCard key={roofer.id} roofer={roofer} />
             ))}
           </div>
+          {sponsoredRoofers.length > INITIAL_DISPLAY_COUNT && (
+            <div className="mt-6 text-center">
+              <button
+                type="button"
+                onClick={() => setSponsoredExpanded((v) => !v)}
+                className="inline-flex items-center gap-2 px-5 py-2.5 bg-card-blue-100 text-card-blue-800 rounded-lg hover:bg-card-blue-200 transition-colors font-semibold text-sm"
+              >
+                {sponsoredExpanded ? (
+                  <>
+                    <FontAwesomeIcon icon={faChevronUp} className="h-4 w-4" />
+                    Show less
+                  </>
+                ) : (
+                  <>
+                    View more ({sponsoredRoofers.length - INITIAL_DISPLAY_COUNT} more)
+                    <FontAwesomeIcon icon={faChevronDown} className="h-4 w-4" />
+                  </>
+                )}
+              </button>
+            </div>
+          )}
         </div>
       )}
 
@@ -309,10 +361,31 @@ export default function RooferList({ regionSlug, countySlug, citySlug, locationN
             <span className="text-sm text-gray-600">({generalRoofers.length})</span>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {generalRoofers.map((roofer) => (
+            {(generalExpanded ? generalRoofers : generalRoofers.slice(0, INITIAL_DISPLAY_COUNT)).map((roofer) => (
               <RooferCard key={roofer.id} roofer={roofer} />
             ))}
           </div>
+          {generalRoofers.length > INITIAL_DISPLAY_COUNT && (
+            <div className="mt-6 text-center">
+              <button
+                type="button"
+                onClick={() => setGeneralExpanded((v) => !v)}
+                className="inline-flex items-center gap-2 px-5 py-2.5 bg-gray-100 text-gray-800 rounded-lg hover:bg-gray-200 transition-colors font-semibold text-sm"
+              >
+                {generalExpanded ? (
+                  <>
+                    <FontAwesomeIcon icon={faChevronUp} className="h-4 w-4" />
+                    Show less
+                  </>
+                ) : (
+                  <>
+                    View more ({generalRoofers.length - INITIAL_DISPLAY_COUNT} more)
+                    <FontAwesomeIcon icon={faChevronDown} className="h-4 w-4" />
+                  </>
+                )}
+              </button>
+            </div>
+          )}
         </div>
       )}
     </div>

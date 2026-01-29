@@ -167,12 +167,12 @@ export default function RooferProfilePage({
                     size="lg"
                   />
                   {roofer.category === 'preferred' || roofer.isPreferred ? (
-                    <div className="flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-full text-sm font-bold shadow-lg border-2 border-blue-700">
+                    <div className="flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-card-green-500 to-card-green-600 text-white rounded-full text-sm font-bold shadow-lg border-2 border-card-green-700">
                       <FontAwesomeIcon icon={faCertificate} className="h-4 w-4" />
                       Certified
                     </div>
                   ) : roofer.category === 'sponsored' ? (
-                    <div className="flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-purple-500 to-purple-600 text-white rounded-full text-sm font-bold shadow-lg border-2 border-purple-700">
+                    <div className="flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-card-blue-500 to-card-blue-600 text-white rounded-full text-sm font-bold shadow-lg border-2 border-card-blue-700">
                       <FontAwesomeIcon icon={faCertificate} className="h-4 w-4" />
                       Sponsored
                     </div>

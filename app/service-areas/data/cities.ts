@@ -264,14 +264,17 @@ export function getCitiesForCounty(
     // Get unique cities from roofers in this county
     const cityMap = new Map<string, CityData>();
     
-    // Build a map of city names to counties from search data
-    const cityToCountyMap = new Map<string, string>();
+    // Build a map of city slug -> county slug from search data (so we can match by slug)
+    const cityToCountySlugMap = new Map<string, string>();
     searchData.forEach((item) => {
-      if (item.type === 'city' && item.county) {
+      if (item.type === 'city' && item.county && item.region) {
         const citySlug = createCitySlug(item.name);
-        cityToCountyMap.set(citySlug, item.county);
-        // Also map the display name
-        cityToCountyMap.set(createCitySlug(item.name), item.county);
+        const countyEntry = searchData.find(
+          (c) => c.type === 'county' && c.name === item.county && c.region === item.region
+        );
+        if (countyEntry?.slug) {
+          cityToCountySlugMap.set(citySlug, countyEntry.slug);
+        }
       }
     });
     
@@ -284,9 +287,9 @@ export function getCitiesForCounty(
       // Check if roofer serves this county via serviceAreas
       const servesCountyViaServiceAreas = roofer.serviceAreas?.counties?.includes(countySlug);
       
-      // Check if roofer's city is in this county via city-to-county mapping
-      const rooferCityCounty = cityToCountyMap.get(citySlug);
-      const servesCountyViaCity = rooferCityCounty === countySlug;
+      // Check if roofer's city is in this county via city-to-county-slug mapping
+      const rooferCityCountySlug = cityToCountySlugMap.get(citySlug);
+      const servesCountyViaCity = rooferCityCountySlug === countySlug;
       
       // Also check if the city is already in static data for this county
       const cityInStaticData = staticCities.some(c => createCitySlug(c.name) === citySlug);
@@ -332,17 +335,54 @@ export function getCitiesForCounty(
     console.warn('Could not load roofers for city generation:', error);
   }
   
-  // Combine static and dynamic cities, removing duplicates
+  // Fallback: get cities from searchData by county name (covers counties like first-coast/duval-fc
+  // that share a county name with another region, e.g. Duval County in North Florida vs First Coast)
+  const countyInfo = searchData.find((c) => c.type === 'county' && c.slug === countySlug);
+  const countyName = countyInfo?.name;
+  const searchDataCities: CityData[] = [];
+  if (countyName) {
+    searchData
+      .filter((item) => item.type === 'city' && item.county === countyName)
+      .forEach((item) => {
+        const citySlug = createCitySlug(item.name);
+        searchDataCities.push({
+          name: item.name,
+          displayName: item.name,
+          countyName: countyName,
+          countySlug: countySlug,
+          regionName: countyInfo?.region || regionSlug,
+          regionSlug: regionSlug,
+          h1Title: `Roofers in ${item.name}, Florida`,
+          intro: `${item.name} is a city in ${countyName}. RIF-certified roofers serve this area with professional roofing services.`,
+          challenges: `Roofs in ${item.name} face Florida's unique weather challenges including heat, humidity, and occasional severe weather.`,
+          whyStoneCoated: `Stone-coated metal roofing provides excellent protection and energy efficiency for ${item.name} properties.`,
+          type: 'city',
+          latitude: undefined,
+          longitude: undefined,
+        });
+      });
+  }
+
+  // Combine static, dynamic, and searchData fallback; remove duplicates by slug
   const allCities = [...staticCities];
-  const existingSlugs = new Set(staticCities.map(c => createCitySlug(c.name)));
-  
-  dynamicCities.forEach(city => {
+  const existingSlugs = new Set(staticCities.map((c) => createCitySlug(c.name)));
+
+  dynamicCities.forEach((city) => {
     const slug = createCitySlug(city.name);
     if (!existingSlugs.has(slug)) {
       allCities.push(city);
+      existingSlugs.add(slug);
     }
   });
-  
+
+  searchDataCities.forEach((city) => {
+    const slug = createCitySlug(city.name);
+    if (!existingSlugs.has(slug)) {
+      allCities.push(city);
+      existingSlugs.add(slug);
+    }
+  });
+
   return allCities;
 }
 

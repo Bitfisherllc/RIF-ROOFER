@@ -1,36 +1,54 @@
 /**
  * Admin API for managing roofers
- * GET: List all roofers with full data
- * POST: Update roofer fields (isPreferred, isHidden, googleBusinessUrl)
+ * GET: List all roofers with full data (merged with Blob overrides)
+ * POST: Update roofer fields (saved to Vercel Blob for persistence)
  */
 
 import { NextRequest, NextResponse } from 'next/server';
 import { readFileSync, writeFileSync } from 'fs';
 import { join } from 'path';
 import { rooferData } from '@/app/roofers/data/roofers';
+import {
+  getRooferOverrides,
+  updateRooferOverrides,
+  mergeRooferWithOverride,
+  type RooferOverride,
+} from '@/lib/roofer-overrides';
 
 const ROOFERS_FILE_PATH = join(process.cwd(), 'app', 'roofers', 'data', 'roofers.ts');
 
+export const dynamic = 'force-dynamic';
+
 export async function GET() {
   try {
-    // Return ALL roofers including hidden ones for admin
-    const roofers = Object.values(rooferData);
+    // Get overrides from Blob (or empty if none exist)
+    const overrides = await getRooferOverrides();
+    
+    // Return ALL roofers including hidden ones for admin, merged with overrides
+    const roofers = Object.values(rooferData).map((r) => {
+      const override = overrides[r.slug];
+      const merged = mergeRooferWithOverride(r, override);
+      
+      return {
+        id: merged.id,
+        name: merged.name,
+        slug: merged.slug,
+        phone: merged.phone,
+        email: merged.email,
+        websiteUrl: merged.websiteUrl,
+        googleBusinessUrl: (merged as any).googleBusinessUrl,
+        isPreferred: merged.isPreferred,
+        isHidden: merged.isHidden,
+        category: (merged as any).category || 'general', // Default to 'general' if not set
+        city: (merged as any).city,
+        state: (merged as any).state,
+        serviceAreas: merged.serviceAreas,
+      };
+    });
+    
     return NextResponse.json({
-      roofers: roofers.map(r => ({
-        id: r.id,
-        name: r.name,
-        slug: r.slug,
-        phone: r.phone,
-        email: r.email,
-        websiteUrl: r.websiteUrl,
-        googleBusinessUrl: (r as any).googleBusinessUrl,
-        isPreferred: r.isPreferred,
-        isHidden: r.isHidden,
-        category: (r as any).category || 'general', // Default to 'general' if not set
-        city: (r as any).city,
-        state: (r as any).state,
-        serviceAreas: r.serviceAreas,
-      })),
+      readOnly: false, // Now editable via Blob!
+      roofers,
     });
   } catch (error: any) {
     return NextResponse.json(
@@ -52,11 +70,64 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Read the current roofer file
-    let content = readFileSync(ROOFERS_FILE_PATH, 'utf-8');
+    // Try Blob storage first (works on Vercel)
+    try {
+      const overrideUpdates: Array<{ slug: string; override: Partial<RooferOverride> }> = updates.map(
+        (update) => ({
+          slug: update.slug,
+          override: {
+            category: update.category,
+            isPreferred: update.isPreferred,
+            isHidden: update.isHidden,
+            phone: update.phone,
+            email: update.email,
+            websiteUrl: update.websiteUrl,
+            googleBusinessUrl: update.googleBusinessUrl,
+            serviceAreas: update.serviceAreas,
+          },
+        })
+      );
 
-    // Update each roofer
-    for (const update of updates) {
+      await updateRooferOverrides(overrideUpdates);
+      return NextResponse.json({ success: true, message: 'Roofers updated successfully (saved to Blob)' });
+    } catch (blobError: any) {
+      // If Blob fails (e.g., missing BLOB_READ_WRITE_TOKEN), fall back to file system for local dev
+      console.warn('Blob storage failed, falling back to file system:', blobError);
+      
+      // Only try file system if we're NOT on Vercel and the file exists
+      if (process.env.VERCEL === '1') {
+        return NextResponse.json(
+          {
+            error: 'Failed to save roofer updates',
+            message:
+              'Blob storage is not configured. Please set BLOB_READ_WRITE_TOKEN in Vercel environment variables.',
+            code: 'BLOB_NOT_CONFIGURED',
+          },
+          { status: 503 }
+        );
+      }
+
+      // Local fallback: try to write to file
+      let content: string;
+      try {
+        content = readFileSync(ROOFERS_FILE_PATH, 'utf-8');
+      } catch (err: any) {
+        if (err?.code === 'ENOENT') {
+          return NextResponse.json(
+            {
+              error: 'Roofer data file not found',
+              message:
+                'app/roofers/data/roofers.ts could not be read. Updates are only supported when running locally with the full project.',
+              code: 'FILE_NOT_FOUND',
+            },
+            { status: 503 }
+          );
+        }
+        throw err;
+      }
+
+      // Update each roofer (local file fallback)
+      for (const update of updates) {
       const {
         slug,
         phone,
@@ -387,40 +458,40 @@ export async function POST(request: NextRequest) {
           }
         }
       }
-    }
+      }
 
-    // Clean up any stray commas that might have been created
-    // Remove lines that contain only a comma (with optional whitespace)
-    content = content.replace(/^\s*,\s*$/gm, '');
-    // Remove double commas
-    content = content.replace(/,\s*,/g, ',');
-    // Remove comma followed by newline and then comma
-    content = content.replace(/,\s*\n\s*,/g, ',');
+      // Clean up any stray commas that might have been created
+      // Remove lines that contain only a comma (with optional whitespace)
+      content = content.replace(/^\s*,\s*$/gm, '');
+      // Remove double commas
+      content = content.replace(/,\s*,/g, ',');
+      // Remove comma followed by newline and then comma
+      content = content.replace(/,\s*\n\s*,/g, ',');
 
-    // Validate the updated content before writing
-    // Check for balanced braces (basic validation)
-    const openBraces = (content.match(/\{/g) || []).length;
-    const closeBraces = (content.match(/\}/g) || []).length;
-    if (openBraces !== closeBraces) {
-      throw new Error(`File structure corrupted: unbalanced braces (${openBraces} open, ${closeBraces} close)`);
-    }
-    
-    // Check that we still have the rooferData export
-    if (!content.includes('export const rooferData')) {
-      throw new Error('File structure corrupted: missing rooferData export');
-    }
-    
-    // Check for stray commas (comma not followed by a property or closing brace)
-    const strayCommaPattern = /,\s*\n\s*[,\}]/g;
-    if (strayCommaPattern.test(content)) {
-      // Clean up any remaining stray commas before closing braces
-      content = content.replace(/,\s*\n\s*\}/g, '\n  }');
-    }
+      // Validate the updated content before writing
+      // Check for balanced braces (basic validation)
+      const openBraces = (content.match(/\{/g) || []).length;
+      const closeBraces = (content.match(/\}/g) || []).length;
+      if (openBraces !== closeBraces) {
+        throw new Error(`File structure corrupted: unbalanced braces (${openBraces} open, ${closeBraces} close)`);
+      }
+      
+      // Check that we still have the rooferData export
+      if (!content.includes('export const rooferData')) {
+        throw new Error('File structure corrupted: missing rooferData export');
+      }
+      
+      // Check for stray commas (comma not followed by a property or closing brace)
+      const strayCommaPattern = /,\s*\n\s*[,\}]/g;
+      if (strayCommaPattern.test(content)) {
+        // Clean up any remaining stray commas before closing braces
+        content = content.replace(/,\s*\n\s*\}/g, '\n  }');
+      }
 
-    // Write the updated content back
-    writeFileSync(ROOFERS_FILE_PATH, content, 'utf-8');
-
-    return NextResponse.json({ success: true, message: 'Roofers updated successfully' });
+      // Write the updated content back (local fallback only)
+      writeFileSync(ROOFERS_FILE_PATH, content, 'utf-8');
+      return NextResponse.json({ success: true, message: 'Roofers updated successfully (saved to file)' });
+    }
   } catch (error: any) {
     console.error('Error updating roofers:', error);
     return NextResponse.json(

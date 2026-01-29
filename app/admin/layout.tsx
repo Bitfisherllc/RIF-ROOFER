@@ -16,6 +16,7 @@ import {
   faBook,
   faEnvelope,
   faImage,
+  faDollarSign,
 } from '@fortawesome/free-solid-svg-icons';
 
 function getCookie(name: string): string | null {
@@ -107,6 +108,11 @@ export default function AdminLayout({
       href: '/admin/config',
       icon: faLock,
       label: 'Site Configuration',
+    },
+    {
+      href: '/investment-opportunity',
+      icon: faDollarSign,
+      label: 'Investment Opportunity',
     },
   ];
 

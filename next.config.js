@@ -3,7 +3,13 @@ const nextConfig = {
   reactStrictMode: true,
   images: {
     formats: ['image/avif', 'image/webp'],
-    domains: [],
+    domains: ['bitfisher.com'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'bitfisher.com',
+      },
+    ],
     unoptimized: true, // Disable image optimization for SVGs
   },
   // Enable static exports if needed

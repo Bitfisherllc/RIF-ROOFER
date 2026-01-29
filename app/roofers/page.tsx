@@ -11,8 +11,6 @@ import {
   faGlobe,
   faMapLocationDot,
   faArrowRight,
-  faSearch,
-  faFilter,
   faTimes,
   faMap,
   faCity,
@@ -26,6 +24,7 @@ import {
   type RooferData,
 } from './data/roofers';
 import { searchData } from '@/app/service-areas/data/search-data';
+import ServiceAreaSearch from '@/components/ServiceAreaSearch';
 import FavoriteButton from '@/components/FavoriteButton';
 import { getRooferFastCoordinates } from '@/lib/fast-coordinates';
 import type { Coordinates } from '@/lib/geocoding';
@@ -198,13 +197,13 @@ function RooferCard({ roofer, distance }: { roofer: RooferData; distance?: numbe
     });
   }
 
-  // Determine category label and styling
+  // Determine category label and styling (card-blue = Sponsored, card-green = Certified)
   const getCategoryLabel = () => {
     if (roofer.category === 'preferred' || roofer.isPreferred) {
-      return { label: 'Certified', bg: 'bg-blue-100', text: 'text-blue-800' };
+      return { label: 'Certified', bg: 'bg-card-green-100', text: 'text-card-green-800' };
     }
     if (roofer.category === 'sponsored') {
-      return { label: 'Sponsored', bg: 'bg-purple-100', text: 'text-purple-800' };
+      return { label: 'Sponsored', bg: 'bg-card-blue-100', text: 'text-card-blue-800' };
     }
     if (roofer.category === 'general') {
       return { label: 'General', bg: 'bg-gray-100', text: 'text-gray-800' };
@@ -377,9 +376,6 @@ export default function RoofersPage() {
     } catch (e) {}
   }, []);
   // #endregion
-  const [searchTerm, setSearchTerm] = useState('');
-  const [filterRegion, setFilterRegion] = useState<string>('all');
-  const [filterPreferred, setFilterPreferred] = useState<'all' | 'preferred' | 'other'>('all');
   const [userLocation, setUserLocation] = useState<Coordinates | null>(null);
   const [locationError, setLocationError] = useState<string | null>(null);
   const [locationLoading, setLocationLoading] = useState(true);
@@ -455,10 +451,10 @@ export default function RoofersPage() {
     }
   };
 
-  // Get user's location when "Roofers Near Me" is clicked
+  // Get user's location when "Roofers Near Me" is clicked (browser will ask for permission)
   const handleNearMeClick = () => {
     if (typeof window === 'undefined' || !navigator.geolocation) {
-      setLocationError('Geolocation is not supported by your browser');
+      setLocationError('Geolocation is not supported by your browser.');
       return;
     }
 
@@ -467,7 +463,7 @@ export default function RoofersPage() {
 
     const options: PositionOptions = {
       enableHighAccuracy: true,
-      timeout: 10000,
+      timeout: 15000, // 15 seconds to allow user to respond to permission prompt
       maximumAge: 300000, // Cache location for 5 minutes
     };
 
@@ -477,22 +473,27 @@ export default function RoofersPage() {
           lat: position.coords.latitude,
           lng: position.coords.longitude,
         };
-        // Set coordinates immediately and show roofers
         setUserLocation(coords);
         setLocationError(null);
         setLocationLoading(false);
         setShowNearMe(true);
-        // Show coordinates as fallback immediately
         setUserLocationAddress(`${coords.lat.toFixed(4)}, ${coords.lng.toFixed(4)}`);
-        // Reverse geocode in the background (non-blocking)
         reverseGeocode(coords).catch((error) => {
           console.error('Reverse geocoding error:', error);
-          // Keep the coordinates display if geocoding fails
         });
       },
-      (error) => {
+      (error: GeolocationPositionError) => {
         console.error('Geolocation error:', error);
-        setLocationError(error.message);
+        // User-friendly messages; browser already asked for permission
+        const message =
+          error.code === 1
+            ? 'Location access was denied. Please allow location for this site in your browser settings and try again.'
+            : error.code === 2
+              ? 'Location is unavailable. Please try again.'
+              : error.code === 3
+                ? 'Location request timed out. Please try again.'
+                : error.message || 'Unable to get your location. Please try again.';
+        setLocationError(message);
         setLocationLoading(false);
         setShowNearMe(false);
       },
@@ -515,33 +516,6 @@ export default function RoofersPage() {
   // Filter roofers
   const filteredRoofers = useMemo(() => {
     let filtered = allRoofers;
-
-    // Apply search
-    if (searchTerm) {
-      const term = searchTerm.toLowerCase();
-      filtered = filtered.filter(
-        (roofer) =>
-          roofer.name.toLowerCase().includes(term) ||
-          roofer.city?.toLowerCase().includes(term) ||
-          roofer.phone?.includes(term) ||
-          roofer.email?.toLowerCase().includes(term) ||
-          roofer.licenseNumber?.toLowerCase().includes(term)
-      );
-    }
-
-    // Apply preferred filter
-    if (filterPreferred === 'preferred') {
-      filtered = filtered.filter((r) => r.isPreferred);
-    } else if (filterPreferred === 'other') {
-      filtered = filtered.filter((r) => !r.isPreferred);
-    }
-
-    // Apply region filter
-    if (filterRegion !== 'all') {
-      filtered = filtered.filter((roofer) =>
-        roofer.serviceAreas?.regions?.includes(filterRegion)
-      );
-    }
 
     // Calculate distances and add to roofers if "near me" mode is active and user location is available
     if (showNearMe && userLocation) {
@@ -605,7 +579,7 @@ export default function RoofersPage() {
     }
 
     return filtered;
-  }, [allRoofers, searchTerm, filterRegion, filterPreferred, userLocation, showNearMe]);
+  }, [allRoofers, userLocation, showNearMe]);
 
   // Limit displayed roofers: show all preferred, all sponsored, then limit general
   // (Skip limiting if "near me" mode is active, as it already has its own limits)
@@ -663,7 +637,7 @@ export default function RoofersPage() {
   // Reset general display limit when filters change
   useEffect(() => {
     setGeneralDisplayLimit(3);
-  }, [searchTerm, filterRegion, filterPreferred, showNearMe]);
+  }, [showNearMe]);
 
   // #region agent log
   // Monitor click events to see if they're being blocked
@@ -756,6 +730,9 @@ export default function RoofersPage() {
             />
             {locationLoading ? 'Getting Location...' : 'Roofers Near Me'}
           </button>
+          <p className="mt-3 text-sm text-gray-500">
+            Your browser will ask for location permission to show roofers near you.
+          </p>
         </div>
       </section>
 
@@ -800,68 +777,21 @@ export default function RoofersPage() {
       {/* Search and Filters */}
       <section className="py-6 px-6 bg-gray-50 border-b border-gray-200 sticky top-14 z-40">
         <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col md:flex-row gap-4 items-center">
-            {/* Search */}
-            <div className="flex-1 relative">
-              <FontAwesomeIcon
-                icon={faSearch}
-                className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5"
-              />
-              <input
-                type="text"
-                placeholder="Search by name, city, phone, or license..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-10 pr-10 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rif-blue-500 focus:border-transparent"
-              />
-              {searchTerm && (
-                <button
-                  onClick={() => setSearchTerm('')}
-                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
-                >
-                  <FontAwesomeIcon icon={faTimes} className="h-4 w-4" />
-                </button>
-              )}
-            </div>
-
-            {/* Preferred Filter */}
-            <div className="flex items-center gap-2">
-              <FontAwesomeIcon icon={faFilter} className="text-gray-400" />
-              <select
-                value={filterPreferred}
-                onChange={(e) => setFilterPreferred(e.target.value as any)}
-                className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rif-blue-500 focus:border-transparent"
-              >
-                <option value="all">All Roofers</option>
-                <option value="preferred">Preferred Only</option>
-                <option value="other">Other Roofers</option>
-              </select>
-            </div>
-
-            {/* Region Filter */}
-            <div className="flex items-center gap-2">
-              <FontAwesomeIcon icon={faMapLocationDot} className="text-gray-400" />
-              <select
-                value={filterRegion}
-                onChange={(e) => {
-                  setFilterRegion(e.target.value);
-                  setShowNearMe(false);
-                }}
-                className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rif-blue-500 focus:border-transparent min-w-[180px]"
-              >
-                <option value="all">All Regions</option>
-                {availableRegions.map((regionSlug) => (
-                  <option key={regionSlug} value={regionSlug}>
-                    {getRegionName(regionSlug)}
-                  </option>
-                ))}
-              </select>
+          <div className="flex flex-col md:flex-row gap-4 items-end">
+            {/* Search — same as header: city, county, region; navigates to service area */}
+            <div className="flex-1 w-full max-w-4xl">
+              <div className="pl-12 mb-[-2px] z-10 relative">
+                <span className="inline-block px-4 py-1.5 bg-green-500 text-white text-sm font-bold uppercase rounded-t-2xl">
+                  FIND A ROOFER NEAR ME
+                </span>
+              </div>
+              <ServiceAreaSearch variant="hero" />
             </div>
 
             {/* Map View Button */}
             <Link
               href="/roofers/map"
-              className="ml-auto px-4 py-2 bg-rif-blue-500 text-white rounded-lg hover:bg-rif-blue-600 transition-colors font-medium flex items-center gap-2 whitespace-nowrap"
+              className="px-4 py-2 bg-rif-blue-500 text-white rounded-lg hover:bg-rif-blue-600 transition-colors font-medium flex items-center gap-2 whitespace-nowrap"
             >
               <FontAwesomeIcon icon={faMapLocationDot} />
               View Map
@@ -869,62 +799,24 @@ export default function RoofersPage() {
           </div>
 
           {/* Active Filters Display */}
-          {(searchTerm || (filterRegion !== 'all') || filterPreferred !== 'all' || showNearMe) && (
+          {showNearMe && (
             <div className="mt-4 flex flex-wrap items-center gap-2">
               <span className="text-sm text-gray-600">Active filters:</span>
-              {showNearMe && (
-                <span className="inline-flex items-center gap-1 px-3 py-1 bg-rif-blue-100 text-rif-blue-700 rounded-full text-sm">
-                  <FontAwesomeIcon icon={faMapLocationDot} />
-                  Roofers Near Me
-                  <button
-                    onClick={() => {
-                      setShowNearMe(false);
-                      setUserLocationAddress(null);
-                    }}
-                    className="hover:text-rif-blue-900"
-                  >
-                    <FontAwesomeIcon icon={faTimes} className="h-3 w-3" />
-                  </button>
-                </span>
-              )}
-              {searchTerm && (
-                <span className="inline-flex items-center gap-1 px-3 py-1 bg-rif-blue-100 text-rif-blue-700 rounded-full text-sm">
-                  Search: "{searchTerm}"
-                  <button
-                    onClick={() => setSearchTerm('')}
-                    className="hover:text-rif-blue-900"
-                  >
-                    <FontAwesomeIcon icon={faTimes} className="h-3 w-3" />
-                  </button>
-                </span>
-              )}
-              {filterPreferred !== 'all' && (
-                <span className="inline-flex items-center gap-1 px-3 py-1 bg-rif-blue-100 text-rif-blue-700 rounded-full text-sm">
-                  {filterPreferred === 'preferred' ? 'Preferred Only' : 'Other Roofers'}
-                  <button
-                    onClick={() => setFilterPreferred('all')}
-                    className="hover:text-rif-blue-900"
-                  >
-                    <FontAwesomeIcon icon={faTimes} className="h-3 w-3" />
-                  </button>
-                </span>
-              )}
-              {filterRegion !== 'all' && (
-                <span className="inline-flex items-center gap-1 px-3 py-1 bg-rif-blue-100 text-rif-blue-700 rounded-full text-sm">
-                  Region: {getRegionName(filterRegion)}
-                  <button
-                    onClick={() => setFilterRegion('all')}
-                    className="hover:text-rif-blue-900"
-                  >
-                    <FontAwesomeIcon icon={faTimes} className="h-3 w-3" />
-                  </button>
-                </span>
-              )}
+              <span className="inline-flex items-center gap-1 px-3 py-1 bg-rif-blue-100 text-rif-blue-700 rounded-full text-sm">
+                <FontAwesomeIcon icon={faMapLocationDot} />
+                Roofers Near Me
+                <button
+                  onClick={() => {
+                    setShowNearMe(false);
+                    setUserLocationAddress(null);
+                  }}
+                  className="hover:text-rif-blue-900"
+                >
+                  <FontAwesomeIcon icon={faTimes} className="h-3 w-3" />
+                </button>
+              </span>
               <button
                 onClick={() => {
-                  setSearchTerm('');
-                  setFilterRegion('all');
-                  setFilterPreferred('all');
                   setShowNearMe(false);
                   setUserLocationAddress(null);
                 }}
@@ -945,9 +837,18 @@ export default function RoofersPage() {
                 </div>
               )}
               {locationError && (
-                <div className="flex items-center gap-2 text-sm text-amber-600 bg-amber-50 px-3 py-2 rounded-lg">
-                  <FontAwesomeIcon icon={faMapLocationDot} className="h-4 w-4" />
-                  <span>Unable to get your location. Please try again.</span>
+                <div className="flex flex-col gap-2 text-sm text-amber-700 bg-amber-50 px-4 py-3 rounded-lg border border-amber-200">
+                  <div className="flex items-start gap-2">
+                    <FontAwesomeIcon icon={faMapLocationDot} className="h-4 w-4 mt-0.5 flex-shrink-0" />
+                    <span>{locationError}</span>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={handleNearMeClick}
+                    className="self-start px-3 py-1.5 bg-amber-100 hover:bg-amber-200 text-amber-800 font-medium rounded-lg transition-colors"
+                  >
+                    Try again
+                  </button>
                 </div>
               )}
               {userLocation && !locationError && !locationLoading && (
@@ -998,13 +899,10 @@ export default function RoofersPage() {
                 No roofers match your criteria
               </h3>
               <p className="text-gray-600 mb-4">
-                Try adjusting your search or filters to find roofers.
+                Try adjusting your filters to find roofers.
               </p>
               <button
                 onClick={() => {
-                  setSearchTerm('');
-                  setFilterRegion('all');
-                  setFilterPreferred('all');
                   setShowNearMe(false);
                   setUserLocationAddress(null);
                 }}
