@@ -280,7 +280,7 @@ export default function InvestmentOpportunityPage() {
               Call 813-777-8272
             </a>
             <a
-              href="mailto:info@rifroofing.com"
+              href="mailto:info@roofersinflorida.com"
               className="inline-flex items-center justify-center gap-2 px-6 py-3 border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-rif-blue-500 transition-colors"
             >
               <FontAwesomeIcon icon={faEnvelope} className="h-5 w-5" />

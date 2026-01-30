@@ -163,6 +163,9 @@ export default function MyPlanPage() {
               <p className="text-lg text-gray-600 font-light">
                 Manage your roofing project, saved roofers, and preferences
               </p>
+              <p className="mt-4 text-sm text-gray-500">
+                Your information is used only to provide your plan and services. We do not sell or share your data with third parties.
+              </p>
             </div>
           </div>
         </div>
@@ -704,10 +707,13 @@ export default function MyPlanPage() {
                   <p className="text-gray-600 mb-4">
                     Your data is stored locally in your browser. To clear your saved roofers, remove them individually from the Saved Roofers tab.
                   </p>
-                  <div className="flex items-center gap-2 text-sm text-gray-600">
+                  <div className="flex items-center gap-2 text-sm text-gray-600 mb-2">
                     <FontAwesomeIcon icon={faShield} className="h-4 w-4 text-green-500" />
                     <span>Your data is stored locally and never shared</span>
                   </div>
+                  <p className="text-sm text-gray-500">
+                    We do not sell or share your information with third parties.
+                  </p>
                 </div>
               </div>
             </div>

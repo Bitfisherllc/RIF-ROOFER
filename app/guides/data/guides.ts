@@ -144,7 +144,7 @@ export const guideData: Record<string, GuideData> = {
 <li><strong>Code Requirements:</strong> Meeting higher wind ratings may increase costs</li>
 <li><strong>Permits and Inspections:</strong> Factor in permit fees and inspection costs</li>
 </ul>
-<p>RIF provides installer-direct, distributor-level pricing on materials through our relationship with Premium Roofing Products (PRP Roofing), helping Tampa homeowners get wholesale pricing without middleman markup.</p>`,
+<p>RIF provides installer-direct, distributor-level pricing on materials through our relationship with <a href="https://prproofing.com/" target="_blank" rel="noopener noreferrer">Premium Roofing Products (PRP Roofing)</a>, helping Tampa homeowners get wholesale pricing without middleman markup.</p>`,
       },
     ],
     faq: [
@@ -329,7 +329,7 @@ export const guideData: Record<string, GuideData> = {
 <li>Inspections and approvals</li>
 <li>Final insurance settlement</li>
 </ul>
-<p><strong>Note:</strong> After major hurricanes affecting large areas, timelines may be longer due to high demand for materials and contractors. RIF's relationship with Premium Roofing Products (PRP Roofing) provides priority access to materials and distributor-level pricing, helping projects start sooner.</p>`,
+<p><strong>Note:</strong> After major hurricanes affecting large areas, timelines may be longer due to high demand for materials and contractors. RIF's relationship with <a href="https://prproofing.com/" target="_blank" rel="noopener noreferrer">Premium Roofing Products (PRP Roofing)</a> provides priority access to materials and distributor-level pricing, helping projects start sooner.</p>`,
       },
       {
         heading: 'Preventing Future Hurricane Damage',
@@ -446,7 +446,7 @@ export const guideData: Record<string, GuideData> = {
 <li><strong>Property Value:</strong> Premium roofing can increase home value</li>
 </ul>
 <h3>Distributor-Level Pricing</h3>
-<p>RIF provides installer-direct, distributor-level pricing on stone-coated metal roofing materials through our relationship with Premium Roofing Products (PRP Roofing). This means you get wholesale pricing without middleman markup, making premium roofing more affordable.</p>`,
+<p>RIF provides installer-direct, distributor-level pricing on stone-coated metal roofing materials through our relationship with <a href="https://prproofing.com/" target="_blank" rel="noopener noreferrer">Premium Roofing Products (PRP Roofing)</a>. This means you get wholesale pricing without middleman markup, making premium roofing more affordable.</p>`,
       },
       {
         heading: 'Installation Requirements',
@@ -1007,7 +1007,7 @@ export const guideData: Record<string, GuideData> = {
 <li><strong>Permit and Inspection Fees:</strong> Miami-Dade County fees may be higher than other areas</li>
 <li><strong>Market Conditions:</strong> High demand in Miami can affect pricing</li>
 </ul>
-<p>However, investing in proper roofing that meets Miami-Dade County requirements protects your property and may reduce insurance costs. RIF provides installer-direct, distributor-level pricing on materials through Premium Roofing Products (PRP Roofing), helping Miami homeowners get wholesale pricing on premium materials.</p>`,
+<p>However, investing in proper roofing that meets Miami-Dade County requirements protects your property and may reduce insurance costs. RIF provides installer-direct, distributor-level pricing on materials through <a href="https://prproofing.com/" target="_blank" rel="noopener noreferrer">Premium Roofing Products (PRP Roofing)</a>, helping Miami homeowners get wholesale pricing on premium materials.</p>`,
       },
       {
         heading: 'Insurance Considerations in Miami',
@@ -1870,7 +1870,7 @@ export const guideData: Record<string, GuideData> = {
 <li><strong>Code Requirements:</strong> Meeting wind rating requirements may increase costs</li>
 <li><strong>Permits and Inspections:</strong> Factor in permit fees and inspection costs</li>
 </ul>
-<p>RIF provides installer-direct, distributor-level pricing on materials through our relationship with Premium Roofing Products (PRP Roofing), helping Orlando homeowners get wholesale pricing without middleman markup.</p>`,
+<p>RIF provides installer-direct, distributor-level pricing on materials through our relationship with <a href="https://prproofing.com/" target="_blank" rel="noopener noreferrer">Premium Roofing Products (PRP Roofing)</a>, helping Orlando homeowners get wholesale pricing without middleman markup.</p>`,
       },
     ],
     faq: [

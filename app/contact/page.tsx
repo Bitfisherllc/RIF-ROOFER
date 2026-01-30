@@ -1,27 +1,204 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faEnvelope,
   faPhone,
-  faMapMarkerAlt,
   faSpinner,
   faCheckCircle,
   faExclamationCircle,
   faUser,
   faHome,
   faMessage,
+  faCalculator,
+  faHandshake,
+  faList,
+  faBullhorn,
+  faArrowRight,
 } from '@fortawesome/free-solid-svg-icons';
 import { Turnstile } from '@marsidev/react-turnstile';
+import FreeEstimateForm from '@/components/FreeEstimateForm';
+import GeneralListingsApplyForm from '@/components/GeneralListingsApplyForm';
+import PreferredContractorApplyForm from '@/components/PreferredContractorApplyForm';
+import SponsorshipSubscriptionApplyForm from '@/components/SponsorshipSubscriptionApplyForm';
+
+function SimpleCommentForm({
+  formData,
+  handleChange,
+  handleSubmit,
+  turnstileToken,
+  setTurnstileToken,
+  isSubmitting,
+  onBack,
+}: {
+  formData: { fullName: string; email: string; phone: string; message: string; website: string };
+  handleChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => void;
+  handleSubmit: (e: React.FormEvent) => void;
+  turnstileToken: string | null;
+  setTurnstileToken: (t: string | null) => void;
+  isSubmitting: boolean;
+  onBack: () => void;
+}) {
+  return (
+    <form onSubmit={handleSubmit} className="space-y-6">
+      <button type="button" onClick={onBack} className="inline-flex items-center gap-2 px-4 py-2.5 border-2 border-gray-300 rounded-lg text-gray-700 bg-white hover:bg-gray-50 hover:border-gray-400 font-medium mb-4 transition-colors">
+        ← Back
+      </button>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div>
+          <label htmlFor="fullName" className="block text-sm font-medium text-gray-700 mb-2">Full Name <span className="text-red-500">*</span></label>
+          <div className="relative">
+            <FontAwesomeIcon icon={faUser} className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
+            <input type="text" id="fullName" name="fullName" required value={formData.fullName} onChange={handleChange} className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rif-blue-500" placeholder="John Doe" />
+          </div>
+        </div>
+        <div>
+          <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">Email <span className="text-red-500">*</span></label>
+          <div className="relative">
+            <FontAwesomeIcon icon={faEnvelope} className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
+            <input type="email" id="email" name="email" required value={formData.email} onChange={handleChange} className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rif-blue-500" placeholder="you@example.com" />
+          </div>
+        </div>
+        <div>
+          <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">Phone <span className="text-red-500">*</span></label>
+          <div className="relative">
+            <FontAwesomeIcon icon={faPhone} className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
+            <input type="tel" id="phone" name="phone" required value={formData.phone} onChange={handleChange} className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rif-blue-500" placeholder="(555) 123-4567" />
+          </div>
+        </div>
+      </div>
+      <div>
+        <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">Your question or comment <span className="text-red-500">*</span></label>
+        <div className="relative">
+          <FontAwesomeIcon icon={faMessage} className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
+          <textarea id="message" name="message" required rows={5} value={formData.message} onChange={handleChange} className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rif-blue-500 resize-none" placeholder="How can we help?" />
+        </div>
+      </div>
+      <div className="hidden">
+        <input type="text" name="website" value={formData.website} onChange={handleChange} tabIndex={-1} autoComplete="off" />
+      </div>
+      <div className="flex justify-center"><Turnstile siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || '1x00000000000000000000AA'} onSuccess={(t) => setTurnstileToken(t)} onError={() => setTurnstileToken(null)} onExpire={() => setTurnstileToken(null)} /></div>
+      <div className="flex gap-3">
+        <button type="button" onClick={onBack} className="px-6 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50">Back</button>
+        <button type="submit" disabled={isSubmitting || !turnstileToken} className="px-8 py-4 bg-rif-blue-500 text-white rounded-lg hover:bg-rif-blue-600 disabled:opacity-50 flex items-center gap-2">
+          {isSubmitting ? <><FontAwesomeIcon icon={faSpinner} spin className="h-5 w-5" /> Sending...</> : 'Send Message'}
+        </button>
+      </div>
+    </form>
+  );
+}
+
+function RooferGeneralForm({
+  formData,
+  handleChange,
+  handleSubmit,
+  turnstileToken,
+  setTurnstileToken,
+  isSubmitting,
+  onBack,
+}: {
+  formData: { fullName: string; email: string; phone: string; companyName: string; hearAboutUs: string; preferredContact: string; bestTimeToContact: string; message: string; website: string };
+  handleChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => void;
+  handleSubmit: (e: React.FormEvent) => void;
+  turnstileToken: string | null;
+  setTurnstileToken: (t: string | null) => void;
+  isSubmitting: boolean;
+  onBack: () => void;
+}) {
+  return (
+    <form onSubmit={handleSubmit} className="space-y-6">
+      <button type="button" onClick={onBack} className="inline-flex items-center gap-2 px-4 py-2.5 border-2 border-gray-300 rounded-lg text-gray-700 bg-white hover:bg-gray-50 hover:border-gray-400 font-medium mb-4 transition-colors">
+        ← Back
+      </button>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div>
+          <label htmlFor="fullName" className="block text-sm font-medium text-gray-700 mb-2">Full Name <span className="text-red-500">*</span></label>
+          <div className="relative">
+            <FontAwesomeIcon icon={faUser} className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
+            <input type="text" id="fullName" name="fullName" required value={formData.fullName} onChange={handleChange} className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rif-blue-500" placeholder="John Doe" />
+          </div>
+        </div>
+        <div>
+          <label htmlFor="companyName" className="block text-sm font-medium text-gray-700 mb-2">Company Name (optional)</label>
+          <input type="text" id="companyName" name="companyName" value={formData.companyName} onChange={handleChange} className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rif-blue-500" placeholder="Your Company" />
+        </div>
+        <div>
+          <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">Email <span className="text-red-500">*</span></label>
+          <div className="relative">
+            <FontAwesomeIcon icon={faEnvelope} className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
+            <input type="email" id="email" name="email" required value={formData.email} onChange={handleChange} className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rif-blue-500" placeholder="you@example.com" />
+          </div>
+        </div>
+        <div>
+          <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">Phone <span className="text-red-500">*</span></label>
+          <div className="relative">
+            <FontAwesomeIcon icon={faPhone} className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
+            <input type="tel" id="phone" name="phone" required value={formData.phone} onChange={handleChange} className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rif-blue-500" placeholder="(555) 123-4567" />
+          </div>
+        </div>
+        <div>
+          <label htmlFor="hearAboutUs" className="block text-sm font-medium text-gray-700 mb-2">How did you hear about us?</label>
+          <select id="hearAboutUs" name="hearAboutUs" value={formData.hearAboutUs} onChange={handleChange} className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rif-blue-500">
+            <option value="">Select an option</option>
+            <option value="search">Search Engine</option>
+            <option value="referral">Referral</option>
+            <option value="social">Social Media</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div>
+          <label htmlFor="preferredContact" className="block text-sm font-medium text-gray-700 mb-2">Preferred Contact</label>
+          <select id="preferredContact" name="preferredContact" value={formData.preferredContact} onChange={handleChange} className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rif-blue-500">
+            <option value="phone">Phone</option>
+            <option value="email">Email</option>
+            <option value="either">Either</option>
+          </select>
+        </div>
+        <div>
+          <label htmlFor="bestTimeToContact" className="block text-sm font-medium text-gray-700 mb-2">Best Time to Contact</label>
+          <select id="bestTimeToContact" name="bestTimeToContact" value={formData.bestTimeToContact} onChange={handleChange} className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rif-blue-500">
+            <option value="">Select time</option>
+            <option value="morning">Morning</option>
+            <option value="afternoon">Afternoon</option>
+            <option value="evening">Evening</option>
+            <option value="anytime">Anytime</option>
+          </select>
+        </div>
+      </div>
+      <div>
+        <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">Your question <span className="text-red-500">*</span></label>
+        <div className="relative">
+          <FontAwesomeIcon icon={faMessage} className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
+          <textarea id="message" name="message" required rows={5} value={formData.message} onChange={handleChange} className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rif-blue-500 resize-none" placeholder="Tell us about your business or ask a question..." />
+        </div>
+      </div>
+      <div className="hidden">
+        <input type="text" name="website" value={formData.website} onChange={handleChange} tabIndex={-1} autoComplete="off" />
+      </div>
+      <div className="flex justify-center"><Turnstile siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || '1x00000000000000000000AA'} onSuccess={(t) => setTurnstileToken(t)} onError={() => setTurnstileToken(null)} onExpire={() => setTurnstileToken(null)} /></div>
+      <div className="flex gap-3">
+        <button type="button" onClick={onBack} className="px-6 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50">Back</button>
+        <button type="submit" disabled={isSubmitting || !turnstileToken} className="px-8 py-4 bg-rif-blue-500 text-white rounded-lg hover:bg-rif-blue-600 disabled:opacity-50 flex items-center gap-2">
+          {isSubmitting ? <><FontAwesomeIcon icon={faSpinner} spin className="h-5 w-5" /> Sending...</> : 'Send Message'}
+        </button>
+      </div>
+    </form>
+  );
+}
 
 export default function ContactPage() {
+  const [userType, setUserType] = useState<'resident' | 'roofer' | 'manufacturer' | ''>('');
+  const [residentIntent, setResidentIntent] = useState<'quote' | 'general' | ''>('');
+  const [rooferIntent, setRooferIntent] = useState<'network' | 'general' | ''>('');
+  const [rooferNetworkChoice, setRooferNetworkChoice] = useState<'preferred' | 'sponsored' | 'general' | ''>('');
+
   const [formData, setFormData] = useState({
-    userType: '', // 'roofer', 'resident', 'manufacturer'
     fullName: '',
     email: '',
     phone: '',
-    companyName: '', // For roofers and manufacturers
+    companyName: '',
     propertyAddress: '',
     city: '',
     zipCode: '',
@@ -31,12 +208,13 @@ export default function ContactPage() {
     bestTimeToContact: '',
     message: '',
     hearAboutUs: '',
-    // Roofer-specific fields
     interestedInFreeEstimate: false,
     interestedInPartnership: false,
-    // Manufacturer-specific fields
     productName: '',
     productDescription: '',
+    manufacturerPreferredSupplier: '' as '' | 'yes' | 'no',
+    manufacturerSponsoredListing: '' as '' | 'yes' | 'no',
+    manufacturerWebsite: '',
     website: '', // Honeypot field
   });
   const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
@@ -48,10 +226,13 @@ export default function ContactPage() {
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
+    setFormData((prev) => {
+      const next = { ...prev, [name]: value };
+      if (name === 'manufacturerPreferredSupplier' && value === 'yes') {
+        next.manufacturerSponsoredListing = '';
+      }
+      return next;
+    });
     setSubmitStatus('idle');
     setErrorMessage('');
   };
@@ -65,11 +246,13 @@ export default function ContactPage() {
     try {
       const response = await fetch('/api/contact', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
+          userType,
+          residentIntent: userType === 'resident' ? residentIntent : undefined,
+          rooferIntent: userType === 'roofer' ? rooferIntent : undefined,
           ...formData,
+          manufacturerWebsite: userType === 'manufacturer' ? formData.manufacturerWebsite : undefined,
           turnstileToken,
         }),
       });
@@ -81,9 +264,7 @@ export default function ContactPage() {
       }
 
       setSubmitStatus('success');
-      // Reset form
       setFormData({
-        userType: '',
         fullName: '',
         email: '',
         phone: '',
@@ -101,6 +282,9 @@ export default function ContactPage() {
         interestedInPartnership: false,
         productName: '',
         productDescription: '',
+        manufacturerPreferredSupplier: '',
+        manufacturerSponsoredListing: '',
+        manufacturerWebsite: '',
         website: '',
       });
       setTurnstileToken(null);
@@ -112,6 +296,41 @@ export default function ContactPage() {
     }
   };
 
+  const showStep1 = !userType;
+  const showResidentStep2 = userType === 'resident' && !residentIntent;
+  const showRooferStep2 = userType === 'roofer' && !rooferIntent;
+  const showResidentQuote = userType === 'resident' && residentIntent === 'quote';
+  const showResidentGeneralForm = userType === 'resident' && residentIntent === 'general';
+  const showRooferNetwork = userType === 'roofer' && rooferIntent === 'network';
+  const showRooferGeneralForm = userType === 'roofer' && rooferIntent === 'general';
+  const showManufacturerForm = userType === 'manufacturer';
+
+  // Dynamic heading so users can keep track of where they are
+  const formHeading =
+    showStep1
+      ? 'Send Us a Message'
+      : showResidentStep2
+        ? 'Resident: Quote or general question?'
+        : showResidentQuote
+          ? 'Resident: Request a free quote'
+          : showResidentGeneralForm
+            ? 'Resident: General question'
+            : showRooferStep2
+              ? 'Roofer: Network or general question?'
+              : showRooferNetwork && !rooferNetworkChoice
+                ? 'Roofer: Choose application type'
+                : showRooferNetwork && rooferNetworkChoice === 'preferred'
+                  ? 'Roofer: Preferred Contractor application'
+                  : showRooferNetwork && rooferNetworkChoice === 'sponsored'
+                    ? 'Roofer: Sponsored Listing application'
+                    : showRooferNetwork && rooferNetworkChoice === 'general'
+                      ? 'Roofer: General Listing application'
+                      : showRooferGeneralForm
+                        ? 'Roofer: General question'
+                        : showManufacturerForm
+                          ? 'Manufacturer: Partnership inquiry'
+                          : 'Send Us a Message';
+
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
@@ -121,67 +340,24 @@ export default function ContactPage() {
             Contact Us
           </h1>
           <p className="text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
-            Get in touch with RIF Roofing. Whether you need a free estimate, have questions about our services, or want to learn more about stone-coated metal roofing, we're here to help.
+            This page routes you to the right form based on who you are. Residents can request a free stone-coated metal roof quote or send a general question. Roofers can apply to join the RiF network as a Preferred Contractor, Sponsored Listing, or General Listing—or ask a general question. Manufacturers can submit a product and partnership inquiry. Choose an option below to get started.
           </p>
         </div>
       </section>
 
-      {/* Contact Information */}
-      <section className="py-12 px-6 bg-white">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-            <div className="text-center p-6 bg-gray-50 rounded-xl">
-              <div className="w-16 h-16 bg-rif-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                <FontAwesomeIcon icon={faPhone} className="h-8 w-8 text-white" />
-              </div>
-              <h3 className="text-xl font-semibold text-rif-black mb-2">Phone</h3>
-              <a href="tel:813-777-8272" className="text-rif-blue-500 hover:text-rif-blue-600 transition-colors">
-                813-777-8272
-              </a>
-              <p className="text-sm text-gray-600 mt-2">Cell</p>
-              <a href="tel:813-803-4599" className="text-rif-blue-500 hover:text-rif-blue-600 transition-colors block mt-2">
-                813-803-4599
-              </a>
-              <p className="text-sm text-gray-600">Office</p>
-            </div>
-
-            <div className="text-center p-6 bg-gray-50 rounded-xl">
-              <div className="w-16 h-16 bg-rif-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                <FontAwesomeIcon icon={faEnvelope} className="h-8 w-8 text-white" />
-              </div>
-              <h3 className="text-xl font-semibold text-rif-black mb-2">Email</h3>
-              <a href="mailto:info@rifroofing.com" className="text-rif-blue-500 hover:text-rif-blue-600 transition-colors">
-                info@rifroofing.com
-              </a>
-            </div>
-
-            <div className="text-center p-6 bg-gray-50 rounded-xl">
-              <div className="w-16 h-16 bg-rif-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                <FontAwesomeIcon icon={faMapMarkerAlt} className="h-8 w-8 text-white" />
-              </div>
-              <h3 className="text-xl font-semibold text-rif-black mb-2">Warehouse</h3>
-              <p className="text-gray-700">
-                8037 Treiman Blvd<br />
-                Webster, FL 33597
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Contact Form */}
+      {/* Contact Form - Step by step */}
       <section className="py-12 px-6 bg-gray-50">
         <div className="max-w-4xl mx-auto">
           <div className="bg-white rounded-2xl shadow-lg p-8 md:p-12">
             <h2 className="text-3xl md:text-4xl font-semibold text-rif-black mb-6 text-center">
-              Send Us a Message
+              {formHeading}
             </h2>
 
             {submitStatus === 'success' && (
               <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg flex items-center gap-3">
                 <FontAwesomeIcon icon={faCheckCircle} className="h-5 w-5 text-green-600" />
                 <p className="text-green-800">
-                  Thank you for contacting us! We've received your message and will get back to you soon.
+                  Thank you for contacting us! We&apos;ve received your message and will get back to you soon.
                 </p>
               </div>
             )}
@@ -193,481 +369,287 @@ export default function ContactPage() {
               </div>
             )}
 
-            <form onSubmit={handleSubmit} className="space-y-6">
-              {/* User Type Selection */}
-              <div className="border-b border-gray-200 pb-6">
-                <label htmlFor="userType" className="block text-sm font-medium text-gray-700 mb-4">
-                  I am a... <span className="text-red-500">*</span>
-                </label>
+            {/* Step 1: I am a... */}
+            {showStep1 && (
+              <div className="space-y-6">
+                <p className="text-gray-600 text-center">Select who you are so we can direct you to the right form.</p>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                  <label className={`relative flex items-center p-4 border-2 rounded-lg cursor-pointer transition-all ${
-                    formData.userType === 'resident' 
-                      ? 'border-rif-blue-500 bg-rif-blue-50' 
-                      : 'border-gray-300 hover:border-gray-400'
-                  }`}>
-                    <input
-                      type="radio"
-                      name="userType"
-                      value="resident"
-                      checked={formData.userType === 'resident'}
-                      onChange={handleChange}
-                      className="sr-only"
-                      required
-                    />
-                    <div className="flex-1 text-center">
-                      <div className="text-lg font-semibold text-rif-black mb-1">Resident</div>
-                      <div className="text-sm text-gray-600">Homeowner or property owner</div>
-                    </div>
-                  </label>
-
-                  <label className={`relative flex items-center p-4 border-2 rounded-lg cursor-pointer transition-all ${
-                    formData.userType === 'roofer' 
-                      ? 'border-rif-blue-500 bg-rif-blue-50' 
-                      : 'border-gray-300 hover:border-gray-400'
-                  }`}>
-                    <input
-                      type="radio"
-                      name="userType"
-                      value="roofer"
-                      checked={formData.userType === 'roofer'}
-                      onChange={handleChange}
-                      className="sr-only"
-                      required
-                    />
-                    <div className="flex-1 text-center">
-                      <div className="text-lg font-semibold text-rif-black mb-1">Roofer</div>
-                      <div className="text-sm text-gray-600">Roofing contractor or business</div>
-                    </div>
-                  </label>
-
-                  <label className={`relative flex items-center p-4 border-2 rounded-lg cursor-pointer transition-all ${
-                    formData.userType === 'manufacturer' 
-                      ? 'border-rif-blue-500 bg-rif-blue-50' 
-                      : 'border-gray-300 hover:border-gray-400'
-                  }`}>
-                    <input
-                      type="radio"
-                      name="userType"
-                      value="manufacturer"
-                      checked={formData.userType === 'manufacturer'}
-                      onChange={handleChange}
-                      className="sr-only"
-                      required
-                    />
-                    <div className="flex-1 text-center">
-                      <div className="text-lg font-semibold text-rif-black mb-1">Manufacturer</div>
-                      <div className="text-sm text-gray-600">Product manufacturer or supplier</div>
-                    </div>
-                  </label>
+                  {(['resident', 'roofer', 'manufacturer'] as const).map((type) => (
+                    <button
+                      key={type}
+                      type="button"
+                      onClick={() => { setUserType(type); setResidentIntent(''); setRooferIntent(''); setRooferNetworkChoice(''); }}
+                      className="p-6 border-2 rounded-xl text-center transition-all border-gray-300 hover:border-rif-blue-200 hover:bg-gray-50"
+                    >
+                      <div className="text-lg font-semibold text-rif-black capitalize">
+                        {type === 'resident' ? 'Resident' : type === 'roofer' ? 'Roofer' : 'Manufacturer'}
+                      </div>
+                      <div className="text-sm text-gray-600 mt-1">
+                        {type === 'resident' && 'Homeowner or property owner'}
+                        {type === 'roofer' && 'Roofing contractor or business'}
+                        {type === 'manufacturer' && 'Product manufacturer or supplier'}
+                      </div>
+                    </button>
+                  ))}
                 </div>
               </div>
+            )}
 
-              {/* Personal Information */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <label htmlFor="fullName" className="block text-sm font-medium text-gray-700 mb-2">
-                    Full Name <span className="text-red-500">*</span>
-                  </label>
-                  <div className="relative">
-                    <FontAwesomeIcon
-                      icon={faUser}
-                      className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400"
-                    />
-                    <input
-                      type="text"
-                      id="fullName"
-                      name="fullName"
-                      required
-                      value={formData.fullName}
-                      onChange={handleChange}
-                      className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rif-blue-500 focus:border-rif-blue-500 transition-all"
-                      placeholder="John Doe"
-                    />
-                  </div>
-                </div>
-
-                {(formData.userType === 'roofer' || formData.userType === 'manufacturer') && (
-                  <div>
-                    <label htmlFor="companyName" className="block text-sm font-medium text-gray-700 mb-2">
-                      Company Name {formData.userType === 'roofer' ? '(if applicable)' : ''} <span className="text-red-500">*</span>
-                    </label>
-                    <input
-                      type="text"
-                      id="companyName"
-                      name="companyName"
-                      required={formData.userType === 'manufacturer'}
-                      value={formData.companyName}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rif-blue-500 focus:border-rif-blue-500 transition-all"
-                      placeholder={formData.userType === 'roofer' ? 'Your Company Name (optional)' : 'Company Name'}
-                    />
-                  </div>
-                )}
-
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                    Email <span className="text-red-500">*</span>
-                  </label>
-                  <div className="relative">
-                    <FontAwesomeIcon
-                      icon={faEnvelope}
-                      className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400"
-                    />
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      required
-                      value={formData.email}
-                      onChange={handleChange}
-                      className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rif-blue-500 focus:border-rif-blue-500 transition-all"
-                      placeholder="you@example.com"
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
-                    Phone <span className="text-red-500">*</span>
-                  </label>
-                  <div className="relative">
-                    <FontAwesomeIcon
-                      icon={faPhone}
-                      className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400"
-                    />
-                    <input
-                      type="tel"
-                      id="phone"
-                      name="phone"
-                      required
-                      value={formData.phone}
-                      onChange={handleChange}
-                      className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rif-blue-500 focus:border-rif-blue-500 transition-all"
-                      placeholder="(555) 123-4567"
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label htmlFor="hearAboutUs" className="block text-sm font-medium text-gray-700 mb-2">
-                    How did you hear about us?
-                  </label>
-                  <select
-                    id="hearAboutUs"
-                    name="hearAboutUs"
-                    value={formData.hearAboutUs}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rif-blue-500 focus:border-rif-blue-500 transition-all"
+            {/* Step 2 Resident: Quote or General question */}
+            {showResidentStep2 && (
+              <div className="space-y-6">
+                <button type="button" onClick={() => { setUserType(''); setResidentIntent(''); }} className="inline-flex items-center gap-2 px-4 py-2.5 border-2 border-gray-300 rounded-lg text-gray-700 bg-white hover:bg-gray-50 hover:border-gray-400 font-medium mb-4 transition-colors">
+                  ← Back
+                </button>
+                <p className="text-gray-700 font-medium">Are you looking for a quote or just have a general question?</p>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <button
+                    type="button"
+                    onClick={() => setResidentIntent('quote')}
+                    className="p-6 border-2 border-gray-300 rounded-xl text-left hover:border-rif-blue-500 hover:bg-rif-blue-50 transition-all"
                   >
-                    <option value="">Select an option</option>
-                    <option value="search">Search Engine (Google, Bing, etc.)</option>
-                    <option value="referral">Referral from friend/family</option>
-                    <option value="social">Social Media</option>
-                    <option value="advertisement">Advertisement</option>
-                    <option value="other">Other</option>
-                  </select>
+                    <span className="block text-lg font-semibold text-rif-black">Looking for a quote</span>
+                    <span className="block text-sm text-gray-600 mt-1">Get a free estimate for your roofing project</span>
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setResidentIntent('general')}
+                    className="p-6 border-2 border-gray-300 rounded-xl text-left hover:border-rif-blue-500 hover:bg-rif-blue-50 transition-all"
+                  >
+                    <span className="block text-lg font-semibold text-rif-black">Just have a general question</span>
+                    <span className="block text-sm text-gray-600 mt-1">Ask us anything</span>
+                  </button>
                 </div>
               </div>
+            )}
 
-              {/* Roofer-Specific Questions */}
-              {formData.userType === 'roofer' && (
-                <div className="border-t border-gray-200 pt-6">
-                  <h3 className="text-xl font-semibold text-rif-black mb-4">Roofer Information</h3>
-                  <div className="space-y-4">
-                    <div className="flex items-start gap-3 p-4 bg-gray-50 rounded-lg">
-                      <input
-                        type="checkbox"
-                        id="interestedInFreeEstimate"
-                        name="interestedInFreeEstimate"
-                        checked={formData.interestedInFreeEstimate}
-                        onChange={(e) => setFormData({ ...formData, interestedInFreeEstimate: e.target.checked })}
-                        className="mt-1 h-4 w-4 text-rif-blue-500 focus:ring-rif-blue-500 border-gray-300 rounded"
-                      />
-                      <label htmlFor="interestedInFreeEstimate" className="flex-1 text-sm font-medium text-gray-700 cursor-pointer">
-                        I'm interested in getting a free estimate for my roofing project
-                      </label>
+            {/* Resident + Quote: Free estimate form (actual form, no iframe) */}
+            {showResidentQuote && (
+              <div className="space-y-6">
+                <button type="button" onClick={() => setResidentIntent('')} className="inline-flex items-center gap-2 px-4 py-2.5 border-2 border-gray-300 rounded-lg text-gray-700 bg-white hover:bg-gray-50 hover:border-gray-400 font-medium mb-4 transition-colors">
+                  ← Back
+                </button>
+                <p className="text-gray-700">
+                  Use the form below to request your free stone-coated metal roof quote. You can include your favorite roofers and products.
+                </p>
+                <FreeEstimateForm embedded />
+                <p className="text-sm text-gray-500">
+                  You can also use the full page: <Link href="/free-estimate" className="text-rif-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">Free Estimate</Link>
+                </p>
+              </div>
+            )}
+
+            {/* Resident + General: Simple comment form */}
+            {showResidentGeneralForm && (
+              <SimpleCommentForm
+                formData={formData}
+                handleChange={handleChange}
+                handleSubmit={handleSubmit}
+                turnstileToken={turnstileToken}
+                setTurnstileToken={setTurnstileToken}
+                isSubmitting={isSubmitting}
+                onBack={() => setResidentIntent('')}
+              />
+            )}
+
+            {/* Step 2 Roofer: Network or General question */}
+            {showRooferStep2 && (
+              <div className="space-y-6">
+                <button type="button" onClick={() => { setUserType(''); setRooferIntent(''); }} className="inline-flex items-center gap-2 px-4 py-2.5 border-2 border-gray-300 rounded-lg text-gray-700 bg-white hover:bg-gray-50 hover:border-gray-400 font-medium mb-4 transition-colors">
+                  ← Back
+                </button>
+                <p className="text-gray-700 font-medium">Would you like to be part of the RiF network or just have a general question?</p>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <button
+                    type="button"
+                    onClick={() => setRooferIntent('network')}
+                    className="p-6 border-2 border-gray-300 rounded-xl text-left hover:border-rif-blue-500 hover:bg-rif-blue-50 transition-all"
+                  >
+                    <span className="block text-lg font-semibold text-rif-black">Part of the RiF network</span>
+                    <span className="block text-sm text-gray-600 mt-1">Apply as Preferred, Sponsored, or General Listing</span>
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setRooferIntent('general')}
+                    className="p-6 border-2 border-gray-300 rounded-xl text-left hover:border-rif-blue-500 hover:bg-rif-blue-50 transition-all"
+                  >
+                    <span className="block text-lg font-semibold text-rif-black">Just have a general question</span>
+                    <span className="block text-sm text-gray-600 mt-1">Ask us anything</span>
+                  </button>
+                </div>
+              </div>
+            )}
+
+            {/* Roofer + Network: Choose application type, then load form below (no navigation, no iframe) */}
+            {showRooferNetwork && !rooferNetworkChoice && (
+              <div className="space-y-6">
+                <button type="button" onClick={() => setRooferIntent('')} className="inline-flex items-center gap-2 px-4 py-2.5 border-2 border-gray-300 rounded-lg text-gray-700 bg-white hover:bg-gray-50 hover:border-gray-400 font-medium mb-4 transition-colors">
+                  ← Back
+                </button>
+                <p className="text-gray-700">Choose the application that fits your business. The form will load below.</p>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  <button
+                    type="button"
+                    onClick={() => setRooferNetworkChoice('preferred')}
+                    className="p-6 border-2 border-green-200 rounded-xl bg-green-50 hover:bg-green-100 hover:border-green-400 transition-all text-center block"
+                  >
+                    <FontAwesomeIcon icon={faHandshake} className="h-8 w-8 text-green-600 mb-3" />
+                    <span className="block font-semibold text-rif-black">Preferred Contractor</span>
+                    <span className="block text-sm text-gray-600 mt-1">Certified roofer, priority placement</span>
+                    <span className="inline-flex items-center gap-1 mt-3 text-green-700 font-medium text-sm">
+                      Apply <FontAwesomeIcon icon={faArrowRight} className="h-3 w-3" />
+                    </span>
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setRooferNetworkChoice('sponsored')}
+                    className="p-6 border-2 border-rif-blue-200 rounded-xl bg-rif-blue-50 hover:bg-rif-blue-100 hover:border-rif-blue-400 transition-all text-center block"
+                  >
+                    <FontAwesomeIcon icon={faBullhorn} className="h-8 w-8 text-rif-blue-600 mb-3" />
+                    <span className="block font-semibold text-rif-black">Sponsored Listing</span>
+                    <span className="block text-sm text-gray-600 mt-1">Enhanced visibility, paid option</span>
+                    <span className="inline-flex items-center gap-1 mt-3 text-rif-blue-700 font-medium text-sm">
+                      Apply <FontAwesomeIcon icon={faArrowRight} className="h-3 w-3" />
+                    </span>
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setRooferNetworkChoice('general')}
+                    className="p-6 border-2 border-gray-200 rounded-xl bg-gray-50 hover:bg-gray-100 hover:border-gray-400 transition-all text-center block"
+                  >
+                    <FontAwesomeIcon icon={faList} className="h-8 w-8 text-gray-600 mb-3" />
+                    <span className="block font-semibold text-rif-black">General Listings</span>
+                    <span className="block text-sm text-gray-600 mt-1">Free directory listing</span>
+                    <span className="inline-flex items-center gap-1 mt-3 text-gray-700 font-medium text-sm">
+                      Apply <FontAwesomeIcon icon={faArrowRight} className="h-3 w-3" />
+                    </span>
+                  </button>
+                </div>
+              </div>
+            )}
+
+            {/* Roofer + Network + chosen type: show form inline */}
+            {showRooferNetwork && rooferNetworkChoice === 'preferred' && (
+              <PreferredContractorApplyForm embedded onBack={() => setRooferNetworkChoice('')} idPrefix="contact-pc-" />
+            )}
+            {showRooferNetwork && rooferNetworkChoice === 'sponsored' && (
+              <SponsorshipSubscriptionApplyForm embedded onBack={() => setRooferNetworkChoice('')} idPrefix="contact-ss-" />
+            )}
+            {showRooferNetwork && rooferNetworkChoice === 'general' && (
+              <GeneralListingsApplyForm embedded onBack={() => setRooferNetworkChoice('')} idPrefix="contact-gl-" />
+            )}
+
+            {/* Roofer + General: Form without partnership checkbox */}
+            {showRooferGeneralForm && (
+              <RooferGeneralForm
+                formData={formData}
+                handleChange={handleChange}
+                handleSubmit={handleSubmit}
+                turnstileToken={turnstileToken}
+                setTurnstileToken={setTurnstileToken}
+                isSubmitting={isSubmitting}
+                onBack={() => setRooferIntent('')}
+              />
+            )}
+
+            {/* Manufacturer form (with website field) */}
+            {showManufacturerForm && (
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <button type="button" onClick={() => setUserType('')} className="inline-flex items-center gap-2 px-4 py-2.5 border-2 border-gray-300 rounded-lg text-gray-700 bg-white hover:bg-gray-50 hover:border-gray-400 font-medium mb-4 transition-colors">
+                  ← Back
+                </button>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label htmlFor="fullName" className="block text-sm font-medium text-gray-700 mb-2">Full Name <span className="text-red-500">*</span></label>
+                    <div className="relative">
+                      <FontAwesomeIcon icon={faUser} className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
+                      <input type="text" id="fullName" name="fullName" required value={formData.fullName} onChange={handleChange} className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rif-blue-500" placeholder="John Doe" />
                     </div>
-
-                    <div className="flex items-start gap-3 p-4 bg-gray-50 rounded-lg">
-                      <input
-                        type="checkbox"
-                        id="interestedInPartnership"
-                        name="interestedInPartnership"
-                        checked={formData.interestedInPartnership}
-                        onChange={(e) => setFormData({ ...formData, interestedInPartnership: e.target.checked })}
-                        className="mt-1 h-4 w-4 text-rif-blue-500 focus:ring-rif-blue-500 border-gray-300 rounded"
-                      />
-                      <label htmlFor="interestedInPartnership" className="flex-1 text-sm font-medium text-gray-700 cursor-pointer">
-                        I would like to become a partner (Certified Roofer or Sponsored Listing)
+                  </div>
+                  <div>
+                    <label htmlFor="companyName" className="block text-sm font-medium text-gray-700 mb-2">Company Name <span className="text-red-500">*</span></label>
+                    <input type="text" id="companyName" name="companyName" required value={formData.companyName} onChange={handleChange} className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rif-blue-500" placeholder="Company Name" />
+                  </div>
+                  <div>
+                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">Email <span className="text-red-500">*</span></label>
+                    <div className="relative">
+                      <FontAwesomeIcon icon={faEnvelope} className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
+                      <input type="email" id="email" name="email" required value={formData.email} onChange={handleChange} className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rif-blue-500" placeholder="you@example.com" />
+                    </div>
+                  </div>
+                  <div>
+                    <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">Phone <span className="text-red-500">*</span></label>
+                    <div className="relative">
+                      <FontAwesomeIcon icon={faPhone} className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
+                      <input type="tel" id="phone" name="phone" required value={formData.phone} onChange={handleChange} className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rif-blue-500" placeholder="(555) 123-4567" />
+                    </div>
+                  </div>
+                  <div className="md:col-span-2">
+                    <label htmlFor="manufacturerWebsite" className="block text-sm font-medium text-gray-700 mb-2">Website</label>
+                    <input type="url" id="manufacturerWebsite" name="manufacturerWebsite" value={formData.manufacturerWebsite} onChange={handleChange} className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rif-blue-500" placeholder="https://yourcompany.com" />
+                  </div>
+                </div>
+                <div className="border-t border-gray-200 pt-6">
+                  <h3 className="text-xl font-semibold text-rif-black mb-4">Partnership & Listing</h3>
+                  <div className="space-y-4">
+                    <p className="text-sm font-medium text-gray-700">Would you like to become a Preferred supplier? <span className="text-red-500">*</span></p>
+                    <div className="flex flex-wrap gap-4">
+                      <label className="flex items-center gap-2 cursor-pointer">
+                        <input type="radio" name="manufacturerPreferredSupplier" value="yes" checked={formData.manufacturerPreferredSupplier === 'yes'} onChange={handleChange} required className="h-4 w-4 text-rif-blue-500 focus:ring-rif-blue-500 border-gray-300" />
+                        <span className="text-gray-700">Yes</span>
+                      </label>
+                      <label className="flex items-center gap-2 cursor-pointer">
+                        <input type="radio" name="manufacturerPreferredSupplier" value="no" checked={formData.manufacturerPreferredSupplier === 'no'} onChange={handleChange} required className="h-4 w-4 text-rif-blue-500 focus:ring-rif-blue-500 border-gray-300" />
+                        <span className="text-gray-700">No</span>
                       </label>
                     </div>
                   </div>
+                  {formData.manufacturerPreferredSupplier === 'no' && (
+                    <div className="p-4 bg-gray-50 rounded-lg border border-gray-200 mt-4">
+                      <p className="text-sm font-medium text-gray-700 mb-3">Would you like to be included on the site as a sponsored product listing and start a subscription?</p>
+                      <div className="flex flex-wrap gap-4">
+                        <label className="flex items-center gap-2 cursor-pointer">
+                          <input type="radio" name="manufacturerSponsoredListing" value="yes" checked={formData.manufacturerSponsoredListing === 'yes'} onChange={handleChange} className="h-4 w-4 text-rif-blue-500 focus:ring-rif-blue-500 border-gray-300" />
+                          <span className="text-gray-700">Yes</span>
+                        </label>
+                        <label className="flex items-center gap-2 cursor-pointer">
+                          <input type="radio" name="manufacturerSponsoredListing" value="no" checked={formData.manufacturerSponsoredListing === 'no'} onChange={handleChange} className="h-4 w-4 text-rif-blue-500 focus:ring-rif-blue-500 border-gray-300" />
+                          <span className="text-gray-700">No</span>
+                        </label>
+                      </div>
+                    </div>
+                  )}
                 </div>
-              )}
-
-              {/* Manufacturer-Specific Questions */}
-              {formData.userType === 'manufacturer' && (
                 <div className="border-t border-gray-200 pt-6">
                   <h3 className="text-xl font-semibold text-rif-black mb-4">Product Information</h3>
                   <div className="grid grid-cols-1 gap-6">
                     <div>
-                      <label htmlFor="productName" className="block text-sm font-medium text-gray-700 mb-2">
-                        Product Name <span className="text-red-500">*</span>
-                      </label>
-                      <input
-                        type="text"
-                        id="productName"
-                        name="productName"
-                        required
-                        value={formData.productName}
-                        onChange={handleChange}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rif-blue-500 focus:border-rif-blue-500 transition-all"
-                        placeholder="e.g., Premium Metal Roofing System"
-                      />
+                      <label htmlFor="productName" className="block text-sm font-medium text-gray-700 mb-2">Product Name <span className="text-red-500">*</span></label>
+                      <input type="text" id="productName" name="productName" required value={formData.productName} onChange={handleChange} className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rif-blue-500" placeholder="e.g., Premium Metal Roofing System" />
                     </div>
-
                     <div>
-                      <label htmlFor="productDescription" className="block text-sm font-medium text-gray-700 mb-2">
-                        Product Description <span className="text-red-500">*</span>
-                      </label>
-                      <textarea
-                        id="productDescription"
-                        name="productDescription"
-                        required
-                        rows={4}
-                        value={formData.productDescription}
-                        onChange={handleChange}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rif-blue-500 focus:border-rif-blue-500 transition-all resize-none"
-                        placeholder="Tell us about your product, its features, and why it would be a good fit for RIF Roofing..."
-                      />
+                      <label htmlFor="productDescription" className="block text-sm font-medium text-gray-700 mb-2">Product Description <span className="text-red-500">*</span></label>
+                      <textarea id="productDescription" name="productDescription" required rows={4} value={formData.productDescription} onChange={handleChange} className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rif-blue-500 resize-none" placeholder="Tell us about your product, its features, and why it would be a good fit for RIF Roofing..." />
                     </div>
                   </div>
                 </div>
-              )}
-
-              {/* Property Information - Only for Residents */}
-              {formData.userType === 'resident' && (
-                <>
-                  <div className="border-t border-gray-200 pt-6">
-                    <h3 className="text-xl font-semibold text-rif-black mb-4">Property Information</h3>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      <div className="md:col-span-2">
-                        <label htmlFor="propertyAddress" className="block text-sm font-medium text-gray-700 mb-2">
-                          Property Address <span className="text-red-500">*</span>
-                        </label>
-                        <div className="relative">
-                          <FontAwesomeIcon
-                            icon={faHome}
-                            className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400"
-                          />
-                          <input
-                            type="text"
-                            id="propertyAddress"
-                            name="propertyAddress"
-                            required
-                            value={formData.propertyAddress}
-                            onChange={handleChange}
-                            className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rif-blue-500 focus:border-rif-blue-500 transition-all"
-                            placeholder="123 Main Street"
-                          />
-                        </div>
-                      </div>
-
-                      <div>
-                        <label htmlFor="city" className="block text-sm font-medium text-gray-700 mb-2">
-                          City <span className="text-red-500">*</span>
-                        </label>
-                        <input
-                          type="text"
-                          id="city"
-                          name="city"
-                          required
-                          value={formData.city}
-                          onChange={handleChange}
-                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rif-blue-500 focus:border-rif-blue-500 transition-all"
-                          placeholder="Tampa"
-                        />
-                      </div>
-
-                      <div>
-                        <label htmlFor="zipCode" className="block text-sm font-medium text-gray-700 mb-2">
-                          ZIP Code <span className="text-red-500">*</span>
-                        </label>
-                        <input
-                          type="text"
-                          id="zipCode"
-                          name="zipCode"
-                          required
-                          value={formData.zipCode}
-                          onChange={handleChange}
-                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rif-blue-500 focus:border-rif-blue-500 transition-all"
-                          placeholder="33601"
-                        />
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Project Details - Only for Residents */}
-                  <div className="border-t border-gray-200 pt-6">
-                    <h3 className="text-xl font-semibold text-rif-black mb-4">Project Details</h3>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      <div>
-                        <label htmlFor="projectType" className="block text-sm font-medium text-gray-700 mb-2">
-                          Project Type <span className="text-red-500">*</span>
-                        </label>
-                        <select
-                          id="projectType"
-                          name="projectType"
-                          required
-                          value={formData.projectType}
-                          onChange={handleChange}
-                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rif-blue-500 focus:border-rif-blue-500 transition-all"
-                        >
-                          <option value="">Select project type</option>
-                          <option value="new-installation">New Installation</option>
-                          <option value="roof-replacement">Roof Replacement</option>
-                          <option value="repair">Repair</option>
-                          <option value="inspection">Inspection</option>
-                          <option value="maintenance">Maintenance</option>
-                          <option value="other">Other</option>
-                        </select>
-                      </div>
-
-                      <div>
-                        <label htmlFor="roofSize" className="block text-sm font-medium text-gray-700 mb-2">
-                          Roof Size (Square Feet)
-                        </label>
-                        <input
-                          type="text"
-                          id="roofSize"
-                          name="roofSize"
-                          value={formData.roofSize}
-                          onChange={handleChange}
-                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rif-blue-500 focus:border-rif-blue-500 transition-all"
-                          placeholder="e.g., 2000"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                </>
-              )}
-
-              {/* Contact Preferences */}
-              <div className="border-t border-gray-200 pt-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <label htmlFor="preferredContact" className="block text-sm font-medium text-gray-700 mb-2">
-                      Preferred Contact Method
-                    </label>
-                    <select
-                      id="preferredContact"
-                      name="preferredContact"
-                      value={formData.preferredContact}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rif-blue-500 focus:border-rif-blue-500 transition-all"
-                    >
-                      <option value="phone">Phone</option>
-                      <option value="email">Email</option>
-                      <option value="either">Either</option>
-                    </select>
-                  </div>
-
-                  <div>
-                    <label htmlFor="bestTimeToContact" className="block text-sm font-medium text-gray-700 mb-2">
-                      Best Time to Contact
-                    </label>
-                    <select
-                      id="bestTimeToContact"
-                      name="bestTimeToContact"
-                      value={formData.bestTimeToContact}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rif-blue-500 focus:border-rif-blue-500 transition-all"
-                    >
-                      <option value="">Select time</option>
-                      <option value="morning">Morning (8am - 12pm)</option>
-                      <option value="afternoon">Afternoon (12pm - 5pm)</option>
-                      <option value="evening">Evening (5pm - 8pm)</option>
-                      <option value="anytime">Anytime</option>
-                    </select>
-                  </div>
+                <div>
+                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">Additional Information <span className="text-red-500">*</span></label>
+                  <textarea id="message" name="message" required rows={4} value={formData.message} onChange={handleChange} className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rif-blue-500 resize-none" placeholder="Tell us more about your product, pricing, availability..." />
                 </div>
-              </div>
-
-              {/* Message */}
-              <div className="border-t border-gray-200 pt-6">
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-                  {formData.userType === 'manufacturer' 
-                    ? 'Additional Information' 
-                    : formData.userType === 'roofer'
-                    ? 'Tell Us About Your Business'
-                    : 'Message'} <span className="text-red-500">*</span>
-                </label>
-                <div className="relative">
-                  <FontAwesomeIcon
-                    icon={faMessage}
-                    className="absolute left-3 top-3 h-5 w-5 text-gray-400"
-                  />
-                  <textarea
-                    id="message"
-                    name="message"
-                    required
-                    rows={6}
-                    value={formData.message}
-                    onChange={handleChange}
-                    className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rif-blue-500 focus:border-rif-blue-500 transition-all resize-none"
-                    placeholder={
-                      formData.userType === 'manufacturer'
-                        ? 'Tell us more about your product, pricing, availability, or any other relevant information...'
-                        : formData.userType === 'roofer'
-                        ? 'Tell us about your roofing business, experience, service areas, or any questions you have...'
-                        : 'Tell us about your roofing needs, questions, or how we can help...'
-                    }
-                  />
+                <div className="hidden">
+                  <input type="text" name="website" value={formData.website} onChange={handleChange} tabIndex={-1} autoComplete="off" />
                 </div>
-              </div>
+                <div className="flex justify-center"><Turnstile siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || '1x00000000000000000000AA'} onSuccess={(t) => setTurnstileToken(t)} onError={() => setTurnstileToken(null)} onExpire={() => setTurnstileToken(null)} /></div>
+                <div className="flex gap-3">
+                  <button type="button" onClick={() => setUserType('')} className="px-6 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50">Back</button>
+                  <button type="submit" disabled={isSubmitting || !turnstileToken} className="px-8 py-4 bg-rif-blue-500 text-white rounded-lg hover:bg-rif-blue-600 disabled:opacity-50 flex items-center gap-2">
+                    {isSubmitting ? <><FontAwesomeIcon icon={faSpinner} spin className="h-5 w-5" /> Sending...</> : 'Send Message'}
+                  </button>
+                </div>
+              </form>
+            )}
 
-              {/* Honeypot field (hidden from users) */}
-              <div className="hidden">
-                <label htmlFor="website">Website (leave blank)</label>
-                <input
-                  type="text"
-                  id="website"
-                  name="website"
-                  value={formData.website}
-                  onChange={handleChange}
-                  tabIndex={-1}
-                  autoComplete="off"
-                />
-              </div>
-
-              {/* Turnstile */}
-              <div className="flex justify-center">
-                <Turnstile
-                  siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || '1x00000000000000000000AA'}
-                  onSuccess={(token) => setTurnstileToken(token)}
-                  onError={() => setTurnstileToken(null)}
-                  onExpire={() => setTurnstileToken(null)}
-                />
-              </div>
-
-              {/* Submit Button */}
-              <div className="flex justify-center pt-4">
-                <button
-                  type="submit"
-                  disabled={isSubmitting || !turnstileToken}
-                  className="px-8 py-4 bg-rif-blue-500 text-white text-lg font-semibold rounded-lg hover:bg-rif-blue-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-3"
-                >
-                  {isSubmitting ? (
-                    <>
-                      <FontAwesomeIcon icon={faSpinner} spin className="h-5 w-5" />
-                      Submitting...
-                    </>
-                  ) : (
-                    'Send Message'
-                  )}
-                </button>
-              </div>
-            </form>
           </div>
         </div>
       </section>

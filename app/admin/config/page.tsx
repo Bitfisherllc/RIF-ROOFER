@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLock, faUnlock, faSave, faSpinner } from '@fortawesome/free-solid-svg-icons';
+import { faLock, faUnlock, faSave, faSpinner, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 
 interface SiteConfig {
   passwordProtected: boolean;
@@ -17,6 +17,7 @@ export default function AdminConfigPage() {
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [message, setMessage] = useState<{ type: 'success' | 'error'; text: string } | null>(null);
+  const [showSitePassword, setShowSitePassword] = useState(false);
 
   useEffect(() => {
     fetchConfig();
@@ -84,11 +85,11 @@ export default function AdminConfigPage() {
             <div className="flex items-center justify-between mb-4">
               <div>
                 <h2 className="text-xl font-semibold text-rif-black mb-2">
-                  Site Password Protection
+                  Site Gate (Visitor Password)
                 </h2>
                 <p className="text-gray-600">
-                  Enable or disable password protection for the entire site. When enabled, visitors
-                  must enter the password to access any page.
+                  Enable or disable the site gate. When enabled, visitors see a password screen before
+                  they can view the site. This is the gate that uses the password below.
                 </p>
               </div>
               <button
@@ -126,24 +127,31 @@ export default function AdminConfigPage() {
             </div>
           </div>
 
-          {/* Password Display (Read-only) */}
+          {/* Site Password (editable) */}
           <div className="mb-8">
             <label className="block text-sm font-medium text-gray-700 mb-2">
-              Site Password
+              Site gate password
             </label>
-            <div className="relative">
+            <div className="relative flex gap-2">
               <input
-                type="text"
+                type={showSitePassword ? 'text' : 'password'}
                 value={config.password}
-                disabled
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-50 text-gray-600 cursor-not-allowed"
+                onChange={(e) => setConfig({ ...config, password: e.target.value })}
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rif-blue-500 focus:border-rif-blue-500"
+                placeholder="Enter site password"
+                autoComplete="off"
               />
-              <span className="absolute right-4 top-1/2 -translate-y-1/2 text-sm text-gray-500">
-                (Fixed)
-              </span>
+              <button
+                type="button"
+                onClick={() => setShowSitePassword((v) => !v)}
+                className="flex-shrink-0 px-3 py-2 border border-gray-300 rounded-lg text-gray-600 hover:bg-gray-50"
+                aria-label={showSitePassword ? 'Hide password' : 'Show password'}
+              >
+                <FontAwesomeIcon icon={showSitePassword ? faEyeSlash : faEye} className="h-5 w-5" />
+              </button>
             </div>
             <p className="mt-2 text-sm text-gray-500">
-              The password is set to "letmein" and cannot be changed through this interface.
+              Visitors enter this password on the gate screen when site gate is enabled. You can change it here at any time; existing visitor sessions may stay valid until they close the browser.
             </p>
           </div>
 

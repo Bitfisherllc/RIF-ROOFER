@@ -852,7 +852,7 @@ export default function CountyPage({
             </h2>
             <p className="text-lg text-gray-700 leading-relaxed mb-4">
               RIF is the installation division of{' '}
-              <strong>Premium Roofing Products (PRP Roofing)</strong>. We
+              <strong><a href="https://prproofing.com/" target="_blank" rel="noopener noreferrer" className="text-rif-blue-600 hover:underline">Premium Roofing Products (PRP Roofing)</a></strong>. We
               provide <strong>installer-direct, distributor-level pricing</strong>{' '}
               on all materials. We stage materials from our{' '}
               <strong>Florida warehouse</strong> in Webster, ensuring jobs start

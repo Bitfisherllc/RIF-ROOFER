@@ -312,7 +312,7 @@ export default function ServiceAreasPage() {
           <p className="text-lg text-gray-600 mb-8 leading-relaxed">
             If you're searching for a <strong>roofer near me</strong> in
             Florida, RIF — the{' '}
-            <strong>installation division of Premium Roofing Products (PRP Roofing)</strong>{' '}
+            <strong>installation division of <a href="https://prproofing.com/" target="_blank" rel="noopener noreferrer" className="text-rif-blue-600 hover:underline">Premium Roofing Products (PRP Roofing)</a></strong>{' '}
             — matches you with a local <strong>RIF Certified Installer</strong>{' '}
             and manages everything: financing, product selection, delivery,
             permits/HOA, installation, and final QA.

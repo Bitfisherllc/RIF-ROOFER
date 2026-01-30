@@ -65,10 +65,10 @@ export default function GuidesPage({ searchParams }: GuidesPageProps) {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Section */}
-      <section className="pt-20 pb-12 px-6 bg-gradient-to-b from-gray-50 to-white">
+      {/* Hero Section - match /products heading size */}
+      <section className="pt-12 pb-16 px-6 bg-gradient-to-b from-gray-50 to-white">
         <div className="max-w-6xl mx-auto">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-rif-black tracking-tight mb-6">
+          <h1 className="text-4xl md:text-5xl font-semibold text-rif-black tracking-tight mb-6">
             Roofing Guides & Resources
           </h1>
           <p className="text-xl text-gray-600 leading-relaxed max-w-3xl">

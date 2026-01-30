@@ -3,6 +3,7 @@
 import { usePathname } from 'next/navigation';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import BackToTopButton from '@/components/BackToTopButton';
 
 export default function ConditionalLayout({
   children,
@@ -15,7 +16,12 @@ export default function ConditionalLayout({
   const isAdminRoute = pathname?.startsWith('/admin');
   
   if (isAdminRoute) {
-    return <>{children}</>;
+    return (
+      <>
+        {children}
+        <BackToTopButton />
+      </>
+    );
   }
   
   return (
@@ -23,6 +29,7 @@ export default function ConditionalLayout({
       <Header />
       {children}
       <Footer />
+      <BackToTopButton />
     </>
   );
 }

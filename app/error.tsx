@@ -11,9 +11,10 @@ export default function Error({
   reset: () => void;
 }) {
   useEffect(() => {
-    // Log the error to an error reporting service
-    console.error('Application error:', error);
+    if (error) console.error('Application error:', error);
   }, [error]);
+
+  const message = error?.message || 'An unexpected error occurred';
 
   return (
     <div className="min-h-screen bg-white flex items-center justify-center px-6">
@@ -22,18 +23,19 @@ export default function Error({
           Something went wrong!
         </h1>
         <p className="text-lg text-gray-600 mb-8">
-          {error.message || 'An unexpected error occurred'}
+          {message}
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <button
-            onClick={reset}
+            type="button"
+            onClick={() => reset?.()}
             className="px-6 py-3 bg-rif-blue-500 text-white rounded-lg hover:bg-rif-blue-600 transition-colors"
           >
             Try again
           </button>
           <Link
             href="/"
-            className="px-6 py-3 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors"
+            className="px-6 py-3 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors inline-block"
           >
             Go home
           </Link>

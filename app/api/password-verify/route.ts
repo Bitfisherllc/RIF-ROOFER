@@ -13,7 +13,13 @@ function getConfig() {
   } catch (error) {
     console.error('Error reading config file:', error);
   }
-  return { passwordProtected: false, password: 'letmein' };
+  return { passwordProtected: false, password: 'Hottinroof123#' };
+}
+
+/** GET: whether the site gate is enabled (for PasswordGate component). Does not expose the password. */
+export async function GET() {
+  const config = getConfig();
+  return NextResponse.json({ passwordProtected: !!config.passwordProtected });
 }
 
 export async function POST(request: NextRequest) {

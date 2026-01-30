@@ -81,7 +81,7 @@ export default function GuidePage({ params }: GuidePageProps) {
             </span>
           </div>
 
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-rif-black mb-6 tracking-tight">
+          <h1 className="text-4xl md:text-5xl font-semibold text-rif-black mb-6 tracking-tight">
             {guide.title}
           </h1>
 

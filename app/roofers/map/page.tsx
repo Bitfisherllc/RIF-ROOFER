@@ -1372,7 +1372,7 @@ function RoofersMapPageContent() {
             </h1>
           </div>
           <p className="text-lg text-gray-600 max-w-3xl">
-            Explore our network of RIF Certified Installers across Florida. Click on any
+            Explore our network of <span className="rif-brand">RiF</span> Certified Installers across Florida. Click on any
             marker to view roofer details and contact information.
           </p>
           
@@ -1834,7 +1834,7 @@ function RoofersMapPageContent() {
                             </div>
                             <div className="flex items-center gap-1 px-2 py-0.5 bg-gradient-to-r from-rif-blue-500 to-rif-blue-600 text-white rounded text-xs font-bold whitespace-nowrap shadow-sm border border-rif-blue-700">
                               <FontAwesomeIcon icon={faCertificate} className="h-3 w-3" />
-                              Certified RIF Roofer
+                              Certified <span className="rif-brand">RiF</span> Roofer
                             </div>
                           </div>
                         )}

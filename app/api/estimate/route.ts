@@ -1,7 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { Resend } from 'resend';
 import { verifyTurnstileToken } from '@/lib/turnstile';
-import { getEstimateConfirmationEmailHtml } from '@/lib/email-templates';
+import { getEstimateConfirmationEmailHtml, getEstimateNotificationEmailHtml } from '@/lib/email-templates';
+import { FORM_SUBMISSION_EMAIL } from '@/lib/email-config';
 
 // Initialize Resend with API key from environment variable
 const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null;
@@ -100,6 +101,8 @@ export async function POST(request: NextRequest) {
       preferredContact,
       bestTimeToContact,
       savedRoofers,
+      savedProducts,
+      savedLocations,
     } = body;
 
     // Validate required fields
@@ -110,60 +113,32 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Format the email content
-    const emailContent = `
-New Free Estimate Request from RIF Roofing Website
-
-CONTACT INFORMATION:
-- Name: ${fullName}
-- Email: ${email}
-- Phone: ${phone}
-
-PROPERTY INFORMATION:
-- Address: ${propertyAddress}
-- City: ${city}
-- ZIP Code: ${zipCode}
-${propertyType ? `- Property Type: ${propertyType}` : ''}
-${stories ? `- Stories: ${stories}` : ''}
-
-CURRENT ROOF DETAILS:
-${roofType ? `- Roof Type: ${roofType}` : ''}
-${roofAge ? `- Roof Age: ${roofAge}` : ''}
-${roofSize ? `- Roof Size: ${roofSize}` : ''}
-
-PROJECT DETAILS:
-- Project Type: ${projectType}
-${urgency ? `- Urgency: ${urgency}` : ''}
-${timeline ? `- Timeline: ${timeline}` : ''}
-${specificIssues ? `- Specific Issues:\n${specificIssues}` : ''}
-
-INSURANCE INFORMATION:
-${insuranceClaim ? `- Insurance Claim: ${insuranceClaim}` : ''}
-${claimNumber ? `- Claim Number: ${claimNumber}` : ''}
-
-ADDITIONAL INFORMATION:
-${additionalNotes ? `- Additional Notes:\n${additionalNotes}` : ''}
-
-CONTACT PREFERENCES:
-- Preferred Contact Method: ${preferredContact}
-${bestTimeToContact ? `- Best Time to Contact: ${bestTimeToContact}` : ''}
-
-${savedRoofers && savedRoofers.length > 0 ? `
-SAVED ROOFERS TO CONTACT:
-${savedRoofers.map((roofer: any, index: number) => `
-${index + 1}. ${roofer.name}
-   - ID: ${roofer.id}
-   - Slug: ${roofer.slug}
-   ${roofer.phone ? `- Phone: ${roofer.phone}` : ''}
-   ${roofer.email ? `- Email: ${roofer.email}` : ''}
-   ${roofer.websiteUrl ? `- Website: ${roofer.websiteUrl}` : ''}
-`).join('')}
-` : ''}
-
----
-This email was sent from the RIF Roofing free estimate form.
-Submitted on: ${new Date().toLocaleString('en-US', { timeZone: 'America/New_York' })}
-    `.trim();
+    // HTML email for internal notification (full URLs, roofer contact details, site branding)
+    const notificationHtml = getEstimateNotificationEmailHtml({
+      fullName,
+      email,
+      phone,
+      propertyAddress,
+      city,
+      zipCode,
+      propertyType,
+      roofType,
+      roofAge,
+      roofSize,
+      stories,
+      projectType,
+      urgency,
+      timeline,
+      insuranceClaim,
+      claimNumber,
+      specificIssues,
+      additionalNotes,
+      preferredContact,
+      bestTimeToContact,
+      savedRoofers: savedRoofers || undefined,
+      savedProducts: savedProducts || undefined,
+      savedLocations: savedLocations || undefined,
+    });
 
     // Check if Resend is configured
     if (!resend) {
@@ -181,12 +156,12 @@ Submitted on: ${new Date().toLocaleString('en-US', { timeZone: 'America/New_York
     const targetEmail = 'info@roofersinflorida.com';
     const verifiedEmail = process.env.RESEND_VERIFIED_EMAIL || 'craig@bitfisher.com';
     
-    // Try to send to target email first
+    // Try to send to target email first (HTML notification with full URLs and roofer details)
     let { data, error } = await resend.emails.send({
       from: fromEmail,
       to: [targetEmail],
       subject: `New Free Estimate Request from ${fullName}`,
-      text: emailContent,
+      html: notificationHtml,
       replyTo: email,
     });
 
@@ -209,11 +184,12 @@ Submitted on: ${new Date().toLocaleString('en-US', { timeZone: 'America/New_York
     if (isVerificationError) {
       console.log('Domain not verified, sending to verified email instead:', verifiedEmail);
       
+      const fallbackNote = `<p style="margin:24px 40px 0;padding:12px;background:#f0f9ff;border-radius:8px;font-size:14px;color:#0c4a6e;border:1px solid #bae6fd;">This estimate was delivered to your backup address because the domain roofersinflorida.com is not yet verified in Resend. Once you verify the domain in the Resend dashboard, new requests will go directly to ${targetEmail} and this note will no longer appear.</p></body>`;
       const fallbackResult = await resend.emails.send({
         from: fromEmail,
         to: [verifiedEmail],
-        subject: `[FORWARD TO ${targetEmail}] New Free Estimate Request from ${fullName}`,
-        text: `${emailContent}\n\n---\nNOTE: Please forward this email to ${targetEmail}\nThe form was submitted from: ${email}`,
+        subject: `New Free Estimate Request from ${fullName}`,
+        html: notificationHtml.replace('</body>', fallbackNote),
         replyTo: email,
       });
       
@@ -267,7 +243,7 @@ Submitted on: ${new Date().toLocaleString('en-US', { timeZone: 'America/New_York
           success: true, 
           message: 'Estimate request submitted successfully. Email sent to verified address.',
           data: fallbackResult.data,
-          note: 'To send directly to info@roofersinflorida.com, verify a domain in Resend dashboard.'
+          note: `To send directly to ${FORM_SUBMISSION_EMAIL}, verify a domain in Resend dashboard.`
         },
         { status: 200 }
       );

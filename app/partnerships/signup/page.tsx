@@ -1,476 +1,220 @@
-'use client';
-
-import { useState } from 'react';
+import type { Metadata } from 'next';
+import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faHandshake,
+  faUserTie,
   faList,
-  faCertificate,
-  faDollarSign,
-  faBuilding,
-  faMapMarkerAlt,
-  faPhone,
-  faEnvelope,
-  faGlobe,
-  faUpload,
+  faBullhorn,
   faCheckCircle,
-  faExclamationCircle,
-  faSpinner,
+  faArrowRight,
 } from '@fortawesome/free-solid-svg-icons';
-import Link from 'next/link';
+
+export const metadata: Metadata = {
+  title: 'Partnership Signup | RIF Roofing',
+  description:
+    'Choose your partnership level and sign up. Preferred Contractor, Sponsored results, or General Listings.',
+};
 
 export default function PartnershipSignupPage() {
-  const [listingType, setListingType] = useState<'general' | 'sponsored' | 'certified'>('general');
-  const [formData, setFormData] = useState({
-    businessName: '',
-    location: '',
-    city: '',
-    state: 'FL',
-    zipCode: '',
-    phone: '',
-    email: '',
-    website: '',
-    logo: null as File | null,
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
-  const [errorMessage, setErrorMessage] = useState('');
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
-
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files && e.target.files[0]) {
-      setFormData((prev) => ({ ...prev, logo: e.target.files![0] }));
-    }
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setSubmitStatus('idle');
-    setErrorMessage('');
-
-    try {
-      const formDataToSend = new FormData();
-      formDataToSend.append('listingType', listingType);
-      formDataToSend.append('businessName', formData.businessName);
-      formDataToSend.append('location', formData.location);
-      formDataToSend.append('city', formData.city);
-      formDataToSend.append('state', formData.state);
-      formDataToSend.append('zipCode', formData.zipCode);
-      formDataToSend.append('phone', formData.phone);
-      formDataToSend.append('email', formData.email);
-      formDataToSend.append('website', formData.website);
-      if (formData.logo) {
-        formDataToSend.append('logo', formData.logo);
-      }
-
-      const response = await fetch('/api/partnerships/signup', {
-        method: 'POST',
-        body: formDataToSend,
-      });
-
-      const data = await response.json();
-
-      if (!response.ok) {
-        throw new Error(data.error || 'Failed to submit partnership signup');
-      }
-
-      setSubmitStatus('success');
-      // Reset form
-      setFormData({
-        businessName: '',
-        location: '',
-        city: '',
-        state: 'FL',
-        zipCode: '',
-        phone: '',
-        email: '',
-        website: '',
-        logo: null,
-      });
-    } catch (error: any) {
-      setSubmitStatus('error');
-      setErrorMessage(error.message || 'An error occurred. Please try again.');
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Section */}
-      <section className="pt-20 pb-12 px-6 bg-gradient-to-b from-gray-50 to-white">
-        <div className="max-w-4xl mx-auto text-center">
-          <div className="mb-6 flex justify-center">
-            <div className="p-4 bg-rif-blue-500 rounded-2xl">
-              <FontAwesomeIcon icon={faHandshake} className="h-12 w-12 text-white" />
+      {/* Hero Section - match /partnerships style */}
+      <section className="pt-24 pb-16 px-6 bg-gradient-to-b from-rif-blue-50 via-white to-gray-50">
+        <div className="max-w-5xl mx-auto text-center">
+          <div className="mb-8 flex justify-center">
+            <div className="p-5 bg-gradient-to-br from-rif-blue-500 to-rif-blue-600 rounded-3xl shadow-lg">
+              <FontAwesomeIcon icon={faHandshake} className="h-16 w-16 text-white" />
             </div>
           </div>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-rif-black mb-6 tracking-tight">
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-rif-black mb-6 tracking-tight">
             Partnership Signup
           </h1>
-          <p className="text-xl md:text-2xl text-gray-700 leading-relaxed max-w-3xl mx-auto font-light">
-            Join the RIF network and connect with customers in your service area
+          <p className="text-xl md:text-2xl text-gray-700 leading-relaxed max-w-3xl mx-auto font-light mb-4">
+            Choose your partnership level and complete the signup form
+          </p>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            Select the program that fits your business. Each option takes you to its application form.
           </p>
         </div>
       </section>
 
-      {/* Listing Type Selection */}
-      <section className="py-12 px-6 bg-white">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-2xl font-semibold text-rif-black mb-6 text-center">
-            Choose Your Listing Type
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-            {/* General Listing */}
-            <button
-              onClick={() => setListingType('general')}
-              className={`p-6 rounded-2xl border-2 transition-all text-left ${
-                listingType === 'general'
-                  ? 'border-rif-blue-500 bg-rif-blue-50 shadow-lg'
-                  : 'border-gray-200 bg-white hover:border-rif-blue-300 hover:shadow-md'
-              }`}
-            >
-              <div className="flex items-center gap-3 mb-3">
-                <div className={`p-3 rounded-xl ${listingType === 'general' ? 'bg-rif-blue-500' : 'bg-gray-200'}`}>
-                  <FontAwesomeIcon
-                    icon={faList}
-                    className={`h-6 w-6 ${listingType === 'general' ? 'text-white' : 'text-gray-600'}`}
-                  />
-                </div>
-                <h3 className="text-xl font-semibold text-rif-black">General Listing</h3>
-              </div>
-              <p className="text-gray-600 text-sm mb-2">Free listing</p>
-              <p className="text-gray-600 text-sm">
-                Basic directory listing with business information. Contact details may be hidden.
-              </p>
-            </button>
-
-            {/* Sponsored Listing */}
-            <button
-              onClick={() => setListingType('sponsored')}
-              className={`p-6 rounded-2xl border-2 transition-all text-left ${
-                listingType === 'sponsored'
-                  ? 'border-rif-blue-500 bg-rif-blue-50 shadow-lg'
-                  : 'border-gray-200 bg-white hover:border-rif-blue-300 hover:shadow-md'
-              }`}
-            >
-              <div className="flex items-center gap-3 mb-3">
-                <div className={`p-3 rounded-xl ${listingType === 'sponsored' ? 'bg-rif-blue-500' : 'bg-gray-200'}`}>
-                  <FontAwesomeIcon
-                    icon={faDollarSign}
-                    className={`h-6 w-6 ${listingType === 'sponsored' ? 'text-white' : 'text-gray-600'}`}
-                  />
-                </div>
-                <h3 className="text-xl font-semibold text-rif-black">Sponsored Listing</h3>
-              </div>
-              <p className="text-gray-600 text-sm mb-2 font-semibold">$300 annually</p>
-              <p className="text-gray-600 text-sm">
-                Paid listing with enhanced visibility, logo display, and full contact information.
-              </p>
-            </button>
-
-            {/* Certified Roofer */}
-            <button
-              onClick={() => setListingType('certified')}
-              className={`p-6 rounded-2xl border-2 transition-all text-left ${
-                listingType === 'certified'
-                  ? 'border-rif-blue-500 bg-rif-blue-50 shadow-lg'
-                  : 'border-gray-200 bg-white hover:border-rif-blue-300 hover:shadow-md'
-              }`}
-            >
-              <div className="flex items-center gap-3 mb-3">
-                <div className={`p-3 rounded-xl ${listingType === 'certified' ? 'bg-rif-blue-500' : 'bg-gray-200'}`}>
-                  <FontAwesomeIcon
-                    icon={faCertificate}
-                    className={`h-6 w-6 ${listingType === 'certified' ? 'text-white' : 'text-gray-600'}`}
-                  />
-                </div>
-                <h3 className="text-xl font-semibold text-rif-black">Certified Roofer</h3>
-              </div>
-              <p className="text-gray-600 text-sm mb-2">Free (with qualification)</p>
-              <p className="text-gray-600 text-sm">
-                Complete training and approval process to become a preferred contractor.
-              </p>
-            </button>
+      {/* Choose Your Partnership Level - same style & verbiage as /partnerships, links to apply forms */}
+      <section className="py-20 px-6 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-rif-black mb-4">
+              Choose Your Partnership Level
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Select the partnership program that best fits your business needs and goals
+            </p>
           </div>
 
-          {/* Form */}
-          <div className="bg-white rounded-2xl border border-gray-200 p-8 shadow-sm">
-            <form onSubmit={handleSubmit}>
-              {/* Business Name */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
+            {/* Preferred Contractor Card - GREEN → preferred-contractor/apply */}
+            <div className="relative bg-card-green-100 rounded-3xl p-8 border-2 border-card-green-200 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+              <div className="absolute top-4 right-4">
+                <span className="px-3 py-1 bg-card-green-500 text-white text-xs font-bold rounded-full whitespace-nowrap">
+                  Certification Training
+                </span>
+              </div>
               <div className="mb-6">
-                <label htmlFor="businessName" className="block text-sm font-medium text-gray-700 mb-2">
-                  Business Name <span className="text-red-500">*</span>
-                </label>
-                <div className="relative">
-                  <FontAwesomeIcon
-                    icon={faBuilding}
-                    className="absolute left-3 top-3 h-5 w-5 text-gray-400"
-                  />
-                  <input
-                    type="text"
-                    id="businessName"
-                    name="businessName"
-                    required
-                    value={formData.businessName}
-                    onChange={handleChange}
-                    className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rif-blue-500 focus:border-rif-blue-500"
-                    placeholder="Enter your business name"
-                  />
+                <div className="p-4 bg-card-green-500 rounded-2xl w-fit mb-4">
+                  <FontAwesomeIcon icon={faUserTie} className="h-10 w-10 text-white" />
                 </div>
+                <h3 className="text-2xl font-bold text-rif-black mb-3">Preferred Contractor</h3>
+                <p className="text-gray-700 leading-relaxed mb-4">
+                  Top-tier partnership with preferred placement, wholesale pricing, and enhanced benefits. Must qualify and complete training.
+                </p>
               </div>
-
-              {/* Address/Location */}
-              <div className="mb-6">
-                <label htmlFor="location" className="block text-sm font-medium text-gray-700 mb-2">
-                  Street Address <span className="text-red-500">*</span>
-                </label>
-                <div className="relative">
-                  <FontAwesomeIcon
-                    icon={faMapMarkerAlt}
-                    className="absolute left-3 top-3 h-5 w-5 text-gray-400"
-                  />
-                  <input
-                    type="text"
-                    id="location"
-                    name="location"
-                    required
-                    value={formData.location}
-                    onChange={handleChange}
-                    className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rif-blue-500 focus:border-rif-blue-500"
-                    placeholder="Street address"
-                  />
-                </div>
-              </div>
-
-              {/* City, State, ZIP */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-                <div>
-                  <label htmlFor="city" className="block text-sm font-medium text-gray-700 mb-2">
-                    City <span className="text-red-500">*</span>
-                  </label>
-                  <input
-                    type="text"
-                    id="city"
-                    name="city"
-                    required
-                    value={formData.city}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rif-blue-500 focus:border-rif-blue-500"
-                    placeholder="City"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="state" className="block text-sm font-medium text-gray-700 mb-2">
-                    State <span className="text-red-500">*</span>
-                  </label>
-                  <input
-                    type="text"
-                    id="state"
-                    name="state"
-                    required
-                    value={formData.state}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rif-blue-500 focus:border-rif-blue-500"
-                    placeholder="FL"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="zipCode" className="block text-sm font-medium text-gray-700 mb-2">
-                    ZIP Code <span className="text-red-500">*</span>
-                  </label>
-                  <input
-                    type="text"
-                    id="zipCode"
-                    name="zipCode"
-                    required
-                    value={formData.zipCode}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rif-blue-500 focus:border-rif-blue-500"
-                    placeholder="ZIP Code"
-                  />
-                </div>
-              </div>
-
-              {/* Phone */}
-              <div className="mb-6">
-                <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
-                  Phone Number <span className="text-red-500">*</span>
-                </label>
-                <div className="relative">
-                  <FontAwesomeIcon
-                    icon={faPhone}
-                    className="absolute left-3 top-3 h-5 w-5 text-gray-400"
-                  />
-                  <input
-                    type="tel"
-                    id="phone"
-                    name="phone"
-                    required
-                    value={formData.phone}
-                    onChange={handleChange}
-                    className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rif-blue-500 focus:border-rif-blue-500"
-                    placeholder="(555) 123-4567"
-                  />
-                </div>
-              </div>
-
-              {/* Email */}
-              <div className="mb-6">
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                  Email Address <span className="text-red-500">*</span>
-                </label>
-                <div className="relative">
-                  <FontAwesomeIcon
-                    icon={faEnvelope}
-                    className="absolute left-3 top-3 h-5 w-5 text-gray-400"
-                  />
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    required
-                    value={formData.email}
-                    onChange={handleChange}
-                    className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rif-blue-500 focus:border-rif-blue-500"
-                    placeholder="your@email.com"
-                  />
-                </div>
-              </div>
-
-              {/* Website */}
-              <div className="mb-6">
-                <label htmlFor="website" className="block text-sm font-medium text-gray-700 mb-2">
-                  Website (optional)
-                </label>
-                <div className="relative">
-                  <FontAwesomeIcon
-                    icon={faGlobe}
-                    className="absolute left-3 top-3 h-5 w-5 text-gray-400"
-                  />
-                  <input
-                    type="url"
-                    id="website"
-                    name="website"
-                    value={formData.website}
-                    onChange={handleChange}
-                    className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rif-blue-500 focus:border-rif-blue-500"
-                    placeholder="https://www.example.com"
-                  />
-                </div>
-              </div>
-
-              {/* Logo Upload (Sponsored only) */}
-              {listingType === 'sponsored' && (
-                <div className="mb-6">
-                  <label htmlFor="logo" className="block text-sm font-medium text-gray-700 mb-2">
-                    Company Logo <span className="text-red-500">*</span>
-                  </label>
-                  <div className="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center hover:border-rif-blue-400 transition-colors">
-                    <input
-                      type="file"
-                      id="logo"
-                      name="logo"
-                      accept="image/*"
-                      required={listingType === 'sponsored'}
-                      onChange={handleFileChange}
-                      className="hidden"
-                    />
-                    <label htmlFor="logo" className="cursor-pointer">
-                      <FontAwesomeIcon
-                        icon={faUpload}
-                        className="h-8 w-8 text-gray-400 mb-2 mx-auto block"
-                      />
-                      <p className="text-sm text-gray-600">
-                        {formData.logo ? formData.logo.name : 'Click to upload logo (PNG, JPG, SVG)'}
-                      </p>
-                      <p className="text-xs text-gray-500 mt-1">Recommended: 200x200px or larger</p>
-                    </label>
-                  </div>
-                </div>
-              )}
-
-              {/* Info Box based on listing type */}
-              <div
-                className={`mb-6 p-4 rounded-lg ${
-                  listingType === 'general'
-                    ? 'bg-blue-50 border border-blue-200'
-                    : listingType === 'sponsored'
-                    ? 'bg-yellow-50 border border-yellow-200'
-                    : 'bg-green-50 border border-green-200'
-                }`}
+              <ul className="space-y-3 mb-6">
+                <li className="flex items-start gap-3">
+                  <FontAwesomeIcon icon={faCheckCircle} className="h-5 w-5 text-card-green-500 mt-0.5 flex-shrink-0" />
+                  <span className="text-gray-700">Top placement on location pages</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <FontAwesomeIcon icon={faCheckCircle} className="h-5 w-5 text-card-green-500 mt-0.5 flex-shrink-0" />
+                  <span className="text-gray-700">Business address and phone displayed</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <FontAwesomeIcon icon={faCheckCircle} className="h-5 w-5 text-card-green-500 mt-0.5 flex-shrink-0" />
+                  <span className="text-gray-700">Wholesale pricing on materials</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <FontAwesomeIcon icon={faCheckCircle} className="h-5 w-5 text-card-green-500 mt-0.5 flex-shrink-0" />
+                  <span className="text-gray-700">Priority lead routing</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <FontAwesomeIcon icon={faCheckCircle} className="h-5 w-5 text-card-green-500 mt-0.5 flex-shrink-0" />
+                  <span className="text-gray-700">Website listing</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <FontAwesomeIcon icon={faCheckCircle} className="h-5 w-5 text-card-green-500 mt-0.5 flex-shrink-0" />
+                  <span className="text-gray-700">Click to call</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <FontAwesomeIcon icon={faCheckCircle} className="h-5 w-5 text-card-green-500 mt-0.5 flex-shrink-0" />
+                  <span className="text-gray-700">Enhanced profile with reviews</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <FontAwesomeIcon icon={faCheckCircle} className="h-5 w-5 text-card-green-500 mt-0.5 flex-shrink-0" />
+                  <span className="text-gray-700">Priority materials access</span>
+                </li>
+              </ul>
+              <Link
+                href="/partnerships/preferred-contractor/apply"
+                className="inline-flex items-center justify-center gap-2 w-full px-6 py-3 bg-card-green-500 text-white font-semibold rounded-lg hover:bg-card-green-600 transition-colors"
               >
-                {listingType === 'general' && (
-                  <p className="text-sm text-gray-700">
-                    <strong>Note:</strong> Not all information will be displayed publicly. At minimum, your business
-                    name and location will be listed.
-                  </p>
-                )}
-                {listingType === 'sponsored' && (
-                  <p className="text-sm text-gray-700">
-                    <strong>Sponsored Listing - $300 annually:</strong> This is a paid listing. After submission, you
-                    will be contacted to complete payment. Payment processing will be available soon.
-                  </p>
-                )}
-                {listingType === 'certified' && (
-                  <p className="text-sm text-gray-700">
-                    <strong>Certified Roofer Application:</strong> After submission, we will review your application and
-                    contact you to schedule an interview and discuss training requirements.
-                  </p>
-                )}
+                Apply Now
+                <FontAwesomeIcon icon={faArrowRight} className="h-4 w-4" />
+              </Link>
+            </div>
+
+            {/* Sponsored results Card - BLUE → sponsorship-subscription/apply */}
+            <div className="relative bg-rif-blue-50 rounded-3xl p-8 border-2 border-rif-blue-200 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+              <div className="absolute top-4 right-4">
+                <span className="px-3 py-1 bg-rif-blue-500 text-white text-xs font-bold rounded-full">
+                  PAID
+                </span>
               </div>
-
-              {/* Submit Button */}
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className="w-full py-4 bg-rif-blue-500 text-white text-lg font-semibold rounded-lg hover:bg-rif-blue-600 transition-colors disabled:bg-gray-400 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+              <div className="mb-6">
+                <div className="p-4 bg-rif-blue-500 rounded-2xl w-fit mb-4">
+                  <FontAwesomeIcon icon={faBullhorn} className="h-10 w-10 text-white" />
+                </div>
+                <h3 className="text-2xl font-bold text-rif-black mb-3">Sponsored results</h3>
+                <p className="text-gray-700 leading-relaxed mb-4">
+                  Premium placement and enhanced features for maximum visibility and lead generation.
+                </p>
+              </div>
+              <ul className="space-y-3 mb-6">
+                <li className="flex items-start gap-3">
+                  <FontAwesomeIcon icon={faCheckCircle} className="h-5 w-5 text-rif-blue-500 mt-0.5 flex-shrink-0" />
+                  <span className="text-gray-700">Featured placement on key pages</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <FontAwesomeIcon icon={faCheckCircle} className="h-5 w-5 text-rif-blue-500 mt-0.5 flex-shrink-0" />
+                  <span className="text-gray-700">Business address and phone displayed</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <FontAwesomeIcon icon={faCheckCircle} className="h-5 w-5 text-rif-blue-500 mt-0.5 flex-shrink-0" />
+                  <span className="text-gray-700">Wholesale pricing</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <FontAwesomeIcon icon={faCheckCircle} className="h-5 w-5 text-rif-blue-500 mt-0.5 flex-shrink-0" />
+                  <span className="text-gray-700">Logo and branding opportunities</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <FontAwesomeIcon icon={faCheckCircle} className="h-5 w-5 text-rif-blue-500 mt-0.5 flex-shrink-0" />
+                  <span className="text-gray-700">Enhanced profile features</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <FontAwesomeIcon icon={faCheckCircle} className="h-5 w-5 text-rif-blue-500 mt-0.5 flex-shrink-0" />
+                  <span className="text-gray-700">Marketing support & analytics</span>
+                </li>
+              </ul>
+              <Link
+                href="/partnerships/sponsorship-subscription/apply"
+                className="inline-flex items-center justify-center gap-2 w-full px-6 py-3 bg-rif-blue-500 text-white font-semibold rounded-lg hover:bg-rif-blue-600 transition-colors"
               >
-                {isSubmitting ? (
-                  <>
-                    <FontAwesomeIcon icon={faSpinner} className="h-5 w-5 animate-spin" />
-                    Submitting...
-                  </>
-                ) : (
-                  <>
-                    Submit Application
-                    <FontAwesomeIcon icon={faCheckCircle} className="h-5 w-5" />
-                  </>
-                )}
-              </button>
+                Sign up for Sponsored results
+                <FontAwesomeIcon icon={faArrowRight} className="h-4 w-4" />
+              </Link>
+            </div>
 
-              {/* Success/Error Messages */}
-              {submitStatus === 'success' && (
-                <div className="mt-6 p-4 bg-green-50 border border-green-200 rounded-lg flex items-start gap-3">
-                  <FontAwesomeIcon icon={faCheckCircle} className="h-5 w-5 text-green-500 mt-0.5" />
-                  <div>
-                    <p className="text-green-800 font-medium">Application Submitted Successfully!</p>
-                    <p className="text-green-700 text-sm mt-1">
-                      We have received your application and will contact you soon.
-                    </p>
-                  </div>
+            {/* General Listings Card - GREY → general-listings/apply */}
+            <div className="relative bg-gray-50 rounded-3xl p-8 border-2 border-gray-200 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+              <div className="absolute top-4 right-4">
+                <span className="px-3 py-1 bg-gray-600 text-white text-xs font-bold rounded-full">
+                  FREE
+                </span>
+              </div>
+              <div className="mb-6">
+                <div className="p-4 bg-gray-600 rounded-2xl w-fit mb-4">
+                  <FontAwesomeIcon icon={faList} className="h-10 w-10 text-white" />
                 </div>
-              )}
-
-              {submitStatus === 'error' && (
-                <div className="mt-6 p-4 bg-red-50 border border-red-200 rounded-lg flex items-start gap-3">
-                  <FontAwesomeIcon icon={faExclamationCircle} className="h-5 w-5 text-red-500 mt-0.5" />
-                  <div>
-                    <p className="text-red-800 font-medium">Error Submitting Application</p>
-                    <p className="text-red-700 text-sm mt-1">{errorMessage}</p>
-                  </div>
-                </div>
-              )}
-            </form>
+                <h3 className="text-2xl font-bold text-rif-black mb-3">General Listings</h3>
+                <p className="text-gray-700 leading-relaxed mb-4">
+                  Basic directory listing to get your business in front of customers searching for roofing services.
+                </p>
+              </div>
+              <ul className="space-y-3 mb-6">
+                <li className="flex items-start gap-3">
+                  <FontAwesomeIcon icon={faCheckCircle} className="h-5 w-5 text-gray-500 mt-0.5 flex-shrink-0" />
+                  <span className="text-gray-700">Directory listing on location pages</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <FontAwesomeIcon icon={faCheckCircle} className="h-5 w-5 text-gray-500 mt-0.5 flex-shrink-0" />
+                  <span className="text-gray-700">Business profile page</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <FontAwesomeIcon icon={faCheckCircle} className="h-5 w-5 text-gray-500 mt-0.5 flex-shrink-0" />
+                  <span className="text-gray-700">Wholesale pricing</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <FontAwesomeIcon icon={faCheckCircle} className="h-5 w-5 text-gray-500 mt-0.5 flex-shrink-0" />
+                  <span className="text-gray-700">Service area coverage</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <FontAwesomeIcon icon={faCheckCircle} className="h-5 w-5 text-gray-500 mt-0.5 flex-shrink-0" />
+                  <span className="text-gray-700">SEO benefits from RIF platform</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <FontAwesomeIcon icon={faCheckCircle} className="h-5 w-5 text-gray-500 mt-0.5 flex-shrink-0" />
+                  <span className="text-gray-700">Appears after preferred contractors</span>
+                </li>
+              </ul>
+              <Link
+                href="/partnerships/general-listings/apply"
+                className="inline-flex items-center justify-center gap-2 w-full px-6 py-3 bg-gray-600 text-white font-semibold rounded-lg hover:bg-gray-700 transition-colors"
+              >
+                Apply for Listing
+                <FontAwesomeIcon icon={faArrowRight} className="h-4 w-4" />
+              </Link>
+            </div>
           </div>
         </div>
       </section>
     </div>
   );
 }
-

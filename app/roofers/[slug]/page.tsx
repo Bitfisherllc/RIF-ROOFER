@@ -164,12 +164,13 @@ export default function RooferProfilePage({
                     rooferPhone={roofer.phone}
                     rooferEmail={roofer.email}
                     rooferWebsiteUrl={roofer.websiteUrl}
+                    rooferListingType={roofer.category === 'preferred' || roofer.isPreferred ? 'preferred' : roofer.category === 'sponsored' ? 'sponsored' : 'general'}
                     size="lg"
                   />
                   {roofer.category === 'preferred' || roofer.isPreferred ? (
                     <div className="flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-card-green-500 to-card-green-600 text-white rounded-full text-sm font-bold shadow-lg border-2 border-card-green-700">
                       <FontAwesomeIcon icon={faCertificate} className="h-4 w-4" />
-                      Certified
+                      <span className="rif-brand">RiF</span> Certified
                     </div>
                   ) : roofer.category === 'sponsored' ? (
                     <div className="flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-card-blue-500 to-card-blue-600 text-white rounded-full text-sm font-bold shadow-lg border-2 border-card-blue-700">
@@ -665,11 +666,11 @@ export default function RooferProfilePage({
                 />
                 <div>
                   <h3 className="text-xl font-semibold text-rif-black mb-2">
-                    RIF Certified Installer
+                    <span className="rif-brand">RiF</span> Certified Installer
                   </h3>
                   <p className="text-gray-700 leading-relaxed">
-                    {roofer.name} is part of the RIF network of certified
-                    installers. All RIF contractors are vetted, trained on specific
+                    {roofer.name} is part of the <span className="rif-brand">RiF</span> network of certified
+                    installers. All <span className="rif-brand">RiF</span> contractors are vetted, trained on specific
                     product systems, and held to higher standards for installation
                     quality and code compliance. Projects benefit from
                     distributor-level pricing and priority material availability.
@@ -699,7 +700,7 @@ export default function RooferProfilePage({
                     <li>Display your full contact information (phone, email, website, address)</li>
                     <li>Get better visibility and higher ranking in search results</li>
                     <li>Build trust with potential customers</li>
-                    <li>Access additional RIF network benefits (for Certified listings)</li>
+                    <li>Access additional <span className="rif-brand">RiF</span> network benefits (for Certified listings)</li>
                   </ul>
                   <div className="flex flex-col sm:flex-row gap-3">
                     <Link
@@ -713,7 +714,7 @@ export default function RooferProfilePage({
                       href="/partnerships/sponsorship-subscription"
                       className="inline-flex items-center justify-center gap-2 px-6 py-3 border-2 border-rif-blue-500 text-rif-blue-500 rounded-lg hover:bg-rif-blue-50 transition-colors font-medium"
                     >
-                      Learn About Sponsored Listing
+                      Learn About Sponsored results
                     </Link>
                   </div>
                 </div>

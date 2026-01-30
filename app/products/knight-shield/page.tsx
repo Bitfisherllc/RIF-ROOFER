@@ -37,6 +37,9 @@ export default function KNIGHTSHIELDProductPage() {
         logoAlt="KNIGHT SHIELD Logo"
         backToProductsHref="/products"
         freeEstimateHref="/free-estimate"
+        productSlug="knight-shield"
+        productName="KNIGHT SHIELD"
+        productCategory="Roofing Systems"
       />
       
       {/* Hero Section */}
@@ -57,14 +60,16 @@ export default function KNIGHTSHIELDProductPage() {
               <p className="text-xl text-gray-300 mb-10 leading-relaxed max-w-lg">
                 KNIGHT SHIELD manufactures durable roofing products and systems designed to provide superior protection, weather resistance, and performance for various architectural styles and climates.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Link
-                  href="/products"
-                  className="inline-flex items-center justify-center gap-2 px-8 py-3 border-2 border-white text-white rounded-lg hover:bg-white/10 transition-colors font-medium"
+              <div className="flex flex-col sm:flex-row gap-4 flex-wrap">
+                <a
+                  href="https://www.wrmeadows.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 px-8 py-3 bg-rif-blue-500 text-white rounded-lg hover:bg-rif-blue-600 transition-colors font-medium"
                 >
-                  <FontAwesomeIcon icon={faArrowRight} className="h-4 w-4 rotate-180" />
-                  Back to Products
-                </Link>
+                  Visit website
+                  <FontAwesomeIcon icon={faExternalLink} className="h-4 w-4" />
+                </a>
               </div>
             </div>
             <div className="relative h-96 lg:h-[500px] rounded-2xl overflow-hidden shadow-2xl group">

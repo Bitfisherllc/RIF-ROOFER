@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight, faBoxes } from '@fortawesome/free-solid-svg-icons';
 import type { Metadata } from 'next';
 import ProductsGrid from './products-grid';
+import { getProductOrder, getHiddenProductSlugs, sortProductsByOrder } from '@/lib/product-order';
 
 export const metadata: Metadata = {
   title: 'Premium Roofing Products',
@@ -136,6 +137,12 @@ const products: Product[] = [
 ];
 
 export default function ProductsPage() {
+  const order = getProductOrder();
+  const hiddenSlugs = getHiddenProductSlugs();
+  const sortedProducts = sortProductsByOrder(products, order).filter(
+    (p) => !hiddenSlugs.includes(p.slug)
+  );
+
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
@@ -144,7 +151,7 @@ export default function ProductsPage() {
           <div className="flex items-center justify-center gap-3 mb-6">
             <FontAwesomeIcon icon={faBoxes} className="h-8 w-8 text-rif-blue-500" />
             <h1 className="text-4xl md:text-5xl font-semibold text-rif-black tracking-tight">
-              Premium Roofing Products
+              <a href="https://prproofing.com/" target="_blank" rel="noopener noreferrer" className="text-rif-black hover:text-rif-blue-600 hover:underline">Premium Roofing Products</a>
             </h1>
           </div>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8 font-light leading-relaxed">
@@ -158,7 +165,7 @@ export default function ProductsPage() {
       {/* Products Grid */}
       <section className="py-12 px-6">
         <div className="max-w-7xl mx-auto">
-          <ProductsGrid products={products} />
+          <ProductsGrid products={sortedProducts} />
         </div>
       </section>
 

@@ -1,8 +1,7 @@
 {
-  "passwordProtected": false,
-  "password": "letmein",
+  "passwordProtected": true,
+  "password": "Hottinroof123#",
   "adminPassword": "Willy123#",
   "adminEmail": "info@roofersinflorida.com",
   "adminPasswordNew": "Hottinroof123#"
 }
-

@@ -241,7 +241,7 @@ export default function HomePage() {
                 Wholesale Pricing
               </h2>
               <p className="text-lg text-gray-600 leading-relaxed">
-                Distributor-level pricing on materials for RIF-backed projects.
+                Distributor-level pricing on materials for <span className="rif-brand">RiF</span>-backed projects.
               </p>
             </div>
           </div>
@@ -262,7 +262,7 @@ export default function HomePage() {
             >
               <h3 className="flex items-center gap-3 text-2xl font-semibold text-rif-black mb-2 group-hover:text-rif-blue-500 transition-colors">
                 <FontAwesomeIcon icon={faMapLocationDot} className="h-6 w-6" />
-                Service Areas
+                Explore Service Areas
               </h3>
               <p className="text-lg text-gray-600">
                 Browse by region, county, and city
@@ -312,13 +312,13 @@ export default function HomePage() {
                 </div>
                 <p className="text-lg text-gray-700 leading-relaxed mb-6">
                   Advance your career with comprehensive training in stone-coated metal roofing sales and installation. 
-                  Become a certified RIF installer and grow your business with expert-led courses.
+                  Become a certified <span className="rif-brand">RiF</span> installer and grow your business with expert-led courses.
                 </p>
                 <Link
                   href="/training"
                   className="inline-flex items-center gap-2 px-8 py-4 bg-rif-blue-500 text-white text-lg font-semibold rounded-lg hover:bg-rif-blue-600 transition-colors"
                 >
-                  Explore Training Programs
+                  Explore Training
                   <FontAwesomeIcon icon={faArrowRight} className="h-5 w-5" />
                 </Link>
               </div>
@@ -341,7 +341,7 @@ export default function HomePage() {
                   <div className="flex items-start gap-3">
                     <FontAwesomeIcon icon={faCertificate} className="h-5 w-5 text-rif-blue-500 mt-1 flex-shrink-0" />
                     <div>
-                      <h3 className="font-semibold text-rif-black mb-1">RIF Certification</h3>
+                      <h3 className="font-semibold text-rif-black mb-1"><span className="rif-brand">RiF</span> Certification</h3>
                       <p className="text-gray-600 text-sm">Become a certified installer and join our network</p>
                     </div>
                   </div>
@@ -379,7 +379,7 @@ export default function HomePage() {
                       </div>
                       <div>
                         <span className="inline-block px-3 py-1 bg-card-green-500 text-white text-xs font-bold rounded-full mb-2">
-                          CERTIFIED ROOFER
+                          <span className="rif-brand">RiF</span> CERTIFIED
                         </span>
                         <h3 className="text-2xl font-bold text-rif-black group-hover:text-card-green-600 transition-colors">
                           {featuredPreferred.name}

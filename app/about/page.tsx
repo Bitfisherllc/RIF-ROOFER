@@ -39,7 +39,10 @@ export default function AboutPage() {
             About Us
           </h1>
           <p className="text-xl md:text-2xl text-gray-700 leading-relaxed max-w-3xl mx-auto font-light">
-            RIF is a Florida-owned, USA-based roofing team built to help homeowners get a better roof—faster, cleaner, and with less stress. We specialize in stone-coated metal roofing systems designed for Florida's wind zones, storm seasons, and coastal conditions, while delivering the look many homeowners want—tile or shake styles with modern performance.
+            RIF is a Florida-owned, USA-based roofing team built to help homeowners get a better roof—faster, cleaner, and with less stress. We specialize in stone-coated metal roofing systems designed for Florida&apos;s wind zones, storm seasons, and coastal conditions, while delivering the look many homeowners want—tile or shake styles with modern performance.
+          </p>
+          <p className="text-lg text-gray-600 leading-relaxed max-w-3xl mx-auto mt-6">
+            RIF is a division of <a href="https://prproofing.com/" target="_blank" rel="noopener noreferrer" className="text-rif-blue-600 hover:underline font-medium">Premium Roofing Products (PRP)</a>, one of Florida&apos;s largest stone-coated roofing distributors. Our relationship with PRP gives homeowners access to distributor-level pricing and a certified installer network across the state.
           </p>
         </div>
       </section>
@@ -111,7 +114,7 @@ export default function AboutPage() {
                 <h3 className="text-xl font-semibold text-rif-black">Installer-Direct Pricing</h3>
               </div>
               <p className="text-gray-600 leading-relaxed">
-                As the installation arm tied to PRP Roofing (Premium Roofing Products), we extend distributor-level pricing on residential and commercial installations.
+                As the installation division of <a href="https://prproofing.com/" target="_blank" rel="noopener noreferrer" className="text-rif-blue-600 hover:underline">Premium Roofing Products (PRP)</a>, we extend distributor-level pricing on residential and commercial installations.
               </p>
             </div>
 

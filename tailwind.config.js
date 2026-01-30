@@ -42,6 +42,7 @@ module.exports = {
       },
       animation: {
         'bounce-in': 'bounceIn 0.8s ease-out forwards',
+        'location-pulse': 'locationPulse 1.5s ease-in-out infinite',
       },
       keyframes: {
         bounceIn: {
@@ -59,6 +60,10 @@ module.exports = {
           '100%': {
             transform: 'scale(1)',
           },
+        },
+        locationPulse: {
+          '0%, 100%': { color: 'rgb(255 255 255)' },
+          '50%': { color: 'rgb(250 204 21)' },
         },
       },
     },

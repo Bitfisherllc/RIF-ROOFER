@@ -1,7 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { Resend } from 'resend';
 import { verifyTurnstileToken } from '@/lib/turnstile';
-import { getContactConfirmationEmailHtml } from '@/lib/email-templates';
+import { getContactConfirmationEmailHtml, getContactNotificationEmailHtml } from '@/lib/email-templates';
+import { FORM_SUBMISSION_EMAIL } from '@/lib/email-config';
 
 // Initialize Resend with API key from environment variable
 const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null;
@@ -80,6 +81,8 @@ export async function POST(request: NextRequest) {
 
     const {
       userType,
+      residentIntent,
+      rooferIntent,
       fullName,
       email,
       phone,
@@ -97,6 +100,9 @@ export async function POST(request: NextRequest) {
       interestedInPartnership,
       productName,
       productDescription,
+      manufacturerPreferredSupplier,
+      manufacturerSponsoredListing,
+      manufacturerWebsite,
     } = body;
 
     // Validate required fields based on user type
@@ -107,78 +113,46 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Additional validation based on user type
-    if (userType === 'resident' && (!propertyAddress || !city || !zipCode || !projectType)) {
+    // Resident: only require property/project when residentIntent is quote (or not general)
+    const residentGeneral = userType === 'resident' && residentIntent === 'general';
+    if (userType === 'resident' && !residentGeneral && (!propertyAddress || !city || !zipCode || !projectType)) {
       return NextResponse.json(
         { error: 'Missing required fields for resident' },
         { status: 400 }
       );
     }
 
-    if (userType === 'manufacturer' && (!companyName || !productName || !productDescription)) {
+    if (userType === 'manufacturer' && (!companyName || !productName || !productDescription || !manufacturerPreferredSupplier)) {
       return NextResponse.json(
         { error: 'Missing required fields for manufacturer' },
         { status: 400 }
       );
     }
 
-    // Format the email content based on user type
-    let emailContent = `
-New Contact Form Submission from RIF Roofing Website
-
-USER TYPE: ${userType === 'roofer' ? 'Roofer' : userType === 'manufacturer' ? 'Manufacturer' : 'Resident'}
-
-PERSONAL INFORMATION:
-- Name: ${fullName}
-- Email: ${email}
-- Phone: ${phone}
-${companyName ? `- Company Name: ${companyName}` : ''}
-
-`;
-
-    if (userType === 'roofer') {
-      emailContent += `
-ROOFER INFORMATION:
-- Interested in Free Estimate: ${interestedInFreeEstimate ? 'Yes' : 'No'}
-- Interested in Partnership: ${interestedInPartnership ? 'Yes' : 'No'}
-- Message:
-${message}
-`;
-    } else if (userType === 'manufacturer') {
-      emailContent += `
-PRODUCT INFORMATION:
-- Product Name: ${productName}
-- Product Description:
-${productDescription}
-
-ADDITIONAL INFORMATION:
-${message}
-`;
-    } else {
-      emailContent += `
-PROPERTY INFORMATION:
-- Address: ${propertyAddress}
-- City: ${city}
-- ZIP Code: ${zipCode}
-
-PROJECT DETAILS:
-- Project Type: ${projectType}
-- Roof Size: ${roofSize || 'Not specified'}
-- Description:
-${message}
-`;
-    }
-
-    emailContent += `
-CONTACT PREFERENCES:
-- Preferred Contact Method: ${preferredContact}
-- Best Time to Contact: ${bestTimeToContact || 'Not specified'}
-- How They Heard About Us: ${hearAboutUs || 'Not specified'}
-
----
-This email was sent from the RIF Roofing contact form.
-Submitted on: ${new Date().toLocaleString('en-US', { timeZone: 'America/New_York' })}
-    `.trim();
+    // HTML notification email (estimate-style)
+    const notificationHtml = getContactNotificationEmailHtml({
+      userType,
+      residentIntent: residentIntent || undefined,
+      rooferIntent: rooferIntent || undefined,
+      fullName,
+      email,
+      phone,
+      companyName: companyName || undefined,
+      propertyAddress: propertyAddress || undefined,
+      city: city || undefined,
+      zipCode: zipCode || undefined,
+      projectType: projectType || undefined,
+      roofSize: roofSize || undefined,
+      message,
+      preferredContact,
+      bestTimeToContact: bestTimeToContact || undefined,
+      hearAboutUs: hearAboutUs || undefined,
+      productName: productName || undefined,
+      productDescription: productDescription || undefined,
+      manufacturerPreferredSupplier: manufacturerPreferredSupplier || undefined,
+      manufacturerSponsoredListing: manufacturerSponsoredListing || undefined,
+      manufacturerWebsite: manufacturerWebsite || undefined,
+    });
 
     // Check if Resend is configured
     if (!resend) {
@@ -196,12 +170,12 @@ Submitted on: ${new Date().toLocaleString('en-US', { timeZone: 'America/New_York
     const targetEmail = 'info@roofersinflorida.com';
     const verifiedEmail = process.env.RESEND_VERIFIED_EMAIL || 'craig@bitfisher.com';
     
-    // Try to send to target email first
+    // Try to send to target email first (HTML)
     let { data, error } = await resend.emails.send({
       from: fromEmail,
       to: [targetEmail],
       subject: `New Contact Form Submission from ${fullName}`,
-      text: emailContent,
+      html: notificationHtml,
       replyTo: email,
     });
 
@@ -226,11 +200,12 @@ Submitted on: ${new Date().toLocaleString('en-US', { timeZone: 'America/New_York
     if (isVerificationError) {
       console.log('Domain not verified, sending to verified email instead:', verifiedEmail);
       
+      const fallbackNote = `<p style="margin:24px 40px 0;padding:12px;background:#f0f9ff;border-radius:8px;font-size:14px;color:#0c4a6e;border:1px solid #bae6fd;">Please forward to ${targetEmail}. Reply to: ${email}</p></body>`;
       const fallbackResult = await resend.emails.send({
         from: fromEmail,
         to: [verifiedEmail],
         subject: `[FORWARD TO ${targetEmail}] New Contact Form Submission from ${fullName}`,
-        text: `${emailContent}\n\n---\nNOTE: Please forward this email to ${targetEmail}\nThe form was submitted from: ${email}`,
+        html: notificationHtml.replace('</body>', fallbackNote),
         replyTo: email,
       });
       
@@ -279,7 +254,7 @@ Submitted on: ${new Date().toLocaleString('en-US', { timeZone: 'America/New_York
           success: true, 
           message: 'Contact form submitted successfully. Email sent to verified address.',
           data: fallbackResult.data,
-          note: 'To send directly to info@roofersinflorida.com, verify a domain in Resend dashboard.'
+          note: `To send directly to ${FORM_SUBMISSION_EMAIL}, verify a domain in Resend dashboard.`
         },
         { status: 200 }
       );

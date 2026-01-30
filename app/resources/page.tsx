@@ -97,7 +97,7 @@ export default async function ResourcesOverviewPage() {
               <FontAwesomeIcon icon={faBook} className="h-16 w-16 text-white" />
             </div>
           </div>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-rif-black mb-6 tracking-tight">
+          <h1 className="text-4xl md:text-5xl font-semibold text-rif-black mb-6 tracking-tight">
             Resources
           </h1>
           <p className="text-xl md:text-2xl text-gray-700 leading-relaxed max-w-3xl mx-auto font-light mb-4">

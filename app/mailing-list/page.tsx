@@ -403,6 +403,10 @@ export default function MailingListPage() {
                 />
               </div>
 
+              <p className="text-center text-sm text-gray-600">
+                We do not sell your information. You can unsubscribe at any time.
+              </p>
+
               {/* Submit Button */}
               <div className="flex justify-center pt-4">
                 <button
@@ -434,8 +438,11 @@ export default function MailingListPage() {
           <h2 className="text-3xl md:text-4xl font-semibold text-rif-black mb-6">
             What You'll Receive
           </h2>
-          <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+          <p className="text-lg text-gray-600 mb-4 leading-relaxed">
             By joining our mailing list, you'll receive regular updates including:
+          </p>
+          <p className="text-base text-gray-500 mb-8">
+            We do not sell your information. You can cancel or unsubscribe at any time.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
             <div className="p-6 bg-gray-50 rounded-xl">

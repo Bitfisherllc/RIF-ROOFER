@@ -12,31 +12,42 @@ import {
   faArrowRight,
   faShield,
   faChartLine,
+  faBullhorn,
+  faUserTie,
 } from '@fortawesome/free-solid-svg-icons';
 
 export const metadata: Metadata = {
   title: 'Become a Preferred Contractor | RIF Roofing',
   description:
-    'Join the RIF network as a Preferred Contractor. Get preferred placement, enhanced profiles, and access to premium materials at wholesale pricing.',
+    'Join the RIF network as a Preferred Contractor. Get qualified leads from our partner roofing distributor, preferred placement, and access to premium materials at wholesale pricing.',
 };
 
 export default function PreferredContractorPage() {
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Section */}
-      <section className="pt-20 pb-12 px-6 bg-gradient-to-b from-gray-50 to-white">
+      {/* Hero Section - light background, same green palette */}
+      <section className="pt-20 pb-12 px-6 bg-gradient-to-b from-card-green-100 to-white border-b border-card-green-200">
         <div className="max-w-4xl mx-auto text-center">
           <div className="mb-6 flex justify-center">
-            <div className="p-4 bg-gradient-to-r from-yellow-400 to-yellow-500 rounded-2xl">
-              <FontAwesomeIcon icon={faCertificate} className="h-12 w-12 text-white" />
+            <div className="p-4 bg-card-green-200 rounded-2xl">
+              <FontAwesomeIcon icon={faUserTie} className="h-12 w-12 text-card-green-700" />
             </div>
           </div>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-rif-black mb-6 tracking-tight">
+          <h1 className="text-2xl md:text-3xl lg:text-4xl font-semibold text-rif-black mb-6 tracking-tight">
             Become a Preferred Contractor
           </h1>
-          <p className="text-xl md:text-2xl text-gray-700 leading-relaxed max-w-3xl mx-auto font-light">
-            Join the RIF network as a Preferred Contractor and get top placement, enhanced profiles, and priority access to premium materials.
+          <p className="text-lg md:text-xl text-gray-700 leading-relaxed max-w-3xl mx-auto">
+            Join the RIF network as a Preferred Contractor and receive qualified leads from our partner roofing distributor—plus top placement, enhanced profiles, and priority access to premium materials.
           </p>
+          <div className="mt-10">
+            <Link
+              href="/partnerships/preferred-contractor/apply"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-card-green-600 text-white text-lg font-semibold rounded-lg hover:bg-card-green-700 transition-colors shadow-md"
+            >
+              Apply to Become a Preferred Contractor
+              <FontAwesomeIcon icon={faArrowRight} className="h-5 w-5" />
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -47,10 +58,26 @@ export default function PreferredContractorPage() {
             Preferred Contractor Benefits
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="p-6 bg-gray-50 rounded-2xl border border-gray-200">
+            {/* #1 Benefit: Leads from partner distributor */}
+            <div className="md:col-span-2 lg:col-span-3 p-8 bg-card-green-100 rounded-2xl border-2 border-card-green-200">
               <div className="flex items-center gap-3 mb-4">
-                <div className="p-3 bg-rif-blue-500 rounded-xl">
-                  <FontAwesomeIcon icon={faCertificate} className="h-6 w-6 text-white" />
+                <div className="p-3 bg-card-green-500 rounded-xl">
+                  <FontAwesomeIcon icon={faBullhorn} className="h-7 w-7 text-white" />
+                </div>
+                <div>
+                  <span className="text-xs font-bold uppercase tracking-wide text-card-green-600">Biggest benefit</span>
+                  <h3 className="text-2xl font-semibold text-rif-black">Leads from Our Partner Roofing Distributor</h3>
+                </div>
+              </div>
+              <p className="text-gray-700 leading-relaxed text-lg max-w-3xl">
+                Get qualified leads directly from our partner roofing distributor company. Preferred contractors receive referrals and project leads from our distributor network—pre-vetted opportunities that help you grow your business.
+              </p>
+            </div>
+
+            <div className="p-6 bg-card-green-100/50 rounded-2xl border-2 border-card-green-200">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="p-3 bg-card-green-500 rounded-xl">
+                  <FontAwesomeIcon icon={faUserTie} className="h-6 w-6 text-white" />
                 </div>
                 <h3 className="text-xl font-semibold text-rif-black">Preferred Placement</h3>
               </div>
@@ -59,9 +86,9 @@ export default function PreferredContractorPage() {
               </p>
             </div>
 
-            <div className="p-6 bg-gray-50 rounded-2xl border border-gray-200">
+            <div className="p-6 bg-card-green-100/50 rounded-2xl border-2 border-card-green-200">
               <div className="flex items-center gap-3 mb-4">
-                <div className="p-3 bg-rif-blue-500 rounded-xl">
+                <div className="p-3 bg-card-green-500 rounded-xl">
                   <FontAwesomeIcon icon={faUsers} className="h-6 w-6 text-white" />
                 </div>
                 <h3 className="text-xl font-semibold text-rif-black">Enhanced Profile</h3>
@@ -71,9 +98,9 @@ export default function PreferredContractorPage() {
               </p>
             </div>
 
-            <div className="p-6 bg-gray-50 rounded-2xl border border-gray-200">
+            <div className="p-6 bg-card-green-100/50 rounded-2xl border-2 border-card-green-200">
               <div className="flex items-center gap-3 mb-4">
-                <div className="p-3 bg-rif-blue-500 rounded-xl">
+                <div className="p-3 bg-card-green-500 rounded-xl">
                   <FontAwesomeIcon icon={faDollarSign} className="h-6 w-6 text-white" />
                 </div>
                 <h3 className="text-xl font-semibold text-rif-black">Wholesale Pricing</h3>
@@ -83,9 +110,9 @@ export default function PreferredContractorPage() {
               </p>
             </div>
 
-            <div className="p-6 bg-gray-50 rounded-2xl border border-gray-200">
+            <div className="p-6 bg-card-green-100/50 rounded-2xl border-2 border-card-green-200">
               <div className="flex items-center gap-3 mb-4">
-                <div className="p-3 bg-rif-blue-500 rounded-xl">
+                <div className="p-3 bg-card-green-500 rounded-xl">
                   <FontAwesomeIcon icon={faShield} className="h-6 w-6 text-white" />
                 </div>
                 <h3 className="text-xl font-semibold text-rif-black">Priority Materials Access</h3>
@@ -95,9 +122,9 @@ export default function PreferredContractorPage() {
               </p>
             </div>
 
-            <div className="p-6 bg-gray-50 rounded-2xl border border-gray-200">
+            <div className="p-6 bg-card-green-100/50 rounded-2xl border-2 border-card-green-200">
               <div className="flex items-center gap-3 mb-4">
-                <div className="p-3 bg-rif-blue-500 rounded-xl">
+                <div className="p-3 bg-card-green-500 rounded-xl">
                   <FontAwesomeIcon icon={faChartLine} className="h-6 w-6 text-white" />
                 </div>
                 <h3 className="text-xl font-semibold text-rif-black">Marketing Support</h3>
@@ -107,9 +134,9 @@ export default function PreferredContractorPage() {
               </p>
             </div>
 
-            <div className="p-6 bg-gray-50 rounded-2xl border border-gray-200">
+            <div className="p-6 bg-card-green-100/50 rounded-2xl border-2 border-card-green-200">
               <div className="flex items-center gap-3 mb-4">
-                <div className="p-3 bg-rif-blue-500 rounded-xl">
+                <div className="p-3 bg-card-green-500 rounded-xl">
                   <FontAwesomeIcon icon={faHandshake} className="h-6 w-6 text-white" />
                 </div>
                 <h3 className="text-xl font-semibold text-rif-black">Network Benefits</h3>
@@ -123,43 +150,43 @@ export default function PreferredContractorPage() {
       </section>
 
       {/* Requirements Section */}
-      <section className="py-16 px-6 bg-gray-50">
+      <section className="py-16 px-6 bg-card-green-100/30">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-semibold text-rif-black text-center mb-8">
             Preferred Contractor Requirements
           </h2>
-          <div className="bg-white rounded-2xl p-8 border border-gray-200">
+          <div className="bg-white rounded-2xl p-8 border-2 border-card-green-200">
             <ul className="space-y-4">
               <li className="flex items-start gap-4">
-                <FontAwesomeIcon icon={faCheckCircle} className="h-6 w-6 text-green-500 mt-1 flex-shrink-0" />
+                <FontAwesomeIcon icon={faCheckCircle} className="h-6 w-6 text-card-green-500 mt-1 flex-shrink-0" />
                 <div>
                   <h3 className="font-semibold text-rif-black mb-1">Valid Florida Roofing License</h3>
                   <p className="text-gray-600">Must hold a current, active Florida roofing contractor license.</p>
                 </div>
               </li>
               <li className="flex items-start gap-4">
-                <FontAwesomeIcon icon={faCheckCircle} className="h-6 w-6 text-green-500 mt-1 flex-shrink-0" />
+                <FontAwesomeIcon icon={faCheckCircle} className="h-6 w-6 text-card-green-500 mt-1 flex-shrink-0" />
                 <div>
                   <h3 className="font-semibold text-rif-black mb-1">Insurance Coverage</h3>
                   <p className="text-gray-600">Adequate liability and workers' compensation insurance as required by state law.</p>
                 </div>
               </li>
               <li className="flex items-start gap-4">
-                <FontAwesomeIcon icon={faCheckCircle} className="h-6 w-6 text-green-500 mt-1 flex-shrink-0" />
+                <FontAwesomeIcon icon={faCheckCircle} className="h-6 w-6 text-card-green-500 mt-1 flex-shrink-0" />
                 <div>
                   <h3 className="font-semibold text-rif-black mb-1">Product Training</h3>
                   <p className="text-gray-600">Complete manufacturer training on stone-coated metal roofing systems.</p>
                 </div>
               </li>
               <li className="flex items-start gap-4">
-                <FontAwesomeIcon icon={faCheckCircle} className="h-6 w-6 text-green-500 mt-1 flex-shrink-0" />
+                <FontAwesomeIcon icon={faCheckCircle} className="h-6 w-6 text-card-green-500 mt-1 flex-shrink-0" />
                 <div>
                   <h3 className="font-semibold text-rif-black mb-1">Quality Standards</h3>
                   <p className="text-gray-600">Commitment to meeting RIF quality standards for installation and code compliance.</p>
                 </div>
               </li>
               <li className="flex items-start gap-4">
-                <FontAwesomeIcon icon={faCheckCircle} className="h-6 w-6 text-green-500 mt-1 flex-shrink-0" />
+                <FontAwesomeIcon icon={faCheckCircle} className="h-6 w-6 text-card-green-500 mt-1 flex-shrink-0" />
                 <div>
                   <h3 className="font-semibold text-rif-black mb-1">Service Area Coverage</h3>
                   <p className="text-gray-600">Ability to serve specific regions, counties, or cities in Florida.</p>
@@ -170,36 +197,59 @@ export default function PreferredContractorPage() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-16 px-6 bg-white">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-semibold text-rif-black mb-6">
-            Ready to Join the Network?
+      {/* CTA Section - solid blue, form + real people, three contact options */}
+      <section className="py-20 px-6 bg-rif-blue-600 text-white">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-6">
+            Get started—we&apos;re here to help
           </h2>
-          <p className="text-lg text-gray-700 mb-8 leading-relaxed">
-            Contact us to learn more about becoming a Preferred Contractor and start benefiting from the RIF network.
+          <p className="text-xl text-blue-100 text-center max-w-3xl mx-auto mb-4 leading-relaxed">
+            Use the application form above to apply. We&apos;re real people in the roofing industry, and we&apos;re available by phone whenever you want to talk.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+            <Link
+              href="/partnerships/preferred-contractor/apply"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-rif-blue-600 text-lg font-semibold rounded-xl hover:bg-blue-50 transition-colors shadow-lg"
+            >
+              Apply to become a Preferred Contractor
+              <FontAwesomeIcon icon={faArrowRight} className="h-5 w-5" />
+            </Link>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <a
               href="tel:813-777-8272"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-rif-blue-500 text-white text-lg font-semibold rounded-lg hover:bg-rif-blue-600 transition-colors"
+              className="block p-6 bg-white/10 hover:bg-white/15 rounded-2xl border-2 border-white/30 text-left transition-colors"
             >
-              <FontAwesomeIcon icon={faPhone} className="h-5 w-5" />
-              Call: 813-777-8272
+              <div className="font-semibold text-white mb-1">Discuss Preferred Contractor options</div>
+              <div className="text-blue-100 text-sm mb-2"><a href="https://prproofing.com/" target="_blank" rel="noopener noreferrer" className="text-blue-100 hover:text-white hover:underline">PRP Roofing (Premium Roofing Products)</a></div>
+              <div className="flex items-center gap-2 text-white font-medium mt-3">
+                <FontAwesomeIcon icon={faPhone} className="h-4 w-4" />
+                813-777-8272
+              </div>
+              <p className="text-sm text-blue-100 mt-2">Chris Willingham, Owner Operator</p>
             </a>
             <a
-              href="tel:813-803-4599"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 border-2 border-rif-blue-500 text-rif-blue-500 text-lg font-semibold rounded-lg hover:bg-rif-blue-50 transition-colors"
+              href="tel:410-430-6904"
+              className="block p-6 bg-white/10 hover:bg-white/15 rounded-2xl border-2 border-white/30 text-left transition-colors"
             >
-              <FontAwesomeIcon icon={faPhone} className="h-5 w-5" />
-              Office: 813-803-4599
+              <div className="font-semibold text-white mb-1">Ask questions about Sponsored results</div>
+              <div className="text-blue-100 text-sm mb-2">Bitfisher Design (Marketing)</div>
+              <div className="flex items-center gap-2 text-white font-medium mt-3">
+                <FontAwesomeIcon icon={faPhone} className="h-4 w-4" />
+                410-430-6904
+              </div>
+              <p className="text-sm text-blue-100 mt-2">Craig Costantino, Owner Operator, Creative Director</p>
             </a>
             <Link
-              href="/contact"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 border-2 border-gray-300 text-gray-700 text-lg font-semibold rounded-lg hover:bg-gray-50 transition-colors"
+              href="/marketing"
+              className="block p-6 bg-white/10 hover:bg-white/15 rounded-2xl border-2 border-white/30 text-left transition-colors"
             >
-              <FontAwesomeIcon icon={faEnvelope} className="h-5 w-5" />
-              Contact Us
+              <div className="font-semibold text-white mb-1">The Full Package</div>
+              <div className="text-blue-100 text-sm mb-2">Complete marketing: websites, print collateral, marketing & SEO</div>
+              <div className="flex items-center gap-2 text-white font-medium mt-3">
+                Marketing
+                <FontAwesomeIcon icon={faArrowRight} className="h-4 w-4" />
+              </div>
             </Link>
           </div>
         </div>

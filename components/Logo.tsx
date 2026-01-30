@@ -54,7 +54,7 @@ export default function Logo({
   const logoImage = (
     <Image
       src={logoSrc}
-      alt="RIF Roofers In Florida"
+      alt="RiF Roofers In Florida"
       width={width}
       height={calculatedHeight}
       className={className}

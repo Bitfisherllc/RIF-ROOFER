@@ -11,7 +11,6 @@ import {
   faGlobe,
   faMapLocationDot,
   faArrowRight,
-  faTimes,
   faMap,
   faCity,
   faBuilding,
@@ -24,10 +23,7 @@ import {
   type RooferData,
 } from './data/roofers';
 import { searchData } from '@/app/service-areas/data/search-data';
-import ServiceAreaSearch from '@/components/ServiceAreaSearch';
 import FavoriteButton from '@/components/FavoriteButton';
-import { getRooferFastCoordinates } from '@/lib/fast-coordinates';
-import type { Coordinates } from '@/lib/geocoding';
 
 // Region mapping for display
 const regionNames: Record<string, string> = {
@@ -60,21 +56,6 @@ function getCityName(citySlug: string): string {
     (item) => item.type === 'city' && item.slug === citySlug
   );
   return city ? city.name : citySlug.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
-}
-
-// Calculate distance between two coordinates using Haversine formula (in miles)
-function calculateDistance(coord1: Coordinates, coord2: Coordinates): number {
-  const R = 3959; // Earth's radius in miles
-  const dLat = (coord2.lat - coord1.lat) * (Math.PI / 180);
-  const dLon = (coord2.lng - coord1.lng) * (Math.PI / 180);
-  const a =
-    Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-    Math.cos(coord1.lat * (Math.PI / 180)) *
-      Math.cos(coord2.lat * (Math.PI / 180)) *
-      Math.sin(dLon / 2) *
-      Math.sin(dLon / 2);
-  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-  return R * c;
 }
 
 // Animated Stat Component
@@ -200,7 +181,7 @@ function RooferCard({ roofer, distance }: { roofer: RooferData; distance?: numbe
   // Determine category label and styling (card-blue = Sponsored, card-green = Certified)
   const getCategoryLabel = () => {
     if (roofer.category === 'preferred' || roofer.isPreferred) {
-      return { label: 'Certified', bg: 'bg-card-green-100', text: 'text-card-green-800' };
+      return { label: <><span className="rif-brand">RiF</span> Certified</>, bg: 'bg-card-green-100', text: 'text-card-green-800' };
     }
     if (roofer.category === 'sponsored') {
       return { label: 'Sponsored', bg: 'bg-card-blue-100', text: 'text-card-blue-800' };
@@ -231,6 +212,7 @@ function RooferCard({ roofer, distance }: { roofer: RooferData; distance?: numbe
             rooferPhone={roofer.phone}
             rooferEmail={roofer.email}
             rooferWebsiteUrl={roofer.websiteUrl}
+            rooferListingType={roofer.category === 'preferred' || roofer.isPreferred ? 'preferred' : roofer.category === 'sponsored' ? 'sponsored' : 'general'}
             size="sm"
           />
           <Link href={`/roofers/${roofer.slug}`}>
@@ -376,11 +358,6 @@ export default function RoofersPage() {
     } catch (e) {}
   }, []);
   // #endregion
-  const [userLocation, setUserLocation] = useState<Coordinates | null>(null);
-  const [locationError, setLocationError] = useState<string | null>(null);
-  const [locationLoading, setLocationLoading] = useState(true);
-  const [showNearMe, setShowNearMe] = useState(false);
-  const [userLocationAddress, setUserLocationAddress] = useState<string | null>(null);
   const [generalDisplayLimit, setGeneralDisplayLimit] = useState(3);
 
   
@@ -419,88 +396,6 @@ export default function RoofersPage() {
     );
   }
 
-  // Reverse geocode coordinates to get address (with timeout)
-  const reverseGeocode = async (coords: Coordinates) => {
-    try {
-      // Create a timeout promise that rejects after 3 seconds
-      const timeoutPromise = new Promise<never>((_, reject) => {
-        setTimeout(() => reject(new Error('Reverse geocoding timeout')), 3000);
-      });
-
-      // Race between the fetch and timeout
-      const response = await Promise.race([
-        fetch(
-          `https://nominatim.openstreetmap.org/reverse?format=json&lat=${coords.lat}&lon=${coords.lng}`,
-          {
-            headers: {
-              'User-Agent': 'Florida Roofers Application',
-            },
-          }
-        ),
-        timeoutPromise,
-      ]) as Response;
-
-      const data = await response.json();
-      if (data.display_name) {
-        setUserLocationAddress(data.display_name);
-      }
-      // If no display_name, keep the coordinates that were already set
-    } catch (error) {
-      // Silently fail - coordinates are already displayed as fallback
-      console.debug('Reverse geocoding failed or timed out, using coordinates');
-    }
-  };
-
-  // Get user's location when "Roofers Near Me" is clicked (browser will ask for permission)
-  const handleNearMeClick = () => {
-    if (typeof window === 'undefined' || !navigator.geolocation) {
-      setLocationError('Geolocation is not supported by your browser.');
-      return;
-    }
-
-    setLocationLoading(true);
-    setLocationError(null);
-
-    const options: PositionOptions = {
-      enableHighAccuracy: true,
-      timeout: 15000, // 15 seconds to allow user to respond to permission prompt
-      maximumAge: 300000, // Cache location for 5 minutes
-    };
-
-    navigator.geolocation.getCurrentPosition(
-      (position) => {
-        const coords = {
-          lat: position.coords.latitude,
-          lng: position.coords.longitude,
-        };
-        setUserLocation(coords);
-        setLocationError(null);
-        setLocationLoading(false);
-        setShowNearMe(true);
-        setUserLocationAddress(`${coords.lat.toFixed(4)}, ${coords.lng.toFixed(4)}`);
-        reverseGeocode(coords).catch((error) => {
-          console.error('Reverse geocoding error:', error);
-        });
-      },
-      (error: GeolocationPositionError) => {
-        console.error('Geolocation error:', error);
-        // User-friendly messages; browser already asked for permission
-        const message =
-          error.code === 1
-            ? 'Location access was denied. Please allow location for this site in your browser settings and try again.'
-            : error.code === 2
-              ? 'Location is unavailable. Please try again.'
-              : error.code === 3
-                ? 'Location request timed out. Please try again.'
-                : error.message || 'Unable to get your location. Please try again.';
-        setLocationError(message);
-        setLocationLoading(false);
-        setShowNearMe(false);
-      },
-      options
-    );
-  };
-
   // Get unique regions from all roofers
   const availableRegions = useMemo(() => {
     const regions = new Set<string>();
@@ -510,91 +405,34 @@ export default function RoofersPage() {
     return Array.from(regions).sort();
   }, [allRoofers]);
 
-  // Store distances for roofers (when using 'closest' filter)
-  const [rooferDistances, setRooferDistances] = useState<Map<string, number>>(new Map());
-
   // Filter roofers
   const filteredRoofers = useMemo(() => {
-    let filtered = allRoofers;
-
-    // Calculate distances and add to roofers if "near me" mode is active and user location is available
-    if (showNearMe && userLocation) {
-      // Helper function to determine category
-      const getCategory = (roofer: RooferData): 'preferred' | 'sponsored' | 'general' => {
-        if (roofer.category === 'preferred' || roofer.isPreferred) return 'preferred';
-        if (roofer.category === 'sponsored') return 'sponsored';
-        return 'general';
+    const filtered = [...allRoofers];
+    // Sort: Certified (preferred) first, then Sponsored, then General, then alphabetical
+    filtered.sort((a, b) => {
+      const categoryRank = (category?: string, isPreferred?: boolean) => {
+        if (category === 'preferred' || isPreferred) return 1;
+        if (category === 'sponsored') return 2;
+        if (category === 'general') return 3;
+        return 4;
       };
-
-      // Add distance to each roofer and filter out those without coordinates
-      const roofersWithDistance = filtered
-        .map((roofer) => {
-          const rooferCoords = getRooferFastCoordinates(roofer);
-          if (rooferCoords) {
-            const distance = calculateDistance(userLocation, rooferCoords);
-            return { roofer, distance, category: getCategory(roofer) };
-          }
-          return null;
-        })
-        .filter((r): r is { roofer: RooferData; distance: number; category: 'preferred' | 'sponsored' | 'general' } => r !== null);
-
-
-      // Separate by category
-      const preferredRoofers = roofersWithDistance.filter((r) => r.category === 'preferred');
-      const sponsoredRoofers = roofersWithDistance.filter((r) => r.category === 'sponsored');
-      const generalRoofers = roofersWithDistance.filter((r) => r.category === 'general');
-
-
-      // Sort each category by distance
-      preferredRoofers.sort((a, b) => a.distance - b.distance);
-      sponsoredRoofers.sort((a, b) => a.distance - b.distance);
-      generalRoofers.sort((a, b) => a.distance - b.distance);
-
-      // Take the closest from each category: 3 preferred, 3 sponsored, 5 general
-      const closestPreferred = preferredRoofers.slice(0, 3).map((r) => r.roofer);
-      const closestSponsored = sponsoredRoofers.slice(0, 3).map((r) => r.roofer);
-      const closestGeneral = generalRoofers.slice(0, 5).map((r) => r.roofer);
-
-
-      // Combine in priority order: Preferred first, then Sponsored, then General
-      filtered = [...closestPreferred, ...closestSponsored, ...closestGeneral];
-    } else {
-      // Sort: Certified (preferred) first, then Sponsored, then General, then alphabetical
-      filtered.sort((a, b) => {
-        // Category ranking: Certified (preferred) first, then Sponsored, then General
-        const categoryRank = (category?: string, isPreferred?: boolean) => {
-          if (category === 'preferred' || isPreferred) return 1; // Certified/Preferred
-          if (category === 'sponsored') return 2; // Sponsored
-          if (category === 'general') return 3; // General
-          return 4; // No category
-        };
-        
-        const rankA = categoryRank(a.category, a.isPreferred);
-        const rankB = categoryRank(b.category, b.isPreferred);
-        
-        if (rankA !== rankB) return rankA - rankB;
-        
-        return a.name.localeCompare(b.name);
-      });
-    }
-
+      const rankA = categoryRank(a.category, a.isPreferred);
+      const rankB = categoryRank(b.category, b.isPreferred);
+      if (rankA !== rankB) return rankA - rankB;
+      return a.name.localeCompare(b.name);
+    });
     return filtered;
-  }, [allRoofers, userLocation, showNearMe]);
+  }, [allRoofers]);
 
   // Limit displayed roofers: show all preferred, all sponsored, then limit general
   // (Skip limiting if "near me" mode is active, as it already has its own limits)
   const { displayedRoofers, remainingGeneralCount } = useMemo(() => {
     // #region agent log
     try {
-      fetch('http://127.0.0.1:7242/ingest/16419525-2d8f-4245-a872-e347769048b8',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'roofers/page.tsx:592',message:'displayedRoofers useMemo start',data:{filteredCount:filteredRoofers.length,showNearMe,generalDisplayLimit},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'B'})}).catch(()=>{});
+      fetch('http://127.0.0.1:7242/ingest/16419525-2d8f-4245-a872-e347769048b8',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'roofers/page.tsx:592',message:'displayedRoofers useMemo start',data:{filteredCount:filteredRoofers.length,generalDisplayLimit},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'B'})}).catch(()=>{});
     } catch (e) {}
     // #endregion
     try {
-      if (showNearMe) {
-        // "Near me" mode already limits to 3 preferred, 3 sponsored, 5 general
-        return { displayedRoofers: filteredRoofers, remainingGeneralCount: 0 };
-      }
-
       // Helper function to determine category
       const getCategory = (roofer: RooferData): 'preferred' | 'sponsored' | 'general' => {
         if (roofer.category === 'preferred' || roofer.isPreferred) return 'preferred';
@@ -632,12 +470,7 @@ export default function RoofersPage() {
       // Fallback to showing all filtered roofers
       return { displayedRoofers: filteredRoofers, remainingGeneralCount: 0 };
     }
-  }, [filteredRoofers, showNearMe, generalDisplayLimit]);
-
-  // Reset general display limit when filters change
-  useEffect(() => {
-    setGeneralDisplayLimit(3);
-  }, [showNearMe]);
+  }, [filteredRoofers, generalDisplayLimit]);
 
   // #region agent log
   // Monitor click events to see if they're being blocked
@@ -667,25 +500,6 @@ export default function RoofersPage() {
   }, []);
   // #endregion
 
-  // Calculate and store distances separately in useEffect to avoid infinite re-renders
-  useEffect(() => {
-    if (showNearMe && userLocation) {
-      const distancesMap = new Map<string, number>();
-      filteredRoofers.forEach((roofer) => {
-        const rooferCoords = getRooferFastCoordinates(roofer);
-        if (rooferCoords) {
-          const distance = calculateDistance(userLocation, rooferCoords);
-          distancesMap.set(roofer.id, distance);
-        } else {
-          distancesMap.set(roofer.id, Infinity);
-        }
-      });
-      setRooferDistances(distancesMap);
-    } else {
-      setRooferDistances(new Map());
-    }
-  }, [filteredRoofers, showNearMe, userLocation]);
-
   // Statistics
   const stats = useMemo(() => {
     const totalCounties = new Set<string>();
@@ -714,25 +528,18 @@ export default function RoofersPage() {
             Roofers in Florida
           </h1>
           <p className="text-xl text-gray-600 leading-relaxed mb-8">
-            Our network of RIF Certified Installers serves Florida with
+            Our network of <span className="rif-brand">RiF</span> Certified Installers serves Florida with
             manufacturer-trained expertise. Each installer is vetted, trained on
             specific product systems, and held to higher standards for installation
             quality and code compliance.
           </p>
-          <button
-            onClick={handleNearMeClick}
-            disabled={locationLoading}
-            className="inline-flex items-center gap-2 px-6 py-3 bg-rif-blue-500 text-white rounded-lg hover:bg-rif-blue-600 transition-colors font-medium disabled:opacity-50 disabled:cursor-not-allowed"
+          <Link
+            href="/roofers/map"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-rif-blue-500 text-white text-lg font-semibold rounded-xl hover:bg-rif-blue-600 transition-colors shadow-lg"
           >
-            <FontAwesomeIcon 
-              icon={faMapLocationDot} 
-              className={locationLoading ? 'animate-bounce' : ''}
-            />
-            {locationLoading ? 'Getting Location...' : 'Roofers Near Me'}
-          </button>
-          <p className="mt-3 text-sm text-gray-500">
-            Your browser will ask for location permission to show roofers near you.
-          </p>
+            <FontAwesomeIcon icon={faMapLocationDot} />
+            Florida Stone-Coated Roofers Map
+          </Link>
         </div>
       </section>
 
@@ -774,97 +581,6 @@ export default function RoofersPage() {
         </div>
       </section>
 
-      {/* Search and Filters */}
-      <section className="py-6 px-6 bg-gray-50 border-b border-gray-200 sticky top-14 z-40">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col md:flex-row gap-4 items-end">
-            {/* Search — same as header: city, county, region; navigates to service area */}
-            <div className="flex-1 w-full max-w-4xl">
-              <div className="pl-12 mb-[-2px] z-10 relative">
-                <span className="inline-block px-4 py-1.5 bg-green-500 text-white text-sm font-bold uppercase rounded-t-2xl">
-                  FIND A ROOFER NEAR ME
-                </span>
-              </div>
-              <ServiceAreaSearch variant="hero" />
-            </div>
-
-            {/* Map View Button */}
-            <Link
-              href="/roofers/map"
-              className="px-4 py-2 bg-rif-blue-500 text-white rounded-lg hover:bg-rif-blue-600 transition-colors font-medium flex items-center gap-2 whitespace-nowrap"
-            >
-              <FontAwesomeIcon icon={faMapLocationDot} />
-              View Map
-            </Link>
-          </div>
-
-          {/* Active Filters Display */}
-          {showNearMe && (
-            <div className="mt-4 flex flex-wrap items-center gap-2">
-              <span className="text-sm text-gray-600">Active filters:</span>
-              <span className="inline-flex items-center gap-1 px-3 py-1 bg-rif-blue-100 text-rif-blue-700 rounded-full text-sm">
-                <FontAwesomeIcon icon={faMapLocationDot} />
-                Roofers Near Me
-                <button
-                  onClick={() => {
-                    setShowNearMe(false);
-                    setUserLocationAddress(null);
-                  }}
-                  className="hover:text-rif-blue-900"
-                >
-                  <FontAwesomeIcon icon={faTimes} className="h-3 w-3" />
-                </button>
-              </span>
-              <button
-                onClick={() => {
-                  setShowNearMe(false);
-                  setUserLocationAddress(null);
-                }}
-                className="text-sm text-gray-600 hover:text-rif-blue-500 underline"
-              >
-                Clear all
-              </button>
-            </div>
-          )}
-          
-          {/* Location Status */}
-          {showNearMe && (
-            <div className="mt-4">
-              {locationLoading && (
-                <div className="flex items-center gap-2 text-sm text-gray-600">
-                  <FontAwesomeIcon icon={faMapLocationDot} className="h-4 w-4 animate-pulse" />
-                  <span>Getting your location...</span>
-                </div>
-              )}
-              {locationError && (
-                <div className="flex flex-col gap-2 text-sm text-amber-700 bg-amber-50 px-4 py-3 rounded-lg border border-amber-200">
-                  <div className="flex items-start gap-2">
-                    <FontAwesomeIcon icon={faMapLocationDot} className="h-4 w-4 mt-0.5 flex-shrink-0" />
-                    <span>{locationError}</span>
-                  </div>
-                  <button
-                    type="button"
-                    onClick={handleNearMeClick}
-                    className="self-start px-3 py-1.5 bg-amber-100 hover:bg-amber-200 text-amber-800 font-medium rounded-lg transition-colors"
-                  >
-                    Try again
-                  </button>
-                </div>
-              )}
-              {userLocation && !locationError && !locationLoading && (
-                <div className="flex items-center gap-2 text-sm text-green-600 bg-green-50 px-3 py-2 rounded-lg">
-                  <FontAwesomeIcon icon={faMapLocationDot} className="h-4 w-4" />
-                  <span>
-                    Showing closest roofers: 3 Certified, 3 Sponsored, 5 General
-                    {userLocationAddress && ` (${userLocationAddress})`}
-                  </span>
-                </div>
-              )}
-            </div>
-          )}
-        </div>
-      </section>
-
       {/* Results Section */}
       <section className="py-12 px-6 bg-gray-50">
         <div className="max-w-7xl mx-auto">
@@ -873,15 +589,15 @@ export default function RoofersPage() {
             <div>
               <h2 className="text-2xl md:text-3xl font-semibold text-rif-black mb-2">
                 {filteredRoofers.length === 0
-                  ? 'No Roofers Found'
-                  : `${filteredRoofers.length} Roofer${filteredRoofers.length !== 1 ? 's' : ''} Found`}
+                  ? 'No Roofers Found in Florida'
+                  : `${filteredRoofers.length} Roofer${filteredRoofers.length !== 1 ? 's' : ''} Found in Florida`}
               </h2>
               {filteredRoofers.length > 0 && (
                 <p className="text-gray-600">
-                  {filteredRoofers.filter((r) => r.isPreferred).length} preferred
-                  {filteredRoofers.filter((r) => !r.isPreferred).length > 0 &&
-                    `, ${filteredRoofers.filter((r) => !r.isPreferred).length} other`}
-                  {!showNearMe && displayedRoofers.length < filteredRoofers.length && (
+                  {filteredRoofers.filter((r) => r.isPreferred || r.category === 'preferred').length} preferred
+                  {filteredRoofers.filter((r) => !r.isPreferred && r.category !== 'preferred').length > 0 &&
+                    `, ${filteredRoofers.filter((r) => !r.isPreferred && r.category !== 'preferred').length} other`}
+                  {displayedRoofers.length < filteredRoofers.length && (
                     <span className="ml-2 text-rif-blue-600">
                       (Showing {displayedRoofers.length} of {filteredRoofers.length})
                     </span>
@@ -901,15 +617,12 @@ export default function RoofersPage() {
               <p className="text-gray-600 mb-4">
                 Try adjusting your filters to find roofers.
               </p>
-              <button
-                onClick={() => {
-                  setShowNearMe(false);
-                  setUserLocationAddress(null);
-                }}
+              <Link
+                href="/roofers"
                 className="text-rif-blue-500 hover:text-rif-blue-600 underline"
               >
-                Clear all filters
-              </button>
+                View all roofers
+              </Link>
             </div>
           ) : (
             <>
@@ -918,12 +631,11 @@ export default function RoofersPage() {
                   <RooferCard 
                     key={roofer.id} 
                     roofer={roofer}
-                    distance={rooferDistances.get(roofer.id)}
                   />
                 ))}
               </div>
               {/* Load More Button */}
-              {!showNearMe && remainingGeneralCount > 0 && (
+              {remainingGeneralCount > 0 && (
                 <div className="mt-8 text-center">
                   <button
                     onClick={() => {
@@ -959,12 +671,12 @@ export default function RoofersPage() {
         <div className="max-w-4xl mx-auto">
           <div className="bg-rif-blue-50 p-8 rounded-2xl border-2 border-rif-blue-200">
             <h3 className="text-2xl font-semibold text-rif-black mb-4">
-              About the RIF Network
+              About the <span className="rif-brand">RiF</span> Network
             </h3>
             <div className="space-y-4 text-gray-700 leading-relaxed">
               <p>
-                RIF (Roofing Installation Framework) is the installation division of{' '}
-                <strong>Premium Roofing Products (PRP Roofing)</strong>. Our network
+                <span className="rif-brand">RiF</span> (Roofing Installation Framework) is the installation division of{' '}
+                <strong><a href="https://prproofing.com/" target="_blank" rel="noopener noreferrer" className="text-rif-blue-600 hover:underline">Premium Roofing Products (PRP Roofing)</a></strong>. Our network
                 connects homeowners with certified, trained roofers who specialize in
                 stone-coated metal roofing systems.
               </p>
@@ -974,7 +686,7 @@ export default function RoofersPage() {
                 code compliance, and professionalism. They appear first in all listings.
               </p>
               <p>
-                All RIF-backed projects benefit from{' '}
+                All <span className="rif-brand">RiF</span>-backed projects benefit from{' '}
                 <strong>distributor-level pricing</strong>, faster access to inventory, and
                 priority material availability after storms or during high-demand periods.
               </p>

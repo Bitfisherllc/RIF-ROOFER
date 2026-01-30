@@ -5,6 +5,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar, faStar as faStarSolid } from '@fortawesome/free-solid-svg-icons';
 import { faStar as faStarRegular } from '@fortawesome/free-regular-svg-icons';
 
+type ListingType = 'preferred' | 'sponsored' | 'general';
+
 interface FavoriteButtonProps {
   rooferId: string;
   rooferSlug: string;
@@ -12,6 +14,8 @@ interface FavoriteButtonProps {
   rooferPhone?: string;
   rooferEmail?: string;
   rooferWebsiteUrl?: string;
+  /** Preferred, Sponsored, or General - stored with favorite and shown on free-estimate */
+  rooferListingType?: ListingType;
   size?: 'sm' | 'lg';
 }
 
@@ -22,6 +26,7 @@ interface FavoriteRoofer {
   phone?: string;
   email?: string;
   websiteUrl?: string;
+  listingType?: ListingType;
 }
 
 const STORAGE_KEY = 'rif-favorite-roofers';
@@ -33,6 +38,7 @@ export default function FavoriteButton({
   rooferPhone,
   rooferEmail,
   rooferWebsiteUrl,
+  rooferListingType,
   size = 'sm',
 }: FavoriteButtonProps) {
   const [isFavorite, setIsFavorite] = useState(false);
@@ -75,6 +81,7 @@ export default function FavoriteButton({
           phone: rooferPhone,
           email: rooferEmail,
           websiteUrl: rooferWebsiteUrl,
+          listingType: rooferListingType,
         };
         favorites.push(newFavorite);
       }

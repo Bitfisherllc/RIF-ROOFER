@@ -366,7 +366,7 @@ function LoginForm() {
                     <div>
                       <p className="text-sm font-semibold text-gray-900 mb-1">Secure & Private</p>
                       <p className="text-xs text-gray-600">
-                        Your information is encrypted and secure. We never share your data with third parties.
+                        Your information is encrypted and secure. We do not sell or share your data with third parties.
                       </p>
                     </div>
                   </div>

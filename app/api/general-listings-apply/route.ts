@@ -1,0 +1,151 @@
+import { NextRequest, NextResponse } from 'next/server';
+import { Resend } from 'resend';
+import { verifyTurnstileToken } from '@/lib/turnstile';
+import { getGeneralListingsNotificationEmailHtml } from '@/lib/email-templates';
+import { FORM_SUBMISSION_EMAIL } from '@/lib/email-config';
+
+const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null;
+
+const rateLimitMap = new Map<string, { count: number; resetTime: number }>();
+const RATE_LIMIT_WINDOW = 15 * 60 * 1000;
+const RATE_LIMIT_MAX = 5;
+
+function checkRateLimit(ip: string): boolean {
+  const now = Date.now();
+  const record = rateLimitMap.get(ip);
+  if (!record || now > record.resetTime) {
+    rateLimitMap.set(ip, { count: 1, resetTime: now + RATE_LIMIT_WINDOW });
+    return true;
+  }
+  if (record.count >= RATE_LIMIT_MAX) return false;
+  record.count++;
+  return true;
+}
+
+export async function POST(request: NextRequest) {
+  try {
+    const ip = request.headers.get('x-forwarded-for') || request.headers.get('x-real-ip') || 'unknown';
+    if (!checkRateLimit(ip)) {
+      return NextResponse.json(
+        { error: 'Too many requests. Please try again later.' },
+        { status: 429 }
+      );
+    }
+
+    let body: Record<string, any>;
+    try {
+      body = await request.json();
+    } catch {
+      return NextResponse.json({ error: 'Invalid JSON in request body' }, { status: 400 });
+    }
+
+    if (body.website && String(body.website).trim() !== '') {
+      return NextResponse.json({ success: true, message: 'Thank you for your submission.' }, { status: 200 });
+    }
+
+    if (body.turnstileToken) {
+      const isValid = await verifyTurnstileToken(body.turnstileToken, ip);
+      if (!isValid) {
+        return NextResponse.json(
+          { error: 'Security verification failed. Please try again.' },
+          { status: 400 }
+        );
+      }
+    } else if (process.env.TURNSTILE_SECRET_KEY) {
+      return NextResponse.json(
+        { error: 'Security verification required.' },
+        { status: 400 }
+      );
+    }
+
+    if (!body.companyName || !body.contactName || !body.phone || !body.email) {
+      return NextResponse.json(
+        { error: 'Please fill in company name, contact name, phone, and email.' },
+        { status: 400 }
+      );
+    }
+
+    const regions = Array.isArray(body.regions) ? body.regions : [];
+    const counties = Array.isArray(body.counties) ? body.counties : [];
+    if (regions.length === 0 && counties.length === 0) {
+      return NextResponse.json(
+        { error: 'Please select at least one region or county you serve.' },
+        { status: 400 }
+      );
+    }
+
+    const notificationHtml = getGeneralListingsNotificationEmailHtml(body);
+
+    if (!resend) {
+      console.error('RESEND_API_KEY is not configured');
+      return NextResponse.json(
+        { error: 'Email service is not configured. Please contact the administrator.' },
+        { status: 500 }
+      );
+    }
+
+    const fromEmail = process.env.RESEND_FROM_EMAIL || `RIF Roofing <${FORM_SUBMISSION_EMAIL}>`;
+    const targetEmail = FORM_SUBMISSION_EMAIL;
+    const verifiedEmail = process.env.RESEND_VERIFIED_EMAIL || 'craig@bitfisher.com';
+
+    let { data, error } = await resend.emails.send({
+      from: fromEmail,
+      to: [targetEmail],
+      subject: `General Listing Application: ${body.companyName}`,
+      text: emailContent,
+      replyTo: body.email,
+    });
+
+    const errObj = error as any;
+    const statusCode = errObj?.statusCode;
+    const errMsg = errObj?.message || '';
+    const isVerificationError =
+      error &&
+      (statusCode === 403 ||
+        String(statusCode) === '403' ||
+        errMsg.includes('verify') ||
+        errMsg.includes('testing emails') ||
+        errMsg.includes('your own email address'));
+
+    if (isVerificationError) {
+      const fallbackNote = `<p style="margin:24px 40px 0;padding:12px;background:#f0f9ff;border-radius:8px;font-size:14px;color:#0c4a6e;border:1px solid #bae6fd;">Please forward to ${targetEmail}. Reply to: ${body.email}</p></body>`;
+      const fallback = await resend.emails.send({
+        from: fromEmail,
+        to: [verifiedEmail],
+        subject: `[FORWARD] General Listing Application: ${body.companyName}`,
+        html: notificationHtml.replace('</body>', fallbackNote),
+        replyTo: body.email,
+      });
+      if (fallback.error) {
+        console.error('Fallback email error:', fallback.error);
+        return NextResponse.json(
+          { error: 'Failed to send application. Please try again or contact us directly.' },
+          { status: 500 }
+        );
+      }
+      return NextResponse.json(
+        { success: true, message: 'Application submitted successfully.' },
+        { status: 200 }
+      );
+    }
+
+    if (error) {
+      console.error('Resend error:', error);
+      return NextResponse.json(
+        { error: 'Failed to send application. Please try again.' },
+        { status: 500 }
+      );
+    }
+
+    return NextResponse.json(
+      { success: true, message: 'Application submitted successfully.', data },
+      { status: 200 }
+    );
+  } catch (err) {
+    console.error('General listings apply error:', err);
+    return NextResponse.json(
+      { error: 'Internal server error', details: err instanceof Error ? err.message : 'Unknown error' },
+      { status: 500 }
+    );
+  }
+}

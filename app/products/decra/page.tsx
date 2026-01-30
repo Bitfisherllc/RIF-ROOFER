@@ -76,6 +76,9 @@ export default function DecraProductPage() {
         logoAlt="Decra Logo"
         backToProductsHref="/products"
         freeEstimateHref="/free-estimate"
+        productSlug="decra"
+        productName="Decra"
+        productCategory="Stone-Coated Steel Roofing"
       />
       
       {/* Hero Section */}
@@ -96,14 +99,16 @@ export default function DecraProductPage() {
               <p className="text-xl text-gray-300 mb-10 leading-relaxed max-w-lg">
                 Premium stone-coated steel roofing systems that combine the aesthetic appeal of traditional roofing materials with the durability and performance of steel. Perfect for Florida's challenging climate.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Link
-                  href="/products"
-                  className="inline-flex items-center justify-center gap-2 px-8 py-3 border-2 border-white text-white rounded-lg hover:bg-white/10 transition-colors font-medium"
+              <div className="flex flex-col sm:flex-row gap-4 flex-wrap">
+                <a
+                  href="https://www.decra.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 px-8 py-3 bg-rif-blue-500 text-white rounded-lg hover:bg-rif-blue-600 transition-colors font-medium"
                 >
-                  <FontAwesomeIcon icon={faArrowRight} className="h-4 w-4 rotate-180" />
-                  Back to Products
-                </Link>
+                  Visit website
+                  <FontAwesomeIcon icon={faExternalLink} className="h-4 w-4" />
+                </a>
               </div>
             </div>
             <div className="relative h-96 lg:h-[500px] rounded-2xl overflow-hidden shadow-2xl group">

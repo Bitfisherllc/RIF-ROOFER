@@ -76,7 +76,7 @@ export default function ServiceAreaSearch({ variant = 'sticky', className = '' }
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               onFocus={() => query.trim().length > 0 && setIsOpen(true)}
-              placeholder="Search by city, county, or region..."
+              placeholder="Or search by city, county, or region..."
               className="w-full pl-12 pr-12 h-[42px] text-base border-2 border-gray-300 rounded-2xl focus:border-rif-blue-500 focus:outline-none focus:ring-2 focus:ring-rif-blue-200"
             />
             {query && (

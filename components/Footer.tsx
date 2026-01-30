@@ -13,6 +13,8 @@ import {
   faMapPin,
   faArrowRight,
   faClipboardList,
+  faCircleInfo,
+  faLock,
 } from '@fortawesome/free-solid-svg-icons';
 import {
   faFacebook,
@@ -38,7 +40,7 @@ export default function Footer() {
             </div>
             <div className="flex flex-col items-center justify-center">
               <p className="text-xs leading-relaxed">
-                RIF (Roofers In Florida) is a U.S. owned roofing installation network built around quality control, installer accountability, and distributor-backed materials.
+                <span className="rif-brand">RiF</span> (Roofers In Florida) is a U.S. owned roofing installation network built around quality control, installer accountability, and distributor-backed materials.
               </p>
             </div>
           </div>
@@ -99,7 +101,7 @@ export default function Footer() {
               <Logo variant="full" color="white" width={150} />
             </Link>
             <p className="text-sm mb-6 leading-relaxed">
-              RIF (Roofers In Florida) is a U.S. owned roofing installation network built around quality control, installer accountability, and distributor-backed materials.
+              <span className="rif-brand">RiF</span> (Roofers In Florida) is a U.S. owned roofing installation network built around quality control, installer accountability, and distributor-backed materials.
             </p>
             <div className="space-y-3">
               <a
@@ -143,7 +145,7 @@ export default function Footer() {
               <li>
                 <Link href="/service-areas" className="flex items-center gap-2 text-sm hover:text-white transition-colors">
                   <FontAwesomeIcon icon={faMapLocationDot} className="h-4 w-4" />
-                  Service Areas
+                  Explore Service Areas
                 </Link>
               </li>
               <li>
@@ -214,19 +216,19 @@ export default function Footer() {
           {/* About RIF */}
           <div>
             <h3 className="text-white font-semibold text-lg mb-4 flex items-center gap-2">
-              <FontAwesomeIcon icon={faMapLocationDot} className="h-5 w-5" />
-              About RIF
+              <FontAwesomeIcon icon={faCircleInfo} className="h-5 w-5" />
+              About <span className="rif-brand">RiF</span>
             </h3>
             <ul className="space-y-2 mb-6">
               <li>
                 <Link href="/about" className="flex items-center gap-2 text-sm hover:text-white transition-colors">
-                  <FontAwesomeIcon icon={faMapLocationDot} className="h-4 w-4" />
-                  About RIF
+                  <FontAwesomeIcon icon={faCircleInfo} className="h-4 w-4" />
+                  About <span className="rif-brand">RiF</span>
                 </Link>
               </li>
               <li>
                 <Link href="/admin" className="flex items-center gap-2 text-sm hover:text-white transition-colors">
-                  <FontAwesomeIcon icon={faMapLocationDot} className="h-4 w-4" />
+                  <FontAwesomeIcon icon={faLock} className="h-4 w-4" />
                   Admin Portal
                 </Link>
               </li>
@@ -307,7 +309,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="border-t border-gray-800 pt-6 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm">
-            Copyright © {new Date().getFullYear()} RIF Roofers In Florida. All rights reserved.
+            Copyright © {new Date().getFullYear()} <span className="rif-brand">RiF</span> Roofers In Florida. All rights reserved.
           </p>
           <a
             href="https://bitfisher.com"

@@ -140,6 +140,9 @@ export default function LifeTimeToolProductPage() {
         logoAlt="Lifetime Tool Logo"
         backToProductsHref="/products"
         freeEstimateHref="/free-estimate"
+        productSlug="lifetime-tool"
+        productName="LifeTime Tool"
+        productCategory="Tools & Equipment"
       />
       
       {/* Hero Section */}
@@ -164,21 +167,14 @@ export default function LifeTimeToolProductPage() {
               <p className="text-xl text-gray-300 mb-10 leading-relaxed max-w-lg">
                 Made from pure silicone with proprietary compression collar technology. Guaranteed watertight for the life of your roof with a 50-year warranty.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Link
-                  href="/products"
-                  className="inline-flex items-center justify-center gap-2 px-8 py-3 border-2 border-white text-white rounded-lg hover:bg-white/10 transition-colors font-medium"
-                >
-                  <FontAwesomeIcon icon={faArrowRight} className="h-4 w-4 rotate-180" />
-                  Back to Products
-                </Link>
+              <div className="flex flex-col sm:flex-row gap-4 flex-wrap">
                 <a
                   href="https://lifetimetool.com"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center gap-2 px-8 py-3 bg-rif-blue-500 text-white rounded-lg hover:bg-rif-blue-600 transition-colors font-medium"
                 >
-                  Visit Manufacturer Website
+                  Visit website
                   <FontAwesomeIcon icon={faExternalLink} className="h-4 w-4" />
                 </a>
               </div>

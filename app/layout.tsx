@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 import FontAwesomeSetup from '@/components/FontAwesomeSetup';
 import ConditionalLayout from '@/components/ConditionalLayout';
+import PasswordGate from '@/components/PasswordGate';
 
 export const metadata: Metadata = {
   title: 'RIF Roofers In Florida | Stone-Coated Metal Roofing in Florida',
@@ -18,7 +19,9 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <FontAwesomeSetup />
-        <ConditionalLayout>{children}</ConditionalLayout>
+        <PasswordGate>
+          <ConditionalLayout>{children}</ConditionalLayout>
+        </PasswordGate>
       </body>
     </html>
   );

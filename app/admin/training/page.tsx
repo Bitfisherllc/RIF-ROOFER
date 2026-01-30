@@ -16,6 +16,7 @@ import {
   faSpinner,
   faEye,
   faEyeSlash,
+  faCopy,
 } from '@fortawesome/free-solid-svg-icons';
 import type { TrainingEvent } from '@/app/training/data/events';
 import AddressAutocomplete from '@/components/AddressAutocomplete';
@@ -29,6 +30,7 @@ export default function AdminTrainingPage() {
   const [showAddForm, setShowAddForm] = useState(false);
   const [editingId, setEditingId] = useState<string | null>(null);
   const [deletingId, setDeletingId] = useState<string | null>(null);
+  const [duplicatingId, setDuplicatingId] = useState<string | null>(null);
   const [formData, setFormData] = useState<Partial<TrainingEvent>>({
     title: '',
     description: '',
@@ -174,6 +176,59 @@ export default function AdminTrainingPage() {
     } catch (error) {
       console.error(`Error ${editingId ? 'updating' : 'creating'} event:`, error);
       alert(`An error occurred while ${editingId ? 'updating' : 'creating'} the event: ${error instanceof Error ? error.message : String(error)}`);
+    }
+  };
+
+  const handleDuplicate = async (event: TrainingEvent) => {
+    setDuplicatingId(event.id);
+    try {
+      const now = new Date().toISOString();
+      const newId = `copy-${event.id}-${Date.now()}`;
+      const copy: Partial<TrainingEvent> = {
+        id: newId,
+        title: `Copy of ${event.title}`,
+        description: event.description,
+        date: event.date,
+        time: event.time,
+        location: event.location,
+        fullAddress: event.fullAddress,
+        city: event.city,
+        state: event.state,
+        zipCode: event.zipCode,
+        lat: event.lat,
+        lng: event.lng,
+        eventbriteUrl: '', // Clear so user can add new registration link
+        instructor: event.instructor,
+        maxAttendees: event.maxAttendees,
+        category: event.category,
+        deliveryMode: event.deliveryMode,
+        isActive: false, // Start inactive so user can review before publishing
+        sortOrder: event.sortOrder,
+      };
+
+      const response = await fetch('/api/admin/training-events', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(copy),
+      });
+
+      if (response.ok) {
+        await new Promise(resolve => setTimeout(resolve, 200));
+        await loadEvents();
+        // Open the new event in edit mode so user can adjust date/title/eventbrite
+        const data = await response.json();
+        if (data.event) {
+          startEdit(data.event);
+        }
+      } else {
+        const data = await response.json();
+        alert(data.error || 'Failed to duplicate event');
+      }
+    } catch (error) {
+      console.error('Error duplicating event:', error);
+      alert('An error occurred while duplicating the event');
+    } finally {
+      setDuplicatingId(null);
     }
   };
 
@@ -593,6 +648,19 @@ export default function AdminTrainingPage() {
                     </td>
                     <td className="px-6 py-4 text-right">
                       <div className="flex items-center justify-end gap-2">
+                        <button
+                          onClick={() => handleDuplicate(event)}
+                          disabled={duplicatingId === event.id}
+                          className="inline-flex items-center gap-1 px-3 py-1 text-sm text-gray-700 hover:bg-gray-100 rounded-lg transition-colors disabled:opacity-50"
+                          title="Duplicate this event"
+                        >
+                          {duplicatingId === event.id ? (
+                            <FontAwesomeIcon icon={faSpinner} className="h-3 w-3 animate-spin" />
+                          ) : (
+                            <FontAwesomeIcon icon={faCopy} className="h-3 w-3" />
+                          )}
+                          Duplicate
+                        </button>
                         <button
                           onClick={() => startEdit(event)}
                           className="inline-flex items-center gap-1 px-3 py-1 text-sm text-rif-blue-600 hover:bg-rif-blue-50 rounded-lg transition-colors"

@@ -74,7 +74,7 @@ function RooferCard({ roofer }: { roofer: RooferData }) {
   // Determine category label and styling (card-blue = Sponsored, card-green = Certified)
   const getCategoryLabel = () => {
     if (roofer.category === 'preferred' || roofer.isPreferred) {
-      return { label: 'Certified', bg: 'bg-card-green-100', text: 'text-card-green-800' };
+      return { label: <><span className="rif-brand">RiF</span> Certified</>, bg: 'bg-card-green-100', text: 'text-card-green-800' };
     }
     if (roofer.category === 'sponsored') {
       return { label: 'Sponsored', bg: 'bg-card-blue-100', text: 'text-card-blue-800' };
@@ -105,6 +105,7 @@ function RooferCard({ roofer }: { roofer: RooferData }) {
             rooferPhone={roofer.phone}
             rooferEmail={roofer.email}
             rooferWebsiteUrl={roofer.websiteUrl}
+            rooferListingType={roofer.category === 'preferred' || roofer.isPreferred ? 'preferred' : roofer.category === 'sponsored' ? 'sponsored' : 'general'}
             size="sm"
           />
           <Link href={`/roofers/${roofer.slug}`}>
@@ -278,7 +279,7 @@ export default function RooferList({ regionSlug, countySlug, citySlug, locationN
           <div className="flex items-center gap-3 mb-6">
             <div className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-card-green-500 to-card-green-600 text-white rounded-full text-sm font-bold">
               <FontAwesomeIcon icon={faCertificate} className="h-4 w-4" />
-              Certified RIF Contractors
+              Certified <span className="rif-brand">RiF</span> Contractors
             </div>
             <span className="text-sm text-gray-600">({certifiedRoofers.length})</span>
           </div>

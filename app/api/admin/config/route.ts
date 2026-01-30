@@ -7,7 +7,7 @@ const CONFIG_FILE = path.join(process.cwd(), 'app/admin/config/site-config.json'
 // Default config
 const DEFAULT_CONFIG = {
   passwordProtected: false,
-  password: 'letmein',
+  password: 'Hottinroof123#',
 };
 
 function getConfig() {
@@ -44,11 +44,18 @@ export async function GET() {
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
+    const current = getConfig();
+    // Merge so we never wipe admin credentials (adminEmail, adminPassword, adminPasswordNew)
+    const newPassword =
+      body.password !== undefined && String(body.password).trim() !== ''
+        ? String(body.password).trim()
+        : (current.password ?? DEFAULT_CONFIG.password);
     const config = {
-      passwordProtected: body.passwordProtected || false,
-      password: 'letmein', // Password is fixed
+      ...current,
+      passwordProtected: body.passwordProtected ?? current.passwordProtected ?? false,
+      password: newPassword,
     };
-    
+
     if (saveConfig(config)) {
       return NextResponse.json({ success: true, config });
     } else {

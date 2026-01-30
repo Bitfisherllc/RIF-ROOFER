@@ -65,13 +65,13 @@ export default function ProductFavoriteButton({ product }: ProductFavoriteButton
   return (
     <button
       onClick={toggleFavorite}
-      className="absolute top-4 right-4 p-2 bg-white rounded-full shadow-lg hover:bg-gray-50 transition-colors z-10"
+      className="absolute top-4 right-4 p-2 bg-white border border-gray-300 rounded-lg shadow-md text-gray-700 hover:text-rif-blue-600 hover:bg-rif-blue-50 hover:border-rif-blue-300 transition-colors z-10"
       aria-label={isFavorite ? 'Remove from saved products' : 'Add to saved products'}
       title={isFavorite ? 'Remove from saved products' : 'Add to saved products'}
     >
       <FontAwesomeIcon
         icon={isFavorite ? faHeartSolid : faHeartRegular}
-        className={`h-5 w-5 ${isFavorite ? 'text-red-500' : 'text-gray-400'}`}
+        className={`h-5 w-5 ${isFavorite ? 'text-red-500' : ''}`}
       />
     </button>
   );
